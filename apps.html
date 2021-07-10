@@ -1,0 +1,338 @@
+<!doctype html>
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+        <link rel="icon" href="images/BGS_LOGO_20210305_2.png" type="image/x-icon"> 
+        <link rel="stylesheet" href="mdui/css/mdui.min.css">
+        <script src="mdui/js/mdui.min.js"></script>
+        <style>
+        html{
+        scroll-behavior:smooth;
+        }
+        .mdui-btn-raised{
+        border-radius: 5px;
+        }
+        .mdui-dialog{
+        border-radius: 10px;
+        }
+        .mdui-menu{
+        border-radius: 10px;
+        }
+        .mdui-tooltip{
+        border-radius: 20px;
+        background-color: #EEEEEE;
+        color:black;
+        }
+        @keyframes card{
+        from {top: 64px;opacity: 0;}
+        to {top: 0px;opacity: 1;}
+        }
+        .mdui-card{
+        border-radius: 10px;
+        animation-name: card;
+        animation-duration: 1s;
+        }
+        .mdui-drawer-list-item-active{
+        border-radius: 0 20px 20px 0;
+        background-color:#B9D1FF ;
+        color:#448AFF;
+        }
+        .mdui-drawer-list-item{
+        border-radius: 0 20px 20px 0;
+        }
+        footer{
+        border-radius: 10px 10px 0 0;
+        }
+        h1,h2,li,h4,h5,h6,p,span{
+        animation-name: toleft;
+        animation-duration: 1s;
+        }
+        @keyframes toleft{
+        from {margin-left: 64px;opacity: 0;}
+        to {}
+        }
+        .mdui-btn{
+        animation-name: toright;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        }
+        @keyframes toright{
+        from {margin-right: 64px;opacity: 0;}
+        to {}
+        }
+        .toleft{
+        animation-name: toleft;
+        animation-duration: 0.5s;
+        }
+        .toright{
+        animation-name: toright;
+        animation-duration: 0.5s;
+        }
+        li.mdui-list-item{
+        animation-name: toleft;
+        animation-duration: 0.5s;
+        }
+        </style>
+        <title>应用程序</title> 
+    </head> 
+    <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue"> 
+        <header class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme-accent">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+        <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <a class="mdui-typo-headline" href="index.html">BGS资源站</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
+        <i class="mdui-icon material-icons">cloud_download</i>
+        </a>
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '亮/暗色主题'}" onclick="themecolor()">
+        <i class="mdui-icon material-icons">brightness_medium</i>
+        </a>
+<script>
+    if(localStorage.darkTheme)
+        document.body.classList.add("mdui-theme-layout-dark");
+    document.getElementById("switch-theme").addEventListener(
+        "click",
+        () => document.body.classList.toggle("mdui-theme-layout-dark") ?
+            (localStorage.darkTheme = true) :
+            (delete localStorage.darkTheme)
+    );
+</script>
+        </div>
+        <div class="mdui-tab mdui-color-theme-accent" mdui-tab>
+            <a href="#android" class="mdui-ripple">
+            <i class="mdui-icon material-icons">android</i>
+            <label>Android</label>
+            </a>
+            <a href="#windows" class="mdui-ripple">
+            <i class="mdui-icon material-icons">desktop_windows</i>
+            <label>Windows</label>
+            </a>
+            </div>
+        </header>
+        <div class="mdui-dialog" id="update">
+        <div class="mdui-dialog-title toleft">下载/更新客户端</div>
+        <div class="mdui-dialog-content toleft">
+        更新时间：2021-07-03
+        <br>新版变化：
+        <br>-新增“JS工具”页面，集成小工具
+        <br>-优化深色主题的表现
+        <br>-22:00 - 06:00 自动切换为深色主题
+        <br>-更新 极品电音 列表
+        <br>-新增 绘图/剪辑工具合集
+        <br>-优化页面平滑滚动规则
+        <br><br>如果它无法兼容你的设备，请下载兼容版本
+        </div>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
+        <a href="https://cloud.qingstore.cn/s/V505cn"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        </div>
+        </div>
+        <div class="mdui-drawer" id="drawer">
+        <img class="mdui-img-fluid" src="images/BGS_JPEG_20210305.jpg"/>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="index.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
+        <div class="mdui-list-item-content">首页</div>
+        </li>
+        </a>
+        <a href="sysimg.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
+        <div class="mdui-list-item-content">系统镜像</div>
+        </li>
+        </a>
+        <a href="apps.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-list-item-active mdui-drawer-list-item-active">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
+        <div class="mdui-list-item-content">应用程序</div>
+        </li>
+        </a>
+        <a href="websites.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
+        <div class="mdui-list-item-content">实用站点</div>
+        </li>
+        </a>
+        <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
+        <div class="mdui-list-item-content">其它作品</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        <a href="settings.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">仿原生安卓设置</li>
+        </a>
+        <a href="music.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">极品电音</li>
+        </a>
+        <a href="files/AdminOS 2021.pptx" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">AdminOS 2021</li>
+        </a>
+        </ul>
+        </li>
+        <a href="tools.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
+        <div class="mdui-list-item-content">JS工具</div>
+        </li>
+        </a>
+        <a href="about.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
+        <div class="mdui-list-item-content">关于我们</div>
+        </li>
+        </a>
+        </div>
+        </ul>
+        </div>
+        <br><br><br><br><br><br><br>
+            </div>
+            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2" id="useful">
+            <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
+            <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text">应用程序</h1>
+            <div id="android">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+            <a href="https://coolapk.com/qr/download"><li class="mdui-ripple mdui-list-item">酷安</li></a> 
+            <a href="https://www.vmos.cn/product_center.htm"><li class="mdui-ripple mdui-list-item">VMOS</li></a> 
+            <a href="https://www.vmos.cn/product_center_vmospro.htm"><li class="mdui-ripple mdui-list-item">VMOS Pro</li></a> 
+            <a href="https://www.gsxnj.cn"><li class="mdui-ripple mdui-list-item">光速虚拟机</li></a> 
+            <a href="https://www.coolapk.com/apk/bin.mt.plus"><li class="mdui-ripple mdui-list-item">MT管理器</li></a> 
+            <a href="https://www.quqi.com"><li class="mdui-ripple mdui-list-item">曲奇云盘</li></a> 
+            <a href="https://www.lanzou.com"><li class="mdui-ripple mdui-list-item">蓝奏云</li></a> 
+            <a href="https://www.coolapk.com/apk/com.cjtec.remoteassis"><li class="mdui-ripple mdui-list-item">手机远程协助控制</li></a> 
+            <a href="https://www.coolapk.com/apk/com.goplaycn.googleinstall"><li class="mdui-ripple mdui-list-item">Go安装器</li></a> 
+            <a href="https://viayoo.com/"><li class="mdui-ripple mdui-list-item">Via</li></a> 
+            <a href="https://vmos1624.lanzous.com/iTKJ8jtn61i"><li class="mdui-ripple mdui-list-item">Rashr</li></a> 
+            <a href="https://www.coolapk.com/apk/com.microsoft.office.officehubrow"><li class="mdui-ripple mdui-list-item">Microsoft Office</li></a> 
+            <a href="https://www.coolapk.com/apk/com.microsoft.emmx"><li class="mdui-ripple mdui-list-item">Microsoft Edge</li></a> 
+            <a href="https://apkpremier.com/download/ru-zdevs-zarchiver"><li class="mdui-ripple mdui-list-item">ZArchiver</li></a> 
+            <a href="https://apkpremier.com/download/com-amaze-filemanager"><li class="mdui-ripple mdui-list-item">Amaze File Manager</li></a> 
+            <a href="https://www.coolapk.com/apk/com.termux"><li class="mdui-ripple mdui-list-item">Termux</li></a> 
+            <a href="https://pan.baidu.com/"><li class="mdui-ripple mdui-list-item">百度网盘</li></a> 
+            <a href="https://apkpremier.com/download/com-realvnc-viewer-android"><li class="mdui-ripple mdui-list-item">VNC Viewer</li></a> 
+            <a href="https://pan.baidu.com/wap/init?surl=nWqcYv8Htfojos21fmIrzw"><li class="mdui-ripple mdui-list-item">UTermux（提取码：mjvu）</li></a> 
+            <a href="https://apkpremier.com/download/com-android-chrome"><li class="mdui-ripple mdui-list-item">Google Chrome</li></a> 
+            <a href="https://apkpremier.com/download/com-google-android-inputmethod-pinyin"><li class="mdui-ripple mdui-list-item">谷歌拼音输入法</li></a> 
+            <a href="https://www.coolapk.com/apk/com.venter.easyweb"><li class="mdui-ripple mdui-list-item">EasyWeb IDE</li></a> 
+            <a href="https://www.coolapk.com/apk/com.venter.hopweb"><li class="mdui-ripple mdui-list-item">HopWeb Editor</li></a> 
+            <a href="https://vmos1624.lanzous.com/ijQBsksh11c"><li class="mdui-ripple mdui-list-item">Xposed Installer</li></a> 
+            <a href="https://www.coolapk.com/apk/ch.deletescape.lawnchair.plah"><li class="mdui-ripple mdui-list-item">Lawnchair</li></a> 
+            <a href="https://www.coolapk.com/apk/com.teslacoilsw.launcher"><li class="mdui-ripple mdui-list-item">Nova Launcher</li></a> 
+            <a href="https://www.coolapk.com/apk/com.microsoft.rdc.android"><li class="mdui-ripple mdui-list-item">Microsoft远程桌面</li></a> 
+            <a href="https://www.coolapk.com/apk/com.finalwire.aida64"><li class="mdui-ripple mdui-list-item">AIDA64</li></a> 
+            <a href="http://m.xunlei.com/index.html"><li class="mdui-ripple mdui-list-item">迅雷</li></a> 
+            <a href="https://apkpremier.com/download/org-telegram-messenger"><li class="mdui-ripple mdui-list-item">Telegram</li></a> 
+            <a href="https://apkpremier.com/download/exa-lnx-a"><li class="mdui-ripple mdui-list-item">AnLinux</li></a> 
+            <a href="https://apkpremier.com/download/tech-ula"><li class="mdui-ripple mdui-list-item">UserLAnd</li></a> 
+            <a href="https://www.coolapk.com/apk/com.topjohnwu.magisk"><li class="mdui-ripple mdui-list-item">Magisk Manager</li></a> 
+            <a href="https://www.coolapk.com/apk/com.jakting.opengapps"><li class="mdui-ripple mdui-list-item">氡·OpenGApps</li></a> 
+            <a href="https://www.coolapk.com/apk/top.webcat.editor"><li class="mdui-ripple mdui-list-item">WebCat</li></a> 
+            <a href="https://www.qingstore.cn/"><li class="mdui-ripple mdui-list-item">清玖云盘</li></a> 
+            <a href="https://www.coolapk.com/apk/crixec.adbtoolkitsinstall"><li class="mdui-ripple mdui-list-item">ADB工具安装器</li></a> 
+            <a href="https://www.coolapk.com/apk/com.nightmare.adbtools"><li class="mdui-ripple mdui-list-item">ADB工具</li></a> 
+            <a href="https://apkpremier.com/download/com-treydev-pns"><li class="mdui-ripple mdui-list-item">Power Shade</li></a> 
+            <a href="https://apkpremier.com/download/com-tombayley-volumepanel"><li class="mdui-ripple mdui-list-item">音量面板样式</li></a> 
+            <a href="https://apkpremier.com/download/com-fb-fluid"><li class="mdui-ripple mdui-list-item">流体手势导航</li></a>
+            <a href="https://m.ourplay.net/download?loadapp=true"><li class="mdui-ripple mdui-list-item">OurPlay</li></a>
+            <a href="https://hsk.oray.com/download/"><li class="mdui-ripple mdui-list-item">花生壳</li></a>
+            <a href="https://sunlogin.oray.com/download/"><li class="mdui-ripple mdui-list-item">向日葵远程控制</li></a>
+            <a href="https://www.coolapk.com/apk/com.example.ryanc.andserv"><li class="mdui-ripple mdui-list-item">手机服务器</li></a>
+            <a href="http://www.kslabs.ru/download"><li class="mdui-ripple mdui-list-item">KSWEB</li></a>
+            <a href="https://www.coolapk.com/apk/projekt.substratum"><li class="mdui-ripple mdui-list-item">Substratum</li></a>
+            <a href="https://www.coolapk.com/apk/com.ktls.fileinfo"><li class="mdui-ripple mdui-list-item">存储空间清理</li></a>
+            <a href="https://www.coolapk.com/apk/xzr.La.systemtoolbox"><li class="mdui-ripple mdui-list-item">镧·系统工具箱</li></a>
+            <a href="https://www.coolapk.com/apk/cn.w3cschool.app"><li class="mdui-ripple mdui-list-item">编程狮</li></a>
+            </ul>
+            </div>
+            <div id="windows">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+            <a href="https://www.virtualbox.org"><li class="mdui-ripple mdui-list-item">VirtualBox</li></a> 
+            <a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="mdui-ripple mdui-list-item">VMware</li></a> 
+            <a href="https://www.quqi.com"><li class="mdui-ripple mdui-list-item">曲奇云盘</li></a> 
+            <a href="https://www.lanzou.com"><li class="mdui-ripple mdui-list-item">蓝奏云</li></a> 
+            <a href="https://www.google.cn/chrome/"><li class="mdui-ripple mdui-list-item">Google Chrome</li></a> 
+            <a href="http://www.android-studio.org/"><li class="mdui-ripple mdui-list-item">Android Studio</li></a> 
+            <a href="http://tools.android-studio.org/index.php/sdk"><li class="mdui-ripple mdui-list-item">Android SDK</li></a> 
+            <a href="https://cloud.qingstore.cn/s/pp7nHk"><li class="mdui-ripple mdui-list-item">Java JDK</li></a> 
+            <a href="https://pan.baidu.com/"><li class="mdui-ripple mdui-list-item">百度网盘</li></a> 
+            <a href="https://cloud.qingstore.cn/s/wYbkTE"><li class="mdui-ripple mdui-list-item">VNC Server</li></a> 
+            <a href="https://cloud.qingstore.cn/s/V8xzTn"><li class="mdui-ripple mdui-list-item">VNC Viewer</li></a> 
+            <a href="https://www.aida64.com/downloads"><li class="mdui-ripple mdui-list-item">AIDA64</li></a> 
+            <a href="https://cloud.qingstore.cn/s/aLPdta"><li class="mdui-ripple mdui-list-item">QEMU</li></a> 
+            <a href="http://m.xunlei.com/index.html"><li class="mdui-ripple mdui-list-item">迅雷</li></a> 
+            <a href="https://www.qingstore.cn/"><li class="mdui-ripple mdui-list-item">清玖云盘</li></a> 
+            <a href="https://hsk.oray.com/download/"><li class="mdui-ripple mdui-list-item">花生壳</li></a>
+            <a href="https://sunlogin.oray.com/download/"><li class="mdui-ripple mdui-list-item">向日葵远程控制</li></a>
+            </ul>
+        </div>  
+        </div>
+        </div>
+        <br>
+        <footer class="mdui-text-center mdui-color-theme-accent">
+        <br>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+        <i class="mdui-icon material-icons">email</i>
+        </a>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <img src="images/Wechat-logo.png" class="mdui-img-fluid">
+        </button>
+        <div class="mdui-menu" id="wechat">
+        <img src="images/Wechat.png" class="mdui-img-fluid">
+        </div>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+        <img src="images/QQ-logo.png" style="width:32px;height:32px;">
+        </button>
+        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
+        <img src="images/QQ.jpg" style="width:180px;height:336px;">
+        </div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+        <i class="mdui-icon material-icons">send</i>
+        </a>
+        <br><br>
+        <div class="mdui-typo">
+        <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
+        </div>
+        <br><br>
+        </footer>
+        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide" id="fab" onclick="window.scrollTo(0,0);">
+        <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <script type="text/javascript">
+            var pageHeight =10;
+            window.onscroll =function () {
+                var backTop = document.documentElement.scrollTop || 
+                document.body.scrollTop;
+                if(backTop>pageHeight){
+                    show()
+                }else{
+                    hide()
+                }
+ 
+            }
+ 
+    </script>
+    <script type="text/javascript">
+    var fab = document.getElementById('fab');
+    function show(){
+    fab.classList.remove('mdui-fab-hide');
+}
+    function hide(){
+    fab.classList.add('mdui-fab-hide');
+}
+    </script>
+    </body>
+    <script>
+        	function themecolor(){
+    			if (localStorage.darkTheme){
+                	document.body.classList.add('mdui-theme-accent-blue');
+				}else{
+    				document.body.classList.remove('mdui-theme-accent-blue');
+				}
+			}
+        </script>
+</html>

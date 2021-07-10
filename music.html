@@ -1,0 +1,363 @@
+<!doctype html>
+<html> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+        <link rel="icon" href="images/BGS_LOGO_20210305_2.png" type="image/x-icon"> 
+        <link rel="stylesheet" href="mdui/css/mdui.min.css">
+        <script src="mdui/js/mdui.min.js"></script>
+        <style>
+        html{
+        scroll-behavior:smooth;
+        }
+        .mdui-btn-raised{
+        border-radius: 5px;
+        }
+        .mdui-dialog{
+        border-radius: 10px;
+        }
+        .mdui-menu{
+        border-radius: 10px;
+        }
+        .mdui-tooltip{
+        border-radius: 20px;
+        background-color: #EEEEEE;
+        color:black;
+        }
+        @keyframes card{
+        from {top: 64px;opacity: 0;}
+        to {top: 0px;opacity: 1;}
+        }
+        .mdui-card{
+        border-radius: 10px;
+        animation-name: card;
+        animation-duration: 1s;
+        }
+        .mdui-drawer-list-item-active{
+        border-radius: 0 20px 20px 0;
+        background-color:#B9D1FF ;
+        color:#448AFF;
+        }
+        .mdui-drawer-list-item{
+        border-radius: 0 20px 20px 0;
+        }
+        footer{
+        border-radius: 10px 10px 0 0;
+        }
+        h1,h2,li,h4,h5,h6,p,span{
+        animation-name: toleft;
+        animation-duration: 1s;
+        }
+        @keyframes toleft{
+        from {margin-left: 64px;opacity: 0;}
+        to {}
+        }
+        .mdui-btn{
+        animation-name: toright;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        }
+        @keyframes toright{
+        from {margin-right: 64px;opacity: 0;}
+        to {}
+        }
+        .toleft{
+        animation-name: toleft;
+        animation-duration: 0.5s;
+        }
+        .toright{
+        animation-name: toright;
+        animation-duration: 0.5s;
+        }
+        </style>
+        <title>极品电音</title>
+    </head> 
+    <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue"> 
+        <header class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme-accent">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+        <i class="mdui-icon material-icons">menu</i>
+        </a>
+        <a class="mdui-typo-headline" href="index.html">BGS资源站</a>
+        <div class="mdui-toolbar-spacer"></div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
+        <i class="mdui-icon material-icons">cloud_download</i>
+        </a>
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '亮/暗色主题'}" onclick="themecolor()">
+        <i class="mdui-icon material-icons">brightness_medium</i>
+        </a>
+<script>
+    if(localStorage.darkTheme)
+        document.body.classList.add("mdui-theme-layout-dark");
+    document.getElementById("switch-theme").addEventListener(
+        "click",
+        () => document.body.classList.toggle("mdui-theme-layout-dark") ?
+            (localStorage.darkTheme = true) :
+            (delete localStorage.darkTheme)
+    );
+</script>
+        </div>
+        </header>
+        <div class="mdui-dialog" id="update">
+        <div class="mdui-dialog-title toleft">下载/更新客户端</div>
+        <div class="mdui-dialog-content toleft">
+        更新时间：2021-07-03
+        <br>新版变化：
+        <br>-新增“JS工具”页面，集成小工具
+        <br>-优化深色主题的表现
+        <br>-22:00 - 06:00 自动切换为深色主题
+        <br>-更新 极品电音 列表
+        <br>-新增 绘图/剪辑工具合集
+        <br>-优化页面平滑滚动规则
+        <br><br>如果它无法兼容你的设备，请下载兼容版本
+        </div>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
+        <a href="https://cloud.qingstore.cn/s/V505cn"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        </div>
+        </div>
+        <div class="mdui-drawer" id="drawer">
+        <img class="mdui-img-fluid" src="images/BGS_JPEG_20210305.jpg"/>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+        <a href="index.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
+        <div class="mdui-list-item-content">首页</div>
+        </li>
+        </a>
+        <a href="sysimg.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
+        <div class="mdui-list-item-content">系统镜像</div>
+        </li>
+        </a>
+        <a href="apps.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
+        <div class="mdui-list-item-content">应用程序</div>
+        </li>
+        </a>
+        <a href="websites.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
+        <div class="mdui-list-item-content">实用站点</div>
+        </li>
+        </a>
+        <li class="mdui-collapse-item mdui-collapse-item-open">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
+        <div class="mdui-list-item-content">其它作品</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        <a href="settings.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">仿原生安卓设置</li>
+        </a>
+        <a href="music.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple  mdui-list-item-active mdui-drawer-list-item-active">极品电音</li>
+        </a>
+        <a href="files/AdminOS 2021.pptx" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">AdminOS 2021</li>
+        </a>
+        </ul>
+        </li>
+        <a href="tools.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
+        <div class="mdui-list-item-content">JS工具</div>
+        </li>
+        </a>
+        <a href="about.html" mdui-drawer-close>
+        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
+        <div class="mdui-list-item-content">关于我们</div>
+        </li>
+        </a>
+        </div>
+        </ul>
+        </div>
+        <br><br><br><br>
+        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
+            <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
+            <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text">极品电音</h1>
+        <div class="mdui-text-center">
+            <h3 class="mdui-text-color-theme-accent mdui-text-color-theme-text">播放源：网易云音乐</h3>
+            <a href="http://music.163.com/playlist/5255408601/3721764037/?userid=3721764037" class="mdui-btn mdui-ripple mdui-btn-raised mdui-ripple-white mdui-color-theme-accent mdui-btn-block">
+            <i class="mdui-icon material-icons">playlist_play</i>
+            <label>查看原歌单</label>
+            </a>
+            <br> 
+        </div> 
+        <br>
+        <div class="mdui-divider"></div>
+        <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+        <a href="https://y.music.163.com/m/song?id=417247048"><li class="mdui-ripple mdui-list-item">01 JJD - Adventure</li></a> 
+        <a href="https://y.music.163.com/m/song?id=448596416"><li class="mdui-ripple mdui-list-item">02 千坂 - At The Edge</li></a> 
+        <a href="https://y.music.163.com/m/song?id=422428569"><li class="mdui-ripple mdui-list-item">03 FoXLvis - BLACK HISTORY NO.1</li></a> 
+        <a href="https://y.music.163.com/m/song?id=435307482"><li class="mdui-ripple mdui-list-item">04 FoXLvis / Janji / ... - BLACK HISTORY NO.2</li></a> 
+        <a href="https://y.music.163.com/m/song?id=443194557"><li class="mdui-ripple mdui-list-item">05 FoXLvis / Janji - BLACK HISTORY NO.3</li></a> 
+        <a href="https://y.music.163.com/m/song?id=455382413"><li class="mdui-ripple mdui-list-item">06 接个吻，开一枪 / CLARE - Beijing</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30512731"><li class="mdui-ripple mdui-list-item">07 Disfigure - Blank</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1411519067"><li class="mdui-ripple mdui-list-item">08 徐梦圆 - CHINA-新春</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30621706"><li class="mdui-ripple mdui-list-item">09 Tobu - Candyland</li></a> 
+        <a href="https://y.music.163.com/m/song?id=409650440"><li class="mdui-ripple mdui-list-item">10 徐梦圆 - China-A</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1304920086"><li class="mdui-ripple mdui-list-item">11 徐梦圆 - China-E</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1369614120"><li class="mdui-ripple mdui-list-item">12 徐梦圆 - China-G</li></a> 
+        <a href="https://y.music.163.com/m/song?id=409654857"><li class="mdui-ripple mdui-list-item">13 徐梦圆 - China-M</li></a> 
+        <a href="https://y.music.163.com/m/song?id=409654858"><li class="mdui-ripple mdui-list-item">14 徐梦圆 - China-P</li></a> 
+        <a href="https://y.music.163.com/m/song?id=436675327"><li class="mdui-ripple mdui-list-item">15 徐梦圆 - China-Rain</li></a> 
+        <a href="https://y.music.163.com/m/song?id=409654859"><li class="mdui-ripple mdui-list-item">16 徐梦圆 - China-X</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29797443"><li class="mdui-ripple mdui-list-item">17 Tobu / Itro - Cloud 9</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28921656"><li class="mdui-ripple mdui-list-item">18 Tobu - Colors</li></a> 
+        <a href="https://y.music.163.com/m/song?id=408532744"><li class="mdui-ripple mdui-list-item">19 MadEye - Complexity</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29392900"><li class="mdui-ripple mdui-list-item">20 Tobu - Crime (Instrumental)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=34779103"><li class="mdui-ripple mdui-list-item">21 徐梦圆 - color-X</li></a> 
+        <a href="https://y.music.163.com/m/song?id=443622817"><li class="mdui-ripple mdui-list-item">22 ae山子 - 电音60首好听乐曲高潮合集 第一期</li></a> 
+        <a href="https://y.music.163.com/m/song?id=406072136"><li class="mdui-ripple mdui-list-item">23 Jim Yosef - Eclipse</li></a> 
+        <a href="https://y.music.163.com/m/song?id=407679564"><li class="mdui-ripple mdui-list-item">24 Hinkik - Ena</li></a> 
+        <a href="https://y.music.163.com/m/song?id=403012527"><li class="mdui-ripple mdui-list-item">25 Dripice - Escape</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29947420"><li class="mdui-ripple mdui-list-item">26 Alan Walker - Fade</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28263911"><li class="mdui-ripple mdui-list-item">27 Deorro - Five Hours</li></a> 
+        <a href="https://y.music.163.com/m/song?id=473964580"><li class="mdui-ripple mdui-list-item">28 Elektronomia / JJD - Free</li></a> 
+        <a href="https://y.music.163.com/m/song?id=505449407"><li class="mdui-ripple mdui-list-item">29 Pascal Letoublon - Friendships (Original Mix)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=418602744"><li class="mdui-ripple mdui-list-item">30 Ahxello - Frisbee</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30987703"><li class="mdui-ripple mdui-list-item">31 Doctor Vox - Frontier</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1312322555"><li class="mdui-ripple mdui-list-item">32 TheFatRat - Windfall</li></a> 
+        <a href="https://y.music.163.com/m/song?id=485607552"><li class="mdui-ripple mdui-list-item">33 Schtiffles - Hide &amp; Seek</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28830412"><li class="mdui-ripple mdui-list-item">34 Tobu - Higher</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28921655"><li class="mdui-ripple mdui-list-item">35 Tobu - Hope (Original Mix)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=32046918"><li class="mdui-ripple mdui-list-item">36 Janji - Horizon</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28830409"><li class="mdui-ripple mdui-list-item">37 Tobu - Infectious</li></a> 
+        <a href="https://y.music.163.com/m/song?id=32196838"><li class="mdui-ripple mdui-list-item">38 DEAF KEV - Invincible</li></a> 
+        <a href="https://y.music.163.com/m/song?id=430787437"><li class="mdui-ripple mdui-list-item">39 Cgc / Janji - Janji - mashup 11 首 活力.电音.合集</li></a> 
+        <a href="https://y.music.163.com/m/song?id=441617611"><li class="mdui-ripple mdui-list-item">40 HOPE-T / 接个吻，开一枪 - 锦里</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30706279"><li class="mdui-ripple mdui-list-item">41 Lensko - Let's Go!</li></a> 
+        <a href="https://y.music.163.com/m/song?id=406737893"><li class="mdui-ripple mdui-list-item">42 FEWZ - Levitate</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28830410"><li class="mdui-ripple mdui-list-item">43 Tobu - Life</li></a> 
+        <a href="https://y.music.163.com/m/song?id=463840575"><li class="mdui-ripple mdui-list-item">44 Elektronomia - Limitless</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29379953"><li class="mdui-ripple mdui-list-item">45 Tobu / Itro - Magic</li></a> 
+        <a href="https://y.music.163.com/m/song?id=528272302"><li class="mdui-ripple mdui-list-item">46 ColBreakz - Mind Control</li></a> 
+        <a href="https://y.music.163.com/m/song?id=35920504"><li class="mdui-ripple mdui-list-item">47 Stahl! / Alex Skrindo - Moments</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1309980823"><li class="mdui-ripple mdui-list-item">48 TheFatRat - Monody</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30474763"><li class="mdui-ripple mdui-list-item">49 EH!DE / Different Heaven - My Heart</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29392797"><li class="mdui-ripple mdui-list-item">50 Tobu - Natural High</li></a> 
+        <a href="https://y.music.163.com/m/song?id=35955864"><li class="mdui-ripple mdui-list-item">51 Different Heaven - Nekozilla</li></a> 
+        <a href="https://y.music.163.com/m/song?id=36924964"><li class="mdui-ripple mdui-list-item">52 JJD - Nyan Cat</li></a> 
+        <a href="https://y.music.163.com/m/song?id=433059656"><li class="mdui-ripple mdui-list-item">53 接个吻，开一枪 / CLARE - 南锣鼓巷</li></a> 
+        <a href="https://y.music.163.com/m/song?id=408277644"><li class="mdui-ripple mdui-list-item">54 Hinkik - Outbreaker</li></a> 
+        <a href="https://y.music.163.com/m/song?id=454129387"><li class="mdui-ripple mdui-list-item">55 徐梦圆 - PDD</li></a> 
+        <a href="https://y.music.163.com/m/song?id=33937527"><li class="mdui-ripple mdui-list-item">56 EnV - Pneumatic Tokyo</li></a> 
+        <a href="https://y.music.163.com/m/song?id=27644359"><li class="mdui-ripple mdui-list-item">57 Sensitive / Bogdan Bondarenko - Remember (Original Mix)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30854833"><li class="mdui-ripple mdui-list-item">58 Axero - River</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30569019"><li class="mdui-ripple mdui-list-item">59 Tobu / Marcus Mouya - Running Away</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29379952"><li class="mdui-ripple mdui-list-item">60 Tobu - Seven</li></a> 
+        <a href="https://y.music.163.com/m/song?id=423015272"><li class="mdui-ripple mdui-list-item">61 Jiaye / Tobu - Seven (Jiaye Reboot)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=31830308"><li class="mdui-ripple mdui-list-item">62 Janji - Shadows</li></a> 
+        <a href="https://y.music.163.com/m/song?id=532510096"><li class="mdui-ripple mdui-list-item">63 Owen Keith - Shape&nbsp;of&nbsp;You&nbsp;(伴奏)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29553031"><li class="mdui-ripple mdui-list-item">64 Steerner / Martell - Sky (Radio Edit)</li></a> 
+        <a href="https://y.music.163.com/m/song?id=33479592"><li class="mdui-ripple mdui-list-item">65 K-391 - Solstice</li></a> 
+        <a href="https://y.music.163.com/m/song?id=30064263"><li class="mdui-ripple mdui-list-item">66 Alan Walker - Spectre</li></a> 
+        <a href="https://y.music.163.com/m/song?id=33166666"><li class="mdui-ripple mdui-list-item">67 Steerner / Martell - Sun</li></a> 
+        <a href="https://y.music.163.com/m/song?id=28830411"><li class="mdui-ripple mdui-list-item">68 Tobu / Itro - Sunburst</li></a> 
+        <a href="https://y.music.163.com/m/song?id=412911872"><li class="mdui-ripple mdui-list-item">69 Hinkik - Time Leaper</li></a> 
+        <a href="https://y.music.163.com/m/song?id=475943389"><li class="mdui-ripple mdui-list-item">70 HankJerry - Tobu精曲合集（HankJerry mashup）</li></a> 
+        <a href="https://y.music.163.com/m/song?id=1818887071"><li class="mdui-ripple mdui-list-item">71 Axero - Tonight</li></a>
+        <a href="https://y.music.163.com/m/song?id=36492599"><li class="mdui-ripple mdui-list-item">72 Axero - Trip</li></a> 
+        <a href="https://y.music.163.com/m/song?id=410801523"><li class="mdui-ripple mdui-list-item">73 Vexento - Trippy Love</li></a> 
+        <a href="https://y.music.163.com/m/song?id=569725354"><li class="mdui-ripple mdui-list-item">74 TheFatRat - Unity</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29759407"><li class="mdui-ripple mdui-list-item">75 Axero - Unity</li></a> 
+        <a href="https://y.music.163.com/m/song?id=34040716"><li class="mdui-ripple mdui-list-item">76 Acreix - Visions</li></a> 
+        <a href="https://y.music.163.com/m/song?id=427017128"><li class="mdui-ripple mdui-list-item">77 徐梦圆 - Water</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29759408"><li class="mdui-ripple mdui-list-item">78 Axero - Waves</li></a> 
+        <a href="https://y.music.163.com/m/song?id=33479596"><li class="mdui-ripple mdui-list-item">79 K-391 - Windows</li></a> 
+        <a href="https://y.music.163.com/m/song?id=431791046"><li class="mdui-ripple mdui-list-item">80 接个吻，开一枪 / ZICKSTRUDEL - 夜袭漓江塔</li></a> 
+        <a href="https://y.music.163.com/m/song?id=464863017"><li class="mdui-ripple mdui-list-item">81 接个吻，开一枪 - 烟袋斜街</li></a> 
+        <a href="https://y.music.163.com/m/song?id=29769300"><li class="mdui-ripple mdui-list-item">82 Axero - Dream</li></a> 
+        <a href="https://y.music.163.com/m/song?id=440353010"><li class="mdui-ripple mdui-list-item">83 Hoaprox - #Lov3 #Ngẫu Hứng</li></a>  
+        </ul>
+        </div>
+        </div>
+        <br>
+        <footer class="mdui-text-center mdui-color-theme-accent">
+        <br>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+        <i class="mdui-icon material-icons">email</i>
+        </a>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <img src="images/Wechat-logo.png" class="mdui-img-fluid">
+        </button>
+        <div class="mdui-menu" id="wechat">
+        <img src="images/Wechat.png" class="mdui-img-fluid">
+        </div>
+        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+        <img src="images/QQ-logo.png" style="width:32px;height:32px;">
+        </button>
+        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
+        <img src="images/QQ.jpg" style="width:180px;height:336px;">
+        </div>
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+        <i class="mdui-icon material-icons">send</i>
+        </a>
+        <br><br>
+        <div class="mdui-typo">
+        <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
+        </div>
+        <br><br>
+        </footer>
+        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide" id="fab" onclick="window.scrollTo(0,0);">
+        <i class="mdui-icon material-icons">keyboard_arrow_up</i>
+        </a>
+        <script type="text/javascript">
+            var pageHeight =10;
+            window.onscroll =function () {
+                var backTop = document.documentElement.scrollTop || 
+                document.body.scrollTop;
+                if(backTop>pageHeight){
+                    show()
+                }else{
+                    hide()
+                }
+ 
+            }
+    </script>
+    <script type="text/javascript">
+    var fab = document.getElementById('fab');
+    function show(){
+    fab.classList.remove('mdui-fab-hide');
+}
+    function hide(){
+    fab.classList.add('mdui-fab-hide');
+}
+    </script>
+    </body>
+    <script>
+        	function themecolor(){
+    			if (localStorage.darkTheme){
+                	document.body.classList.add('mdui-theme-accent-blue');
+				}else{
+    				document.body.classList.remove('mdui-theme-accent-blue');
+				}
+			}
+      		var hour = new Date().getHours();
+               if (hour >= 22 || hour < 6){
+    				document.body.classList.remove('mdui-theme-accent-blue');
+                	document.body.classList.add('mdui-theme-layout-dark');
+				}
+        </script>
+        <div class="mdui-dialog" id="updatedialog">
+    	<div class="mdui-dialog-title toleft">最近更新</div>
+       	<div class="mdui-dialog-content toleft">-新增音乐《Tonight》</div>
+        <div class="mdui-dialog-actions toright">
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close>不再显示</button>
+        </div>
+    <script>
+   		var updateDialog = new mdui.Dialog('#updatedialog');
+   		if (localStorage.getItem("doNotShowMusic") == "true"){
+		}else{
+    		updateDialog.open();
+		}
+   		function dns(){
+    		localStorage.setItem("doNotShowMusic", "true");
+		}
+    </script>
+</html>
