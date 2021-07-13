@@ -82,7 +82,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
-        <a class="mdui-typo-headline" href="index.html">BGS资源站</a>
+        <a class="mdui-typo-headline" href="index.html">BGS工具站</a>
         <div class="mdui-toolbar-spacer"></div>
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
         <i class="mdui-icon material-icons">cloud_download</i>
@@ -123,7 +123,8 @@
         <br>-更新 极品电音 列表
         <br>-新增 绘图/剪辑工具合集
         <br>-优化页面平滑滚动规则
-        <br><br>如果它无法兼容你的设备，请下载兼容版本
+        <br><br>如果它无法兼容你的设备，请下载兼容版本。
+        <br><br><div class="mdui-text-color-red">注：客户端更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
         <a href="https://cloud.qingstore.cn/s/V505cn"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
@@ -192,7 +193,7 @@
         </div>
         <br><br><br><br><br><br><br>
             </div>
-            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2" id="useful">
+            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-12">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text">应用程序</h1>
             <div id="android">
@@ -297,6 +298,7 @@
         <div class="mdui-typo">
         <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
         </div>
+        <p style="font-size: 15px;font-weight: bold;">2021 - Burger Studio</p>
         <br><br>
         </footer>
         <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide" id="fab" onclick="window.scrollTo(0,0);">
@@ -334,5 +336,10 @@
     				document.body.classList.remove('mdui-theme-accent-blue');
 				}
 			}
+      		var hour = new Date().getHours();
+               if (hour >= 22 || hour < 6){
+    				document.body.classList.remove('mdui-theme-accent-blue');
+                	document.body.classList.add('mdui-theme-layout-dark');
+				}
         </script>
 </html>
