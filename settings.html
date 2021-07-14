@@ -118,4 +118,11 @@
     </li>
     </ul>
     </body>
+    <script>
+    	var hour = new Date().getHours();
+               if (hour >= 22 || hour < 6){
+    				document.body.classList.remove('mdui-theme-accent-blue');
+                	document.body.classList.add('mdui-theme-layout-dark');
+				}
+    </script>
 </html>
