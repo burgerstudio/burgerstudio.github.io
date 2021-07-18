@@ -239,11 +239,11 @@
           -新增分享 Windows 11 ISO 镜像
           </div>
         <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="sysimg.html">不再显示</button>
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close>不再显示</button>
         </div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog');
+   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
    		if (localStorage.getItem("doNotShowSystemImages") == "true"){
 		}else{
     		updateDialog.open();
