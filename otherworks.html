@@ -264,7 +264,7 @@
 				}
 			}
       		var hour = new Date().getHours();
-               if (hour >= 22 || hour < 6){
+               if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
@@ -273,11 +273,11 @@
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content toleft">-新增 原生美化工具专题</div>
         <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close>不再显示</button>
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="otherworks.html">不再显示</button>
         </div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
+   		var updateDialog = new mdui.Dialog('#updatedialog');
    		if (localStorage.getItem("doNotShowWorks") == "true"){
 		}else{
     		updateDialog.open();
