@@ -277,7 +277,7 @@
         </div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog');
+   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
    		if (localStorage.getItem("doNotShowWorks") == "true"){
 		}else{
     		updateDialog.open();
