@@ -132,18 +132,9 @@
 		.tool-input:hover{
 		border-color: DodgerBlue;
 		}
-   		h1,h2,h3,h4,h5,h6,p,span{
-        animation-name: toleft;
-        animation-duration: 1s;
-        }
         @keyframes toleft{
         from {margin-left: 64px;opacity: 0;}
         to {}
-        }
-        .mdui-btn{
-        animation-name: toright;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
         }
         @keyframes toright{
         from {margin-right: 64px;opacity: 0;}
@@ -157,12 +148,23 @@
         animation-name: toright;
         animation-duration: 0.5s;
         }
+        .mdui-btn,.opacity{
+        animation-name: opacity;
+        animation-duration: 1s;
+        }
+		@keyframes opacity{
+		from  {opacity: 0;}
+		to {opacity: 1;}
+		}
+		.title{
+		animation-name: title;
+		animation-duration: 1s;
+		}
+		@keyframes title{
+		from {font-size: 15px;}
+		to {}
+		}
         </style>
-        <script>
-        	if (localStorage.darkTheme){
-    			
-			}
-        </script>
         <title>JS工具</title>
 	</head> 
 	<body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
@@ -171,7 +173,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
-        <a class="mdui-typo-headline" href="index.html">BGS工具站</a>
+        <a class="mdui-typo-headline opacity" href="index.html">BGS工具站</a>
         <div class="mdui-toolbar-spacer"></div>
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
         <i class="mdui-icon material-icons">cloud_download</i>
@@ -192,7 +194,7 @@
         </div>
         </header>
         <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">下载/更新客户端</div>
+        <div class="mdui-dialog-title toleft">获取客户端</div>
         <div class="mdui-dialog-content toleft">
         更新时间：2021-07-03
         <br>新版变化：
@@ -273,7 +275,7 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" style="margin-bottom: 128px;">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text">JS工具</h1>
+            	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">JS工具</h1>
             	<ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
                		<li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#clock'}">线性时钟</li>
                     <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#countdown'}">线性倒计时</li>

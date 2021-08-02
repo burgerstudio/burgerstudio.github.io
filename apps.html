@@ -44,18 +44,9 @@
         footer{
         border-radius: 10px 10px 0 0;
         }
-        h1,h2,li,h4,h5,h6,p,span{
-        animation-name: toleft;
-        animation-duration: 1s;
-        }
         @keyframes toleft{
         from {margin-left: 64px;opacity: 0;}
         to {}
-        }
-        .mdui-btn{
-        animation-name: toright;
-        animation-duration: 1s;
-        animation-fill-mode: forwards;
         }
         @keyframes toright{
         from {margin-right: 64px;opacity: 0;}
@@ -69,10 +60,22 @@
         animation-name: toright;
         animation-duration: 0.5s;
         }
-        li.mdui-list-item{
-        animation-name: toleft;
-        animation-duration: 0.5s;
+        .mdui-btn,.opacity{
+        animation-name: opacity;
+        animation-duration: 1s;
         }
+		@keyframes opacity{
+		from  {opacity: 0;}
+		to {opacity: 1;}
+		}
+		.title{
+		animation-name: title;
+		animation-duration: 1s;
+		}
+		@keyframes title{
+		from {font-size: 15px;}
+		to {}
+		}
         </style>
         <title>应用程序</title> 
     </head> 
@@ -82,7 +85,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
-        <a class="mdui-typo-headline" href="index.html">BGS工具站</a>
+        <a class="mdui-typo-headline opacity" href="index.html">BGS工具站</a>
         <div class="mdui-toolbar-spacer"></div>
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
         <i class="mdui-icon material-icons">cloud_download</i>
@@ -113,7 +116,7 @@
             </div>
         </header>
         <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">下载/更新客户端</div>
+        <div class="mdui-dialog-title toleft">获取客户端</div>
         <div class="mdui-dialog-content toleft">
         更新时间：2021-07-03
         <br>新版变化：
@@ -195,9 +198,9 @@
             </div>
             <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-12">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text">应用程序</h1>
+            <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">应用程序</h1>
             <div id="android">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent toleft" style="font-weight: bold;font-size: 15px;">
             <a href="https://coolapk.com/qr/download"><li class="mdui-ripple mdui-list-item">酷安</li></a> 
             <a href="https://www.vmos.cn/product_center.htm"><li class="mdui-ripple mdui-list-item">VMOS</li></a> 
             <a href="https://www.vmos.cn/product_center_vmospro.htm"><li class="mdui-ripple mdui-list-item">VMOS Pro</li></a> 
@@ -251,7 +254,7 @@
             </ul>
             </div>
             <div id="windows">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent toleft" style="font-weight: bold;font-size: 15px;">
             <a href="https://www.virtualbox.org"><li class="mdui-ripple mdui-list-item">VirtualBox</li></a> 
             <a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="mdui-ripple mdui-list-item">VMware</li></a> 
             <a href="https://www.quqi.com"><li class="mdui-ripple mdui-list-item">曲奇云盘</li></a> 
@@ -259,7 +262,7 @@
             <a href="https://www.google.cn/chrome/"><li class="mdui-ripple mdui-list-item">Google Chrome</li></a> 
             <a href="http://www.android-studio.org/"><li class="mdui-ripple mdui-list-item">Android Studio</li></a> 
             <a href="http://tools.android-studio.org/index.php/sdk"><li class="mdui-ripple mdui-list-item">Android SDK</li></a> 
-            <a href="https://p.qingstore.cn/s/WM0vCj"><li class="mdui-ripple mdui-list-item">Java JDK</li></a> 
+            <a href="https://cloud.qingstore.cn/s/pp7nHk"><li class="mdui-ripple mdui-list-item">Java JDK</li></a> 
             <a href="https://pan.baidu.com/"><li class="mdui-ripple mdui-list-item">百度网盘</li></a> 
             <a href="https://cloud.qingstore.cn/s/wYbkTE"><li class="mdui-ripple mdui-list-item">VNC Server</li></a> 
             <a href="https://cloud.qingstore.cn/s/V8xzTn"><li class="mdui-ripple mdui-list-item">VNC Viewer</li></a> 
