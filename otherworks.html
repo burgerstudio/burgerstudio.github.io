@@ -192,8 +192,9 @@
             <a href="settings.html"><li class="mdui-ripple mdui-list-item">仿原生安卓设置</li></a> 
             <a href="music.html"><li class="mdui-ripple mdui-list-item">极品电音</li></a> 
             <a href="files/AdminOS 2021.pptx"><li class="mdui-ripple mdui-list-item">AdminOS 2021</li></a> 
-            <a mdui-dialog="{target: '#edittools'}"><li class="mdui-ripple mdui-list-item">绘图/剪辑工具专题</li></a>
-            <a mdui-dialog="{target: '#beautifytools'}"><li class="mdui-ripple mdui-list-item">原生美化工具专题</li></a>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#edittools'}">绘图/剪辑工具专题</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#beautifytools'}">原生美化工具专题</li>
+			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">高效云盘专题</li>
             </ul>
             </div>
             </div>
@@ -261,6 +262,19 @@
                 <a href="https://apkpremier.com/download/ru-pt-iconpack-pixel_q"><li class="mdui-list-item mdui-ripple">Pixel Q Icon Pack（图标包）</li></a>
             </ul>
         </div>
+		<div class="mdui-dialog" id="cloud" style="height: 100%;width: 100%;">
+        	<div class="mdui-toolbar mdui-color-theme-accent">
+           		<span class="mdui-typo-title toleft">高效云盘专题</span>
+           		<div class="mdui-toolbar-spacer"></div>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+            </div>
+            <ul class="mdui-list toleft mdui-dialog-content">
+            	<a href="https://www.qjpan.com/"><li class="mdui-list-item mdui-ripple">白熊云盘</li></a>
+               	<a href="https://moecloud.cn/"><li class="mdui-list-item mdui-ripple">萌云</li></a>
+                <a href="https://yunpan.moe/"><li class="mdui-list-item mdui-ripple">萌云盘（不是萌云）</li></a>
+                <a href="https://www.lanzou.com/"><li class="mdui-list-item mdui-ripple">蓝奏云</li></a>
+            </ul>
+        </div>
     </body>
     <script>
         	function themecolor(){
@@ -278,19 +292,19 @@
         </script>
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content toleft">-新增 原生美化工具专题</div>
+       	<div class="mdui-dialog-content toleft">-新增 高效云盘专题</div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="otherworks.html">不再显示</button>
         </div>
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorks") == "true"){
+   		if (localStorage.getItem("doNotShowWorksCloud") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorks", "true");
+    		localStorage.setItem("doNotShowWorksCloud", "true");
 		}
     </script>
 </html>
