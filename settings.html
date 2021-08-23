@@ -7,15 +7,33 @@
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="icon" href="images/Settings.jpg" type="image/x-icon">
         <title>设置</title>
+		<style>
+		@keyframes opacity{
+		from  {opacity: 0;}
+		to {opacity: 1;}
+		}
+		body{
+        animation-name: opacity;
+        animation-duration: 1s;
+        }
+		@keyframes header{
+		from {margin-top: -64px;}
+		to {}
+		}
+		.mdui-list,header{
+		animation-name: header;
+		animation-duration: 0.75s;
+		}
+		</style>
     </head> 
     <body class="mdui-appbar-with-toolbar mdui-theme-layout-auto">  
-    <header class="mdui-appbar mdui-appbar-scroll-hide mdui-ripple mdui-shadow-1 mdui-appbar-fixed mdui-color-white mdui-ripple-black">
+    <header class="mdui-appbar mdui-appbar-scroll-hide mdui-ripple mdui-shadow-4 mdui-appbar-fixed mdui-color-white mdui-ripple-black" style="border-radius: 10px;margin-top: 12px;margin-left: 8px;margin-right: 8px;" id="header">
     <div class="mdui-toolbar">
-    <i class="mdui-icon material-icons mdui-text-color-cyan-800">search</i>
+    <i class="mdui-icon material-icons mdui-text-color-blue-accent">search</i>
     <span class="mdui-typo-subheading-opacity">搜索设置</span>
     </div>
     </header>
-    <ul class="mdui-list">
+    <ul class="mdui-list" style="margin-top: 0;top: 0;">
     <li class="mdui-list-item mdui-ripple">
     <i class="mdui-icon material-icons mdui-list-item-icon mdui-text-color-white mdui-color-blue mdui-list-item-avatar">wifi</i>
     <div class="mdui-list-item-content">
@@ -27,7 +45,7 @@
     <i class="mdui-icon material-icons mdui-list-item-icon mdui-text-color-white mdui-color-light-green-600 mdui-list-item-avatar">devices_other</i>
     <div class="mdui-list-item-content">
     <div class="mdui-list-item-title">已连接的设备</div>
-    <div class="mdui-list-item-text">蓝牙、NFC</div>
+    <div class="mdui-list-item-text">蓝牙、Android Auto、NFC</div>
     </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
@@ -92,7 +110,7 @@
     <i class="mdui-icon material-icons mdui-list-item-icon mdui-text-color-white mdui-color-pink-400 mdui-list-item-avatar">account_box</i>
     <div class="mdui-list-item-content">
     <div class="mdui-list-item-title">账号</div>
-    <div class="mdui-list-item-text">Office和Telegram</div>
+    <div class="mdui-list-item-text">Google和Telegram</div>
     </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
@@ -100,6 +118,20 @@
     <div class="mdui-list-item-content">
     <div class="mdui-list-item-title">无障碍</div>
     <div class="mdui-list-item-text">屏幕阅读器、显示、互动控件</div>
+    </div>
+    </li>
+	<li class="mdui-list-item mdui-ripple">
+    <i class="mdui-icon material-icons mdui-list-item-icon mdui-text-color-white mdui-color-green-500 mdui-list-item-avatar">spa</i>
+    <div class="mdui-list-item-content">
+    <div class="mdui-list-item-title">数字健康与家长控制</div>
+    <div class="mdui-list-item-text">设备使用时间、应用定时器、就寝时间表</div>
+    </div>
+    </li>
+	<li class="mdui-list-item mdui-ripple">
+    <div class="mdui-list-item-avatar mdui-color-white" id="google"><img src="images/Google.png"/></div>
+    <div class="mdui-list-item-content">
+    <div class="mdui-list-item-title">Google</div>
+    <div class="mdui-list-item-text">服务和偏好设置</div>
     </div>
     </li>
     <li class="mdui-list-item mdui-ripple">
@@ -113,7 +145,7 @@
     <i class="mdui-icon material-icons mdui-list-item-icon mdui-text-color-white mdui-color-indigo-400 mdui-list-item-avatar">perm_device_information</i>
     <div class="mdui-list-item-content">
     <div class="mdui-list-item-title">关于手机</div>
-    <div class="mdui-list-item-text">Samsung Galaxy Note 3</div>
+    <div class="mdui-list-item-text">hltechn</div>
     </div>
     </li>
     </ul>
@@ -125,4 +157,14 @@
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
     </script>
+	<script>
+    	if(localStorage.darkTheme){
+        document.body.classList.add("mdui-theme-layout-dark");
+		document.getElementById('header').classList.remove('mdui-color-white');
+		document.getElementById('header').classList.remove('mdui-ripple-black');
+		document.getElementById('header').classList.add('mdui-color-grey-800');
+		document.getElementById('google').classList.remove ('mdui-color-white');
+		document.getElementById('google').classList.add('mdui-color-grey-800');
+		}
+	</script>
 </html>
