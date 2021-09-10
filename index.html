@@ -73,14 +73,6 @@
 		from {font-size: 15px;}
 		to {}
 		}
-		.img{
-		animation-name: img;
-		animation-duration: 1s;
-		}
-		@keyframes img{
-		from {margin-top: 32px;margin-bottom: 32px;}
-		to {}
-		}
         </style>
         <title>Burger工具站</title> 
     </head> 
@@ -112,11 +104,10 @@
         </header>
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取客户端</div>
-        <div class="mdui-dialog-content toleft">
-        更新时间：2021-08-31
+        <div class="mdui-dialog-content opacity">
+        更新时间：2021-09-10
         <br><br>新版变化：
-        <br>-“仿原生安卓设置”页面搜索栏优化，加入两项新设置。
-        <br>-其他页面更新说明请在“最近更新”弹窗查看。
+        <br>-优化动画效果，解决部分卡顿问题
         <br><br><div class="mdui-text-color-red">注：客户端更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
@@ -189,7 +180,7 @@
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">Burger工具站</h1>
         <div class="mdui-text-center"> 
-            <img src="images/BGS_HEADER_20210403.jpg" class="mdui-shadow-8 mdui-img-fluid img" style="border-radius: 10px;margin-left: auto;margin-right: auto;max-height: 96px;"> 
+            <img src="images/BGS_HEADER_20210403.jpg" class="mdui-shadow-8 mdui-img-fluid" style="border-radius: 10px;margin-left: auto;margin-right: auto;max-height: 96px;"> 
             <br>
             <h3 class="mdui-text-color-theme-accent mdui-text-color-theme-text">欢迎访问 Burger Studio 工具站！<br><br>本站开发者：Burger Studio<br>开发工具：EasyWeb IDE<br>前端框架：MDUI</h3> 
             </div>

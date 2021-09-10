@@ -158,7 +158,7 @@
 				}
     </script>
 	<script>
-    	if(localStorage.darkTheme){
+    	if(localStorage.darkTheme || hour >= 22 || hour < 7){
         document.body.classList.add("mdui-theme-layout-dark");
 		document.getElementById('header').classList.remove('mdui-color-white');
 		document.getElementById('header').classList.remove('mdui-ripple-black');

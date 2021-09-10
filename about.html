@@ -73,14 +73,6 @@
 		from {font-size: 15px;}
 		to {}
 		}
-		.img{
-		animation-name: img;
-		animation-duration: 1s;
-		}
-		@keyframes img{
-		from {margin-top: 32px;margin-bottom: 32px;}
-		to {}
-		}
         </style>
         <title>关于我们</title> 
     </head> 
@@ -112,11 +104,10 @@
         </header>
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取客户端</div>
-        <div class="mdui-dialog-content toleft">
-        更新时间：2021-08-31
+        <div class="mdui-dialog-content opacity">
+        更新时间：2021-09-10
         <br><br>新版变化：
-        <br>-“仿原生安卓设置”页面搜索栏优化，加入两项新设置。
-        <br>-其他页面更新说明请在“最近更新”弹窗查看。
+        <br>-优化动画效果，解决部分卡顿问题
         <br><br><div class="mdui-text-color-red">注：客户端更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
@@ -190,7 +181,7 @@
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">关于我们</h1>
             <div class="mdui-card mdui-shadow-4">
              	<div class="mdui-card-media" style="max-height: 384px;max-width: 512px;margin-left: auto;margin-right: auto;">
-                	<img src="images/BGS_JPEG_20210305.jpg" class="img">
+                	<img src="images/BGS_JPEG_20210305.jpg">
                    	<div class="mdui-card-media-covered">
                     	<div class="dui-card-primary">
                        		<div class="mdui-card-primary-title mdui-text-center">Burger Studio</div>
