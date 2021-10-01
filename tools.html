@@ -40,7 +40,6 @@
         }
         footer{
         border-radius: 10px 10px 0 0;
-        position: fixed;
         width: 100%;
         bottom: 0;
         }
@@ -267,7 +266,7 @@
         </ul>
         </div>
         <br><br><br><br>
-        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" style="margin-bottom: 128px;">
+        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" style="margin-bottom: 64px;">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">JS工具</h1>
             	<ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
@@ -276,6 +275,7 @@
                     <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#temperature'}">摄氏度与华氏度转换</li>
                     <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#navigator'}">获取浏览器信息</li>
                     <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#player'}">媒体播放器</li>
+                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#gtranslate'}">Google 翻译</li>
                	</ul>
         	</div>
         </div>
@@ -487,6 +487,23 @@
                 </script>
             </div>
         </div>
+        <div class="mdui-dialog tool" id="gtranslate">
+        	<div class="tool-header">
+        		<div class="tool-title">Google 翻译</div>
+              	<div class="tool-close" mdui-dialog-close>
+                	<i class="mdui-icon material-icons">close</i>
+                </div>
+        	</div>
+           	<div class="tool-content">
+            	<input type="text" class="tool-input" id="tt" placeholder="请输入要翻译的文字">
+               	<button class="tool-button" onclick="GT()">翻译</button>
+                <script>
+                	function GT(){
+    					location.href = "http://translate.google.cn/?text=" + document.getElementById('tt').value;
+					}
+                </script>
+            </div>
+        </div>
 	</body>
    <script>
         	function themecolor(){
@@ -505,7 +522,7 @@
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
-          -新增 媒体播放器
+          -新增 Google 翻译
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="tools.html">不再显示</button>
