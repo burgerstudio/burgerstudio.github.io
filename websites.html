@@ -43,19 +43,26 @@
         }
         @keyframes toleft{
         from {margin-left: 64px;opacity: 0;}
-        to {}
+        to {margin-left: 0;opacity: 1;}
         }
         @keyframes toright{
         from {margin-right: 64px;opacity: 0;}
-        to {}
+        to {margin-right: 0;opacity: 1;}
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 0.5s;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+        margin-left: 64px;
+        opacity: 0;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 0.5s;
+        animation-duration: 1s;animation-fill-mode: forwards;
+        animation-delay: 0.5s;
+        margin-right: 64px;
+        opacity: 0;
         }
         .mdui-btn,.opacity{
         animation-name: opacity;
@@ -66,8 +73,12 @@
 		to {opacity: 1;}
 		}
 		.title{
-		animation-name: title;
+		animation-name: toleft;
 		animation-duration: 1s;
+      	animation-delay: 1s;
+        opacity: 0;
+        margin-left: 64px;
+        animation-fill-mode: forwards;
 		}
 		@keyframes title{
 		from {font-size: 15px;}
@@ -84,7 +95,7 @@
         </a>
         <a class="mdui-typo-headline opacity" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取客户端'}">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
         <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '亮/暗色主题'}" onclick="themecolor()">
@@ -103,12 +114,12 @@
         </div>
         </header>
         <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">获取客户端</div>
+        <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
         更新时间：2021-09-10
         <br><br>新版变化：
         <br>-优化动画效果，解决部分卡顿问题
-        <br><br><div class="mdui-text-color-red">注：客户端更新可能晚于网页端。</div>
+        <br><br><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
         <a href="https://p.qingstore.cn/s/RO1nIY"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
@@ -181,6 +192,7 @@
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">实用站点</h1>
             <ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
             <a href="https://bgstool.github.io/"><li class="mdui-ripple mdui-list-item">Burger工具站 历史版本</li></a>
+            <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页</li></a>
             <a href="http://www.x86android.com/"><li class="mdui-ripple mdui-list-item">安卓x86中文站</li></a> 
             <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86（官网）</li></a> 
             <a href="https://msdn.itellyou.cn/"><li class="mdui-ripple mdui-list-item">MSDN，我告诉你</li></a> 
@@ -198,6 +210,8 @@
             <a href="https://www.ngrok.cc/"><li class="mdui-ripple mdui-list-item">Sunny-Ngrok内网转发</li></a>
             <a href="https://www.w3school.com.cn/"><li class="mdui-ripple mdui-list-item">W3School</li></a>
             <a href="https://github.com/"><li class="mdui-ripple mdui-list-item">GitHub</li></a>
+            <a href="https://bing.ioliu.cn/"><li class="mdui-ripple mdui-list-item">必应每日高清壁纸</li></a>
+            <a href="http://od.ixcmstudio.cn/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站</li></a>
             </ul>
         </div>  
         </div>
