@@ -3,6 +3,7 @@
 	<head> 
 		<meta charset="UTF-8"> 
 		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+      	<title>2022年春节倒计时</title>
 		<style>
 			.card{
 			margin: 16px;
@@ -25,14 +26,21 @@
 			96% {box-shadow: 0 0 16px 6px violet;}
          	100% {box-shadow: 0 0 16px 6px red;}
 			}
+			@keyframes swipe{
+			from {}
+			to {margin-top: 0;opacity: 1;transform: rotateX(0);}
+			}
 		</style> 
 	</head> 
 	<body> 
 		<div> 
-			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;" id="1"></p> 
-			<div class="card"> 
+			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;animation-name: swipe;animation-duration: 1.5s;animation-delay: 0.5s;margin-top: 128px;opacity: 0;transform: rotateX(90deg);animation-fill-mode: forwards;" id="1"></p> 
+			<div style="animation-name: swipe;animation-duration: 1.5s;animation-delay: 1s;margin-top: 0;opacity: 0;transform: rotateX(-90deg);animation-fill-mode: forwards;">
+				<div class="card"> 
 				<p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p>
 			</div> 
+			</div>
+         <h5 style="float: right;margin: 16px;">2022 - Burger Studio</h5>
 		</div> 
 		<script>
 			var text = document.getElementById("2");
