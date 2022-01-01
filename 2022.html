@@ -1,0 +1,54 @@
+<!doctype html>
+<html> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+		<style>
+			.card{
+			margin: 16px;
+			border-radius: 5px;
+         	background-image: linear-gradient(to bottom right,orange,red,orange);
+			color: white;
+			height: 100px;
+			width: 300px;
+			animation-name: rainbow;
+			animation-duration: 14s;
+         	animation-iteration-count: infinite;
+			}
+			@keyframes rainbow{
+			0% {box-shadow: 0 0 16px 6px red;}
+			16% {box-shadow: 0 0 16px 6px orange;}
+     		32% {box-shadow: 0 0 16px 6px yellow;}
+			48% {box-shadow: 0 0 16px 6px green;}
+			64% {box-shadow: 0 0 16px 6px blue;}
+			80% {box-shadow: 0 0 16px 6px indigo;}
+			96% {box-shadow: 0 0 16px 6px violet;}
+         	100% {box-shadow: 0 0 16px 6px red;}
+			}
+		</style> 
+	</head> 
+	<body> 
+		<div> 
+			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;" id="1"></p> 
+			<div class="card"> 
+				<p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p>
+			</div> 
+		</div> 
+		<script>
+			var text = document.getElementById("2");
+			function js(){
+				var date = new Date();
+				if (date.getFullYear() == 2022){
+					document.getElementById("1"). innerHTML = "距离2022年春节： ";
+					var days = 31 - date.getDate();
+					var hours = 24 - date.getHours();
+					var minutes = 60 - date.getMinutes();
+					var seconds = 60 - date.getSeconds();
+					var str = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+					text.innerHTML = str;
+				}
+			}
+      		window.setInterval("js()",100);
+		</script>  
+	</body>
+</html>
