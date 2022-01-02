@@ -6,7 +6,10 @@
       	<title>2022年春节倒计时</title>
 		<style>
 			.card{
-			margin: 16px;
+			margin-left: auto;
+         	margin-right: auto;
+            margin-top: 32px;
+            margin-bottom: 32px;
 			border-radius: 5px;
          	background-image: linear-gradient(to bottom right,orange,red,orange);
 			color: white;
@@ -30,6 +33,10 @@
 			from {}
 			to {margin-top: 0;opacity: 1;transform: rotateX(0);}
 			}
+      		@keyframes opacity{
+			from {opacity: 0;}
+			to {opacity: 1;}
+			}
 		</style> 
 	</head> 
 	<body> 
@@ -40,7 +47,7 @@
 				<p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p>
 			</div> 
 			</div>
-         <h5 style="float: right;margin: 16px;">2022 - Burger Studio</h5>
+         <h5 style="float: right;margin: 16px;animation-name: opacity;animation-duration: 1s;animation-delay: 1.5s;animation-fill-mode: forwards;opacity: 0;">2022 - Burger Studio</h5>
 		</div> 
 		<script>
 			var text = document.getElementById("2");
