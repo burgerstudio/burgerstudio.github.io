@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
+      <style>
+      html{
+      animation-name: html;
+      animation-duration: 0.5s;
+      transform: scale(0.9);
+      opacity: 0;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
+      }
+      @keyframes html{
+      from {}
+      to {transform: scale(1.0);opacity: 1;}
+      }
+      .card{
+      border: 2px solid #DDDDDD;
+      border-radius: 8px;
+      margin: 8px;
+      padding: 8px;
+      text-align: center;
+      }
+      .button{
+      width: 96px;
+      height: 48px;
+      transition-duration: 0.3s;
+      border: none;
+      background-color: #03A9F4;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      }
+      .button:hover{
+      color:#DDDDDD;
+      background-color: #2196F3;
+      box-shadow: 0 4px 16px 4px #CDCDCD;
+      transform: scale(0.9);
+      }
+      .djs{
+      opacity: 0;
+      color: #2196F3;
+      font-size: 32px;
+      transition-duration: 0.3s;
+      }
+      </style>
+	</head> 
+	<body> 
+   <div class="card">
+		<h1> 
+			无限弹窗 
+		</h1> 
+      <h5 style="color: red;">⚠️无限弹窗仅供测试，启动后可能会使浏览器页面无响应，请注意保存数据。</h5>
+      <button class="button" id="button" onclick="window.setTimeout('start();',300);">START</button>
+      <h3 class="djs" id="djs">test</h3>
+      <h5 style="text-align: right;">2022 - Burger Studio</h5>
+      </div>
+	</body>
+   <script>
+   var button = document.getElementById("button");
+   var djs = document.getElementById("djs");
+   function start(){
+    button.style.opacity = 0;
+	djs1();
+	window.setTimeout('djs2()',1000);
+	window.setTimeout('djs3()',2000);
+	window.setTimeout('Alert()',2300);
+}
+function djs1(){
+    djs.innerHTML = "3";
+    djs.style.transform = "scale(1.1)";
+	djs.style.opacity = 1;
+	window.setTimeout('djs.style.transform = "scale(0.9)";djs.style.opacity = 0;',500);
+}
+function djs2(){
+    djs.innerHTML = "2";
+    djs.style.transform = "scale(1.1)";
+	djs.style.opacity = 1;
+	window.setTimeout('djs.style.transform = "scale(0.9)";djs.style.opacity = 0;',500);
+}
+function djs3(){
+    djs.innerHTML = "1";
+    djs.style.transform = "scale(1.1)";
+	djs.style.opacity = 1;
+	window.setTimeout('djs.style.transform = "scale(0.9)";djs.style.opacity = 0;',500);
+}
+function Alert(){
+    window.setInterval('alert("无限弹窗");',1);
+}
+   </script>
+</html>
