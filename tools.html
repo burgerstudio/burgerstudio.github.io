@@ -518,7 +518,7 @@
         	</div>
            	<div class="tool-content">
             	<p id="notetext" style="margin: 8px;text-align: center;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
-            	<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');loadnote()">编辑</button>
+            	<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
 				<script>
 					function loadnote(){
 						if (localStorage.getItem("note")){
