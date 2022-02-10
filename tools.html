@@ -22,13 +22,13 @@
         color:black;
         }
         @keyframes card{
-        from {top: 64px;opacity: 0;}
-        to {top: 0px;opacity: 1;}
+        from {transform: scale(0.9);opacity: 0;}
+        to {transform: scale(1);opacity: 1;}
         }
         .mdui-card{
         border-radius: 10px;
         animation-name: card;
-        animation-duration: 1.5s;
+        animation-duration: 0.75s;
         }
         .mdui-drawer-list-item-active{
         border-radius: 0 20px 20px 0;
@@ -38,38 +38,44 @@
         .mdui-drawer-list-item{
         border-radius: 0 20px 20px 0;
         }
-        footer{
-        border-radius: 10px 10px 0 0;
-        width: 100%;
-        bottom: 0;
-        }
 		.tool{
-		height: 100%;
-		width: 100%;
-		margin: 0;
-		border-radius: 0;
+		height: 70%;
+		width: 80%;
+		border-radius: 8px;
 		background-color: #EFEFEF;
+      	position: fixed;
+		opacity: 0;
+		transform: scale(0.8);
+		z-index: -1;
+		transition-duration: 0.5s;
+		overflow: scroll;
+		box-shadow: 0 0 16px 8px rgba(0, 0, 0,0.3);
+		left: 10%;
+		right: 10%;
+		top: 15%;
+		bottom: 15%;
 		}
 		.tool-header{
 		width: 100%;
 		height: 32px;
       	background-color: white;
+        position: sticky;
+        top: 0;
 		}
 		.tool-close{
 		top: 0;
 		float: right;
 		height: 32px;
-		width: 32px;
+		width: 10%;
 		font-size: 24px;
 		text-align: center;
 		background-color: white;
 		transition: background-color 0.25s,color 0.25s;
       	color: black;
-        animation-name: toright;
-        animation-duration: 0.5s;
+		border-radius: 4px;
 		}
 		.tool-close:hover{
-		background-color: red;
+		background-color: #F44336;
 		color: white;
 		}
 		.tool-button{
@@ -83,11 +89,9 @@
 		border-style: solid;
 		border-color: #DEDEDE;
 		transition: background-color 0.25s,border-color 0.25s;
+      	outline-style: none;
+		border-radius: 4px;
 		}
-   		@keyframes opacity{
-        from {opacity: 0;}
-        to {opacity: 1;}
-        }
 		.tool-button:hover{
 		background-color: rgba(63, 81, 181, 0.15);
 		border-color: DodgerBlue;
@@ -99,24 +103,25 @@
 		height: 80%;
 		background-color: white;
       	color: black;
+		overflow: scroll;
+		border-radius: 4px;
 		}
 		.mdui-progress{
 		height: 16px;
 		margin: 4px 0;
 		border-style: solid;
 		border-color: #DEDEDE;
+		border-radius: 4px;
 		}
 		.mdui-progress-determinate{
 		height: 16px;
 		}
 		.tool-title{
-		width: 256px;
+		width: 70%;
 		float: left;
 		padding: 8px;
 		font-size: 16px;
       	color: black;
-       	animation-name: toleft;
-        animation-duration: 0.5s;
 		}
 		.tool-input{
 		width: 94%;
@@ -127,37 +132,38 @@
 		border-color: #DEDEDE;
 		background-color: #EFEFEF;
 		transition: border-color 0.25s;
+		border-radius: 4px;
 		}
 		.tool-input:hover{
 		border-color: DodgerBlue;
 		}
         @keyframes toleft{
-        from {margin-left: 64px;opacity: 0;}
+        from {margin-left: 32px;opacity: 0;}
         to {margin-left: 0;opacity: 1;}
         }
         @keyframes toright{
-        from {margin-right: 64px;opacity: 0;}
+        from {margin-right: 32px;opacity: 0;}
         to {margin-right: 0;opacity: 1;}
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-        margin-left: 64px;
+        animation-delay: 0.25s;
+        margin-left: 32px;
         opacity: 0;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-        margin-right: 64px;
+        animation-delay: 0.25s;
+        margin-right: 32px;
         opacity: 0;
         }
         .opacity{
         animation-name: opacity;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         }
 		@keyframes opacity{
 		from  {opacity: 0;}
@@ -165,21 +171,17 @@
 		}
 		.title{
 		animation-name: toleft;
-		animation-duration: 1s;
-      	animation-delay: 1s;
+		animation-duration: 0.75s;
+      	animation-delay: 0.75s;
         opacity: 0;
-        margin-left: 64px;
+        margin-left: 32px;
         animation-fill-mode: forwards;
-		}
-		@keyframes title{
-		from {font-size: 15px;}
-		to {}
 		}
         </style>
         <title>JS工具</title>
 	</head> 
 	<body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
-   		<header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
+   		<header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset" id="appbar">
         <div class="mdui-toolbar mdui-color-theme-accent">
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
@@ -243,7 +245,7 @@
         <a href="websites.html" >
         <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
-        <div class="mdui-list-item-content">实用站点</div>
+        <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" >
@@ -268,16 +270,17 @@
         </ul>
         </div>
         <br><br><br><br>
-        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" style="margin-bottom: 64px;">
+        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" id="card">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">JS工具</h1>
             	<ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
-               		<li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#clock'}">线性时钟</li>
-                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#countdown'}">线性倒计时</li>
-                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#temperature'}">摄氏度与华氏度转换</li>
-                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#navigator'}">获取浏览器信息</li>
-                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#player'}">媒体播放器</li>
-                    <li class="mdui-list-item mdui-ripple" mdui-dialog="{target: '#gtranslate'}">Google 翻译</li>
+               		<li class="mdui-list-item mdui-ripple" onclick="toolopen('clock');">线性时钟</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('countdown');">线性倒计时</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('temperature');">摄氏度与华氏度转换</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('navigator');">获取浏览器信息</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('player');">媒体播放器</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('gtranslate');">Google 翻译</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('note');">便笺</li>
                	</ul>
         	</div>
         </div>
@@ -309,10 +312,10 @@
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
         </div>
-		<div class="mdui-dialog tool" id="clock">
+		<div class="tool" id="clock">
 			<div class="tool-header">
 				<div class="tool-title">线性时钟</div>
-				<div class="tool-close" mdui-dialog-close>
+				<div class="tool-close" onclick="toolclose('clock');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
@@ -325,10 +328,10 @@
             	<p style="margin: 8px;text-align: center;" id="greeting"></p>
 			</div>
 		</div>
-      	<div class="mdui-dialog tool" id="countdown">
+      	<div class="tool" id="countdown">
         	<div class="tool-header">
 				<div class="tool-title">线性倒计时</div>
-            	<div class="tool-close" mdui-dialog-close>
+            	<div class="tool-close" onclick="toolclose('countdown');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
@@ -365,10 +368,10 @@
 				</script>
 			</div>
         </div>
-        <div class="mdui-dialog tool" id="temperature">
+        <div class="tool" id="temperature">
         	<div class="tool-header">
 				<div class="tool-title">摄氏度与华氏度转换</div>
-         		<div class="tool-close" mdui-dialog-close>
+         		<div class="tool-close" onclick="toolclose('temperature');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
@@ -433,14 +436,14 @@
   				return i;
 }
 		</script>
-      	<div class="mdui-dialog tool" id="navigator">
+      	<div class="tool" id="navigator">
         	<div class="tool-header">
         		<div class="tool-title">获取浏览器信息</div>
-              	<div class="tool-close" mdui-dialog-close>
+              	<div class="tool-close" onclick="toolclose('navigator');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-            <div class="tool-content" style="overflow: scroll;">
+            <div class="tool-content">
             	<button class="tool-button" onclick="info()">获取</button>
                	<script>
                 	function info(){
@@ -468,10 +471,10 @@
                 <p id="javaenabled" style="margin: 8px;"></p>
             </div>
         </div>
-        <div class="mdui-dialog tool" id="player">
+        <div class="tool" id="player">
         	<div class="tool-header">
         		<div class="tool-title">媒体播放器</div>
-              	<div class="tool-close" mdui-dialog-close>
+              	<div class="tool-close" onclick="toolclose('player');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
@@ -489,10 +492,10 @@
                 </script>
             </div>
         </div>
-        <div class="mdui-dialog tool" id="gtranslate">
+        <div class="tool" id="gtranslate">
         	<div class="tool-header">
         		<div class="tool-title">Google 翻译</div>
-              	<div class="tool-close" mdui-dialog-close>
+              	<div class="tool-close" onclick="toolclose('gtranslate');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
@@ -506,6 +509,64 @@
                 </script>
             </div>
         </div>
+        <div class="tool" id="note">
+        	<div class="tool-header">
+        		<div class="tool-title">便笺</div>
+              	<div class="tool-close" onclick="toolclose('note');">
+                	<i class="mdui-icon material-icons">close</i>
+                </div>
+        	</div>
+           	<div class="tool-content">
+            	<p id="notetext" style="margin: 8px;text-align: center;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
+            	<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');loadnote()">编辑</button>
+				<script>
+					function loadnote(){
+						if (localStorage.getItem("note")){
+    						document.getElementById('notetext').innerHTML = "便笺内容：<br><br>" + localStorage.getItem("note");
+						}else{
+    						document.getElementById('notetext').innerHTML = "便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。"
+						}
+					}
+					loadnote();
+				</script>
+            </div>
+        </div>
+		<div class="tool" id="editnote">
+        	<div class="tool-header">
+        		<div class="tool-title">编辑便笺</div>
+              	<div class="tool-close" onclick="toolclose('editnote');toolopen('note');">
+                	<i class="mdui-icon material-icons">close</i>
+                </div>
+        	</div>
+           	<div class="tool-content">
+            	<textarea id="noteinput" class="tool-input" style="height: 70%;"></textarea>
+				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();alert('已移除便笺')" id="removenote">移除</button>
+				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
+				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
+				<script>
+            		document.getElementById('noteinput').value = localStorage.getItem("note");
+					function savenote(){
+    					localStorage.setItem("note",document.getElementById('noteinput').value);
+						loadnote();
+						toolclose('editnote');toolopen('note');
+					}
+				</script>
+            </div>
+        </div>
+	<script>
+		function toolopen(id){
+    		document.getElementById(id).style = "opacity: 1;transform: scale(1);z-index: 1;";
+          	document.getElementById('drawer').style = "left: -100%;";
+			document.getElementById('appbar').style = "z-index: 0;";
+         	document.getElementById('card').style = "z-index: -1;";
+		}
+		function toolclose(id){
+    		document.getElementById(id).style = "opacity: 0;transform: scale(0.8);z-index: -1;";
+			document.getElementById('drawer').style = "left: 0;";
+			document.getElementById('appbar').style = "z-index: 1;";
+			document.getElementById('card').style = "z-index: 0;";
+		}
+	</script>
 	</body>
    <script>
         	function themecolor(){
@@ -524,7 +585,7 @@
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
-          -新增 Google 翻译
+          -新增 便笺
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="tools.html">不再显示</button>
@@ -532,12 +593,12 @@
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowTools") == "true"){
+   		if (localStorage.getItem("doNotShowToolsNote") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowTools", "true");
+    		localStorage.setItem("doNotShowToolsNote", "true");
 		}
     </script>
 </html>

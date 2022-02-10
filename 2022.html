@@ -33,8 +33,8 @@
 		 	100% {box-shadow: 0 0 16px 6px red;}
 			}
 			@keyframes swipe{
-			from {}
-			to {margin-top: 0;opacity: 1;transform: rotateX(0);}
+			from {opacity: 0;}
+			to {opacity: 1;transform: scale(1);margin-top: 16px;}
 			}
 	  		@keyframes opacity{
 			from {opacity: 0;}
@@ -44,8 +44,8 @@
 	</head> 
 	<body> 
 		<div> 
-			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;animation-name: swipe;animation-duration: 1.5s;animation-delay: 0.5s;margin-top: 128px;opacity: 0;transform: rotateX(90deg);animation-fill-mode: forwards;" id="1"></p> 
-			<div style="animation-name: swipe;animation-duration: 1.5s;animation-delay: 1s;margin-top: 0;opacity: 0;transform: rotateX(-90deg);animation-fill-mode: forwards;"> 
+			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;animation-name: swipe;animation-duration: 1.5s;animation-delay: 0.5s;transform: scale3d(0,0.7,1);animation-fill-mode: forwards;" id="1"></p> 
+			<div style="animation-name: swipe;animation-duration: 1.5s;animation-delay: 1s;margin-top: 16px;transform: scale3d(0.7,0,1);animation-fill-mode: forwards;"> 
 				<div class="card"> 
 					<p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p> 
 				</div> 

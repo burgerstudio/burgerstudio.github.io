@@ -22,13 +22,13 @@
         color:black;
         }
         @keyframes card{
-        from {top: 64px;opacity: 0;}
-        to {top: 0px;opacity: 1;}
+        from {transform: scale(0.9);opacity: 0;}
+        to {transform: scale(1);opacity: 1;}
         }
         .mdui-card{
         border-radius: 10px;
         animation-name: card;
-        animation-duration: 1.5s;
+        animation-duration: 0.75s;
         }
         .mdui-drawer-list-item-active{
         border-radius: 0 20px 20px 0;
@@ -38,36 +38,33 @@
         .mdui-drawer-list-item{
         border-radius: 0 20px 20px 0;
         }
-        footer{
-        border-radius: 10px 10px 0 0;
-        }
         @keyframes toleft{
-        from {margin-left: 64px;opacity: 0;}
+        from {margin-left: 32px;opacity: 0;}
         to {margin-left: 0;opacity: 1;}
         }
         @keyframes toright{
-        from {margin-right: 64px;opacity: 0;}
+        from {margin-right: 32px;opacity: 0;}
         to {margin-right: 0;opacity: 1;}
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-        margin-left: 64px;
+        animation-delay: 0.25s;
+        margin-left: 32px;
         opacity: 0;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         animation-fill-mode: forwards;
-        animation-delay: 0.5s;
-        margin-right: 64px;
+        animation-delay: 0.25s;
+        margin-right: 32px;
         opacity: 0;
         }
         .opacity{
         animation-name: opacity;
-        animation-duration: 1s;
+        animation-duration: 0.75s;
         }
 		@keyframes opacity{
 		from  {opacity: 0;}
@@ -75,15 +72,11 @@
 		}
 		.title{
 		animation-name: toleft;
-		animation-duration: 1s;
-      	animation-delay: 1s;
+		animation-duration: 0.75s;
+      	animation-delay: 0.75s;
         opacity: 0;
-        margin-left: 64px;
+        margin-left: 32px;
         animation-fill-mode: forwards;
-		}
-		@keyframes title{
-		from {font-size: 15px;}
-		to {}
 		}
         </style>
         <title>Burger工具站</title> 
@@ -153,7 +146,7 @@
         <a href="websites.html">
         <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
-        <div class="mdui-list-item-content">实用站点</div>
+        <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html">
@@ -202,7 +195,7 @@
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-orange mdui-text-color-white">apps</i>
             <div class="mdui-list-item-content">
             	<div class="mdui-list-item-title">应用程序</div>
-               	<div class="mdui-list-item-text">实用应用程序/工具</div>
+               	<div class="mdui-list-item-text">实用应用程序、工具</div>
             </div>
             </li>
             </a> 
@@ -210,8 +203,8 @@
             <li class="mdui-list-item mdui-ripple">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-green mdui-text-color-white">public</i>
             <div class="mdui-list-item-content">
-            	<div class="mdui-list-item-title">实用站点</div>
-               	<div class="mdui-list-item-text">作者推荐的工具站</div>
+            	<div class="mdui-list-item-title">网络站点</div>
+               	<div class="mdui-list-item-text">推荐网站、友情链接</div>
             </div>
             </li>
             </a> 
