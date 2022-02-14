@@ -42,14 +42,14 @@
 		height: 70%;
 		width: 80%;
 		border-radius: 8px;
-		background-color: #EFEFEF;
+		background-color: #EEEEEE;
       	position: fixed;
 		opacity: 0;
 		transform: scale(0.8);
 		z-index: -1;
 		transition-duration: 0.5s;
-		overflow: scroll;
-		box-shadow: 0 0 16px 8px rgba(0, 0, 0,0.3);
+		overflow: hidden;
+		box-shadow: 0 0 32px 8px rgba(0, 0, 0,0.3);
 		left: 10%;
 		right: 10%;
 		top: 15%;
@@ -100,7 +100,7 @@
    		.tool-content{
 		margin: 8px;
 		padding: 4px;
-		height: 80%;
+		height: 70%;
 		background-color: white;
       	color: black;
 		overflow: scroll;
@@ -586,6 +586,7 @@
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
           -新增 便笺
+          -重新设计工具窗口UI
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="tools.html">不再显示</button>
