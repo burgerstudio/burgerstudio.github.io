@@ -273,7 +273,10 @@
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
             <ul class="mdui-list toleft mdui-dialog-content">
-            	<a href="https://klpbbs.com/xz/"><li class="mdui-list-item mdui-ripple">我的世界国际版下载 （苦力怕论坛）</li></a>
+            	<a href="https://klpbbs.com/xz/"><li class="mdui-list-item mdui-ripple">我的世界国际版下载 （基岩版）</li></a>
+                <a href="https://hmcl.huangyuhui.net/"><li class="mdui-list-item mdui-ripple">Hello Minecraft! Launcher （Java版启动器）</li></a>
+                <a href="https://github.com/PojavLauncherTeam/PojavLauncher"><li class="mdui-list-item mdui-ripple">PojavLauncher （Java版启动器）</li></a>
+                <a href="https://github.com/AOF-Dev/MCinaBox"><li class="mdui-list-item mdui-ripple">MCinaBox （Java版启动器）</li></a>
                	<a href="https://apkpremier.com/details/com-kayenworks-mcpeaddons"><li class="mdui-list-item mdui-ripple">Addons for Minecraft （模组）</li></a>
                 <a href="https://apkpremier.com/details/com-electricfoal-photocrafter"><li class="mdui-list-item mdui-ripple">Pixelart builder for Minecraft （像素画）</li></a>
                 <a href="https://apkpremier.com/details/com-lyxoto-master-forminecraftpe"><li class="mdui-list-item mdui-ripple">Block Master for Minecraft PE （各种资源）</li></a>
@@ -297,19 +300,19 @@
         </script>
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-新增 云盘搜集</div>
+       	<div class="mdui-dialog-content opacity">-新增 勾股 Chrome 下载<br>-新增 Minecraft 资源整合</div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
         </div>
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorksCloud") == "true"){
+   		if (localStorage.getItem("doNotShowWorksMinecraft") == "true"){
 		}else{
     		// updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorksCloud", "true");
+    		localStorage.setItem("doNotShowWorksMinecraft", "true");
 		}
     </script>
 </html>
