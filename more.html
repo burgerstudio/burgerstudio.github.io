@@ -297,19 +297,19 @@
         </script>
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-新增 勾股 Chrome 下载<br>-新增 Minecraft 资源整合</div>
+       	<div class="mdui-dialog-content opacity">-新增 云盘搜集</div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
         </div>
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorksMinecraft") == "true"){
+   		if (localStorage.getItem("doNotShowWorksCloud") == "true"){
 		}else{
     		// updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorksMinecraft", "true");
+    		localStorage.setItem("doNotShowWorksCloud", "true");
 		}
     </script>
 </html>
