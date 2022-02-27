@@ -35,11 +35,15 @@
         animation-name: card;
         animation-duration: 0.5s;
         box-shadow: 0 0 16px 4px rgba(0,0,0,0.2);
+		transition-duration: 0.3s;
         }
         @keyframes card{
         from {opacity: 0;transform: scale(0.8);}
         to {opacity: 1;transform: scale(1);}
         }
+		.card:hover{
+		box-shadow: 0 0 32px 8px rgba(0,0,0,0.3);
+		}
 		.card-title{
 		font-weight: bold;
 		font-size: 20px;
