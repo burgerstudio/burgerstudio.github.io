@@ -36,6 +36,7 @@
         animation-duration: 0.5s;
         box-shadow: 0 0 16px 4px rgba(0,0,0,0.2);
 		transition-duration: 0.3s;
+      	max-width: 512px;
         }
         @keyframes card{
         from {opacity: 0;transform: scale(0.8);}
@@ -78,42 +79,45 @@
         width: 100%;
         left: 0;
         }
+		html{
+		padding: 0 8px;
+		}
         </style>
 	</head> 
 	<body> 
 		<header>
       		<p class="title">勾股 Chrome 下载</p>
         </header>
-		<div class="card" style="margin: 36px 12px;margin-top: 80px;">
+		<div class="card" style="margin: 36px auto;margin-top: 80px;">
 			<div class="card-title"><p style="margin-left: 16px;">介绍</p></div>
          	<div class="card-content"><p>这些图标是作者由“赵爽弦图”和 Google Chrome 图标结合而成。点击“下载”将跳转至 Google Chrome 对应版本的下载页面。</p></div>
 		</div>
-      	<div class="card" style="margin: 36px 12px;">
-        	<div class="card-title"><img src="images/Gougu_Chrome.png" style="margin-left: 25%;margin-top: 16px;margin-bottom: 16px;height: 50%;width: 50%;border-radius: 12px;"></div>
+      	<div class="card" style="margin: 36px auto;">
+        	<div class="card-title"><img src="images/Gougu_Chrome.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
            	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome</p>
             	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/';">下载</button></div>
             </div>
        	</div>
-		<div class="card" style="margin: 36px 12px;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Beta.png" style="margin-left: 25%;margin-top: 16px;margin-bottom: 16px;height: 50%;width: 50%;border-radius: 12px;"></div>
+		<div class="card" style="margin: 36px auto;">
+        	<div class="card-title"><img src="images/Gougu_Chrome_Beta.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
            	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Beta</p>
             	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/beta/';">下载</button></div>
             </div>
        	</div>
-        <div class="card" style="margin: 36px 12px;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Dev.png" style="margin-left: 25%;margin-top: 16px;margin-bottom: 16px;height: 50%;width: 50%;border-radius: 12px;"></div>
+        <div class="card" style="margin: 36px auto;">
+        	<div class="card-title"><img src="images/Gougu_Chrome_Dev.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
            	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Dev</p>
             	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/dev/';">下载</button></div>
             </div>
        	</div>
-        <div class="card" style="margin: 36px 12px;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Canary.png" style="margin-left: 25%;margin-top: 16px;margin-bottom: 16px;height: 50%;width: 50%;border-radius: 12px;"></div>
+        <div class="card" style="margin: 36px auto;">
+        	<div class="card-title"><img src="images/Gougu_Chrome_Canary.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
            	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Canary</p>
             	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/canary/';">下载</button></div>
             </div>
        	</div>
-        <div class="card" style="margin: 36px 12px;margin-bottom: 80px;">
-        	<div class="card-title"><img src="images/Gougu_Chromium.png" style="margin-left: 25%;margin-top: 16px;margin-bottom: 16px;height: 50%;width: 50%;border-radius: 12px;"></div>
+        <div class="card" style="margin: 36px auto;margin-bottom: 80px;">
+        	<div class="card-title"><img src="images/Gougu_Chromium.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
            	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chromium</p><p style="text-align: center;color: #F44336;">国内访问速度较慢</p>
             	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.chromium.org/';">下载</button></div>
             </div>
