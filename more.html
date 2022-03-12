@@ -185,8 +185,9 @@
 			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质 Cloudreve 云盘</li>
          	<a href="2022.html"><li class="mdui-ripple mdui-list-item">2022年春节倒计时</li></a>
             <a href="alert.html"><li class="mdui-ripple mdui-list-item">无限弹窗</li></a>
-            <a href="chrome.html"><li class="mdui-ripple mdui-list-item">勾股 Chrome 下载</li></a>
+            <li class="mdui-ripple mdui-list-item"><a href="chrome.html">勾股 Chrome 下载</a></li>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#minecraft'}">Minecraft 资源整合</li>
+            <a href="https://drive.loili.com/s/DjoFg"><li class="mdui-ripple mdui-list-item">[ Scratch ] 浠夭白板</li></a>
             </ul>
             </div>
             </div>
@@ -302,19 +303,19 @@
         </script>
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-新增 勾股 Chrome 下载<br>-新增 Minecraft 资源整合</div>
+       	<div class="mdui-dialog-content opacity">-新增 浠夭白板</div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
         </div>
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorksMinecraft") == "true"){
+   		if (localStorage.getItem("doNotShowWorksXybb") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorksMinecraft", "true");
+    		localStorage.setItem("doNotShowWorksXybb", "true");
 		}
     </script>
 </html>
