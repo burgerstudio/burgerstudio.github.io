@@ -187,6 +187,7 @@
             <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-desktop-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu 21.10</li></a> 
             <a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 20.04.3 LTS</li></a> 
             <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 21.10</li></a> 
+            <a href="https://drive.loili.com/s/ezYu3"><li class="mdui-ripple mdui-list-item">[VMOS Pro][Android 7.1]BurgerUI</li></a>
             </ul>
             </div>
             </div>
@@ -236,7 +237,7 @@
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
-          -新增分享 Windows 11 ISO 镜像
+          -新增分享 BurgerUI （VMOS Pro 专用 ROM）
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="sysimg.html">不再显示</button>
@@ -244,12 +245,12 @@
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowSystemImages") == "true"){
+   		if (localStorage.getItem("doNotShowSystemImagesBUI") == "true"){
 		}else{
-    		// updateDialog.open();
+    		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowSystemImages", "true");
+    		localStorage.setItem("doNotShowSystemImagesBUI", "true");
 		}
     </script>
 </html>
