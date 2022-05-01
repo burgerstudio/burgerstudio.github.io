@@ -188,6 +188,7 @@
             <li class="mdui-ripple mdui-list-item"><a href="chrome.html">勾股 Chrome 下载</a></li>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#minecraft'}">Minecraft 资源整合</li>
             <a href="burgernote.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 浠夭白板</li></a>
+            <a href="autopaint.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 自动绘画</li></a>
             </ul>
             </div>
             </div>
@@ -303,19 +304,19 @@
         </script>
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-新增 浠夭白板</div>
+       	<div class="mdui-dialog-content opacity">-新增 自动绘画</div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
         </div>
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorksXybb") == "true"){
+   		if (localStorage.getItem("doNotShowWorksZdhh") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorksXybb", "true");
+    		localStorage.setItem("doNotShowWorksZdhh", "true");
 		}
     </script>
 </html>
