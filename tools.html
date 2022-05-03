@@ -506,7 +506,7 @@
             	<input type="text" class="tool-input" id="gtrantext" placeholder="请输入要翻译的文字">
                	<button class="tool-button" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
                 <button class="tool-button" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
-                <button class="tool-button" onclick="btran()" style="margin-bottom: 0;">百度翻译</button>
+                <button class="tool-button" onclick="btran()">百度翻译</button>
                 <script>
                 	function gtran(){
     					location.href = "http://translate.google.cn/?text=" + document.getElementById('gtrantext').value;
@@ -589,8 +589,7 @@
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
-          -新增 便笺
-          <br>-重新设计工具窗口UI
+          -“Google 翻译”改为“翻译”，新增2种翻译平台
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="tools.html">不再显示</button>
@@ -598,12 +597,12 @@
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowToolsNote") == "true"){
+   		if (localStorage.getItem("doNotShowToolsTran") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowToolsNote", "true");
+    		localStorage.setItem("doNotShowToolsTran", "true");
 		}
     </script>
 </html>
