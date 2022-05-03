@@ -193,7 +193,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -211,6 +211,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -281,7 +282,7 @@
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('temperature');">摄氏度与华氏度转换</li>
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('navigator');">获取浏览器信息</li>
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('player');">媒体播放器</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('gtranslate');">Google 翻译</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('translate');">翻译</li>
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('note');">便笺</li>
                	</ul>
         	</div>
@@ -494,19 +495,27 @@
                 </script>
             </div>
         </div>
-        <div class="tool" id="gtranslate">
+        <div class="tool" id="translate">
         	<div class="tool-header">
-        		<div class="tool-title">Google 翻译</div>
-              	<div class="tool-close" onclick="toolclose('gtranslate');">
+        		<div class="tool-title">翻译</div>
+              	<div class="tool-close" onclick="toolclose('translate');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content">
-            	<input type="text" class="tool-input" id="tt" placeholder="请输入要翻译的文字">
-               	<button class="tool-button" onclick="GT()">翻译</button>
+            	<input type="text" class="tool-input" id="gtrantext" placeholder="请输入要翻译的文字">
+               	<button class="tool-button" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
+                <button class="tool-button" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
+                <button class="tool-button" onclick="btran()" style="margin-bottom: 0;">百度翻译</button>
                 <script>
-                	function GT(){
-    					location.href = "http://translate.google.cn/?text=" + document.getElementById('tt').value;
+                	function gtran(){
+    					location.href = "http://translate.google.cn/?text=" + document.getElementById('gtrantext').value;
+					}
+      				function mtran(){
+    					location.href = "https://cn.bing.com/translator/?text=" + document.getElementById('gtrantext').value;
+					}
+      				function btran(){
+    					location.href = "https://fanyi.baidu.com/#en/zh/" + document.getElementById('gtrantext').value;
 					}
                 </script>
             </div>
@@ -571,13 +580,6 @@
 	</script>
 	</body>
    <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       		var hours = new Date().getHours();
                if (hours >= 22 || hours < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
@@ -588,7 +590,7 @@
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
           -新增 便笺
-          -重新设计工具窗口UI
+          <br>-重新设计工具窗口UI
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="tools.html">不再显示</button>

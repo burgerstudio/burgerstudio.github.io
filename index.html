@@ -94,7 +94,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -112,6 +112,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -270,13 +271,6 @@
         </footer>
     </body>
     <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');

@@ -94,7 +94,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -112,6 +112,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -180,14 +181,12 @@
             <a href="https://yuanyubo-studio.vercel.app/"><li class="mdui-ripple mdui-list-item">YUANYUBO Studio Official</li></a>
             <a href="https://bgstool.github.io/"><li class="mdui-ripple mdui-list-item">Burger工具站 历史版本</li></a>
             <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页</li></a>
-            <a href="http://www.x86android.com/"><li class="mdui-ripple mdui-list-item">安卓x86中文站</li></a> 
             <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86（官方）</li></a> 
             <a href="https://msdn.itellyou.cn/"><li class="mdui-ripple mdui-list-item">MSDN，我告诉你</li></a> 
             <a href="https://next.itellyou.cn/"><li class="mdui-ripple mdui-list-item">NEXT，我告诉你</li></a> 
             <a href="https://download.lineageos.org.cn/"><li class="mdui-ripple mdui-list-item">LineageOS 镜像下载</li></a> 
             <a href="https://lineageos.org/"><li class="mdui-ripple mdui-list-item">LineageOS（官方）</li></a>
             <a href="http://mirrors.163.com/"><li class="mdui-ripple mdui-list-item">网易开源镜像站</li></a> 
-            <a href="https://opengapps.cc/"><li class="mdui-ripple mdui-list-item">OpenGApps中文站</li></a> 
             <a href="https://opengapps.org/"><li class="mdui-ripple mdui-list-item">The Open GApps Project</li></a> 
             <a href="https://www.magiskapp.cn/"><li class="mdui-ripple mdui-list-item">Magisk中文网</li></a> 
             <a href="https://magisk.me/"><li class="mdui-ripple mdui-list-item">Magisk（官方）</li></a>
@@ -202,6 +201,7 @@
             <a href="http://od.ixcmstudio.cn/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站</li></a>
             <a href="https://www.jdkdownload.com/"><li class="mdui-ripple mdui-list-item">JDK下载</li></a> 
             <a href="https://scratch.mit.edu/"><li class="mdui-ripple mdui-list-item">Scratch（国内无法访问）</li></a> 
+            <a href="https://apkpremier.com/"><li class="mdui-list-item mdui-ripple">APK Premier</li></a>
             </ul>
         </div>  
         </div>
@@ -236,17 +236,27 @@
         </footer>
     </body>
     <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
+        <div class="mdui-dialog" id="updatedialog">
+    	<div class="mdui-dialog-title toleft">最近更新</div>
+       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
+        <div class="mdui-dialog-actions toright">
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
+        </div>
+        </div>
+    <script>
+   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
+   		if (localStorage.getItem("doNotShowWebsites20220503") == "true"){
+		}else{
+    		updateDialog.open();
+		}
+   		function dns(){
+    		localStorage.setItem("doNotShowWebsites20220503", "true");
+		}
+    </script>
 </html>

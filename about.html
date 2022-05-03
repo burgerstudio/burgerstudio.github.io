@@ -94,7 +94,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -112,6 +112,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -190,17 +191,18 @@
                     </div>
                 </div>
             </div>
+            <h4 style="margin: 16px 0;font-weight: normal;font-style: italic;opacity: 0.7;">爱好：IT、Web、电音、MC、剪辑</h4>
             <h2 class="mdui-text-color-theme-accent mdui-text-color-theme-text"> QQ:<br>3247428397(主要)<button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-dialog="{target: '#qq'}"><i class="mdui-icon material-icons">add</i></button><br>1205499078 
             <br><br> 微信:<br>3247428397<br>AdminStudios 
             <button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-menu="{target: '#wechat'}"><i class="mdui-icon material-icons">add</i></button>
             <div class="mdui-menu" id="wechat">
         		<img src="images/WeChat.png" class="mdui-img-fluid">
         	</div>
-            <br><br> 虚拟机技术交流QQ群:<br>946845721 <a href="https://jq.qq.com/?_wv=1027&amp;k=0o2N5cKf" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a> 
+            <br><br> 技术社区（QQ）:<br>946845721 <a href="https://jq.qq.com/?_wv=1027&amp;k=0o2N5cKf" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a> 
+            <br><br> 技术社区（Telegram）:<br>Burger_Group <a href="https://t.me/Burger_Group" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a> 
             <br><br> 网易邮箱：<br>vmos1624@163.com <a href="mailto:vmos1624@163.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a>
             <br><br> Telegram：BGS_XNJ<a href="https://t.me/BGS_XNJ" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
-            <br><br> 哔哩哔哩：<a href="https://m.bilibili.com/space/489787841" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
-            <br><br> 爱奇艺：<a href="https://m.iqiyi.com/u/1589270973/person" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            <br><br> 哔哩哔哩：BGS_虚拟稽<a href="https://m.bilibili.com/space/489787841" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
             <br><br> Outlook：<br>vmos1624@outlook.com <a href="mailto:vmos1624@outlook.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a></h2>
             <br>
         </div>  
@@ -237,13 +239,6 @@
         <br><br>
         </footer>
         <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       			var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
@@ -267,5 +262,22 @@
     			localStorage.thumb = 0;
 			}
         </script>
+        <div class="mdui-dialog" id="updatedialog">
+    	<div class="mdui-dialog-title toleft">最近更新</div>
+       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
+        <div class="mdui-dialog-actions toright">
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
+        </div>
+        </div>
+    <script>
+   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
+   		if (localStorage.getItem("doNotShowAbout20220503") == "true"){
+		}else{
+    		updateDialog.open();
+		}
+   		function dns(){
+    		localStorage.setItem("doNotShowAbout20220503", "true");
+		}
+    </script>
     </body>
 </html>

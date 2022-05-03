@@ -97,7 +97,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -125,6 +125,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -238,23 +239,25 @@
             <a href="https://www.coolapk.com/apk/cn.w3cschool.app"><li class="mdui-ripple mdui-list-item">编程狮</li></a>
 			<a href="https://apkpremier.com/download/studio-com-techriz-andronix"><li class="mdui-ripple mdui-list-item">Andronix</li></a>
          	<a href="https://www.coolapk.com/apk/me.twrp.twrpapp"><li class="mdui-ripple mdui-list-item">Official TWRP App</li></a>
-            <a href="https://pan.baidu.com/"><li class="mdui-ripple mdui-list-item">百度网盘</li></a> 
 			<a href="https://apkpremier.com/download/org-scratch"><li class="mdui-ripple mdui-list-item">Scratch</li></a>
+         	<a href="https://aidlux.com/apk/AidLux.apk"><li class="mdui-ripple mdui-list-item">AidLux</li></a>
+            <a href="https://www.aliyundrive.com/"><li class="mdui-ripple mdui-list-item">阿里云盘</li></a>
+            <a href="https://h5.cloud.189.cn/home.html"><li class="mdui-ripple mdui-list-item">天翼云盘</li></a>
+            <a href="https://apkpremier.com/download/com-instantbits-cast-webvideo"><li class="mdui-list-item mdui-ripple">Web Video Caster</li></a>
             </ul>
             </div>
             <div id="windows">
             <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent toleft" style="font-weight: bold;font-size: 15px;">
             <a href="https://www.virtualbox.org"><li class="mdui-ripple mdui-list-item">VirtualBox</li></a> 
             <a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="mdui-ripple mdui-list-item">VMware</li></a> 
-            <a href="https://www.quqi.com"><li class="mdui-ripple mdui-list-item">曲奇云盘</li></a> 
             <a href="https://www.lanzou.com"><li class="mdui-ripple mdui-list-item">蓝奏云</li></a> 
             <a href="https://www.google.cn/chrome/"><li class="mdui-ripple mdui-list-item">Google Chrome</li></a> 
             <a href="http://www.android-studio.org/"><li class="mdui-ripple mdui-list-item">Android Studio</li></a> 
             <a href="http://tools.android-studio.org/index.php/sdk"><li class="mdui-ripple mdui-list-item">Android SDK</li></a> 
             <a href="https://www.java.com/zh-CN/"><li class="mdui-ripple mdui-list-item">Java</li></a> 
             <a href="https://pan.baidu.com/"><li class="mdui-ripple mdui-list-item">百度网盘</li></a> 
-            <a href="https://p.qingstore.cn/s/ROL7iY"><li class="mdui-ripple mdui-list-item">VNC Server</li></a> 
-            <a href="https://p.qingstore.cn/s/PBL8sP"><li class="mdui-ripple mdui-list-item">VNC Viewer</li></a> 
+            <a href="https://www.realvnc.com/en/connect/download/vnc/windows/"><li class="mdui-ripple mdui-list-item">VNC Server</li></a> 
+            <a href="https://www.realvnc.com/en/connect/download/viewer/windows/"><li class="mdui-ripple mdui-list-item">VNC Viewer</li></a> 
             <a href="https://www.aida64.com/downloads"><li class="mdui-ripple mdui-list-item">AIDA64</li></a> 
             <a href="https://p.qingstore.cn/s/GxaEf9"><li class="mdui-ripple mdui-list-item">QEMU</li></a> 
             <a href="http://m.xunlei.com/index.html"><li class="mdui-ripple mdui-list-item">迅雷</li></a> 
@@ -263,6 +266,9 @@
             <a href="https://sunlogin.oray.com/download/"><li class="mdui-ripple mdui-list-item">向日葵远程控制</li></a>
             <a href="https://www.flash.cn/"><li class="mdui-ripple mdui-list-item">Flash中心</li></a>
             <a href="https://drive.loili.com/s/M0vhG"><li class="mdui-ripple mdui-list-item">Scratch</li></a>
+            <a href="https://www.aliyundrive.com/"><li class="mdui-ripple mdui-list-item">阿里云盘</li></a>
+            <a href="https://cloud.189.cn/web/login.html"><li class="mdui-ripple mdui-list-item">天翼云盘</li></a>
+            <a href="https://www.huorong.cn/person5.html"><li class="mdui-ripple mdui-list-item">火绒安全软件</li></a>
             </ul>
         </div>  
         </div>
@@ -323,17 +329,27 @@
     </script>
     </body>
     <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
+        <div class="mdui-dialog" id="updatedialog">
+    	<div class="mdui-dialog-title toleft">最近更新</div>
+       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
+        <div class="mdui-dialog-actions toright">
+        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
+        </div>
+        </div>
+    <script>
+   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
+   		if (localStorage.getItem("doNotShowApps20220503") == "true"){
+		}else{
+    		updateDialog.open();
+		}
+   		function dns(){
+    		localStorage.setItem("doNotShowApps20220503", "true");
+		}
+    </script>
 </html>

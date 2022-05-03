@@ -94,7 +94,7 @@
         <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}" onclick="themecolor()">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -112,6 +112,7 @@
         <div class="mdui-dialog" id="update">
         <div class="mdui-dialog-title toleft">获取离线版</div>
         <div class="mdui-dialog-content opacity">
+        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
@@ -178,8 +179,9 @@
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">系统镜像</h1>
             <ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
-            <a href="https://moecloud.cn/s/qqwmFO"><li class="mdui-ripple mdui-list-item">Android-x86</li></a> 
-            <a href="https://pan.baidu.com/s/1xqQq_Lf6_JOVkG2tHsF57g"><li class="mdui-ripple mdui-list-item">精选镜像(提取码：q49u)</li></a> 
+            <a href="https://sourceforge.net/projects/android-x86/files/"><li class="mdui-ripple mdui-list-item">Android-x86</li></a> 
+            <a href="https://d.icdown.club/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像1</li></a> 
+            <a href="https://od.ixcmstudio.cn/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像2</li></a> 
             <a href="https://https://www.microsoft.com/zh-cn/software-download/windows8ISO"><li class="mdui-ripple mdui-list-item">Windows 8.1</li></a> 
             <a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO"><li class="mdui-ripple mdui-list-item">Windows 10</li></a> 
             <a href="https://www.microsoft.com/zh-cn/software-download/windows11"><li class="mdui-ripple mdui-list-item">Windows 11</li></a>
@@ -187,7 +189,7 @@
             <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-desktop-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu 21.10</li></a> 
             <a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 20.04.3 LTS</li></a> 
             <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 21.10</li></a> 
-            <a href="https://moecloud.cn/s/J0P6U9"><li class="mdui-ripple mdui-list-item">[VMOS Pro 安卓7.1 32位]BurgerUI</li></a>
+            <a href="https://www.coolapk.com/feed/35565740?shareKey=NGMzYWVjNTg0N2Y2NjI3MDg3NzU~&shareUid=3538557&shareFrom=com.coolapk.market_12.2.1"><li class="mdui-ripple mdui-list-item">[VMOS Pro][Android 7.1]BurgerUI</li></a>
             </ul>
             </div>
             </div>
@@ -221,13 +223,6 @@
         </div>
     </body>
     <script>
-        	function themecolor(){
-    			if (localStorage.darkTheme){
-                	document.body.classList.add('mdui-theme-accent-blue');
-				}else{
-    				document.body.classList.remove('mdui-theme-accent-blue');
-				}
-			}
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
     				document.body.classList.remove('mdui-theme-accent-blue');
@@ -237,7 +232,7 @@
         <div class="mdui-dialog" id="updatedialog">
     	<div class="mdui-dialog-title toleft">最近更新</div>
        	<div class="mdui-dialog-content opacity">
-          -新增分享 BurgerUI （VMOS Pro 专用 ROM）
+          -更新若干内容
           </div>
         <div class="mdui-dialog-actions toright">
         	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="sysimg.html">不再显示</button>
@@ -245,12 +240,12 @@
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowSystemImagesBUI") == "true"){
+   		if (localStorage.getItem("doNotShowSystemImages20220503") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowSystemImagesBUI", "true");
+    		localStorage.setItem("doNotShowSystemImages20220503", "true");
 		}
     </script>
 </html>
