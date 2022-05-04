@@ -183,7 +183,7 @@
             <a href="files/AdminOS 2021.pptx"><li class="mdui-ripple mdui-list-item">AdminOS 2021</li></a> 
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#edittools'}">绘图/剪辑工具整合</li>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#beautifytools'}">原生美化工具整合</li>
-			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质 Cloudreve 云盘整合</li>
+			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质云盘整合</li>
          	<a href="2022.html"><li class="mdui-ripple mdui-list-item">2022年春节倒计时</li></a>
             <a href="alert.html"><li class="mdui-ripple mdui-list-item">无限弹窗</li></a>
             <li class="mdui-ripple mdui-list-item"><a href="chrome.html">勾股 Chrome 下载</a></li>
@@ -263,11 +263,16 @@
         </div>
 		<div class="mdui-dialog" id="cloud" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title opacity">优质 Cloudreve 云盘整合</span>
+           		<span class="mdui-typo-title opacity">优质云盘整合</span>
            		<div class="mdui-toolbar-spacer"></div>
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
             <ul class="mdui-list toleft mdui-dialog-content">
+            	<a href="https://onedrive.live.com/"><li class="mdui-ripple mdui-list-item">OneDrive</li></a>
+               	<a href="https://www.icloud.com/"><li class="mdui-ripple mdui-list-item">iCloud</li></a>
+                <a href="https://www.aliyundrive.com/"><li class="mdui-ripple mdui-list-item">阿里云盘</li></a>
+                <a href="https://cloud.189.cn/"><li class="mdui-ripple mdui-list-item">天翼云盘</li></a>
+                <a href="https://www.123pan.com/"><li class="mdui-ripple mdui-list-item">123云盘</li></a>
             	<a href="http://pan.handanxiaochipeixun.top:5212/"><li class="mdui-list-item mdui-ripple">雨滴云盘 - 赠送50GB</li></a>
                	<a href="https://moecloud.cn/"><li class="mdui-list-item mdui-ripple">萌云 - 赠送200GB</li></a>
                 <a href="https://xtayun.com/"><li class="mdui-list-item mdui-ripple">小太阳云盘 - 赠送100GB</li></a>
@@ -320,12 +325,12 @@
         </div>
     <script>
    		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorks20220503") == "true"){
+   		if (localStorage.getItem("doNotShowWorks20220504") == "true"){
 		}else{
     		updateDialog.open();
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorks20220503", "true");
+    		localStorage.setItem("doNotShowWorks20220504", "true");
 		}
     </script>
 </html>
