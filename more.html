@@ -80,6 +80,37 @@
         margin-left: 32px;
         animation-fill-mode: forwards;
 		}
+   		.update-dialog{
+		position: fixed;
+		right: -300px;
+		bottom: 16px;
+		background-color: #EFEFEF;
+		box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+		padding: 16px;
+		transition-duration: 0.5s;
+		width: 250px;
+		border-radius: 10px;
+		z-index: 1;
+		}
+		.update-dialog-title{
+		font-weight: bold;
+		margin-bottom: 8px;
+		font-size: 16px;
+		}
+   		.update-dialog-btn{
+		width: 200px;
+		height: 30px;
+		margin-top: 16px;
+		border-radius: 5px;
+		border: none;
+		background-color: #FFFFFF;
+		transition-duration: 0.3s;
+		}
+		.update-dialog-btn:hover{
+		background-color: #EFEFEF;
+		color: #ABABAB;
+		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		}
         </style>
         <title>更多资源</title>
     </head> 
@@ -181,16 +212,17 @@
             <a href="settings.html"><li class="mdui-ripple mdui-list-item">仿原生安卓设置</li></a> 
             <a href="music.html"><li class="mdui-ripple mdui-list-item">极品电音</li></a> 
             <a href="files/AdminOS 2021.pptx"><li class="mdui-ripple mdui-list-item">AdminOS 2021</li></a> 
-            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#edittools'}">绘图/剪辑工具整合</li>
-            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#beautifytools'}">原生美化工具整合</li>
-			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质云盘整合</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#edittools'}">绘图/剪辑工具收集</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#beautifytools'}">原生美化工具收集</li>
+			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质云盘收集</li>
          	<a href="2022.html"><li class="mdui-ripple mdui-list-item">2022年春节倒计时</li></a>
             <a href="alert.html"><li class="mdui-ripple mdui-list-item">无限弹窗</li></a>
             <li class="mdui-ripple mdui-list-item"><a href="chrome.html">勾股 Chrome 下载</a></li>
-            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#minecraft'}">Minecraft 资源整合</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#minecraft'}">Minecraft 资源收集</li>
             <a href="burgernote.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 浠夭白板</li></a>
             <a href="autopaint.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 自动绘画</li></a>
-            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloudpc'}">优质云电脑整合</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloudpc'}">优质云电脑收集</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#mdweb'}">Material Design 网页前端框架</li>
             </ul>
             </div>
             </div>
@@ -225,7 +257,7 @@
         </div>
         <div class="mdui-dialog" id="edittools" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent">
-           	<span class="mdui-typo-title opacity">绘图/剪辑工具整合</span>
+           	<span class="mdui-typo-title opacity">绘图/剪辑工具收集</span>
            	<div class="mdui-toolbar-spacer"></div>
         	<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
@@ -248,7 +280,7 @@
         </div>
         <div class="mdui-dialog" id="beautifytools" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent">
-           		<span class="mdui-typo-title opacity">原生美化工具整合</span>
+           		<span class="mdui-typo-title opacity">原生美化工具收集</span>
            		<div class="mdui-toolbar-spacer"></div>
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
@@ -263,7 +295,7 @@
         </div>
 		<div class="mdui-dialog" id="cloud" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title opacity">优质云盘整合</span>
+           		<span class="mdui-typo-title opacity">优质云盘收集</span>
            		<div class="mdui-toolbar-spacer"></div>
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
@@ -282,7 +314,7 @@
         </div>
         <div class="mdui-dialog" id="minecraft" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">Minecraft 资源整合</span>
+           		<span class="mdui-typo-title toleft">Minecraft 资源收集</span>
            		<div class="mdui-toolbar-spacer"></div>
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
@@ -299,13 +331,28 @@
         </div>
         <div class="mdui-dialog" id="cloudpc" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">优质云电脑整合</span>
+           		<span class="mdui-typo-title toleft">优质云电脑收集</span>
            		<div class="mdui-toolbar-spacer"></div>
         		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
             <ul class="mdui-list toleft mdui-dialog-content">
             	<a href="https://www.ji-cloud.cn/index_wap.php"><li class="mdui-list-item mdui-ripple">极云惠普云电脑</li></a>
                 <a href="http://www.honpc.com/"><li class="mdui-list-item mdui-ripple">弘电脑</li></a>
+                <a href="https://cpc.icloud.cn/"><li class="mdui-ripple mdui-list-item">顺网云电脑</li></a>
+            </ul>
+        </div>
+        <div class="mdui-dialog" id="mdweb" style="height: 100%;width: 100%;">
+        	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
+           		<span class="mdui-typo-title toleft">Material Design 网页前端框架</span>
+           		<div class="mdui-toolbar-spacer"></div>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+            </div>
+            <ul class="mdui-list toleft mdui-dialog-content">
+            	<a href="https://www.mdui.org/"><li class="mdui-list-item mdui-ripple">MDUI</li></a>
+                <a href="https://materializecss.com/"><li class="mdui-list-item mdui-ripple">Materialize</li></a>
+                <a href="https://mui.com/"><li class="mdui-ripple mdui-list-item">MUI</li></a>
+                <a href="https://vuetify.cn/zh-Hans/"><li class="mdui-ripple mdui-list-item">Vuetify</li></a>
+                <a href="http://daemonite.github.io/material/"><li class="mdui-ripple mdui-list-item">Daemonite</li></a>
             </ul>
         </div>
     </body>
@@ -316,21 +363,32 @@
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
-        <div class="mdui-dialog" id="updatedialog">
-    	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
-        <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
-        </div>
+        <div id="updatedialog" class="update-dialog">
+        <div class="update-dialog-title">最近更新</div>
+        <div class="update-dialog-content">2022年5月4日<br>-更新一些内容</div>
+		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWorks20220504") == "true"){
+   		var updateDialog = document.getElementById('updatedialog');
+		function openUpdateDialog(){
+    		updateDialog.style.right = "16px";
+		}
+		function hideUpdateDialog(){
+    		updateDialog.style.right = "-300px";
+		}
+		function closeUpdateDialog(){
+    		updateDialog.style.transform = "scale(0.7)"
+			window.setTimeout('updateDialog.style.bottom = "64px"',300)
+			window.setTimeout('updateDialog.style.opacity = "0"',300)
+			dns();
+		}
+   		if (localStorage.getItem("doNotShowUpdateMore20220504") == "true"){
 		}else{
-    		updateDialog.open();
+    		window.setTimeout('openUpdateDialog();',1500)
+			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWorks20220504", "true");
+    		localStorage.setItem("doNotShowUpdateMore20220504", "true");
 		}
     </script>
 </html>

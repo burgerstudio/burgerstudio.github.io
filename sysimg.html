@@ -80,6 +80,37 @@
         margin-left: 32px;
         animation-fill-mode: forwards;
 		}
+   		.update-dialog{
+		position: fixed;
+		right: -300px;
+		bottom: 16px;
+		background-color: #EFEFEF;
+		box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+		padding: 16px;
+		transition-duration: 0.5s;
+		width: 250px;
+		border-radius: 10px;
+		z-index: 1;
+		}
+		.update-dialog-title{
+		font-weight: bold;
+		margin-bottom: 8px;
+		font-size: 16px;
+		}
+   		.update-dialog-btn{
+		width: 200px;
+		height: 30px;
+		margin-top: 16px;
+		border-radius: 5px;
+		border: none;
+		background-color: #FFFFFF;
+		transition-duration: 0.3s;
+		}
+		.update-dialog-btn:hover{
+		background-color: #EFEFEF;
+		color: #ABABAB;
+		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		}
         </style>
         <title>系统镜像</title>
     </head> 
@@ -231,23 +262,32 @@
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
-        <div class="mdui-dialog" id="updatedialog">
-    	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">
-          -更新若干内容
-          </div>
-        <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="sysimg.html">不再显示</button>
-        </div>
+        <div id="updatedialog" class="update-dialog">
+        <div class="update-dialog-title">最近更新</div>
+        <div class="update-dialog-content">2022年5月3日<br>-更新一些内容</div>
+		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowSystemImages20220503") == "true"){
+   		var updateDialog = document.getElementById('updatedialog');
+		function openUpdateDialog(){
+    		updateDialog.style.right = "16px";
+		}
+		function hideUpdateDialog(){
+    		updateDialog.style.right = "-300px";
+		}
+		function closeUpdateDialog(){
+    		updateDialog.style.transform = "scale(0.7)"
+			window.setTimeout('updateDialog.style.bottom = "64px"',300)
+			window.setTimeout('updateDialog.style.opacity = "0"',300)
+			dns();
+		}
+   		if (localStorage.getItem("doNotShowUpdateSysimg20220503") == "true"){
 		}else{
-    		updateDialog.open();
+    		window.setTimeout('openUpdateDialog();',1500)
+			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowSystemImages20220503", "true");
+    		localStorage.setItem("doNotShowUpdateSysimg20220503", "true");
 		}
     </script>
 </html>

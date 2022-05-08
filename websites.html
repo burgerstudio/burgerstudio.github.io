@@ -80,6 +80,37 @@
         margin-left: 32px;
         animation-fill-mode: forwards;
 		}
+   		.update-dialog{
+		position: fixed;
+		right: -300px;
+		bottom: 16px;
+		background-color: #EFEFEF;
+		box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+		padding: 16px;
+		transition-duration: 0.5s;
+		width: 250px;
+		border-radius: 10px;
+		z-index: 1;
+		}
+		.update-dialog-title{
+		font-weight: bold;
+		margin-bottom: 8px;
+		font-size: 16px;
+		}
+   		.update-dialog-btn{
+		width: 200px;
+		height: 30px;
+		margin-top: 16px;
+		border-radius: 5px;
+		border: none;
+		background-color: #FFFFFF;
+		transition-duration: 0.3s;
+		}
+		.update-dialog-btn:hover{
+		background-color: #EFEFEF;
+		color: #ABABAB;
+		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		}
         </style>
         <title>网络站点</title>
     </head> 
@@ -181,7 +212,7 @@
             <a href="https://yuanyubo-studio.vercel.app/"><li class="mdui-ripple mdui-list-item">YUANYUBO Studio Official</li></a>
             <a href="https://bgstool.github.io/"><li class="mdui-ripple mdui-list-item">Burger工具站 历史版本</li></a>
             <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页</li></a>
-            <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86（官方）</li></a> 
+            <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86</li></a> 
             <a href="https://msdn.itellyou.cn/"><li class="mdui-ripple mdui-list-item">MSDN，我告诉你</li></a> 
             <a href="https://next.itellyou.cn/"><li class="mdui-ripple mdui-list-item">NEXT，我告诉你</li></a> 
             <a href="https://download.lineageos.org.cn/"><li class="mdui-ripple mdui-list-item">LineageOS 镜像下载</li></a> 
@@ -192,9 +223,8 @@
             <a href="https://magisk.me/"><li class="mdui-ripple mdui-list-item">Magisk（官方）</li></a>
             <a href="https://www.magisk.cool/"><li class="mdui-ripple mdui-list-item">Magisk仓库</li></a>
             <a href="https://twrp.me/"><li class="mdui-ripple mdui-list-item">TWRP</li></a> 
-            <a href="https://www.mdui.org/"><li class="mdui-ripple mdui-list-item">MDUI</li></a>
             <a href="https://www.ngrok.cc/"><li class="mdui-ripple mdui-list-item">Sunny-Ngrok内网转发</li></a>
-            <a href="https://www.w3school.com.cn/"><li class="mdui-ripple mdui-list-item">W3School</li></a>
+            <a href="https://www.w3school.com.cn/"><li class="mdui-ripple mdui-list-item">W3school</li></a>
             <a href="https://github.com/"><li class="mdui-ripple mdui-list-item">GitHub</li></a>
             <a href="https://bing.ioliu.cn/"><li class="mdui-ripple mdui-list-item">必应每日高清壁纸</li></a>
             <a href="https://www.icdown.club/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站（主页）</li></a>
@@ -202,6 +232,8 @@
             <a href="https://www.jdkdownload.com/"><li class="mdui-ripple mdui-list-item">JDK下载</li></a> 
             <a href="https://scratch.mit.edu/"><li class="mdui-ripple mdui-list-item">Scratch（国内无法访问）</li></a> 
             <a href="https://apkpremier.com/"><li class="mdui-list-item mdui-ripple">APK Premier</li></a>
+            <a href="https://miuiver.com/"><li class="mdui-ripple mdui-list-item">MIUI历史版本</li></a>
+            <a href="https://material.io/"><li class="mdui-ripple mdui-list-item">Material Design</li></a>
             </ul>
         </div>  
         </div>
@@ -242,21 +274,32 @@
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
-        <div class="mdui-dialog" id="updatedialog">
-    	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
-        <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
-        </div>
+        <div id="updatedialog" class="update-dialog">
+        <div class="update-dialog-title">最近更新</div>
+        <div class="update-dialog-content">2022年5月8日<br>-更新一些内容</div>
+		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowWebsites20220503") == "true"){
+   		var updateDialog = document.getElementById('updatedialog');
+		function openUpdateDialog(){
+    		updateDialog.style.right = "16px";
+		}
+		function hideUpdateDialog(){
+    		updateDialog.style.right = "-300px";
+		}
+		function closeUpdateDialog(){
+    		updateDialog.style.transform = "scale(0.7)"
+			window.setTimeout('updateDialog.style.bottom = "64px"',300)
+			window.setTimeout('updateDialog.style.opacity = "0"',300)
+			dns();
+		}
+   		if (localStorage.getItem("doNotShowUpdateWebsites20220508") == "true"){
 		}else{
-    		updateDialog.open();
+    		window.setTimeout('openUpdateDialog();',1500)
+			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowWebsites20220503", "true");
+    		localStorage.setItem("doNotShowUpdateWebsites20220508", "true");
 		}
     </script>
 </html>

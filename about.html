@@ -80,6 +80,37 @@
         margin-left: 32px;
         animation-fill-mode: forwards;
 		}
+   		.update-dialog{
+		position: fixed;
+		right: -300px;
+		bottom: 16px;
+		background-color: #EFEFEF;
+		box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+		padding: 16px;
+		transition-duration: 0.5s;
+		width: 250px;
+		border-radius: 10px;
+		z-index: 1;
+		}
+		.update-dialog-title{
+		font-weight: bold;
+		margin-bottom: 8px;
+		font-size: 16px;
+		}
+   		.update-dialog-btn{
+		width: 200px;
+		height: 30px;
+		margin-top: 16px;
+		border-radius: 5px;
+		border: none;
+		background-color: #FFFFFF;
+		transition-duration: 0.3s;
+		}
+		.update-dialog-btn:hover{
+		background-color: #EFEFEF;
+		color: #ABABAB;
+		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		}
         </style>
         <title>关于我们</title> 
     </head> 
@@ -191,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            <h4 style="margin: 16px 0;font-weight: normal;font-style: italic;opacity: 0.7;">爱好：数码、IT、Web、电音、MC、剪辑</h4>
+            <h4 style="margin: 16px 0;font-weight: normal;font-style: italic;opacity: 0.7;">爱好：数码、IT、Web、设计、电音、MC</h4>
             <h2 class="mdui-text-color-theme-accent mdui-text-color-theme-text"> QQ:<br>3247428397(主要)<button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-dialog="{target: '#qq'}"><i class="mdui-icon material-icons">add</i></button><br>1205499078 
             <br><br> 微信:<br>3247428397<br>AdminStudios 
             <button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-menu="{target: '#wechat'}"><i class="mdui-icon material-icons">add</i></button>
@@ -203,7 +234,7 @@
             <br><br> 网易邮箱：<br>vmos1624@163.com <a href="mailto:vmos1624@163.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a>
             <br><br> Telegram：BGS_XNJ<a href="https://t.me/BGS_XNJ" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
             <br><br> 哔哩哔哩：BGS_虚拟稽<a href="https://m.bilibili.com/space/489787841" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
-            <br><br> Outlook：<br>vmos1624@outlook.com <a href="mailto:vmos1624@outlook.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a></h2>
+            <br><br> Outlook：<br>vmos1624@outlook.com <a href="mailto:vmos1624@outlook.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a></h2>
             <br>
         </div>  
         </div>
@@ -262,21 +293,32 @@
     			localStorage.thumb = 0;
 			}
         </script>
-        <div class="mdui-dialog" id="updatedialog">
-    	<div class="mdui-dialog-title toleft">最近更新</div>
-       	<div class="mdui-dialog-content opacity">-更新若干内容</div>
-        <div class="mdui-dialog-actions toright">
-        	<button class="mdui-btn mdui-ripple" onclick="dns()" mdui-dialog-close href="more.html">不再显示</button>
-        </div>
+        <div id="updatedialog" class="update-dialog">
+        <div class="update-dialog-title">最近更新</div>
+        <div class="update-dialog-content">2022年5月8日<br>-更新一些内容</div>
+		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = new mdui.Dialog('#updatedialog',{history: false});
-   		if (localStorage.getItem("doNotShowAbout20220503") == "true"){
+   		var updateDialog = document.getElementById('updatedialog');
+		function openUpdateDialog(){
+    		updateDialog.style.right = "16px";
+		}
+		function hideUpdateDialog(){
+    		updateDialog.style.right = "-300px";
+		}
+		function closeUpdateDialog(){
+    		updateDialog.style.transform = "scale(0.7)"
+			window.setTimeout('updateDialog.style.bottom = "64px"',300)
+			window.setTimeout('updateDialog.style.opacity = "0"',300)
+			dns();
+		}
+   		if (localStorage.getItem("doNotShowUpdateAbout20220508") == "true"){
 		}else{
-    		updateDialog.open();
+    		window.setTimeout('openUpdateDialog();',1500)
+			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowAbout20220503", "true");
+    		localStorage.setItem("doNotShowUpdateAbout20220508", "true");
 		}
     </script>
     </body>
