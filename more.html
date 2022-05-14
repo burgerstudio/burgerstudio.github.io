@@ -224,6 +224,7 @@
             <a href="autopaint.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 自动绘画</li></a>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloudpc'}">优质云电脑收集</li>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#mdweb'}">Material Design 网页前端框架</li>
+            <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#webos'}">网页操作系统收集</li>
             </ul>
             </div>
             </div>
@@ -308,11 +309,11 @@
                 <a href="https://www.aliyundrive.com/"><li class="mdui-ripple mdui-list-item">阿里云盘</li></a>
                 <a href="https://cloud.189.cn/"><li class="mdui-ripple mdui-list-item">天翼云盘</li></a>
                 <a href="https://www.123pan.com/"><li class="mdui-ripple mdui-list-item">123云盘</li></a>
-            	<a href="http://pan.handanxiaochipeixun.top:5212/"><li class="mdui-list-item mdui-ripple">雨滴云盘 - 赠送50GB</li></a>
-               	<a href="https://moecloud.cn/"><li class="mdui-list-item mdui-ripple">萌云 - 赠送200GB</li></a>
-                <a href="https://xtayun.com/"><li class="mdui-list-item mdui-ripple">小太阳云盘 - 赠送100GB</li></a>
-                <a href="https://www.bilnn.com/"><li class="mdui-list-item mdui-ripple">比邻云盘 - 赠送1TB</li></a>
-                <a href="https://drive.loili.com/"><li class="mdui-list-item mdui-ripple">樱忆云盘 - 赠送20GB</li></a>
+            	<a href="http://pan.handanxiaochipeixun.top:5212/"><li class="mdui-list-item mdui-ripple">雨滴云盘</li></a>
+               	<a href="https://moecloud.cn/"><li class="mdui-list-item mdui-ripple">萌云</li></a>
+                <a href="https://cncncloud.com/"><li class="mdui-list-item mdui-ripple">小太阳云存储</li></a>
+                <a href="https://www.bilnn.com/"><li class="mdui-list-item mdui-ripple">比邻云盘</li></a>
+                <a href="https://drive.loili.com/"><li class="mdui-list-item mdui-ripple">樱忆云盘</li></a>
             </ul>
         </div>
         <div class="mdui-dialog" id="minecraft" style="height: 100%;width: 100%;">
@@ -330,6 +331,8 @@
                 <a href="https://apkpremier.com/details/com-electricfoal-photocrafter"><li class="mdui-list-item mdui-ripple">Pixelart builder for Minecraft （像素画）</li></a>
                 <a href="https://apkpremier.com/details/com-lyxoto-master-forminecraftpe"><li class="mdui-list-item mdui-ripple">Block Master for Minecraft PE （各种资源）</li></a>
                 <a href="https://apkpremier.com/details/io-mrarm-mctoolbox"><li class="mdui-list-item mdui-ripple">Toolbox for Minecraft: PE （工具箱）</li></a>
+                <a href="https://klpbbs.com/"><li class="mdui-ripple mdui-list-item">苦力怕论坛</li></a>
+                <a href=""><li class="mdui-ripple mdui-list-item">我的世界中文论坛</li></a>
             </ul>
         </div>
         <div class="mdui-dialog" id="cloudpc" style="height: 100%;width: 100%;">
@@ -358,6 +361,19 @@
                 <a href="http://daemonite.github.io/material/"><li class="mdui-ripple mdui-list-item">Daemonite</li></a>
             </ul>
         </div>
+        <div class="mdui-dialog" id="webos" style="height: 100%;width: 100%;">
+        	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
+           		<span class="mdui-typo-title toleft">网页操作系统收集</span>
+           		<div class="mdui-toolbar-spacer"></div>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+            </div>
+            <ul class="mdui-list toleft mdui-dialog-content">
+            	<a href="https://win11.blueedge.me"><li class="mdui-list-item mdui-ripple">Win11 in React</li></a>
+                <a href="https://dustinbrett.com/"><li class="mdui-list-item mdui-ripple">daedalOS</li></a>
+                <a href="http://windows93.net/"><li class="mdui-ripple mdui-list-item">WINDOWS93</li></a>
+                <a href="https://windows96.net/"><li class="mdui-ripple mdui-list-item">Windows 96</li></a>
+            </ul>
+        </div>
     </body>
     <script>
       		var hour = new Date().getHours();
@@ -368,7 +384,7 @@
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年5月4日<br>-更新一些内容</div>
+        <div class="update-dialog-content">2022年5月14日<br>-更新一些内容</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -385,13 +401,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateMore20220504") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateMore20220514") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateMore20220504", "true");
+    		localStorage.setItem("doNotShowUpdateMore20220514", "true");
 		}
     </script>
 </html>
