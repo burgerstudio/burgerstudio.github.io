@@ -219,10 +219,8 @@
             <a href="https://https://www.microsoft.com/zh-cn/software-download/windows8ISO"><li class="mdui-ripple mdui-list-item">Windows 8.1</li></a> 
             <a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO"><li class="mdui-ripple mdui-list-item">Windows 10</li></a> 
             <a href="https://www.microsoft.com/zh-cn/software-download/windows11"><li class="mdui-ripple mdui-list-item">Windows 11</li></a>
-            <a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.3-desktop-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu 20.04.3 LTS</li></a> 
-            <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-desktop-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu 21.10</li></a> 
-            <a href="https://releases.ubuntu.com/20.04/ubuntu-20.04.3-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 20.04.3 LTS</li></a> 
-            <a href="https://releases.ubuntu.com/21.10/ubuntu-21.10-live-server-amd64.iso"><li class="mdui-ripple mdui-list-item">Ubuntu Server 21.10</li></a> 
+            <a href="https://cn.ubuntu.com/download/desktop"><li class="mdui-ripple mdui-list-item">Ubuntu 22.04 LTS</li></a> 
+            <a href="https://cn.ubuntu.com/download/server/step1"><li class="mdui-ripple mdui-list-item">Ubuntu Server 22.04 LTS</li></a> 
             <a href="https://www.coolapk.com/feed/35565740?shareKey=NGMzYWVjNTg0N2Y2NjI3MDg3NzU~&shareUid=3538557&shareFrom=com.coolapk.market_12.2.1"><li class="mdui-ripple mdui-list-item">[VMOS Pro][Android 7.1]BurgerUI</li></a>
             </ul>
             </div>
@@ -265,7 +263,7 @@
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年5月3日<br>-更新一些内容</div>
+        <div class="update-dialog-content">2022年6月5日<br>-更新 Ubuntu 系统镜像</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -282,13 +280,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateSysimg20220503") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateSysimg20220605") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateSysimg20220503", "true");
+    		localStorage.setItem("doNotShowUpdateSysimg20220605", "true");
 		}
     </script>
 </html>
