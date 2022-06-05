@@ -28,7 +28,7 @@
         .mdui-card{
         border-radius: 10px;
         animation-name: card;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
         .mdui-drawer-list-item-active{
         border-radius: 0 20px 20px 0;
@@ -50,23 +50,23 @@
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         animation-fill-mode: forwards;
-        animation-delay: 0.25s;
+        animation-delay: 0.3s;
         margin-left: 32px;
         opacity: 0;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         animation-fill-mode: forwards;
-        animation-delay: 0.25s;
+        animation-delay: 0.3s;
         margin-right: 32px;
         opacity: 0;
         }
         .opacity{
         animation-name: opacity;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
 		@keyframes opacity{
 		from  {opacity: 0;}
@@ -74,8 +74,8 @@
 		}
 		.title{
 		animation-name: toleft;
-		animation-duration: 0.75s;
-      	animation-delay: 0.25s;
+		animation-duration: 0.7s;
+      	animation-delay: 0.3s;
         opacity: 0;
         margin-left: 32px;
         animation-fill-mode: forwards;
@@ -91,7 +91,7 @@
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
         <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
@@ -109,9 +109,9 @@
 </script>
         </div>
         </header>
-        <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">获取离线版</div>
-        <div class="mdui-dialog-content opacity">
+        <div class="mdui-dialog" id="offline">
+        <div class="mdui-dialog-title">获取离线版</div>
+        <div class="mdui-dialog-content">
         <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
@@ -120,7 +120,7 @@
         <br>-新增JS工具 便笺
         <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
-        <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
         <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
         <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
         </div>
@@ -273,7 +273,6 @@
     <script>
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
-    				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>

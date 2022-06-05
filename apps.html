@@ -31,7 +31,7 @@
         .mdui-card{
         border-radius: 10px;
         animation-name: card;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
         .mdui-drawer-list-item-active{
         border-radius: 0 20px 20px 0;
@@ -53,23 +53,15 @@
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 0.75s;
-        animation-fill-mode: forwards;
-        animation-delay: 0.25s;
-        margin-left: 32px;
-        opacity: 0;
+        animation-duration: 0.7s;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 0.75s;
-        animation-fill-mode: forwards;
-        animation-delay: 0.25s;
-        margin-right: 32px;
-        opacity: 0;
+        animation-duration: 0.7s;
         }
         .opacity{
         animation-name: opacity;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
 		@keyframes opacity{
 		from  {opacity: 0;}
@@ -77,8 +69,8 @@
 		}
 		.title{
 		animation-name: toleft;
-		animation-duration: 0.75s;
-      	animation-delay: 0.25s;
+		animation-duration: 0.7s;
+      	animation-delay: 0.3s;
         opacity: 0;
         margin-left: 32px;
         animation-fill-mode: forwards;
@@ -108,13 +100,20 @@
 		border-radius: 5px;
 		border: none;
 		background-color: #FFFFFF;
-		transition-duration: 0.3s;
+		transition-duration: 0.2s;
+      	outline: none;
 		}
 		.update-dialog-btn:hover{
-		background-color: #EFEFEF;
-		color: #ABABAB;
-		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
 		}
+   		.update-dialog-btn:active{
+         background-color: #EFEFEF;
+		 color: #ABABAB;
+         }
+        .scale{
+        animation-name: card;
+        animation-duration: 0.7s;
+        }
         </style>
         <title>应用程序</title> 
     </head> 
@@ -126,7 +125,7 @@
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
         <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
@@ -154,9 +153,9 @@
             </a>
             </div>
         </header>
-        <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">获取离线版</div>
-        <div class="mdui-dialog-content opacity">
+        <div class="mdui-dialog" id="offline">
+        <div class="mdui-dialog-title">获取离线版</div>
+        <div class="mdui-dialog-content">
         <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
@@ -165,7 +164,7 @@
         <br>-新增JS工具 便笺
         <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
-        <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
         <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
         <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
         </div>
@@ -224,7 +223,7 @@
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">应用程序</h1>
             <div id="android">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent toleft" style="font-weight: bold;font-size: 15px;">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent scale" style="font-weight: bold;font-size: 15px;">
             <a href="https://coolapk.com/qr/download"><li class="mdui-ripple mdui-list-item">酷安</li></a> 
             <a href="https://www.vmos.cn/product_center.htm"><li class="mdui-ripple mdui-list-item">VMOS</li></a> 
             <a href="https://www.vmos.cn/product_center_vmospro.htm"><li class="mdui-ripple mdui-list-item">VMOS Pro</li></a> 
@@ -287,10 +286,12 @@
             <a href="https://www.xbext.com/"><li class="mdui-ripple mdui-list-item">X浏览器</li></a>
             <a href="https://m.i4.cn/installBoxAndroid"><li class="mdui-ripple mdui-list-item">爱思助手</li></a>
             <a href="https://apkpremier.com/download/com-cpuid-cpu_z"><li class="mdui-ripple mdui-list-item">CPU-Z</li></a>
+            <a href="https://apkpremier.com/download/com-iiordanov-freebVNC"><li class="mdui-ripple mdui-list-item">bVNC</li></a>
+            <a href="https://apkpremier.com/download/net-christianbeier-droidvnc_ng"><li class="mdui-ripple mdui-list-item">droidVNC-NG</li></a>
             </ul>
             </div>
             <div id="windows">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent toleft" style="font-weight: bold;font-size: 15px;">
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent scale" style="font-weight: bold;font-size: 15px;">
             <a href="https://www.virtualbox.org"><li class="mdui-ripple mdui-list-item">VirtualBox</li></a> 
             <a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="mdui-ripple mdui-list-item">VMware</li></a> 
             <a href="https://www.google.cn/chrome/"><li class="mdui-ripple mdui-list-item">Google Chrome</li></a> 
@@ -384,13 +385,12 @@
     <script>
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
-    				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年5月14日<br>-更新一些内容</div>
+        <div class="update-dialog-content">2022年6月5日<br>-更新两款远程控制相关 Android 应用</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -407,13 +407,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateApps20220514") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateApps20220605") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateApps20220514", "true");
+    		localStorage.setItem("doNotShowUpdateApps20220605", "true");
 		}
     </script>
 </html>

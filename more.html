@@ -28,7 +28,7 @@
         .mdui-card{
         border-radius: 10px;
         animation-name: card;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
         .mdui-drawer-list-item-active{
         border-radius: 0 20px 20px 0;
@@ -50,23 +50,15 @@
         }
         .toleft{
         animation-name: toleft;
-        animation-duration: 0.75s;
-        animation-fill-mode: forwards;
-        animation-delay: 0.25s;
-        margin-left: 32px;
-        opacity: 0;
+        animation-duration: 0.7s;
         }
         .toright{
         animation-name: toright;
-        animation-duration: 0.75s;
-        animation-fill-mode: forwards;
-        animation-delay: 0.25s;
-        margin-right: 32px;
-        opacity: 0;
+        animation-duration: 0.7s;
         }
         .opacity{
         animation-name: opacity;
-        animation-duration: 0.75s;
+        animation-duration: 0.7s;
         }
 		@keyframes opacity{
 		from  {opacity: 0;}
@@ -74,8 +66,8 @@
 		}
 		.title{
 		animation-name: toleft;
-		animation-duration: 0.75s;
-      	animation-delay: 0.25s;
+		animation-duration: 0.7s;
+      	animation-delay: 0.3s;
         opacity: 0;
         margin-left: 32px;
         animation-fill-mode: forwards;
@@ -105,13 +97,16 @@
 		border-radius: 5px;
 		border: none;
 		background-color: #FFFFFF;
-		transition-duration: 0.3s;
+		transition-duration: 0.2s;
+      	outline: none;
 		}
 		.update-dialog-btn:hover{
-		background-color: #EFEFEF;
-		color: #ABABAB;
-		box-shadow: 0 0 4px 1px rgba(0,0,0,0.3);
+		box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
 		}
+   		.update-dialog-btn:active{
+         background-color: #EFEFEF;
+		 color: #ABABAB;
+         }
         </style>
         <title>更多资源</title>
     </head> 
@@ -123,7 +118,7 @@
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#update'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
         <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
@@ -141,9 +136,9 @@
 </script>
         </div>
         </header>
-        <div class="mdui-dialog" id="update">
-        <div class="mdui-dialog-title toleft">获取离线版</div>
-        <div class="mdui-dialog-content opacity">
+        <div class="mdui-dialog" id="offline">
+        <div class="mdui-dialog-title">获取离线版</div>
+        <div class="mdui-dialog-content">
         <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
@@ -152,7 +147,7 @@
         <br>-新增JS工具 便笺
         <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
-        <div class="mdui-dialog-actions mdui-dialog-actions-stacked toright">
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
         <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
         <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
         </div>
@@ -216,9 +211,9 @@
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#edittools'}">绘图/剪辑工具收集</li>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#beautifytools'}">原生美化工具收集</li>
 			<li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#cloud'}">优质云盘收集</li>
-         	<a href="2022.html"><li class="mdui-ripple mdui-list-item">2022年春节倒计时</li></a>
+         	<a href="2022.html" style="display: none;"><li class="mdui-ripple mdui-list-item">2022年春节倒计时</li></a>
             <a href="alert.html"><li class="mdui-ripple mdui-list-item">无限弹窗</li></a>
-            <li class="mdui-ripple mdui-list-item"><a href="chrome.html">勾股 Chrome 下载</a></li>
+            <a href="chrome.html"><li class="mdui-ripple mdui-list-item">勾股 Chrome 下载</li></a>
             <li class="mdui-ripple mdui-list-item" mdui-dialog="{target: '#minecraft'}">Minecraft 资源收集</li>
             <a href="burgernote.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 浠夭白板</li></a>
             <a href="autopaint.html"><li class="mdui-ripple mdui-list-item">[ Scratch ] 自动绘画</li></a>
@@ -259,11 +254,11 @@
         </div>
         <div class="mdui-dialog" id="edittools" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent">
-           	<span class="mdui-typo-title opacity">绘图/剪辑工具收集</span>
+           	<span class="mdui-typo-title">绘图/剪辑工具收集</span>
            	<div class="mdui-toolbar-spacer"></div>
-        	<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        	<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content mdui-list-dense">
+            <ul class="mdui-list mdui-dialog-content mdui-list-dense">
             	<li class="mdui-subheader">Windows</li>
             	<a href="https://fl-01.vips100.com/v2/delivery/data/f01d892ae1cd4f22aba6178544edbb4a/"><li class="mdui-list-item mdui-ripple">Photoshop CS6</li></a>
                	<a href="https://fl-01.vips100.com/v2/delivery/data/c1efbea6eda4418b979f746288dadfff/"><li class="mdui-list-item mdui-ripple">Flash CS6</li></a>
@@ -282,11 +277,11 @@
         </div>
         <div class="mdui-dialog" id="beautifytools" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent">
-           		<span class="mdui-typo-title opacity">原生美化工具收集</span>
+           		<span class="mdui-typo-title">原生美化工具收集</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://apkpremier.com/download/com-treydev-pns"><li class="mdui-list-item mdui-ripple">Power Shade（通知面板）</li></a>
                	<a href="https://apkpremier.com/download/com-tombayley-volumepanel"><li class="mdui-list-item mdui-ripple">Volume Styles（音量面板）</li></a>
                 <a href="https://apkpremier.com/download/com-tombayley-statusbar"><li class="mdui-list-item mdui-ripple">Super Status Bar（状态栏）</li></a>
@@ -299,17 +294,16 @@
         </div>
 		<div class="mdui-dialog" id="cloud" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title opacity">优质云盘收集</span>
+           		<span class="mdui-typo-title">优质云盘收集</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white opacity" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://onedrive.live.com/"><li class="mdui-ripple mdui-list-item">OneDrive</li></a>
                	<a href="https://www.icloud.com/"><li class="mdui-ripple mdui-list-item">iCloud</li></a>
                 <a href="https://www.aliyundrive.com/"><li class="mdui-ripple mdui-list-item">阿里云盘</li></a>
                 <a href="https://cloud.189.cn/"><li class="mdui-ripple mdui-list-item">天翼云盘</li></a>
                 <a href="https://www.123pan.com/"><li class="mdui-ripple mdui-list-item">123云盘</li></a>
-            	<a href="http://pan.handanxiaochipeixun.top:5212/"><li class="mdui-list-item mdui-ripple">雨滴云盘</li></a>
                	<a href="https://moecloud.cn/"><li class="mdui-list-item mdui-ripple">萌云</li></a>
                 <a href="https://cncncloud.com/"><li class="mdui-list-item mdui-ripple">小太阳云存储</li></a>
                 <a href="https://www.bilnn.com/"><li class="mdui-list-item mdui-ripple">比邻云盘</li></a>
@@ -318,11 +312,11 @@
         </div>
         <div class="mdui-dialog" id="minecraft" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">Minecraft 资源收集</span>
+           		<span class="mdui-typo-title">Minecraft 资源收集</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://klpbbs.com/xz/"><li class="mdui-list-item mdui-ripple">我的世界国际版下载 （基岩版）</li></a>
                 <a href="https://hmcl.huangyuhui.net/"><li class="mdui-list-item mdui-ripple">Hello Minecraft! Launcher （Java版启动器）</li></a>
                 <a href="https://github.com/PojavLauncherTeam/PojavLauncher"><li class="mdui-list-item mdui-ripple">PojavLauncher （Java版启动器）</li></a>
@@ -337,11 +331,11 @@
         </div>
         <div class="mdui-dialog" id="cloudpc" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">优质云电脑收集</span>
+           		<span class="mdui-typo-title">优质云电脑收集</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://www.ji-cloud.cn/index_wap.php"><li class="mdui-list-item mdui-ripple">极云惠普云电脑</li></a>
                 <a href="http://www.honpc.com/"><li class="mdui-list-item mdui-ripple">弘电脑</li></a>
                 <a href="https://cpc.icloud.cn/"><li class="mdui-ripple mdui-list-item">顺网云电脑</li></a>
@@ -349,11 +343,11 @@
         </div>
         <div class="mdui-dialog" id="mdweb" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">Material Design 网页前端框架</span>
+           		<span class="mdui-typo-title">Material Design 网页前端框架</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://www.mdui.org/"><li class="mdui-list-item mdui-ripple">MDUI</li></a>
                 <a href="https://materializecss.com/"><li class="mdui-list-item mdui-ripple">Materialize</li></a>
                 <a href="https://mui.com/"><li class="mdui-ripple mdui-list-item">MUI</li></a>
@@ -363,11 +357,11 @@
         </div>
         <div class="mdui-dialog" id="webos" style="height: 100%;width: 100%;">
         	<div class="mdui-toolbar mdui-color-theme-accent" style="padding-left: 16px;">
-           		<span class="mdui-typo-title toleft">网页操作系统收集</span>
+           		<span class="mdui-typo-title">网页操作系统收集</span>
            		<div class="mdui-toolbar-spacer"></div>
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white toright" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
+        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button>
             </div>
-            <ul class="mdui-list toleft mdui-dialog-content">
+            <ul class="mdui-list mdui-dialog-content">
             	<a href="https://win11.blueedge.me"><li class="mdui-list-item mdui-ripple">Win11 in React</li></a>
                 <a href="https://dustinbrett.com/"><li class="mdui-list-item mdui-ripple">daedalOS</li></a>
                 <a href="http://windows93.net/"><li class="mdui-ripple mdui-list-item">WINDOWS93</li></a>
@@ -378,13 +372,12 @@
     <script>
       		var hour = new Date().getHours();
                if (hour >= 22 || hour < 7){
-    				document.body.classList.remove('mdui-theme-accent-blue');
                 	document.body.classList.add('mdui-theme-layout-dark');
 				}
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年5月14日<br>-更新一些内容</div>
+        <div class="update-dialog-content">2022年6月5日<br>-移除了不可用的 雨滴云盘</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -401,13 +394,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateMore20220514") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateMore20220605") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateMore20220514", "true");
+    		localStorage.setItem("doNotShowUpdateMore20220605", "true");
 		}
     </script>
 </html>
