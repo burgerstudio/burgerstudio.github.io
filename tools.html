@@ -99,6 +99,7 @@
 		border-radius: 4px;
       	padding-bottom: 4px;
         color: white;
+        max-width: 250px;
 		}
 		.tool-button:hover{
         box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
@@ -116,6 +117,7 @@
       	color: black;
 		overflow: scroll;
 		border-radius: 4px;
+      	text-align: center;
 		}
 		.mdui-progress{
 		height: 16px;
@@ -367,7 +369,7 @@
             	<p style="margin: 8px;text-align: center;" id="greeting"></p>
 			</div>
 		</div>
-      	<div class="tool" id="countdown">
+      	<div class="tool mdui-center" id="countdown">
         	<div class="tool-header">
 				<div class="tool-title">线性倒计时</div>
             	<div class="tool-close" onclick="toolclose('countdown');">
@@ -407,7 +409,7 @@
 				</script>
 			</div>
         </div>
-        <div class="tool" id="temperature">
+        <div class="tool mdui-center" id="temperature">
         	<div class="tool-header">
 				<div class="tool-title">摄氏度与华氏度转换</div>
          		<div class="tool-close" onclick="toolclose('temperature');">
@@ -475,7 +477,7 @@
   				return i;
 }
 		</script>
-      	<div class="tool" id="navigator">
+      	<div class="tool mdui-center" id="navigator">
         	<div class="tool-header">
         		<div class="tool-title">获取浏览器信息</div>
               	<div class="tool-close" onclick="toolclose('navigator');">
@@ -510,7 +512,7 @@
                 <p id="javaenabled" style="margin: 8px;"></p>
             </div>
         </div>
-        <div class="tool" id="player">
+        <div class="tool mdui-center" id="player">
         	<div class="tool-header">
         		<div class="tool-title">媒体播放器</div>
               	<div class="tool-close" onclick="toolclose('player');">
@@ -531,7 +533,7 @@
                 </script>
             </div>
         </div>
-        <div class="tool" id="translate">
+        <div class="tool mdui-center" id="translate">
         	<div class="tool-header">
         		<div class="tool-title">翻译</div>
               	<div class="tool-close" onclick="toolclose('translate');">
@@ -556,7 +558,7 @@
                 </script>
             </div>
         </div>
-        <div class="tool" id="note">
+        <div class="tool mdui-center" id="note">
         	<div class="tool-header">
         		<div class="tool-title">便笺</div>
               	<div class="tool-close" onclick="toolclose('note');">
@@ -578,7 +580,7 @@
 				</script>
             </div>
         </div>
-		<div class="tool" id="editnote">
+		<div class="tool mdui-center" id="editnote">
         	<div class="tool-header">
         		<div class="tool-title">编辑便笺</div>
               	<div class="tool-close" onclick="toolclose('editnote');toolopen('note');">
