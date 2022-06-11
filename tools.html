@@ -51,7 +51,7 @@
 		z-index: -1;
 		transition-duration: 0.5s;
 		overflow: hidden;
-		box-shadow: 0 0 32px 8px rgba(0, 0, 0,0.3);
+		box-shadow: 0 8px 32px 8px rgba(0, 0, 0,0.3);
 		left: 10%;
 		right: 10%;
 		top: 15%;
@@ -112,7 +112,7 @@
    		.tool-content{
 		margin: 8px;
 		padding: 4px;
-		height: 80%;
+      	height: 80%;
 		background-color: white;
       	color: black;
 		overflow: scroll;
@@ -187,13 +187,14 @@
 		right: -300px;
 		bottom: 16px;
 		background-color: #EFEFEF;
-		box-shadow: 0 0 8px 2px rgba(0,0,0,0.3);
+		box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
 		padding: 16px;
 		transition-duration: 0.5s;
 		width: 250px;
 		border-radius: 10px;
 		z-index: 1;
       	color: black;
+        max-width: 100%;
 		}
 		.update-dialog-title{
 		font-weight: bold;
@@ -322,6 +323,7 @@
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('player');">媒体播放器</li>
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('translate');">翻译</li>
                     <li class="mdui-list-item mdui-ripple" onclick="toolopen('note');">便笺</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="toolopen('unknown');">一元二次方程求解</li>
                	</ul>
         	</div>
         </div>
@@ -602,6 +604,48 @@
 				</script>
             </div>
         </div>
+        <div class="tool mdui-center" id="unknown">
+        	<div class="tool-header">
+        		<div class="tool-title">一元二次方程求解</div>
+              	<div class="tool-close" onclick="toolclose('unknown');">
+                	<i class="mdui-icon material-icons">close</i>
+                </div>
+        	</div>
+           	<div class="tool-content">
+            	请先将方程化为一般形式：ax²+bx+c=0(a≠0)。
+                <p>a=<input class="tool-input" id="unknowna" style="max-width: 64px;" type="number"></p>
+                <p>b=<input class="tool-input" id="unknownb" style="max-width: 64px;" type="number"></p>
+                <p>c=<input class="tool-input" id="unknownc" style="max-width: 64px;" type="number"></p>
+                <button class="tool-button" onclick="workout()">求解</button>
+                <p id="delta"></p>
+                <p id="rootnum"></p>
+                <p id="root"></p>
+            </div>
+            <script>
+                function workout(){
+    				unknowna = document.getElementById('unknowna').value;
+                	unknownb = document.getElementById('unknownb').value;
+                	unknownc = document.getElementById('unknownc').value;
+                	delta = unknownb ** 2 - 4 * unknowna * unknownc;
+                	if (delta > 0){
+    					document.getElementById('delta').innerHTML = "Δ = " + delta + " > 0，";
+                   		document.getElementById('rootnum').innerHTML = "∴此方程有2个不相等的实数根，";
+                        root1 = ( - unknownb + Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
+                        root2 = ( - unknownb - Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
+                        document.getElementById('root').innerHTML = "此方程的根为：x₁ = " + root1 + "，x₂ = " + root2 + ".";
+					}else if (delta == 0){
+    					document.getElementById('delta').innerHTML = "Δ = " + delta + "，";
+                   		document.getElementById('rootnum').innerHTML = "∴此方程有2个相等的实数根，";
+                        root = ( - unknownb + Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
+                        document.getElementById('root').innerHTML = "此方程的根为：x₁ = x₂ = " + root + ".";
+					}else if (delta < 0){
+    					document.getElementById('delta').innerHTML = "Δ = " + delta + " < 0，";
+                   		document.getElementById('rootnum').innerHTML = "∴此方程无实数根.";
+                        document.getElementById('root').innerHTML = "";
+					}
+				}
+            </script>
+        </div>
 	<script>
 		function toolopen(id){
     		document.getElementById(id).style = "opacity: 1;transform: scale(1);z-index: 1;";
@@ -625,7 +669,7 @@
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">忘记了日期<br>-“Google 翻译”改为“翻译”，新增2种翻译平台</div>
+        <div class="update-dialog-content">2022年6月11日<br>-新增“一元二次方程求解”</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -642,13 +686,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateToolsTran") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateTools20220611") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateToolsTran", "true");
+    		localStorage.setItem("doNotShowUpdateTools20220611", "true");
 		}
     </script>
 </html>
