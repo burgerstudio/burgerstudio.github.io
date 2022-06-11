@@ -568,7 +568,7 @@
                 </div>
         	</div>
            	<div class="tool-content">
-            	<p id="notetext" style="margin: 8px;text-align: center;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
+            	<p id="notetext" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
             	<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
 				<script>
 					function loadnote(){
@@ -612,10 +612,10 @@
                 </div>
         	</div>
            	<div class="tool-content">
-            	请先将方程化为一般形式：ax²+bx+c=0(a≠0)。
-                <p>a=<input class="tool-input" id="unknowna" style="max-width: 64px;" type="number"></p>
-                <p>b=<input class="tool-input" id="unknownb" style="max-width: 64px;" type="number"></p>
-                <p>c=<input class="tool-input" id="unknownc" style="max-width: 64px;" type="number"></p>
+            	<p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
+                <p>a=<input class="tool-input" id="unknowna" style="max-width: 64px;"></p>
+                <p>b=<input class="tool-input" id="unknownb" style="max-width: 64px;"></p>
+                <p>c=<input class="tool-input" id="unknownc" style="max-width: 64px;"></p>
                 <button class="tool-button" onclick="workout()">求解</button>
                 <p id="delta"></p>
                 <p id="rootnum"></p>
@@ -641,6 +641,15 @@
 					}else if (delta < 0){
     					document.getElementById('delta').innerHTML = "Δ = " + delta + " < 0，";
                    		document.getElementById('rootnum').innerHTML = "∴此方程无实数根.";
+                        document.getElementById('root').innerHTML = "";
+					}else{
+    					document.getElementById('delta').innerHTML = "错误：输入的内容非数字。";
+                   		document.getElementById('rootnum').innerHTML = "";
+                        document.getElementById('root').innerHTML = "";
+					}
+          			if (unknowna == 0){
+    					document.getElementById('delta').innerHTML = "错误：a的值为0。";
+                   		document.getElementById('rootnum').innerHTML = "";
                         document.getElementById('root').innerHTML = "";
 					}
 				}
