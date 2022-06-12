@@ -76,7 +76,7 @@
 		position: fixed;
 		right: -300px;
 		bottom: 16px;
-		background-color: #EFEFEF;
+		background-color: rgba(240,240,240,0.9);
 		box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
 		padding: 16px;
 		transition-duration: 0.5s;
@@ -118,21 +118,46 @@
         .footerlink:active{
         background-color: rgba(0,0,0,0.3);
         }
+        .scale{
+        transition-duration: 0.2s;
+        }
+        .scale:hover{
+        background-color: rgba(0,0,0,0.1);
+        }
+        .scale:active{
+        border-radius: 20px;
+        transform: scale(0.9);
+        }
+        .scale-drawer-list-item{
+        transition: 0.2s;
+        border-radius: 0 20px 20px 0;
+        }
+        .scale-drawer-list-item:hover{
+        border-radius: 0 20px 20px 0;
+        background-color: rgba(0,0,0,0.1);
+        }
+        .scale-drawer-list-item:active{
+        border-radius: 20px;
+        transform: scale(0.9);
+        }
+        .mdui-drawer-list-item-active:hover{
+        background-color: #90CAF9;
+        }
         </style>
         <title>网络站点</title>
     </head> 
     <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
         <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
         <div class="mdui-toolbar mdui-color-theme-accent">
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -159,51 +184,51 @@
         <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
-        <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
         </div>
         </div>
         <div class="mdui-drawer" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
         <ul class="mdui-list" mdui-collapse="{accordion: true}">
         <a href="index.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" >
-        <li class="mdui-list-item mdui-ripple mdui-list-item-active mdui-drawer-list-item-active">
+        <li class="mdui-list-item scale-drawer-list-item mdui-list-item-active mdui-drawer-list-item-active">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
@@ -216,35 +241,35 @@
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">网络站点</h1>
             <ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
-            <a href="https://yuanyubo-studio.vercel.app/"><li class="mdui-ripple mdui-list-item">YUANYUBO Studio Official</li></a>
-            <a href="https://bgstool.github.io/"><li class="mdui-ripple mdui-list-item">Burger工具站 历史版本</li></a>
-            <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页（已放弃）</li></a>
-            <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86</li></a> 
-            <a href="https://msdn.itellyou.cn/"><li class="mdui-ripple mdui-list-item">MSDN，我告诉你</li></a> 
-            <a href="https://next.itellyou.cn/"><li class="mdui-ripple mdui-list-item">NEXT，我告诉你</li></a> 
-            <a href="https://download.lineageos.org.cn/"><li class="mdui-ripple mdui-list-item">LineageOS 镜像下载</li></a> 
-            <a href="https://lineageos.org/"><li class="mdui-ripple mdui-list-item">LineageOS（官方）</li></a>
-            <a href="http://mirrors.163.com/"><li class="mdui-ripple mdui-list-item">网易开源镜像站</li></a> 
-            <a href="https://opengapps.org/"><li class="mdui-ripple mdui-list-item">The Open GApps Project</li></a> 
-            <a href="https://www.magiskapp.cn/"><li class="mdui-ripple mdui-list-item">Magisk中文网</li></a> 
-            <a href="https://magisk.me/"><li class="mdui-ripple mdui-list-item">Magisk（官方）</li></a>
-            <a href="https://www.magisk.cool/"><li class="mdui-ripple mdui-list-item">Magisk仓库</li></a>
-            <a href="https://twrp.me/"><li class="mdui-ripple mdui-list-item">TWRP</li></a> 
-            <a href="https://www.ngrok.cc/"><li class="mdui-ripple mdui-list-item">Sunny-Ngrok内网转发</li></a>
-            <a href="https://www.w3school.com.cn/"><li class="mdui-ripple mdui-list-item">W3school</li></a>
-            <a href="https://w3cschool.cn/"><li class="mdui-ripple mdui-list-item">编程狮</li></a>
-            <a href="https://github.com/"><li class="mdui-ripple mdui-list-item">GitHub</li></a>
-            <a href="https://kgithub.com/"><li class="mdui-ripple mdui-list-item">GitHub（国内推荐）</li></a>
-            <a href="https://bing.ioliu.cn/"><li class="mdui-ripple mdui-list-item">必应每日高清壁纸</li></a>
-            <a href="https://www.icdown.club/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站（主页）</li></a>
-            <a href="http://od.ixcmstudio.cn/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站</li></a>
-            <a href="https://www.jdkdownload.com/"><li class="mdui-ripple mdui-list-item">JDK下载</li></a> 
-            <a href="https://scratch.mit.edu/"><li class="mdui-ripple mdui-list-item">Scratch（国内无法访问）</li></a> 
-            <a href="https://apkpremier.com/"><li class="mdui-list-item mdui-ripple">APK Premier</li></a>
-            <a href="https://miuiver.com/"><li class="mdui-ripple mdui-list-item">MIUI历史版本</li></a>
-            <a href="https://material.io/"><li class="mdui-ripple mdui-list-item">Material Design</li></a>
-            <a href="http://www.compumuseum.com/"><li class="mdui-ripple mdui-list-item">网页里的电脑博物馆</li></a>
-            <a href="http://copy.sh/v86/"><li class="mdui-ripple mdui-list-item">Virtual x86</li></a>
+            <a href="https://yuanyubo-studio.vercel.app/"><li class="scale mdui-list-item">YUANYUBO Studio Official</li></a>
+            <a href="https://bgstool.github.io/"><li class="scale mdui-list-item">Burger工具站 历史版本</li></a>
+            <a href="https://bgs.code.blog/"><li class="scale mdui-list-item">Burger Studio 主页（已放弃）</li></a>
+            <a href="https://www.android-x86.org/"><li class="scale mdui-list-item">Android-x86</li></a> 
+            <a href="https://msdn.itellyou.cn/"><li class="scale mdui-list-item">MSDN，我告诉你</li></a> 
+            <a href="https://next.itellyou.cn/"><li class="scale mdui-list-item">NEXT，我告诉你</li></a> 
+            <a href="https://download.lineageos.org.cn/"><li class="scale mdui-list-item">LineageOS 镜像下载</li></a> 
+            <a href="https://lineageos.org/"><li class="scale mdui-list-item">LineageOS（官方）</li></a>
+            <a href="http://mirrors.163.com/"><li class="scale mdui-list-item">网易开源镜像站</li></a> 
+            <a href="https://opengapps.org/"><li class="scale mdui-list-item">The Open GApps Project</li></a> 
+            <a href="https://www.magiskapp.cn/"><li class="scale mdui-list-item">Magisk中文网</li></a> 
+            <a href="https://magisk.me/"><li class="scale mdui-list-item">Magisk（官方）</li></a>
+            <a href="https://www.magisk.cool/"><li class="scale mdui-list-item">Magisk仓库</li></a>
+            <a href="https://twrp.me/"><li class="scale mdui-list-item">TWRP</li></a> 
+            <a href="https://www.ngrok.cc/"><li class="scale mdui-list-item">Sunny-Ngrok内网转发</li></a>
+            <a href="https://www.w3school.com.cn/"><li class="scale mdui-list-item">W3school</li></a>
+            <a href="https://w3cschool.cn/"><li class="scale mdui-list-item">编程狮</li></a>
+            <a href="https://github.com/"><li class="scale mdui-list-item">GitHub</li></a>
+            <a href="https://kgithub.com/"><li class="scale mdui-list-item">GitHub（国内推荐）</li></a>
+            <a href="https://bing.ioliu.cn/"><li class="scale mdui-list-item">必应每日高清壁纸</li></a>
+            <a href="https://www.icdown.club/"><li class="scale mdui-list-item">IXCM工作室下载站（主页）</li></a>
+            <a href="http://od.ixcmstudio.cn/"><li class="scale mdui-list-item">IXCM工作室下载站</li></a>
+            <a href="https://www.jdkdownload.com/"><li class="scale mdui-list-item">JDK下载</li></a> 
+            <a href="https://scratch.mit.edu/"><li class="scale mdui-list-item">Scratch（国内无法访问）</li></a> 
+            <a href="https://apkpremier.com/"><li class="mdui-list-item scale">APK Premier</li></a>
+            <a href="https://miuiver.com/"><li class="scale mdui-list-item">MIUI历史版本</li></a>
+            <a href="https://material.io/"><li class="scale mdui-list-item">Material Design</li></a>
+            <a href="http://www.compumuseum.com/"><li class="scale mdui-list-item">网页里的电脑博物馆</li></a>
+            <a href="http://copy.sh/v86/"><li class="scale mdui-list-item">Virtual x86</li></a>
             </ul>
         </div>  
         </div>
@@ -252,22 +277,22 @@
         <br>
         <footer class="mdui-text-center mdui-color-theme-accent">
         <br>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+        <a class="mdui-btn mdui-btn-icon scale" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
         </a>
-        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
         <div class="mdui-menu" id="wechat">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
-        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
         </div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
         <i class="mdui-icon material-icons">send</i>
         </a>
         <br><br>

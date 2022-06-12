@@ -76,13 +76,13 @@
 		position: fixed;
 		right: -300px;
 		bottom: 16px;
-		background-color: #EFEFEF;
+		background-color: rgba(240,240,240,0.9);
 		box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
 		padding: 16px;
 		transition-duration: 0.5s;
 		width: 250px;
 		border-radius: 10px;
-		z-index: 1;
+		z-index: 2;
       	color: black;
 		}
 		.update-dialog-title{
@@ -118,21 +118,46 @@
         .footerlink:active{
         background-color: rgba(0,0,0,0.3);
         }
+        .scale{
+        transition-duration: 0.2s;
+        }
+        .scale:hover{
+        background-color: rgba(0,0,0,0.1);
+        }
+        .scale:active{
+        border-radius: 20px;
+        transform: scale(0.9);
+        }
+        .scale-drawer-list-item{
+        transition: 0.2s;
+        border-radius: 0 20px 20px 0;
+        }
+        .scale-drawer-list-item:hover{
+        border-radius: 0 20px 20px 0;
+        background-color: rgba(0,0,0,0.1);
+        }
+        .scale-drawer-list-item:active{
+        border-radius: 20px;
+        transform: scale(0.9);
+        }
+        .mdui-drawer-list-item-active:hover{
+        background-color: #90CAF9;
+        }
         </style>
         <title>关于我们</title> 
     </head> 
     <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left">  
         <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
         <div class="mdui-toolbar mdui-color-theme-accent">
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '切换主题'}">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -159,51 +184,51 @@
         <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
-        <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
         </div>
         </div>
         <div class="mdui-drawer" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
         <ul class="mdui-list" mdui-collapse="{accordion: true}">
         <a href="index.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" >
-        <li class="mdui-list-item mdui-ripple mdui-drawer-list-item">
+        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" >
-        <li class="mdui-list-item mdui-ripple mdui-list-item-active mdui-drawer-list-item-active">
+        <li class="mdui-list-item scale-drawer-list-item mdui-list-item-active mdui-drawer-list-item-active">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
@@ -225,33 +250,33 @@
                     </div>
                     <div class="mdui-card-menu">
                     	<p id="thumb" style="float: left;color: black;">0</p>
-                    	<button class="mdui-btn mdui-btn-icon" onclick="thumb()"><i class="mdui-icon material-icons" id="thumbicon">thumb_up</i></button>
+                    	<button class="mdui-btn mdui-btn-icon scale" onclick="thumb()"><i class="mdui-icon material-icons" id="thumbicon">thumb_up</i></button>
                     </div>
                 </div>
             </div>
             <h4 style="margin: 16px 0;font-weight: normal;font-style: italic;opacity: 0.7;">爱好：数码、IT、Web、设计、电音、MC</h4>
-            <h2 class="mdui-text-color-theme-accent mdui-text-color-theme-text"> QQ:<br>3247428397(主要)<button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-dialog="{target: '#qq'}"><i class="mdui-icon material-icons">add</i></button><br>1205499078 
+            <h2 class="mdui-text-color-theme-accent mdui-text-color-theme-text"> QQ:<br>3247428397(主要)<button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right scale" mdui-dialog="{target: '#qq'}"><i class="mdui-icon material-icons">add</i></button><br>1205499078 
             <br><br> 微信:<br>3247428397<br>AdminStudios 
-            <button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right" mdui-menu="{target: '#wechat'}"><i class="mdui-icon material-icons">add</i></button>
+            <button class="mdui-btn mdui-btn-icon mdui-color-theme-accent mdui-float-right scale" mdui-menu="{target: '#wechat'}"><i class="mdui-icon material-icons">add</i></button>
             <div class="mdui-menu" id="wechat">
         		<img src="images/WeChat.png" class="mdui-img-fluid">
         	</div>
-            <br><br> 技术社区（QQ）:<br>946845721 <a href="https://jq.qq.com/?_wv=1027&amp;k=0o2N5cKf" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a> 
-            <br><br> 技术社区（Telegram）:<br>Burger_Group <a href="https://t.me/Burger_Group" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a> 
-            <br><br> 网易邮箱：<br>vmos1624@163.com <a href="mailto:vmos1624@163.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a>
-            <br><br> Telegram：BGS_XNJ<a href="https://t.me/BGS_XNJ" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
-            <br><br> 哔哩哔哩：BGS_虚拟稽<a href="https://m.bilibili.com/space/489787841" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_forward</i></a>
-            <br><br> Outlook：<br>vmos1624@outlook.com <a href="mailto:vmos1624@outlook.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a></h2>
+            <br><br> 技术社区（QQ）:<br>946845721 <a href="https://jq.qq.com/?_wv=1027&amp;k=0o2N5cKf" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale"><i class="mdui-icon material-icons">arrow_forward</i></a> 
+            <br><br> 技术社区（Telegram）:<br>Burger_Group <a href="https://t.me/Burger_Group" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale"><i class="mdui-icon material-icons">arrow_forward</i></a> 
+            <br><br> 网易邮箱：<br>vmos1624@163.com <a href="mailto:vmos1624@163.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a>
+            <br><br> Telegram：BGS_XNJ<a href="https://t.me/BGS_XNJ" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            <br><br> 哔哩哔哩：BGS_虚拟稽<a href="https://m.bilibili.com/space/489787841" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale"><i class="mdui-icon material-icons">arrow_forward</i></a>
+            <br><br> Outlook：<br>vmos1624@outlook.com <a href="mailto:vmos1624@outlook.com" class="mdui-btn mdui-float-right mdui-btn-icon mdui-color-theme-accent scale" mdui-tooltip="{content: '写邮件'}"><i class="mdui-icon material-icons">edit</i></a></h2>
             <br>
         </div>  
         </div>
         <br>
         <footer class="mdui-text-center mdui-color-theme-accent">
         <br>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+        <a class="mdui-btn mdui-btn-icon scale" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
         </a>
-        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat2'}">
+        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat2'}">
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
         <div class="mdui-menu" id="wechat">
@@ -260,13 +285,13 @@
         <div class="mdui-menu" id="wechat2">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
-        <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
         </div>
-        <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+        <a class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
         <i class="mdui-icon material-icons">send</i>
         </a>
         <br>
