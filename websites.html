@@ -107,6 +107,17 @@
          background-color: #EFEFEF;
 		 color: #ABABAB;
          }
+        .footerlink{
+        color: white;
+        transition-duration: 0.2s;
+        text-decoration: none;
+        }
+        .footerlink:hover{
+        opacity: 0.7;
+        }
+        .footerlink:active{
+        background-color: rgba(0,0,0,0.3);
+        }
         </style>
         <title>网络站点</title>
     </head> 
@@ -207,7 +218,7 @@
             <ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
             <a href="https://yuanyubo-studio.vercel.app/"><li class="mdui-ripple mdui-list-item">YUANYUBO Studio Official</li></a>
             <a href="https://bgstool.github.io/"><li class="mdui-ripple mdui-list-item">Burger工具站 历史版本</li></a>
-            <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页</li></a>
+            <a href="https://bgs.code.blog/"><li class="mdui-ripple mdui-list-item">Burger Studio 主页（已放弃）</li></a>
             <a href="https://www.android-x86.org/"><li class="mdui-ripple mdui-list-item">Android-x86</li></a> 
             <a href="https://msdn.itellyou.cn/"><li class="mdui-ripple mdui-list-item">MSDN，我告诉你</li></a> 
             <a href="https://next.itellyou.cn/"><li class="mdui-ripple mdui-list-item">NEXT，我告诉你</li></a> 
@@ -223,7 +234,7 @@
             <a href="https://www.w3school.com.cn/"><li class="mdui-ripple mdui-list-item">W3school</li></a>
             <a href="https://w3cschool.cn/"><li class="mdui-ripple mdui-list-item">编程狮</li></a>
             <a href="https://github.com/"><li class="mdui-ripple mdui-list-item">GitHub</li></a>
-            <a href="https://cithub.icu/"><li class="mdui-ripple mdui-list-item">GitHub（国内推荐）</li></a>
+            <a href="https://kgithub.com/"><li class="mdui-ripple mdui-list-item">GitHub（国内推荐）</li></a>
             <a href="https://bing.ioliu.cn/"><li class="mdui-ripple mdui-list-item">必应每日高清壁纸</li></a>
             <a href="https://www.icdown.club/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站（主页）</li></a>
             <a href="http://od.ixcmstudio.cn/"><li class="mdui-ripple mdui-list-item">IXCM工作室下载站</li></a>
@@ -260,10 +271,9 @@
         <i class="mdui-icon material-icons">send</i>
         </a>
         <br><br>
-        <div class="mdui-typo">
-        <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
-        </div>
-        <p style="font-size: 15px;font-weight: bold;">2022 - Burger Studio</p>
+        <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
+        <p><label>开发工具：<a href="https://www.coolapk.com/apk/241241" class="footerlink">EasyWeb IDE</a></label></p>
+        <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br><br>
         </footer>
     </body>
@@ -275,7 +285,7 @@
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年5月14日<br>-更新一些内容</div>
+        <div class="update-dialog-content">2022年6月12日<br>-更新国内 GitHub 网址</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -292,13 +302,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateWebsites20220514") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateWebsites20220612") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateWebsites20220514", "true");
+    		localStorage.setItem("doNotShowUpdateWebsites20220612", "true");
 		}
     </script>
 </html>

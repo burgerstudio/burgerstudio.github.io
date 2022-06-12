@@ -218,6 +218,17 @@
          background-color: #EFEFEF;
 		 color: #ABABAB;
          }
+        .footerlink{
+        color: white;
+        transition-duration: 0.2s;
+        text-decoration: none;
+        }
+        .footerlink:hover{
+        opacity: 0.7;
+        }
+        .footerlink:active{
+        background-color: rgba(0,0,0,0.3);
+        }
         </style>
         <title>JS工具</title>
 	</head> 
@@ -312,7 +323,7 @@
         </ul>
         </div>
         <br><br><br><br>
-        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-12" id="card">
+        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-12" id="card">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">JS工具</h1>
             	<ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
@@ -346,10 +357,9 @@
         <i class="mdui-icon material-icons">send</i>
         </a>
         <br><br>
-        <div class="mdui-typo">
-        <p><label>主题：<a href="https://www.mdui.org/" class="mdui-color-yellow">MDUI</a></label></p>
-        </div>
-        <p style="font-size: 15px;font-weight: bold;">2022 - Burger Studio</p>
+        <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
+        <p><label>开发工具：<a href="https://www.coolapk.com/apk/241241" class="footerlink">EasyWeb IDE</a></label></p>
+        <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br><br>
         </footer>
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
