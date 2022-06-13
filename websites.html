@@ -143,6 +143,33 @@
         .mdui-drawer-list-item-active:hover{
         background-color: #90CAF9;
         }
+        .mdui-theme-layout-dark footer{
+        background-color: #212121 !important;
+        }
+        .mdui-theme-layout-dark .mdui-text-color-red-accent{
+        color: white !important;
+        }
+        .mdui-theme-layout-dark .update-dialog{
+        background-color: rgba(16,16,16,0.9);
+        color: white;
+        }
+        .mdui-theme-layout-dark .update-dialog-btn{
+        background-color: #434343;
+        color: white;
+        }
+        .mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
+        background-color: #212121 !important;
+        }
+        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab{
+        transition-duration: 0.4s;
+        }
+        .mdui-theme-layout-dark .mdui-tooltip{
+        background-color: rgba(16,16,16,0.9);
+        color: white;
+        }
+        .mdui-theme-layout-dark .mdui-fab{
+        background-color: #212121 !important;
+        }
         </style>
         <title>网络站点</title>
     </head> 
@@ -175,13 +202,13 @@
         <div class="mdui-dialog" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        <div class="mdui-text-color-red">不提倡使用离线版，因为bug太多。</div><br>
+        <div class="mdui-text-color-red-accent">不提倡使用离线版，因为bug太多。</div><br>
         更新时间：2022-02-10
         <br><br>新版变化：
         <br>-优化动效
         <br>-优化UI
         <br>-新增JS工具 便笺
-        <br><br><div class="mdui-text-color-red">密码：bgst</div><div class="mdui-text-color-red">注：离线版更新可能晚于网页端。</div>
+        <br><br><div class="mdui-text-color-red-accent">密码：bgst</div><div class="mdui-text-color-red-accent">注：离线版更新可能晚于网页端。</div>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
         <a href="https://vmos1624.lanzouj.com/b01i98avi"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
@@ -275,7 +302,7 @@
         </div>
         </div>
         <br>
-        <footer class="mdui-text-center mdui-color-theme-accent">
+        <footer class="mdui-text-center mdui-color-blue-accent">
         <br>
         <a class="mdui-btn mdui-btn-icon scale" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
