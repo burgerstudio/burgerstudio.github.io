@@ -205,6 +205,7 @@
         更新日期：2022-07-21
         <br><br>新版变化：
         <br>-“极品电音”新增83首音乐
+        <br><p class="mdui-text-color-red-accent">安装时可能会报毒，属于误报，请放心安装。</p>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
         <a href="https://www.123pan.com/s/kklDVv-6R0bd"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
@@ -293,6 +294,7 @@
             <a href="https://material.io/"><li class="scale mdui-list-item">Material Design</li></a>
             <a href="http://www.compumuseum.com/"><li class="scale mdui-list-item">网页里的电脑博物馆</li></a>
             <a href="http://copy.sh/v86/"><li class="scale mdui-list-item">Virtual x86</li></a>
+            <a href="https://www.natfrp.com/"><li class="scale mdui-list-item">Sakura Frp</li></a>
             </ul>
         </div>  
         </div>
@@ -333,7 +335,7 @@
         </script>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年6月12日<br>-更新国内 GitHub 网址</div>
+        <div class="update-dialog-content">2022年7月22日<br>-新增 Sakura Frp</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
@@ -350,13 +352,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateWebsites20220612") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateWebsites20220722") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateWebsites20220612", "true");
+    		localStorage.setItem("doNotShowUpdateWebsites20220722", "true");
 		}
     </script>
 </html>
