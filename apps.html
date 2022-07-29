@@ -6,6 +6,7 @@
         <link rel="icon" href="images/BGS_LOGO_20210919_WHITE.png" type="image/x-icon"> 
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <style>
         html{
         scroll-behavior:smooth;
@@ -14,10 +15,12 @@
         border-radius: 5px;
         }
         .mdui-dialog{
-        border-radius: 10px;
+        border-radius: 32px;
+        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
         }
         .mdui-menu{
         border-radius: 10px;
+        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
         }
         .mdui-tooltip{
         border-radius: 20px;
@@ -33,11 +36,8 @@
         animation-name: card;
         animation-duration: 0.7s;
         }
-        .mdui-drawer-list-item-active{
-        border-radius: 0 20px 20px 0;
-        background-color:#BBDEFB;
-        color:#448AFF;
-        margin-right: 8px;
+         .mdui-drawer-list-item-active{
+        background-color: rgba(33, 150, 243, 0.4);
         }
         .mdui-drawer-list-item{
         border-radius: 0 20px 20px 0;
@@ -115,7 +115,7 @@
         animation-duration: 0.7s;
         }
         .footerlink{
-        color: white;
+        color: black;
         transition-duration: 0.2s;
         text-decoration: none;
         }
@@ -125,33 +125,15 @@
         .footerlink:active{
         background-color: rgba(0,0,0,0.3);
         }
-        .scale{
-        transition-duration: 0.2s;
-        }
-        .scale:hover{
-        background-color: rgba(0,0,0,0.1);
-        }
-        .scale:active{
-        border-radius: 20px;
-        transform: scale(0.9);
-        }
-        .scale-drawer-list-item{
-        transition: 0.2s;
-        border-radius: 0 20px 20px 0;
-        }
-        .scale-drawer-list-item:hover{
-        border-radius: 0 20px 20px 0;
-        background-color: rgba(0,0,0,0.1);
-        }
-        .scale-drawer-list-item:active{
-        border-radius: 20px;
-        transform: scale(0.9);
+        .radius{
+		border-radius: 20px;
         }
         .mdui-drawer-list-item-active:hover{
-        background-color: #90CAF9;
+        background-color: rgba(33, 150, 243, 0.4);
         }
         .mdui-theme-layout-dark footer{
         background-color: #212121 !important;
+		color: white !important;
         }
         .mdui-theme-layout-dark .mdui-text-color-red-accent{
         color: white !important;
@@ -167,7 +149,7 @@
         .mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
         background-color: #212121 !important;
         }
-        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab{
+        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab .mdui-tooltip{
         transition-duration: 0.4s;
         }
         .mdui-theme-layout-dark .mdui-tooltip{
@@ -177,21 +159,46 @@
         .mdui-theme-layout-dark .mdui-fab{
         background-color: #212121 !important;
         }
+        .mdui-theme-layout-dark .mdui-dialog{
+		background-color: #434343 !important;
+		color: white !important;
+		}
+		.mdui-drawer-list-item-active .mdui-list-item-content{
+		font-weight: normal;
+		}
+		.mdui-theme-layout-dark .mdui-drawer{
+		background-color: #323232 !important;
+		color: white !important;
+		}
+		.mdui-theme-layout-dark .mdui-drawer-list-item-active{
+		background-color: rgba(33, 150, 243, 0.4);
+		}
+		.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
+		background-color: rgba(33, 150, 243, 0.4);
+		}
+		.mdui-theme-layout-dark .footerlink{
+		color: white;
+		}
+		.mdui-theme-layout-dark .footerlink:active{
+		background-color: rgba(255, 255, 255, 0.3);
+		}
+   		.mdui-theme-layout-dark .waves-ripple
+		{background:rgba(255,255,255,.4)}
         </style>
         <title>应用程序</title> 
     </head> 
     <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
-        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
-        <div class="mdui-toolbar mdui-color-theme-accent">
-        <a class="mdui-btn mdui-btn-icon scale" mdui-drawer="{target: '#drawer', swipe: true}">
+        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
+        <div class="mdui-toolbar mdui-color-blue-grey-50">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon scale" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '切换主题'}">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -205,71 +212,71 @@
     );
 </script>
         </div>
-        <div class="mdui-tab mdui-color-theme-accent" mdui-tab>
-            <a href="#android" class="scale">
+        <div class="mdui-tab mdui-color-blue-grey-50" mdui-tab>
+            <a href="#android" class="waves-block radius">
             <i class="mdui-icon material-icons">android</i>
             <label>Android</label>
             </a>
-            <a href="#windows" class="scale">
+            <a href="#windows" class="waves-block radius">
             <i class="mdui-icon material-icons">desktop_windows</i>
             <label>Windows</label>
             </a>
             </div>
         </header>
-        <div class="mdui-dialog" id="offline">
+        <div class="mdui-dialog mdui-color-blue-grey-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        更新日期：2022-07-21
+        更新日期：2022-07-29
         <br><br>新版变化：
-        <br>-“极品电音”新增83首音乐
+        <br>-加入了 Material You 视觉效果
         <br><p class="mdui-text-color-red-accent">安装时可能会报毒，属于误报，请放心安装。</p>
         </div>
-        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button></div>
         </div>
         </div>
-        <div class="mdui-drawer" id="drawer">
+        <div class="mdui-drawer mdui-color-blue-grey-50" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
-        <ul class="mdui-list" mdui-collapse="{accordion: true}">
-        <a href="index.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
+        <a href="index.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
-        <a href="sysimg.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="sysimg.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
-        <a href="apps.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-list-item-active mdui-drawer-list-item-active">
+        <a href="apps.html" class="waves-block radius">
+        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
-        <a href="websites.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="websites.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
-        <a href="more.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="more.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
-        <a href="tools.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="tools.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
-        <a href="about.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="about.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
@@ -279,142 +286,150 @@
         </div>
         <br><br><br><br><br><br><br>
             </div>
-            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-12">
+            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-8">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">应用程序</h1>
             <div id="android">
             <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent scaleappear" style="font-weight: bold;font-size: 15px;">
-            <a href="https://coolapk.com/qr/download"><li class="scale mdui-list-item">酷安</li></a>
-            <a href="https://www.vmos.cn/product_center.htm"><li class="scale mdui-list-item">VMOS</li></a> 
-            <a href="https://www.vmos.cn/product_center_vmospro.htm"><li class="scale mdui-list-item">VMOS Pro</li></a> 
-            <a href="https://www.gsxnj.cn"><li class="scale mdui-list-item">光速虚拟机</li></a> 
-            <a href="https://www.coolapk.com/apk/bin.mt.plus"><li class="scale mdui-list-item">MT管理器</li></a> 
-            <a href="https://www.lanzou.com"><li class="scale mdui-list-item">蓝奏云</li></a> 
-            <a href="https://www.coolapk.com/apk/com.cjtec.remoteassis"><li class="scale mdui-list-item">手机远程协助控制</li></a> 
-            <a href="https://www.coolapk.com/apk/co.clinux.googleinstaller"><li class="scale mdui-list-item">X 谷歌安装器</li></a> 
-            <a href="https://viayoo.com/"><li class="scale mdui-list-item">Via</li></a> 
-            <a href="https://www.coolapk.com/apk/com.microsoft.office.officehubrow"><li class="scale mdui-list-item">Microsoft Office</li></a> 
-            <a href="https://www.coolapk.com/apk/com.microsoft.emmx"><li class="scale mdui-list-item">Microsoft Edge</li></a> 
-            <a href="https://apkpremier.com/download/ru-zdevs-zarchiver"><li class="scale mdui-list-item">ZArchiver</li></a> 
-            <a href="https://apkpremier.com/download/com-amaze-filemanager"><li class="scale mdui-list-item">Amaze File Manager</li></a> 
-            <a href="https://f-droid.org/zh_Hans/packages/com.termux/"><li class="scale mdui-list-item">Termux</li></a> 
-            <a href="https://apkpremier.com/download/com-realvnc-viewer-android"><li class="scale mdui-list-item">VNC Viewer</li></a> 
-            <a href="http://d.icdown.club/repository/main/ZeroTermux/"><li class="scale mdui-list-item">ZeroTermux</li></a> 
-            <a href="https://apkpremier.com/download/com-android-chrome"><li class="scale mdui-list-item">Google Chrome</li></a> 
-            <a href="https://apkpremier.com/download/com-google-android-inputmethod-pinyin"><li class="scale mdui-list-item">谷歌拼音输入法</li></a> 
-            <a href="https://www.coolapk.com/apk/com.venter.easyweb"><li class="scale mdui-list-item">EasyWeb IDE</li></a> 
-            <a href="https://www.coolapk.com/apk/com.venter.hopweb"><li class="scale mdui-list-item">HopWeb Editor</li></a> 
-            <a href="https://repo.xposed.info/module/de.robv.android.xposed.installer"><li class="scale mdui-list-item">Xposed Installer</li></a> 
-            <a href="https://www.coolapk.com/apk/com.finalwire.aida64"><li class="scale mdui-list-item">AIDA64</li></a> 
-            <a href="https://apkpremier.com/download/exa-lnx-a"><li class="scale mdui-list-item">AnLinux</li></a> 
-            <a href="https://apkpremier.com/download/tech-ula"><li class="scale mdui-list-item">UserLAnd</li></a> 
-            <a href="https://www.coolapk.com/apk/com.topjohnwu.magisk"><li class="scale mdui-list-item">Magisk</li></a> 
-            <a href="https://www.coolapk.com/apk/com.jakting.opengapps"><li class="scale mdui-list-item">氡·OpenGApps</li></a> 
-            <a href="https://www.coolapk.com/apk/top.webcat.editor"><li class="scale mdui-list-item">WebCat</li></a> 
-            <a href="https://www.coolapk.com/apk/crixec.adbtoolkitsinstall"><li class="scale mdui-list-item">ADB工具安装器</li></a> 
-            <a href="https://www.coolapk.com/apk/com.nightmare.adbtools"><li class="scale mdui-list-item">ADB工具</li></a> 
-            <a href="https://hsk.oray.com/download/"><li class="scale mdui-list-item">花生壳</li></a>
-            <a href="https://sunlogin.oray.com/download/"><li class="scale mdui-list-item">向日葵远程控制</li></a>
-            <a href="https://www.coolapk.com/apk/com.example.ryanc.andserv"><li class="scale mdui-list-item">手机服务器</li></a>
-            <a href="https://apkpremier.com/download/ru-kslabs-ksweb"><li class="scale mdui-list-item">KSWEB</li></a>
-            <a href="https://www.coolapk.com/apk/projekt.substratum"><li class="scale mdui-list-item">Substratum</li></a>
-            <a href="https://www.coolapk.com/apk/com.ktls.fileinfo"><li class="scale mdui-list-item">存储空间清理</li></a>
-            <a href="https://www.coolapk.com/apk/xzr.La.systemtoolbox"><li class="scale mdui-list-item">镧·系统工具箱</li></a>
-            <a href="https://www.coolapk.com/apk/cn.w3cschool.app"><li class="scale mdui-list-item">编程狮</li></a>
-			<a href="https://apkpremier.com/download/studio-com-techriz-andronix"><li class="scale mdui-list-item">Andronix</li></a>
-         	<a href="https://www.coolapk.com/apk/me.twrp.twrpapp"><li class="scale mdui-list-item">Official TWRP App</li></a>
-			<a href="https://apkpremier.com/download/org-scratch"><li class="scale mdui-list-item">Scratch</li></a>
-         	<a href="https://aidlux.com/apk/AidLux.apk"><li class="scale mdui-list-item">AidLux</li></a>
-            <a href="https://apkpremier.com/download/com-instantbits-cast-webvideo"><li class="mdui-list-item scale">Web Video Caster</li></a>
-            <a href="https://www.bt.cn/download/app.html"><li class="scale mdui-list-item">堡塔APP</li></a>
-            <a href="https://f-droid.org/F-Droid.apk"><li class="scale mdui-list-item">F-Droid</li></a>
-            <a href="https://f-droid.org/zh_Hans/packages/com.limbo.emu.main/"><li class="scale mdui-list-item">Limbo x86 PC Emulator</li></a>
-            <a href="https://mo.camscanner.com/"><li class="scale mdui-list-item">扫描全能王</li></a>
-            <a href="https://www.coolapk.com/apk/web1n.stopapp"><li class="scale mdui-list-item">小黑屋</li></a>
-            <a href="https://www.coolapk.com/apk/com.One.WoodenLetter"><li class="scale mdui-list-item">一个木函</li></a>
-            <a href="https://www.coolapk.com/apk/me.zhanghai.android.files"><li class="scale mdui-list-item">质感文件</li></a>
-            <a href="https://apkpremier.com/download/com-teacapps-barcodescanner"><li class="scale mdui-list-item">QR码扫描</li></a>
-            <a href="https://www.coolapk.com/apk/me.piebridge.brevent"><li class="scale mdui-list-item">黑阈</li></a>
-            <a href="https://apkpremier.com/download/ru-meefik-linuxdeploy"><li class="scale mdui-list-item">Linux Deploy</li></a>
-            <a href="https://apkpremier.com/download/ru-meefik-busybox"><li class="scale mdui-list-item">BusyBox</li></a>
-            <a href="https://apkpremier.com/download/com-microsoft-rdc-androidx"><li class="scale mdui-list-item">Microsoft Remote Desktop</li></a>
-            <a href="https://apkpremier.com/download/ua-com-streamsoft-pingtools"><li class="scale mdui-list-item">PingTools</li></a>
-            <a href="https://apkpremier.com/download/ru-playsoftware-j2meloader"><li class="scale mdui-list-item">J2ME Loader</li></a>
-            <a href="https://www.coolapk.com/apk/com.farplace.qingzhuo"><li class="scale mdui-list-item">清浊</li></a>
-            <a href="https://www.coolapk.com/apk/com.toshiba_dealin.developerhelper"><li class="scale mdui-list-item">开发者助手</li></a>
-            <a href="https://www.coolapk.com/apk/com.x2.clicker"><li class="scale mdui-list-item">自动连点器</li></a>
-            <a href="https://www.xbext.com/"><li class="scale mdui-list-item">X浏览器</li></a>
-            <a href="https://m.i4.cn/installBoxAndroid"><li class="scale mdui-list-item">爱思助手</li></a>
-            <a href="https://apkpremier.com/download/com-cpuid-cpu_z"><li class="scale mdui-list-item">CPU-Z</li></a>
-            <a href="https://apkpremier.com/download/com-iiordanov-freebVNC"><li class="scale mdui-list-item">bVNC</li></a>
-            <a href="https://apkpremier.com/download/net-christianbeier-droidvnc_ng"><li class="scale mdui-list-item">droidVNC-NG</li></a>
+            <div class="waves-block radius"><a href="https://coolapk.com/qr/download"><li class="mdui-list-item">酷安</li></a></div>
+            <div class="waves-block radius"><a href="https://www.vmos.cn/product_center.htm"><li class="mdui-list-item">VMOS</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.vmos.cn/product_center_vmospro.htm"><li class="mdui-list-item">VMOS Pro</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.gsxnj.cn"><li class="mdui-list-item">光速虚拟机</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/bin.mt.plus"><li class="mdui-list-item">MT管理器</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.lanzou.com"><li class="mdui-list-item">蓝奏云</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.cjtec.remoteassis"><li class="mdui-list-item">手机远程协助控制</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/co.clinux.googleinstaller"><li class="mdui-list-item">X 谷歌安装器</li></a></div> 
+            <div class="waves-block radius"><a href="https://viayoo.com/"><li class="mdui-list-item">Via</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.microsoft.office.officehubrow"><li class="mdui-list-item">Microsoft Office</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.microsoft.emmx"><li class="mdui-list-item">Microsoft Edge</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ru-zdevs-zarchiver"><li class="mdui-list-item">ZArchiver</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-amaze-filemanager"><li class="mdui-list-item">Amaze File Manager</li></a></div> 
+            <div class="waves-block radius"><a href="https://f-droid.org/zh_Hans/packages/com.termux/"><li class="mdui-list-item">Termux</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-realvnc-viewer-android"><li class="mdui-list-item">VNC Viewer</li></a></div> 
+            <div class="waves-block radius"><a href="http://d.icdown.club/repository/main/ZeroTermux/"><li class="mdui-list-item">ZeroTermux</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-android-chrome"><li class="mdui-list-item">Google Chrome</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-google-android-inputmethod-pinyin"><li class="mdui-list-item">谷歌拼音输入法</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.venter.easyweb"><li class="mdui-list-item">EasyWeb IDE</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.venter.hopweb"><li class="mdui-list-item">HopWeb Editor</li></a></div> 
+            <div class="waves-block radius"><a href="https://repo.xposed.info/module/de.robv.android.xposed.installer"><li class="mdui-list-item">Xposed Installer</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.finalwire.aida64"><li class="mdui-list-item">AIDA64</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/exa-lnx-a"><li class="mdui-list-item">AnLinux</li></a></div> 
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/tech-ula"><li class="mdui-list-item">UserLAnd</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.topjohnwu.magisk"><li class="mdui-list-item">Magisk</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.jakting.opengapps"><li class="mdui-list-item">氡·OpenGApps</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/top.webcat.editor"><li class="mdui-list-item">WebCat</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/crixec.adbtoolkitsinstall"><li class="mdui-list-item">ADB工具安装器</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.nightmare.adbtools"><li class="mdui-list-item">ADB工具</li></a></div> 
+            <div class="waves-block radius"><a href="https://hsk.oray.com/download/"><li class="mdui-list-item">花生壳</li></a></div>
+            <div class="waves-block radius"><a href="https://sunlogin.oray.com/download/"><li class="mdui-list-item">向日葵远程控制</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.example.ryanc.andserv"><li class="mdui-list-item">手机服务器</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ru-kslabs-ksweb"><li class="mdui-list-item">KSWEB</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/projekt.substratum"><li class="mdui-list-item">Substratum</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.ktls.fileinfo"><li class="mdui-list-item">存储空间清理</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/xzr.La.systemtoolbox"><li class="mdui-list-item">镧·系统工具箱</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/cn.w3cschool.app"><li class="mdui-list-item">编程狮</li></a></div>
+			<div class="waves-block radius"><a href="https://apkpremier.com/download/studio-com-techriz-andronix"><li class="mdui-list-item">Andronix</li></a></div>
+         	<div class="waves-block radius"><a href="https://www.coolapk.com/apk/me.twrp.twrpapp"><li class="mdui-list-item">Official TWRP App</li></a></div>
+			<div class="waves-block radius"><a href="https://apkpremier.com/download/org-scratch"><li class="mdui-list-item">Scratch</li></a></div>
+         	<div class="waves-block radius"><a href="https://aidlux.com/apk/AidLux.apk"><li class="mdui-list-item">AidLux</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-instantbits-cast-webvideo"><li class="mdui-list-item scale">Web Video Caster</li></a></div>
+            <div class="waves-block radius"><a href="https://www.bt.cn/download/app.html"><li class="mdui-list-item">堡塔APP</li></a></div>
+            <div class="waves-block radius"><a href="https://f-droid.org/F-Droid.apk"><li class="mdui-list-item">F-Droid</li></a></div>
+            <div class="waves-block radius"><a href="https://f-droid.org/zh_Hans/packages/com.limbo.emu.main/"><li class="mdui-list-item">Limbo x86 PC Emulator</li></a></div>
+            <div class="waves-block radius"><a href="https://mo.camscanner.com/"><li class="mdui-list-item">扫描全能王</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/web1n.stopapp"><li class="mdui-list-item">小黑屋</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.One.WoodenLetter"><li class="mdui-list-item">一个木函</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/me.zhanghai.android.files"><li class="mdui-list-item">质感文件</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-teacapps-barcodescanner"><li class="mdui-list-item">QR码扫描</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/me.piebridge.brevent"><li class="mdui-list-item">黑阈</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ru-meefik-linuxdeploy"><li class="mdui-list-item">Linux Deploy</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ru-meefik-busybox"><li class="mdui-list-item">BusyBox</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-microsoft-rdc-androidx"><li class="mdui-list-item">Microsoft Remote Desktop</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ua-com-streamsoft-pingtools"><li class="mdui-list-item">PingTools</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/ru-playsoftware-j2meloader"><li class="mdui-list-item">J2ME Loader</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.farplace.qingzhuo"><li class="mdui-list-item">清浊</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.toshiba_dealin.developerhelper"><li class="mdui-list-item">开发者助手</li></a></div>
+            <div class="waves-block radius"><a href="https://www.coolapk.com/apk/com.x2.clicker"><li class="mdui-list-item">自动连点器</li></a></div>
+            <div class="waves-block radius"><a href="https://www.xbext.com/"><li class="mdui-list-item">X浏览器</li></a></div>
+            <div class="waves-block radius"><a href="https://m.i4.cn/installBoxAndroid"><li class="mdui-list-item">爱思助手</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-cpuid-cpu_z"><li class="mdui-list-item">CPU-Z</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/com-iiordanov-freebVNC"><li class="mdui-list-item">bVNC</li></a></div>
+            <div class="waves-block radius"><a href="https://apkpremier.com/download/net-christianbeier-droidvnc_ng"><li class="mdui-list-item">droidVNC-NG</li></a></div>
             </ul>
             </div>
             <div id="windows">
             <ul class="mdui-list mdui-list-dense mdui-text-color-theme-accent scaleappear" style="font-weight: bold;font-size: 15px;">
-            <a href="https://www.virtualbox.org"><li class="scale mdui-list-item">VirtualBox</li></a> 
-            <a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="scale mdui-list-item">VMware</li></a> 
-            <a href="https://www.google.cn/chrome/"><li class="scale mdui-list-item">Google Chrome</li></a> 
-            <a href="https://developer.android.google.cn/studio/"><li class="scale mdui-list-item">Android Studio</li></a> 
-            <a href="https://www.java.com/zh-CN/"><li class="scale mdui-list-item">Java</li></a> 
-            <a href="https://www.realvnc.com/en/connect/download/vnc/windows/"><li class="scale mdui-list-item">VNC Server</li></a> 
-            <a href="https://www.realvnc.com/en/connect/download/viewer/windows/"><li class="scale mdui-list-item">VNC Viewer</li></a> 
-            <a href="https://www.aida64.com/downloads"><li class="scale mdui-list-item">AIDA64</li></a> 
-            <a href="https://qemu.weilnetz.de/w32/"><li class="scale mdui-list-item">QEMU（32位）</li></a> 
-            <a href="https://qemu.weilnetz.de/w64/"><li class="scale mdui-list-item">QEMU（64位）</li></a>
-            <a href="https://www.microsoft.com/zh-cn/edge"><li class="scale mdui-list-item">Microsoft Edge</li></a> 
-            <a href="https://hsk.oray.com/download/"><li class="scale mdui-list-item">花生壳</li></a>
-            <a href="https://sunlogin.oray.com/download/"><li class="scale mdui-list-item">向日葵远程控制</li></a>
-            <a href="https://www.flash.cn/"><li class="scale mdui-list-item">Flash中心</li></a>
-            <a href="https://drive.loili.com/s/M0vhG"><li class="scale mdui-list-item">Scratch</li></a>
-            <a href="https://www.huorong.cn/person5.html"><li class="scale mdui-list-item">火绒安全软件</li></a>
-            <a href="https://download.bt.cn/win/panel/BtSoft.zip"><li class="scale mdui-list-item">宝塔面板</li></a>
-            <a href="https://www.camscanner.com/user/download"><li class="scale mdui-list-item">扫描全能王</li></a>
-            <a href="https://cithub.icu/zbezj/HEU_KMS_Activator/releases"><li class="scale mdui-list-item">HEU KMS Activator</li></a>
-            <a href="http://www.winrar.com.cn/download.htm"><li class="scale mdui-list-item">WinRAR</li></a>
-            <a href="https://cn.ultraiso.net/xiazai.html"><li class="scale mdui-list-item">UltraISO</li></a>
-            <a href="https://www.diskgenius.cn/"><li class="scale mdui-list-item">DiskGenius</li></a>
-            <a href="https://www.disktool.cn/"><li class="scale mdui-list-item">傲梅分区助手</li></a>
-            <a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4.exe"><li class="scale mdui-list-item">Python（32位）</li></a>
-            <a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe"><li class="scale mdui-list-item">Python（64位）</li></a>
-            <a href="https://download.microsoft.com/download/d/5/9/d59a6828-52d9-4d08-a995-3c08cef7e802/3.7/x64/WindowsPCHealthCheckSetup.msi"><li class="scale mdui-list-item">电脑健康状况检查应用</li></a>
-            <a href="http://7to.cn/"><li class="scale mdui-list-item">奇兔刷机</li></a>
-			<a href="https://www.i4.cn/"><li class="scale mdui-list-item">爱思助手</li></a>
-			<a href="https://cithub.icu/cloudreve/Cloudreve/releases"><li class="scale mdui-list-item">Cloudreve</li></a>
-			<a href="https://visualstudio.microsoft.com/zh-hans/vs/"><li class="scale mdui-list-item">Visual Studio</li></a>
-			<a href="https://www.cpuid.com/downloads/cpu-z/cpu-z_2.01-cn.exe"><li class="scale mdui-list-item">CPU-Z</li></a>
+            <div class="waves-block radius"><a href="https://www.virtualbox.org"><li class="mdui-list-item">VirtualBox</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html"><li class="mdui-list-item">VMware</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.google.cn/chrome/"><li class="mdui-list-item">Google Chrome</li></a></div> 
+            <div class="waves-block radius"><a href="https://developer.android.google.cn/studio/"><li class="mdui-list-item">Android Studio</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.java.com/zh-CN/"><li class="mdui-list-item">Java</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.realvnc.com/en/connect/download/vnc/windows/"><li class="mdui-list-item">VNC Server</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.realvnc.com/en/connect/download/viewer/windows/"><li class="mdui-list-item">VNC Viewer</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.aida64.com/downloads"><li class="mdui-list-item">AIDA64</li></a></div> 
+            <div class="waves-block radius"><a href="https://qemu.weilnetz.de/w32/"><li class="mdui-list-item">QEMU（32位）</li></a></div> 
+            <div class="waves-block radius"><a href="https://qemu.weilnetz.de/w64/"><li class="mdui-list-item">QEMU（64位）</li></a></div>
+            <div class="waves-block radius"><a href="https://www.microsoft.com/zh-cn/edge"><li class="mdui-list-item">Microsoft Edge</li></a></div> 
+            <div class="waves-block radius"><a href="https://hsk.oray.com/download/"><li class="mdui-list-item">花生壳</li></a></div>
+            <div class="waves-block radius"><a href="https://sunlogin.oray.com/download/"><li class="mdui-list-item">向日葵远程控制</li></a></div>
+            <div class="waves-block radius"><a href="https://www.flash.cn/"><li class="mdui-list-item">Flash中心</li></a></div>
+            <div class="waves-block radius"><a href="https://drive.loili.com/s/M0vhG"><li class="mdui-list-item">Scratch</li></a></div>
+            <div class="waves-block radius"><a href="https://www.huorong.cn/person5.html"><li class="mdui-list-item">火绒安全软件</li></a></div>
+            <div class="waves-block radius"><a href="https://download.bt.cn/win/panel/BtSoft.zip"><li class="mdui-list-item">宝塔面板</li></a></div>
+            <div class="waves-block radius"><a href="https://www.camscanner.com/user/download"><li class="mdui-list-item">扫描全能王</li></a></div>
+            <div class="waves-block radius"><a href="https://cithub.icu/zbezj/HEU_KMS_Activator/releases"><li class="mdui-list-item">HEU KMS Activator</li></a></div>
+            <div class="waves-block radius"><a href="http://www.winrar.com.cn/download.htm"><li class="mdui-list-item">WinRAR</li></a></div>
+            <div class="waves-block radius"><a href="https://cn.ultraiso.net/xiazai.html"><li class="mdui-list-item">UltraISO</li></a></div>
+            <div class="waves-block radius"><a href="https://www.diskgenius.cn/"><li class="mdui-list-item">DiskGenius</li></a></div>
+            <div class="waves-block radius"><a href="https://www.disktool.cn/"><li class="mdui-list-item">傲梅分区助手</li></a></div>
+            <div class="waves-block radius"><a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4.exe"><li class="mdui-list-item">Python（32位）</li></a></div>
+            <div class="waves-block radius"><a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe"><li class="mdui-list-item">Python（64位）</li></a></div>
+            <div class="waves-block radius"><a href="https://download.microsoft.com/download/d/5/9/d59a6828-52d9-4d08-a995-3c08cef7e802/3.7/x64/WindowsPCHealthCheckSetup.msi"><li class="mdui-list-item">电脑健康状况检查应用</li></a></div>
+            <div class="waves-block radius"><a href="http://7to.cn/"><li class="mdui-list-item">奇兔刷机</li></a></div>
+			<div class="waves-block radius"><a href="https://www.i4.cn/"><li class="mdui-list-item">爱思助手</li></a></div>
+			<div class="waves-block radius"><a href="https://cithub.icu/cloudreve/Cloudreve/releases"><li class="mdui-list-item">Cloudreve</li></a></div>
+			<div class="waves-block radius"><a href="https://visualstudio.microsoft.com/zh-hans/vs/"><li class="mdui-list-item">Visual Studio</li></a></div>
+			<div class="waves-block radius"><a href="https://www.cpuid.com/downloads/cpu-z/cpu-z_2.01-cn.exe"><li class="mdui-list-item">CPU-Z</li></a></div>
             </ul>
         </div>  
         </div>
         </div>
         <br>
-        <footer class="mdui-text-center mdui-color-blue-accent">
+        <footer class="mdui-text-center mdui-color-blue-grey-50">
         <br>
-        <a class="mdui-btn mdui-btn-icon scale" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+		<div class="waves-circle">
+        <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
         </a>
-        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+		</div>
+		<div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <button class="mdui-btn mdui-btn-icon">
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
+		</div>
         <div class="mdui-menu" id="wechat">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
-        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+		<div class="waves-circle">
+        <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
+		</div>
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
         </div>
-        <a class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+		<div class="waves-circle">
+        <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
         <i class="mdui-icon material-icons">send</i>
         </a>
+		</div>
         <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
         <p><label>开发工具：<a href="https://www.coolapk.com/apk/241241" class="footerlink">EasyWeb IDE</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br>
         </footer>
-        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide" id="fab" onclick="window.scrollTo(0,0);">
+        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
         <script type="text/javascript">
@@ -474,5 +489,18 @@
    		function dns(){
     		localStorage.setItem("doNotShowUpdateApps20220605", "true");
 		}
+    </script>
+    <script src="waves/waves.min.js"></script>
+  	<script>
+    var config = {
+    duration: 500,
+    delay: 0
+    };
+    Waves.init(config);
+	Waves.attach('.waves-block',['waves-block']);
+	Waves.attach('.waves-circle',['waves-circle']);
+	Waves.attach('.waves-light',['waves-light']);
+	Waves.attach('.waves-classic',['waves-classic']);
+	Waves.init(config);
     </script>
 </html>

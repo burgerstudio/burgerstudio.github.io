@@ -6,15 +6,18 @@
         <link rel="icon" href="images/BGS_LOGO_20210919_WHITE.png" type="image/x-icon"> 
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <style>
         .mdui-btn-raised{
         border-radius: 5px;
         }
         .mdui-dialog{
-        border-radius: 10px;
+        border-radius: 32px;
+        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
         }
         .mdui-menu{
         border-radius: 10px;
+        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
         }
         .mdui-tooltip{
         border-radius: 20px;
@@ -30,11 +33,8 @@
         animation-name: card;
         animation-duration: 0.7s;
         }
-        .mdui-drawer-list-item-active{
-        border-radius: 0 20px 20px 0;
-        background-color:#BBDEFB;
-        color:#448AFF;
-        margin-right: 8px;
+         .mdui-drawer-list-item-active{
+        background-color: rgba(33, 150, 243, 0.4);
         }
         .mdui-drawer-list-item{
         border-radius: 0 20px 20px 0;
@@ -108,7 +108,7 @@
 		 color: #ABABAB;
          }
          .footerlink{
-        color: white;
+        color: black;
         transition-duration: 0.2s;
         text-decoration: none;
         }
@@ -118,33 +118,15 @@
         .footerlink:active{
         background-color: rgba(0,0,0,0.3);
         }
-        .scale{
-        transition-duration: 0.2s;
-        }
-        .scale:hover{
-        background-color: rgba(0,0,0,0.1);
-        }
-        .scale:active{
-        border-radius: 20px;
-        transform: scale(0.9);
-        }
-        .scale-drawer-list-item{
-        transition: 0.2s;
-        border-radius: 0 20px 20px 0;
-        }
-        .scale-drawer-list-item:hover{
-        border-radius: 0 20px 20px 0;
-        background-color: rgba(0,0,0,0.1);
-        }
-        .scale-drawer-list-item:active{
-        border-radius: 20px;
-        transform: scale(0.9);
+        .radius{
+		border-radius: 20px;
         }
         .mdui-drawer-list-item-active:hover{
-        background-color: #90CAF9;
+        background-color: rgba(33, 150, 243, 0.4);
         }
         .mdui-theme-layout-dark footer{
         background-color: #212121 !important;
+		color: white !important;
         }
         .mdui-theme-layout-dark .mdui-text-color-red-accent{
         color: white !important;
@@ -160,7 +142,7 @@
         .mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
         background-color: #212121 !important;
         }
-        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab{
+        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab .mdui-tooltip{
         transition-duration: 0.4s;
         }
         .mdui-theme-layout-dark .mdui-tooltip{
@@ -170,21 +152,46 @@
         .mdui-theme-layout-dark .mdui-fab{
         background-color: #212121 !important;
         }
+        .mdui-theme-layout-dark .mdui-dialog{
+		background-color: #434343 !important;
+		color: white !important;
+		}
+		.mdui-drawer-list-item-active .mdui-list-item-content{
+		font-weight: normal;
+		}
+		.mdui-theme-layout-dark .mdui-drawer{
+		background-color: #323232 !important;
+		color: white !important;
+		}
+		.mdui-theme-layout-dark .mdui-drawer-list-item-active{
+		background-color: rgba(33, 150, 243, 0.4);
+		}
+		.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
+		background-color: rgba(33, 150, 243, 0.4);
+		}
+		.mdui-theme-layout-dark .footerlink{
+		color: white;
+		}
+		.mdui-theme-layout-dark .footerlink:active{
+		background-color: rgba(255, 255, 255, 0.3);
+		}
+   		.mdui-theme-layout-dark .waves-ripple
+		{background:rgba(255,255,255,.4)}
         </style>
         <title>系统镜像</title>
     </head> 
     <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
-        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset">
-        <div class="mdui-toolbar mdui-color-theme-accent">
-        <a class="mdui-btn mdui-btn-icon scale" mdui-drawer="{target: '#drawer', swipe: true}">
+        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
+        <div class="mdui-toolbar mdui-color-blue-grey-50">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon scale" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '切换主题'}">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '切换主题'}">
         <i class="mdui-icon material-icons">brightness_medium</i>
         </a>
 <script>
@@ -199,60 +206,60 @@
 </script>
         </div>
         </header>
-        <div class="mdui-dialog" id="offline">
+        <div class="mdui-dialog mdui-color-blue-grey-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        更新日期：2022-07-21
+        更新日期：2022-07-29
         <br><br>新版变化：
-        <br>-“极品电音”新增83首音乐
+        <br>-加入了 Material You 视觉效果
         <br><p class="mdui-text-color-red-accent">安装时可能会报毒，属于误报，请放心安装。</p>
         </div>
-        <div class="mdui-dialog-actions mdui-dialog-actions-stacked">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd"><button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <button class="mdui-btn scale mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button>
+        <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button></div>
         </div>
         </div>
-        <div class="mdui-drawer" id="drawer">
+        <div class="mdui-drawer mdui-color-blue-grey-50" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
-        <ul class="mdui-list" mdui-collapse="{accordion: true}">
-        <a href="index.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
+        <a href="index.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
-        <a href="sysimg.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-list-item-active mdui-drawer-list-item-active">
+        <a href="sysimg.html" class="waves-block radius">
+        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
-        <a href="apps.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="apps.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
-        <a href="websites.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="websites.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
-        <a href="more.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="more.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
-        <a href="tools.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="tools.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
-        <a href="about.html" >
-        <li class="mdui-list-item scale-drawer-list-item mdui-drawer-list-item">
+        <a href="about.html" class="waves-block radius">
+        <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
@@ -262,51 +269,62 @@
         </div>
         <br><br><br><br>
             </div> 
-            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-12">
+            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">系统镜像</h1>
             <ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
-            <a href="https://sourceforge.net/projects/android-x86/files/"><li class="scale mdui-list-item">Android-x86</li></a> 
-            <a href="https://d.icdown.club/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="scale mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像1-1</li></a> 
-            <a href="https://od.ixcmstudio.cn/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="scale mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像1-2</li></a> 
-            <a href="https://d.icdown.club/utermux/UTermux-Window%E8%99%9A%E6%8B%9F%E6%9C%BA/"><li class="scale mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像2-1</li></a> 
-            <a href="https://od.ixcmstudio.cn/utermux/UTermux-Window%E8%99%9A%E6%8B%9F%E6%9C%BA/"><li class="scale mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像2-2</li></a> 
-            <a href="https://www.microsoft.com/zh-cn/software-download/windows8ISO"><li class="scale mdui-list-item">Windows 8.1</li></a> 
-            <a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO"><li class="scale mdui-list-item">Windows 10</li></a> 
-            <a href="https://www.microsoft.com/zh-cn/software-download/windows11"><li class="scale mdui-list-item">Windows 11</li></a>
-            <a href="https://releases.ubuntu.com/bionic/ubuntu-18.04.6-desktop-amd64.iso"><li class="scale mdui-list-item">Ubuntu 18.04.6 LTS</li></a> 
-            <a href="https://releases.ubuntu.com/bionic/ubuntu-18.04.6-live-server-amd64.iso"><li class="scale mdui-list-item">Ubuntu Server 18.04.6 LTS</li></a> 
-            <a href="https://releases.ubuntu.com/focal/ubuntu-20.04.4-desktop-amd64.iso"><li class="scale mdui-list-item">Ubuntu 20.04.4 LTS</li></a> 
-            <a href="https://releases.ubuntu.com/focal/ubuntu-20.04.4-live-server-amd64.iso"><li class="scale mdui-list-item">Ubuntu Server 20.04.4 LTS</li></a> 
-            <a href="https://cn.ubuntu.com/download/desktop"><li class="scale mdui-list-item">Ubuntu 22.04 LTS</li></a> 
-            <a href="https://cn.ubuntu.com/download/server/step1"><li class="scale mdui-list-item">Ubuntu Server 22.04 LTS</li></a> 
-            <a href="https://www.coolapk.com/feed/35565740?shareKey=NGMzYWVjNTg0N2Y2NjI3MDg3NzU~&shareUid=3538557&shareFrom=com.coolapk.market_12.2.1"><li class="scale mdui-list-item">[VMOS Pro][Android 7.1]BurgerUI</li></a>
+            <div class="waves-block radius"><a href="https://sourceforge.net/projects/android-x86/files/"><li class="mdui-list-item">Android-x86</li></a></div> 
+            <div class="waves-block radius"><a href="https://d.icdown.club/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像1-1</li></a></div> 
+            <div class="waves-block radius"><a href="https://od.ixcmstudio.cn/doc/%E9%95%9C%E5%83%8F/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%A3%81%E7%9B%98%E9%95%9C%E5%83%8F/"><li class="mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像1-2</li></a></div> 
+            <div class="waves-block radius"><a href="https://d.icdown.club/utermux/UTermux-Window%E8%99%9A%E6%8B%9F%E6%9C%BA/"><li class="mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像2-1</li></a> </div>
+            <div class="waves-block radius"><a href="https://od.ixcmstudio.cn/utermux/UTermux-Window%E8%99%9A%E6%8B%9F%E6%9C%BA/"><li class="mdui-list-item">IXCM工作室下载站虚拟机磁盘镜像2-2</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.microsoft.com/zh-cn/software-download/windows8ISO"><li class="mdui-list-item">Windows 8.1</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.microsoft.com/zh-cn/software-download/windows10ISO"><li class="mdui-list-item">Windows 10</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.microsoft.com/zh-cn/software-download/windows11"><li class="mdui-list-item">Windows 11</li></a></div>
+            <div class="waves-block radius"><a href="https://releases.ubuntu.com/bionic/ubuntu-18.04.6-desktop-amd64.iso"><li class="mdui-list-item">Ubuntu 18.04.6 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://releases.ubuntu.com/bionic/ubuntu-18.04.6-live-server-amd64.iso"><li class="mdui-list-item">Ubuntu Server 18.04.6 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://releases.ubuntu.com/focal/ubuntu-20.04.4-desktop-amd64.iso"><li class="mdui-list-item">Ubuntu 20.04.4 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://releases.ubuntu.com/focal/ubuntu-20.04.4-live-server-amd64.iso"><li class="mdui-list-item">Ubuntu Server 20.04.4 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://cn.ubuntu.com/download/desktop"><li class="mdui-list-item">Ubuntu 22.04 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://cn.ubuntu.com/download/server/step1"><li class="mdui-list-item">Ubuntu Server 22.04 LTS</li></a></div> 
+            <div class="waves-block radius"><a href="https://www.coolapk.com/feed/35565740?shareKey=NGMzYWVjNTg0N2Y2NjI3MDg3NzU~&shareUid=3538557&shareFrom=com.coolapk.market_12.2.1"><li class="mdui-list-item">[VMOS Pro][Android 7.1]BurgerUI</li></a></div>
             </ul>
             </div>
             </div>
             <br>
-        <footer class="mdui-text-center mdui-color-blue-accent">
+        <footer class="mdui-text-center mdui-color-blue-grey-50">
         <br>
-        <a class="mdui-btn mdui-btn-icon scale" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+		<div class="waves-circle">
+        <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
         </a>
-        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+		</div>
+		<div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        <button class="mdui-btn mdui-btn-icon">
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
+		</div>
         <div class="mdui-menu" id="wechat">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
-        <button class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+		<div class="waves-circle">
+        <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
-        <a class="mdui-btn mdui-btn-icon scale" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+		</div>
+        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
+        <img src="images/QQ.jpg" style="width:180px;height:336px;">
+        </div>
+		<div class="waves-circle">
+        <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
         <i class="mdui-icon material-icons">send</i>
         </a>
-        <br><br>
+		</div>
+        <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
         <p><label>开发工具：<a href="https://www.coolapk.com/apk/241241" class="footerlink">EasyWeb IDE</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
-        <br><br>
+        <br>
         </footer>
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
@@ -345,5 +363,18 @@
    		function dns(){
     		localStorage.setItem("doNotShowUpdateSysimg20220605", "true");
 		}
+    </script>
+    <script src="waves/waves.min.js"></script>
+  	<script>
+    var config = {
+    duration: 500,
+    delay: 0
+    };
+    Waves.init(config);
+	Waves.attach('.waves-block',['waves-block']);
+	Waves.attach('.waves-circle',['waves-circle']);
+	Waves.attach('.waves-light',['waves-light']);
+	Waves.attach('.waves-classic',['waves-classic']);
+	Waves.init(config);
     </script>
 </html>
