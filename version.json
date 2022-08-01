@@ -1,0 +1,8 @@
+{
+    "version":"22-08-01",
+    "versionCode":220801,
+	"updateDate":"2022-08-01",
+    "change":"-新增“调色板”功能，可自由定制网页主题<br>-改用JSON获取离线版信息，便于检查更新",
+    "note":"安装时可能会报毒，属于误报，请放心安装。",
+	"spinner":"display: none !important;"
+}
