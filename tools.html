@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+        <link rel="stylesheet" type="text/css" href="theme.css" />
         <style>
         .mdui-btn-raised{
         border-radius: 5px;
@@ -271,143 +272,89 @@
         .mdui-drawer-list-item-active:hover{
         background-color: rgba(33, 150, 243, 0.4);
         }
-        .mdui-theme-layout-dark footer{
-        background-color: #212121 !important;
-		color: white !important;
-        }
-        .mdui-theme-layout-dark .mdui-text-color-red-accent{
-        color: white !important;
-        }
-        .mdui-theme-layout-dark .update-dialog{
-        background-color: rgba(16,16,16,0.9);
-        color: white;
-        }
-        .mdui-theme-layout-dark .update-dialog-btn{
-        background-color: #434343;
-        color: white;
-        }
-        .mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
-        background-color: #212121 !important;
-        }
         footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab ,mdui-drawer .mdui-tooltip{
         transition-duration: 0.4s;
         }
-        .mdui-theme-layout-dark .mdui-tooltip{
-        background-color: rgba(16,16,16,0.9);
-        color: white;
-        }
-        .mdui-theme-layout-dark .mdui-fab{
-        background-color: #212121 !important;
-        }
-        .mdui-theme-layout-dark .mdui-dialog{
-		background-color: #434343 !important;
-		color: white !important;
-		}
 		.mdui-drawer-list-item-active .mdui-list-item-content{
 		font-weight: normal;
 		}
-		.mdui-theme-layout-dark .mdui-drawer{
-		background-color: #323232 !important;
-		color: white !important;
-		}
-		.mdui-theme-layout-dark .mdui-drawer-list-item-active{
-		background-color: rgba(33, 150, 243, 0.4);
-		}
-		.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
-		background-color: rgba(33, 150, 243, 0.4);
-		}
-		.mdui-theme-layout-dark .footerlink{
-		color: white;
-		}
-		.mdui-theme-layout-dark .footerlink:active{
-		background-color: rgba(255, 255, 255, 0.3);
-		}
-   		.mdui-theme-layout-dark .waves-ripple
-		{background:rgba(255,255,255,.4)}
         </style>
         <title>JS工具</title>
 	</head> 
-	<body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
+	<body class="mdui-theme-layout-auto  mdui-drawer-body-left"> 
    		<header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0" id="appbar">
-        <div class="mdui-toolbar mdui-color-blue-grey-50">
+        <div class="mdui-toolbar mdui-color-theme-50">
         <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '切换主题'}">
-        <i class="mdui-icon material-icons">brightness_medium</i>
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
+        <i class="mdui-icon material-icons">color_lens</i>
         </a>
-<script>
-    if(localStorage.darkTheme)
-        document.body.classList.add("mdui-theme-layout-dark");
-    document.getElementById("switch-theme").addEventListener(
-        "click",
-        () => document.body.classList.toggle("mdui-theme-layout-dark") ?
-            (localStorage.darkTheme = true) :
-            (delete localStorage.darkTheme)
-    );
-</script>
         </div>
         </header>
-        <div class="mdui-dialog mdui-color-blue-grey-50" id="offline">
+        <div class="mdui-dialog mdui-color-theme-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        更新日期：2022-07-29
-        <br><br>新版变化：
-        <br>-加入了 Material You 视觉效果
-        <br><p class="mdui-text-color-red-accent">安装时可能会报毒，属于误报，请放心安装。</p>
+        <div id="updateDate"></div>
+        <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
+        <div id="updateChange"></div>
+        <p class="mdui-text-color-red" id="updateNote"></p>
+		<p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
+      	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button></div>
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700" mdui-dialog-close>关闭</button></div>
         </div>
+		<script src="update.js"></script>
         </div>
-        <div class="mdui-drawer mdui-color-blue-grey-50" id="drawer">
+        <div class="mdui-drawer mdui-color-theme-50" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
         <a href="index.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
+        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme-500">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
         </a>
@@ -417,8 +364,8 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8" id="card">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            	<h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">JS工具</h1>
-            	<ul class="mdui-list mdui-text-color-theme-accent" style="font-weight: bold;font-size: 15px;">
+            	<h1 class="mdui-text-color-theme-a700 title">JS工具</h1>
+            	<ul class="mdui-list mdui-text-color-theme-a700" style="font-weight: bold;font-size: 15px;">
                		<div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('clock');">线性时钟</li></div>
                     <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('countdown');">线性倒计时</li></div>
                     <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('temperature');">摄氏度与华氏度转换</li></div>
@@ -431,7 +378,7 @@
         	</div>
         </div>
         <br>
-        <footer class="mdui-text-center mdui-color-blue-grey-50">
+        <footer class="mdui-text-center mdui-color-theme-50">
         <br>
 		<div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
@@ -782,6 +729,230 @@
 			//document.getElementById('card').style = "z-index: 0;";
 		}
 	</script>
+	<div class="mdui-dialog mdui-color-theme-50" id="setTheme">
+        <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
+           	<span class="mdui-typo-title">调色板</span>
+           	<div class="mdui-toolbar-spacer"></div>
+        	<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+        </div>
+        <div class="mdui-dialog-content">
+            <p style="font-size: 16px;">夜间模式</p>
+            <form>
+                <div class="mdui-row-xs-2">
+					<label class="mdui-radio mdui-col" onclick='setDarkTheme("bySystem")'>
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
+    					<i class="mdui-radio-icon"></i>
+    					跟随系统
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick='setDarkTheme("disabled")'>
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
+    					<i class="mdui-radio-icon"></i>
+    					关闭
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled')">
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
+    					<i class="mdui-radio-icon"></i>
+    					开启
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
+    					<i class="mdui-radio-icon"></i>
+    					基于时间
+  					</label>
+				</div>
+            </form>
+            <p style="font-size: 16px;">主色</p>
+            <form>
+            	<div class="mdui-row-xs-2">
+               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick='setPrimaryTheme("red")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
+    					<i class="mdui-radio-icon"></i>
+    					Red
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick='setPrimaryTheme("pink")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
+    					<i class="mdui-radio-icon"></i>
+    					Pink
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick='setPrimaryTheme("purple")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick='setPrimaryTheme("deep-purple")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick='setPrimaryTheme("indigo")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
+    					<i class="mdui-radio-icon"></i>
+    					Indigo
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick='setPrimaryTheme("blue")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick='setPrimaryTheme("light-blue")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick='setPrimaryTheme("cyan")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
+    					<i class="mdui-radio-icon"></i>
+    					Cyan
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick='setPrimaryTheme("teal")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
+    					<i class="mdui-radio-icon"></i>
+    					Teal
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick='setPrimaryTheme("green")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
+    					<i class="mdui-radio-icon"></i>
+    					Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick='setPrimaryTheme("light-green")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick='setPrimaryTheme("lime")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
+    					<i class="mdui-radio-icon"></i>
+    					Lime
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick='setPrimaryTheme("yellow")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
+    					<i class="mdui-radio-icon"></i>
+    					Yellow
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick='setPrimaryTheme("amber")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
+    					<i class="mdui-radio-icon"></i>
+    					Amber
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick='setPrimaryTheme("orange")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick='setPrimaryTheme("deep-orange")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-brown" onclick='setPrimaryTheme("brown")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
+    					<i class="mdui-radio-icon"></i>
+    					Brown
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-grey" onclick='setPrimaryTheme("grey")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
+    					<i class="mdui-radio-icon"></i>
+    					Grey
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick='setPrimaryTheme("blue-grey")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue-Grey
+  					</label>
+               </div>
+            </form>
+            <p style="font-size: 16px;">强调色</p>
+            <form>
+            	<div class="mdui-row-xs-2">
+               		<label class="mdui-radio mdui-col mdui-text-color-red-accent" onclick='setAccentTheme("red")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
+    					<i class="mdui-radio-icon"></i>
+    					Red
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink-accent" onclick='setAccentTheme("pink")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
+    					<i class="mdui-radio-icon"></i>
+    					Pink
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple-accent" onclick='setAccentTheme("purple")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple-accent" onclick='setAccentTheme("deep-purple")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo-accent" onclick='setAccentTheme("indigo")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
+    					<i class="mdui-radio-icon"></i>
+    					Indigo
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue-accent" onclick='setAccentTheme("blue")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue-accent" onclick='setAccentTheme("light-blue")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan-accent" onclick='setAccentTheme("cyan")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
+    					<i class="mdui-radio-icon"></i>
+    					Cyan
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal-accent" onclick='setAccentTheme("teal")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
+    					<i class="mdui-radio-icon"></i>
+    					Teal
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-green-accent" onclick='setAccentTheme("green")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
+    					<i class="mdui-radio-icon"></i>
+    					Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green-accent" onclick='setAccentTheme("light-green")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime-accent" onclick='setAccentTheme("lime")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
+    					<i class="mdui-radio-icon"></i>
+    					Lime
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow-accent" onclick='setAccentTheme("yellow")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
+    					<i class="mdui-radio-icon"></i>
+    					Yellow
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber-accent" onclick='setAccentTheme("amber")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
+    					<i class="mdui-radio-icon"></i>
+    					Amber
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange-accent" onclick='setAccentTheme("orange")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange-accent" onclick='setAccentTheme("deep-orange")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Orange
+  					</label>
+  					<br><br>
+               </div>
+            </form>
+        </div>
+        <div class="mdui-dialog-actions">
+        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;width: 128px;" onclick="resetTheme()" mdui-dialog-close>恢复默认设置</div>
+        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
+        </div>
+    </div>
 	</body>
    <script>
       		var hours = new Date().getHours();
@@ -818,6 +989,7 @@
 		}
     </script>
     <script src="waves/waves.min.js"></script>
+    <script src="settheme.js"></script>
   	<script>
     var config = {
     duration: 500,

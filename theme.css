@@ -1,0 +1,125 @@
+.mdui-theme-layout-dark .update-dialog{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-dark .update-dialog-btn{
+background-color: #434343;
+color: white;
+}
+.mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-dark .mdui-tooltip{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-dark .mdui-fab{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-dark .mdui-dialog{
+background-color: #434343 !important;
+color: white !important;
+}
+.mdui-theme-layout-dark .mdui-drawer{
+background-color: #323232 !important;
+color: white !important;
+}
+.mdui-theme-layout-dark .mdui-drawer-list-item-active{
+background-color: rgba(33, 150, 243, 0.4);
+}
+.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
+background-color: rgba(33, 150, 243, 0.4);
+}
+.mdui-theme-layout-dark .footerlink{
+color: white;
+}
+.mdui-theme-layout-dark .footerlink:active{
+background-color: rgba(255, 255, 255, 0.3);
+}
+.mdui-theme-layout-dark .waves-ripple
+{background:rgba(255,255,255,.4)}
+.mdui-theme-layout-dark .update-dialog{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-dark .update-dialog-btn{
+background-color: #434343;
+color: white;
+}
+.mdui-theme-layout-dark .mdui-color-theme-50{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-dark .mdui-btn-block{
+background-color: #212121 !important;
+color: white !important;
+}
+@media (prefers-color-scheme: dark){
+.mdui-theme-layout-auto footer{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .warning{
+color: white !important;
+}
+.mdui-theme-layout-auto .update-dialog{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-auto .update-dialog-btn{
+background-color: #434343;
+color: white;
+}
+.mdui-theme-layout-auto .mdui-btn-icon.mdui-float-right{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .mdui-tooltip{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-auto .mdui-fab{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .mdui-dialog{
+background-color: #434343 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .mdui-drawer{
+background-color: #323232 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .mdui-drawer-list-item-active{
+background-color: rgba(33, 150, 243, 0.4);
+}
+.mdui-theme-layout-auto .mdui-drawer-list-item-active:hover{
+background-color: rgba(33, 150, 243, 0.4);
+}
+.mdui-theme-layout-auto .footerlink{
+color: white;
+}
+.mdui-theme-layout-auto .footerlink:active{
+background-color: rgba(255, 255, 255, 0.3);
+}
+.mdui-theme-layout-auto .waves-ripple
+{background:rgba(255,255,255,.4)}
+.mdui-theme-layout-auto .update-dialog{
+background-color: rgba(16,16,16,0.9);
+color: white;
+}
+.mdui-theme-layout-auto .update-dialog-btn{
+background-color: #434343;
+color: white;
+}
+.mdui-theme-layout-auto .mdui-color-theme-50{
+background-color: #212121 !important;
+color: white !important;
+}
+.mdui-theme-layout-auto .mdui-btn-block{
+background-color: #212121 !important;
+color: white !important;
+}
+}

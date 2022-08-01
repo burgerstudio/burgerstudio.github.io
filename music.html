@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+        <link rel="stylesheet" type="text/css" href="theme.css" />
         <style>
         html{
         scroll-behavior:smooth;
@@ -131,146 +132,89 @@
         .mdui-drawer-list-item-active:hover{
         background-color: rgba(33, 150, 243, 0.4);
         }
-        .mdui-theme-layout-dark footer{
-        background-color: #212121 !important;
-		color: white !important;
-        }
-        .mdui-theme-layout-dark .mdui-text-color-red-accent{
-        color: white !important;
-        }
-        .mdui-theme-layout-dark .update-dialog{
-        background-color: rgba(16,16,16,0.9);
-        color: white;
-        }
-        .mdui-theme-layout-dark .update-dialog-btn{
-        background-color: #434343;
-        color: white;
-        }
-        .mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
-        background-color: #212121 !important;
-        }
         footer, h2, h1, h3, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, .mdui-btn-block .mdui-tooltip{
         transition-duration: 0.4s;
         }
-        .mdui-theme-layout-dark .mdui-tooltip{
-        background-color: rgba(16,16,16,0.9);
-        color: white;
-        }
-        .mdui-theme-layout-dark .mdui-fab{
-        background-color: #212121 !important;
-        }
-        .mdui-theme-layout-dark .mdui-btn-block{
-        background-color: #212121 !important;
-        }
-        .mdui-theme-layout-dark .mdui-dialog{
-		background-color: #434343 !important;
-		color: white !important;
-		}
 		.mdui-drawer-list-item-active .mdui-list-item-content{
 		font-weight: normal;
 		}
-		.mdui-theme-layout-dark .mdui-drawer{
-		background-color: #323232 !important;
-		color: white !important;
-		}
-		.mdui-theme-layout-dark .mdui-drawer-list-item-active{
-		background-color: rgba(33, 150, 243, 0.4);
-		}
-		.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
-		background-color: rgba(33, 150, 243, 0.4);
-		}
-		.mdui-theme-layout-dark .footerlink{
-		color: white;
-		}
-		.mdui-theme-layout-dark .footerlink:active{
-		background-color: rgba(255, 255, 255, 0.3);
-		}
-   		.mdui-theme-layout-dark .waves-ripple
-		{background:rgba(255,255,255,.4)}
         </style>
         <title>极品电音</title>
     </head> 
-    <body class="mdui-theme-layout-auto mdui-theme-primary-blue mdui-theme-accent-blue mdui-drawer-body-left"> 
+    <body class="mdui-theme-layout-auto mdui-drawer-body-left"> 
         <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
-        <div class="mdui-toolbar mdui-color-blue-grey-50">
+        <div class="mdui-toolbar mdui-color-theme-50">
         <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}">
+        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '切换主题'}">
-        <i class="mdui-icon material-icons">brightness_medium</i>
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
+        <i class="mdui-icon material-icons">color_lens</i>
         </a>
-<script>
-    if(localStorage.darkTheme)
-        document.body.classList.add("mdui-theme-layout-dark");
-    document.getElementById("switch-theme").addEventListener(
-        "click",
-        () => document.body.classList.toggle("mdui-theme-layout-dark") ?
-            (localStorage.darkTheme = true) :
-            (delete localStorage.darkTheme)
-    );
-</script>
         </div>
         </header>
-        <div class="mdui-dialog mdui-color-blue-grey-50" id="offline">
+        <div class="mdui-dialog mdui-color-theme-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        更新日期：2022-07-29
-        <br><br>新版变化：
-        <br>-加入了 Material You 视觉效果
-        <br><p class="mdui-text-color-red-accent">安装时可能会报毒，属于误报，请放心安装。</p>
+        <div id="updateDate"></div>
+        <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
+        <div id="updateChange"></div>
+        <p class="mdui-text-color-red" id="updateNote"></p>
+		<p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
+      	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-accent mdui-text-color-theme-text" mdui-dialog-close>关闭</button></div>
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700" mdui-dialog-close>关闭</button></div>
         </div>
+		<script src="update.js"></script>
         </div>
-        <div class="mdui-drawer mdui-color-blue-grey-50" id="drawer">
+        <div class="mdui-drawer mdui-color-theme-50" id="drawer">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/>
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
         <a href="index.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">home</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">storage</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">apps</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">public</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">attach_file</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">build</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-accent mdui-text-color-theme-icon">info</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
         </a>
@@ -280,11 +224,11 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            <h1 class="mdui-text-color-theme-accent mdui-text-color-theme-text title">极品电音</h1>
+            <h1 class="mdui-text-color-theme-a700 title">极品电音</h1>
         <div class="mdui-text-center">
-            <h3 class="mdui-text-color-theme-accent mdui-text-color-theme-text">播放源：网易云音乐</h3>
+            <h3 class="mdui-text-color-theme-a700">播放源：网易云音乐</h3>
             <div class="waves-block radius waves-light">
-            <a href="http://music.163.com/playlist/5255408601/3721764037/?userid=3721764037" class="mdui-btn mdui-btn-raised mdui-color-theme-accent mdui-btn-block">
+            <a href="http://music.163.com/playlist/5255408601/3721764037/?userid=3721764037" class="mdui-btn mdui-btn-raised mdui-color-theme-a700 mdui-btn-block">
             <i class="mdui-icon material-icons">playlist_play</i>
             <label>查看原歌单</label>
             </a>
@@ -294,268 +238,268 @@
         <br>
         <div class="mdui-divider"></div>
         <div class="mdui-typo">
-        <ol class="mdui-list mdui-text-color-theme-accent mdui-text-color-theme-text scaleappear" style="font-weight: bold;font-size: 15px;">
-        <li><a href="https://music.163.com/song?id=480768379" class="mdui-text-color-theme-text">Kovan / Electro-Light - Skyline</a></li>
-        <li><a href="https://music.163.com/song?id=451113120" class="mdui-text-color-theme-text">Fredji - Blue Sky</a></li>
-        <li><a href="https://music.163.com/song?id=29379951" class="mdui-text-color-theme-text">Tobu - Mesmerize</a></li>
-        <li><a href="https://music.163.com/song?id=499934337" class="mdui-text-color-theme-text">Austin Carl - Sunset</a></li>
-        <li><a href="https://music.163.com/song?id=555153205" class="mdui-text-color-theme-text">Austin Carl - 梦中人</a></li>
-        <li><a href="https://music.163.com/song?id=1298081947" class="mdui-text-color-theme-text">Young - Sparkle</a></li>
-        <li><a href="https://music.163.com/song?id=550867350" class="mdui-text-color-theme-text">暴君de - Follow</a></li>
-        <li><a href="https://music.163.com/song?id=572372650" class="mdui-text-color-theme-text">Xomu - Moonfall</a></li>
-        <li><a href="https://music.163.com/song?id=32192216" class="mdui-text-color-theme-text">Ahrix - Evolving</a></li>
-        <li><a href="https://music.163.com/song?id=455502171" class="mdui-text-color-theme-text">Cody Sorenson / Kadenza - Starset</a></li>
-        <li><a href="https://music.163.com/song?id=412175362" class="mdui-text-color-theme-text">Tobu / Jim Yosef - Miracle</a></li>
-        <li><a href="https://music.163.com/song?id=31311812" class="mdui-text-color-theme-text">TomLeevis - J'adore</a></li>
-        <li><a href="https://music.163.com/song?id=1334754377" class="mdui-text-color-theme-text">EnV - The High Seas</a></li>
-        <li><a href="https://music.163.com/song?id=408814022" class="mdui-text-color-theme-text">Vexento - Let's Run Away</a></li>
-        <li><a href="https://music.163.com/song?id=420500303" class="mdui-text-color-theme-text">CelDro - Glistening</a></li>
-        <li><a href="https://music.163.com/song?id=33166668" class="mdui-text-color-theme-text">Steerner / Martell - Crystals</a></li>
-        <li><a href="https://music.163.com/song?id=36924723" class="mdui-text-color-theme-text">Tobu / Itro - Fantasy</a></li>
-        <li><a href="https://music.163.com/song?id=435289094" class="mdui-text-color-theme-text">Vexento - Eyes Closed</a></li>
-        <li><a href="https://music.163.com/song?id=30854877" class="mdui-text-color-theme-text">Janji - Dawn</a></li>
-        <li><a href="https://music.163.com/song?id=414980898" class="mdui-text-color-theme-text">Mich - Somero</a></li>
-        <li><a href="https://music.163.com/song?id=1345058134" class="mdui-text-color-theme-text">Couple N / Miraie - Endear</a></li>
-        <li><a href="https://music.163.com/song?id=1825214306" class="mdui-text-color-theme-text">PIKASONIC - Otona !</a></li>
-        <li><a href="https://music.163.com/song?id=1314088792" class="mdui-text-color-theme-text">Yirokos / Xomu - Sapphire (feat. Xomu)</a></li>
-        <li><a href="https://music.163.com/song?id=1367447060" class="mdui-text-color-theme-text">Elektronomia - Summersong 2019</a></li>
-        <li><a href="https://music.163.com/song?id=456658875" class="mdui-text-color-theme-text">Forwe兰斯 - SkyCity(天空之城)</a></li>
-        <li><a href="https://music.163.com/song?id=475279466" class="mdui-text-color-theme-text">Vexento - Digital Hug</a></li>
-        <li><a href="https://music.163.com/song?id=1360122230" class="mdui-text-color-theme-text">Kirara Magic - 花月</a></li>
-        <li><a href="https://music.163.com/song?id=1363966671" class="mdui-text-color-theme-text">CH17S - Survivors</a></li>
-        <li><a href="https://music.163.com/song?id=479609145" class="mdui-text-color-theme-text">HOPE-T / Relay - Cool</a></li>
-        <li><a href="https://music.163.com/song?id=431826037" class="mdui-text-color-theme-text">Jebase - Turtle Beach</a></li>
-        <li><a href="https://music.163.com/song?id=535266611" class="mdui-text-color-theme-text">CASE（呆萌K） - Autumn</a></li>
-        <li><a href="https://music.163.com/song?id=441612738" class="mdui-text-color-theme-text">TheFatRat - Epic</a></li>
-        <li><a href="https://music.163.com/song?id=1356925947" class="mdui-text-color-theme-text">SaMZIng - Play</a></li>
-        <li><a href="https://music.163.com/song?id=1870834564" class="mdui-text-color-theme-text">PIKASONIC - Nostalgia</a></li>
-        <li><a href="https://music.163.com/song?id=484907411" class="mdui-text-color-theme-text">浮云心丶 - Instant</a></li>
-        <li><a href="https://music.163.com/song?id=535755043" class="mdui-text-color-theme-text">暴君de - Happyland</a></li>
-        <li><a href="https://music.163.com/song?id=1902354254" class="mdui-text-color-theme-text">Janji - Fade</a></li>
-        <li><a href="https://music.163.com/song?id=510150818" class="mdui-text-color-theme-text">SC / Error 404 - Front Of Our Eyes(Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=520581397" class="mdui-text-color-theme-text">OYRH / Austin Carl - 光</a></li>
-        <li><a href="https://music.163.com/song?id=30373257" class="mdui-text-color-theme-text">Axero - Together (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=447279067" class="mdui-text-color-theme-text">Ampyx - Sunset Surf (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=435004270" class="mdui-text-color-theme-text">Starix​ - We Were One (Radio Edit)</a></li>
-        <li><a href="https://music.163.com/song?id=1447458944" class="mdui-text-color-theme-text">Xomu / Justin Klyvis - Setsuna</a></li>
-        <li><a href="https://music.163.com/song?id=30706664" class="mdui-text-color-theme-text">JJD - Mario</a></li>
-        <li><a href="https://music.163.com/song?id=464553147" class="mdui-text-color-theme-text">Cody Sorenson - Touch the Sky</a></li>
-        <li><a href="https://music.163.com/song?id=413812398" class="mdui-text-color-theme-text">Starlyte / Krale - Artemis</a></li>
-        <li><a href="https://music.163.com/song?id=458496914" class="mdui-text-color-theme-text">Cody Sorenson / Altimo - Oblivion</a></li>
-        <li><a href="https://music.163.com/song?id=439142436" class="mdui-text-color-theme-text">XEON - Edge of the Sky(Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=26521799" class="mdui-text-color-theme-text">Steerner - Waves</a></li>
-        <li><a href="https://music.163.com/song?id=494642092" class="mdui-text-color-theme-text">Justin Apple - Cloud</a></li>
-        <li><a href="https://music.163.com/song?id=1441042229" class="mdui-text-color-theme-text">PIKASONIC / Dank - World</a></li>
-        <li><a href="https://music.163.com/song?id=471385218" class="mdui-text-color-theme-text">Kynez / Bot1 - Wanderlust</a></li>
-        <li><a href="https://music.163.com/song?id=412187939" class="mdui-text-color-theme-text">K3vin - Air Plane (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=443277519" class="mdui-text-color-theme-text">Atef - Glacial</a></li>
-        <li><a href="https://music.163.com/song?id=1386935172" class="mdui-text-color-theme-text">Jim Yosef - Legend</a></li>
-        <li><a href="https://music.163.com/song?id=418603535" class="mdui-text-color-theme-text">CelDro - Dynasty</a></li>
-        <li><a href="https://music.163.com/song?id=426852465" class="mdui-text-color-theme-text">Luka Krajina / Mango - Into The Blue</a></li>
-        <li><a href="https://music.163.com/song?id=462166301" class="mdui-text-color-theme-text">Elecprok - Summer Carnival (2017 Rework)</a></li>
-        <li><a href="https://music.163.com/song?id=30854949" class="mdui-text-color-theme-text">TomLeevis - Over the Horizon</a></li>
-        <li><a href="https://music.163.com/song?id=437246223" class="mdui-text-color-theme-text">Ulchero / B0untya - Summer Time</a></li>
-        <li><a href="https://music.163.com/song?id=1336866283" class="mdui-text-color-theme-text">FEWZ - Myriads</a></li>
-        <li><a href="https://music.163.com/song?id=433107873" class="mdui-text-color-theme-text">Elecprok - New Age (Original mix)</a></li>
-        <li><a href="https://music.163.com/song?id=34578305" class="mdui-text-color-theme-text">Axel Wernberg - Lights (Radio Edit)</a></li>
-        <li><a href="https://music.163.com/song?id=413812198" class="mdui-text-color-theme-text">Vindu - Runaway</a></li>
-        <li><a href="https://music.163.com/song?id=34040857" class="mdui-text-color-theme-text">Sundholm / OLWIK - Göteborg (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=404184099" class="mdui-text-color-theme-text">Linne - Sea</a></li>
-        <li><a href="https://music.163.com/song?id=408522832" class="mdui-text-color-theme-text">Vicktor / Amasi - Lands (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=442869588" class="mdui-text-color-theme-text">Atef / AcyD - Night Vision</a></li>
-        <li><a href="https://music.163.com/song?id=411314139" class="mdui-text-color-theme-text">Axlance / Luka Krajina - Dreams (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=30854879" class="mdui-text-color-theme-text">Janji - Miles Away (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=475258052" class="mdui-text-color-theme-text">接个吻，开一枪 - 田子坊</a></li>
-        <li><a href="https://music.163.com/song?id=504685033" class="mdui-text-color-theme-text">Sumeria - That's My Life</a></li>
-        <li><a href="https://music.163.com/song?id=1380149102" class="mdui-text-color-theme-text">Wheazewolf - Diamonds</a></li>
-        <li><a href="https://music.163.com/song?id=453130276" class="mdui-text-color-theme-text">千坂 - Fragments</a></li>
-        <li><a href="https://music.163.com/song?id=406086122" class="mdui-text-color-theme-text">OceansWhoLied - Three Of Us</a></li>
-        <li><a href="https://music.163.com/song?id=26278745" class="mdui-text-color-theme-text">MitiS / MaHi - Blu (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=1457925241" class="mdui-text-color-theme-text">PIKASONIC - Wildflowers</a></li>
-        <li><a href="https://music.163.com/song?id=29979642" class="mdui-text-color-theme-text">Tobu - Sweet Story</a></li>
-        <li><a href="https://music.163.com/song?id=410629778" class="mdui-text-color-theme-text">Axero / Aroze - True Stories (Aroze Violin Remix)</a></li>
-        <li><a href="https://music.163.com/song?id=1433939254" class="mdui-text-color-theme-text">Fillfox - Intel</a></li>
-        <li><a href="https://music.163.com/song?id=1876321302" class="mdui-text-color-theme-text">Elektronomia / RUD - Rollercoaster</a></li>
-        <li><a href="https://music.163.com/song?id=29392895" class="mdui-text-color-theme-text">Tobu - Sunrise</a></li>
-        <li><a href="https://music.163.com/song?id=864647378" class="mdui-text-color-theme-text">Vexento / Allison - Banana Breeze</a></li>
-        <li><a href="https://music.163.com/song?id=515803144" class="mdui-text-color-theme-text">Vexento - Across The Ocean</a></li>
-        <li><a href="https://music.163.com/song?id=417247048" class="mdui-text-color-theme-text">JJD - Adventure</a></li>
-        <li><a href="https://music.163.com/song?id=38391514" class="mdui-text-color-theme-text">Starix​ - Adventures</a></li>
-        <li><a href="https://music.163.com/song?id=1348239321" class="mdui-text-color-theme-text">The Darkmaker / Frank Yang - Agilité</a></li>
-        <li><a href="https://music.163.com/song?id=35403461" class="mdui-text-color-theme-text">Jim Yosef - Arrow</a></li>
-        <li><a href="https://music.163.com/song?id=1317507921" class="mdui-text-color-theme-text">PIKASONIC - Asuka</a></li>
-        <li><a href="https://music.163.com/song?id=448596416" class="mdui-text-color-theme-text">千坂 - At The Edge</a></li>
-        <li><a href="https://music.163.com/song?id=503323555" class="mdui-text-color-theme-text">Avicii - Avicii-Faster Than Light（Avicii remix）</a></li>
-        <li><a href="https://music.163.com/song?id=543016872" class="mdui-text-color-theme-text">Defqwop - Awakening</a></li>
-        <li><a href="https://music.163.com/song?id=422428569" class="mdui-text-color-theme-text">FoXLvis - BLACK HISTORY NO.1</a></li>
-        <li><a href="https://music.163.com/song?id=435307482" class="mdui-text-color-theme-text">FoXLvis / Janji / ... - BLACK HISTORY NO.2</a></li>
-        <li><a href="https://music.163.com/song?id=443194557" class="mdui-text-color-theme-text">FoXLvis / Janji - BLACK HISTORY NO.3</a></li>
-        <li><a href="https://music.163.com/song?id=464377999" class="mdui-text-color-theme-text">Zaza - Be Together</a></li>
-        <li><a href="https://music.163.com/song?id=455382413" class="mdui-text-color-theme-text">接个吻，开一枪 / CLARE - Beijing</a></li>
-        <li><a href="https://music.163.com/song?id=30512731" class="mdui-text-color-theme-text">Disfigure - Blank</a></li>
-        <li><a href="https://music.163.com/song?id=27792444" class="mdui-text-color-theme-text">EnV - Bloom</a></li>
-        <li><a href="https://music.163.com/song?id=32640057" class="mdui-text-color-theme-text">Stahl! - Breeze</a></li>
-        <li><a href="https://music.163.com/song?id=1346111359" class="mdui-text-color-theme-text">FEWZ - By The River</a></li>
-        <li><a href="https://music.163.com/song?id=1411519067" class="mdui-text-color-theme-text">徐梦圆 - CHINA-新春</a></li>
-        <li><a href="https://music.163.com/song?id=30621706" class="mdui-text-color-theme-text">Tobu - Candyland</a></li>
-        <li><a href="https://music.163.com/song?id=30854874" class="mdui-text-color-theme-text">Janji - Chasing Summer (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=491222808" class="mdui-text-color-theme-text">千坂 - Chasing Lights</a></li>
-        <li><a href="https://music.163.com/song?id=409650440" class="mdui-text-color-theme-text">徐梦圆 - China-A</a></li>
-        <li><a href="https://music.163.com/song?id=1304920086" class="mdui-text-color-theme-text">徐梦圆 - China-E</a></li>
-        <li><a href="https://music.163.com/song?id=1369614120" class="mdui-text-color-theme-text">徐梦圆 - China-G</a></li>
-        <li><a href="https://music.163.com/song?id=409654857" class="mdui-text-color-theme-text">徐梦圆 - China-M</a></li>
-        <li><a href="https://music.163.com/song?id=409654858" class="mdui-text-color-theme-text">徐梦圆 - China-P</a></li>
-        <li><a href="https://music.163.com/song?id=436675327" class="mdui-text-color-theme-text">徐梦圆 - China-Rain</a></li>
-        <li><a href="https://music.163.com/song?id=409654859" class="mdui-text-color-theme-text">徐梦圆 - China-X</a></li>
-        <li><a href="https://music.163.com/song?id=29797443" class="mdui-text-color-theme-text">Tobu / Itro - Cloud 9</a></li>
-        <li><a href="https://music.163.com/song?id=32823727" class="mdui-text-color-theme-text">Metio - Clouds</a></li>
-        <li><a href="https://music.163.com/song?id=28921656" class="mdui-text-color-theme-text">Tobu - Colors</a></li>
-        <li><a href="https://music.163.com/song?id=408532744" class="mdui-text-color-theme-text">MadEye - Complexity</a></li>
-        <li><a href="https://music.163.com/song?id=444267496" class="mdui-text-color-theme-text">Tobu / Blume / Wholm - Cool</a></li>
-        <li><a href="https://music.163.com/song?id=29392900" class="mdui-text-color-theme-text">Tobu - Crime (Instrumental)</a></li>
-        <li><a href="https://music.163.com/song?id=34779103" class="mdui-text-color-theme-text">徐梦圆 - color-X</a></li>
-        <li><a href="https://music.163.com/song?id=30854854" class="mdui-text-color-theme-text">Dripice - Delight</a></li>
-        <li><a href="https://music.163.com/song?id=33497412" class="mdui-text-color-theme-text">Axero - Dusk (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=443622817" class="mdui-text-color-theme-text">ae山子 - 电音60首好听乐曲高潮合集 第一期</a></li>
-        <li><a href="https://music.163.com/song?id=528272378" class="mdui-text-color-theme-text">Stahl! / Kadenza - Echo</a></li>
-        <li><a href="https://music.163.com/song?id=406072136" class="mdui-text-color-theme-text">Jim Yosef - Eclipse</a></li>
-        <li><a href="https://music.163.com/song?id=407679564" class="mdui-text-color-theme-text">Hinkik - Ena</a></li>
-        <li><a href="https://music.163.com/song?id=431080988" class="mdui-text-color-theme-text">Elektronomia - Energy</a></li>
-        <li><a href="https://music.163.com/song?id=33875177" class="mdui-text-color-theme-text">Alex Skrindo / Distrion - Entropy</a></li>
-        <li><a href="https://music.163.com/song?id=403012527" class="mdui-text-color-theme-text">Dripice - Escape</a></li>
-        <li><a href="https://music.163.com/song?id=425988090" class="mdui-text-color-theme-text">CelDro / Wholm - Essence</a></li>
-        <li><a href="https://music.163.com/song?id=443876175" class="mdui-text-color-theme-text">Dogena / Dripice - Euphoria</a></li>
-        <li><a href="https://music.163.com/song?id=29491727" class="mdui-text-color-theme-text">Feint - Face Down (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=29947420" class="mdui-text-color-theme-text">Alan Walker - Fade</a></li>
-        <li><a href="https://music.163.com/song?id=409931826" class="mdui-text-color-theme-text">AndyM - Falling</a></li>
-        <li><a href="https://music.163.com/song?id=439915252" class="mdui-text-color-theme-text">Luka Krajina - Far Beyond</a></li>
-        <li><a href="https://music.163.com/song?id=28263911" class="mdui-text-color-theme-text">Deorro - Five Hours</a></li>
-        <li><a href="https://music.163.com/song?id=409060501" class="mdui-text-color-theme-text">Andelon - Fly</a></li>
-        <li><a href="https://music.163.com/song?id=486814379" class="mdui-text-color-theme-text">TheFatRat - Fly Away (Instrumental)</a></li>
-        <li><a href="https://music.163.com/song?id=32574997" class="mdui-text-color-theme-text">Itro - For You</a></li>
-        <li><a href="https://music.163.com/song?id=442867844" class="mdui-text-color-theme-text">Ayek - Forever</a></li>
-        <li><a href="https://music.163.com/song?id=473964580" class="mdui-text-color-theme-text">Elektronomia / JJD - Free</a></li>
-        <li><a href="https://music.163.com/song?id=505449407" class="mdui-text-color-theme-text">Pascal Letoublon - Friendships (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=418602744" class="mdui-text-color-theme-text">Ahxello - Frisbee</a></li>
-        <li><a href="https://music.163.com/song?id=30987703" class="mdui-text-color-theme-text">Doctor Vox - Frontier</a></li>
-		<li><a href="https://music.163.com/song?id=411907073" class="mdui-text-color-theme-text">Adam Smits - Galaxy</a></li>
-        <li><a href="https://music.163.com/song?id=29485223" class="mdui-text-color-theme-text">EnV - Ginseng</a></li>
-        <li><a href="https://music.163.com/song?id=469889836" class="mdui-text-color-theme-text">千坂 - Glow</a></li>
-		<li><a href="https://music.163.com/song?id=32639048" class="mdui-text-color-theme-text">Dogena - Happy</a></li>
-      	<li><a href="https://music.163.com/song?id=407002307" class="mdui-text-color-theme-text">Multex - Hide</a></li>
-        <li><a href="https://music.163.com/song?id=485607552" class="mdui-text-color-theme-text">Schtiffles - Hide &amp; Seek</a></li>
-        <li><a href="https://music.163.com/song?id=28830412" class="mdui-text-color-theme-text">Tobu - Higher</a></li>
-        <li><a href="https://music.163.com/song?id=28953875" class="mdui-text-color-theme-text">Tobu & Itro - Holiday</a></li>
-        <li><a href="https://music.163.com/song?id=420513460" class="mdui-text-color-theme-text">Ampyx - Holo</a></li>
-        <li><a href="https://music.163.com/song?id=28921655" class="mdui-text-color-theme-text">Tobu - Hope (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=32046918" class="mdui-text-color-theme-text">Janji - Horizon</a></li>
-        <li><a href="https://music.163.com/song?id=3932221" class="mdui-text-color-theme-text">Approaching Nirvana - I Dream of Ibiza</a></li>
-        <li><a href="https://music.163.com/song?id=28830409" class="mdui-text-color-theme-text">Tobu - Infectious</a></li>
-		<li><a href="https://music.163.com/song?id=30621620" class="mdui-text-color-theme-text">Ahxello - Infinity</a></li>
-        <li><a href="https://music.163.com/song?id=36783470" class="mdui-text-color-theme-text">MitiS - Innocent Discretion</a></li>
-        <li><a href="https://music.163.com/song?id=32196838" class="mdui-text-color-theme-text">DEAF KEV - Invincible</a></li>
-        <li><a href="https://music.163.com/song?id=430787437" class="mdui-text-color-theme-text">Cgc / Janji - Janji - mashup 11 首 活力.电音.合集</a></li>
-        <li><a href="https://music.163.com/song?id=441617611" class="mdui-text-color-theme-text">HOPE-T / 接个吻，开一枪 - 锦里</a></li>
-        <li><a href="https://music.163.com/song?id=32639094" class="mdui-text-color-theme-text">Tobu - Legacy</a></li>
-        <li><a href="https://music.163.com/song?id=30706279" class="mdui-text-color-theme-text">Lensko - Let's Go!</a></li>
-        <li><a href="https://music.163.com/song?id=406737893" class="mdui-text-color-theme-text">FEWZ - Levitate</a></li>
-        <li><a href="https://music.163.com/song?id=28830410" class="mdui-text-color-theme-text">Tobu - Life</a></li>
-        <li><a href="https://music.163.com/song?id=463840575" class="mdui-text-color-theme-text">Elektronomia - Limitless</a></li>
-        <li><a href="https://music.163.com/song?id=1874787489" class="mdui-text-color-theme-text">Tobu - Lost</a></li>
-        <li><a href="https://music.163.com/song?id=1395977748" class="mdui-text-color-theme-text">Wisp X / Xomu - Lumina</a></li>
-        <li><a href="https://music.163.com/song?id=29379953" class="mdui-text-color-theme-text">Tobu / Itro - Magic</a></li>
-        <li><a href="https://music.163.com/song?id=32046932" class="mdui-text-color-theme-text">Vexento - Masked Heroes</a></li>
-        <li><a href="https://music.163.com/song?id=528272302" class="mdui-text-color-theme-text">ColBreakz - Mind Control</a></li>
-        <li><a href="https://music.163.com/song?id=35920504" class="mdui-text-color-theme-text">Stahl! / Alex Skrindo - Moments</a></li>
-        <li><a href="https://music.163.com/song?id=1309980823" class="mdui-text-color-theme-text">TheFatRat - Monody</a></li>
-        <li><a href="https://music.163.com/song?id=30621637" class="mdui-text-color-theme-text">Axero / Itro - Move</a></li>
-        <li><a href="https://music.163.com/song?id=30474763" class="mdui-text-color-theme-text">EH!DE / Different Heaven - My Heart</a></li>
-        <li><a href="https://music.163.com/song?id=409646391" class="mdui-text-color-theme-text">FEWZ - Mystic Tides</a></li>
-        <li><a href="https://music.163.com/song?id=31245329" class="mdui-text-color-theme-text">Axero - Natural</a></li>
-        <li><a href="https://music.163.com/song?id=29392797" class="mdui-text-color-theme-text">Tobu - Natural High</a></li>
-        <li><a href="https://music.163.com/song?id=35955864" class="mdui-text-color-theme-text">Different Heaven - Nekozilla</a></li>
-        <li><a href="https://music.163.com/song?id=411907321" class="mdui-text-color-theme-text">L3V3LS - Never Ending Rain</a></li>
-        <li><a href="https://music.163.com/song?id=36924964" class="mdui-text-color-theme-text">JJD - Nyan Cat</a></li>
-        <li><a href="https://music.163.com/song?id=433059656" class="mdui-text-color-theme-text">接个吻，开一枪 / CLARE - 南锣鼓巷</a></li>
-        <li><a href="https://music.163.com/song?id=30621635" class="mdui-text-color-theme-text">Antrux - One Day (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=1353191063" class="mdui-text-color-theme-text">TheFatRat - Origin</a></li>
-        <li><a href="https://music.163.com/song?id=408277644" class="mdui-text-color-theme-text">Hinkik - Outbreaker</a></li>
-        <li><a href="https://music.163.com/song?id=454129387" class="mdui-text-color-theme-text">徐梦圆 - PDD</a></li>
-        <li><a href="https://music.163.com/song?id=32063592" class="mdui-text-color-theme-text">EnV - Paladin</a></li>
-        <li><a href="https://music.163.com/song?id=32046927" class="mdui-text-color-theme-text">JJD - Particles</a></li>
-        <li><a href="https://music.163.com/song?id=33937527" class="mdui-text-color-theme-text">EnV - Pneumatic Tokyo</a></li>
-        <li><a href="https://music.163.com/song?id=501214792" class="mdui-text-color-theme-text">LFZ - Popsicle</a></li>
-        <li><a href="https://music.163.com/song?id=444524688" class="mdui-text-color-theme-text">TheFatRat / JJD - Prelude (VIP Edit)</a></li>
-        <li><a href="https://music.163.com/song?id=419254478" class="mdui-text-color-theme-text">Vindu - Purple Heart</a></li>
-        <li><a href="https://music.163.com/song?id=33668273" class="mdui-text-color-theme-text">Tobu - Puzzle</a></li>
-        <li><a href="https://music.163.com/song?id=35527030" class="mdui-text-color-theme-text">Axero / Jimmy Magardeau - Reason (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=27644359" class="mdui-text-color-theme-text">（已下架）Sensitive / Bogdan Bondarenko - Remember (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=509530702" class="mdui-text-color-theme-text">Ahxello - Revival</a></li>
-        <li><a href="https://music.163.com/song?id=30854833" class="mdui-text-color-theme-text">Axero - River</a></li>
-        <li><a href="https://music.163.com/song?id=30569019" class="mdui-text-color-theme-text">Tobu / Marcus Mouya - Running Away</a></li>
-        <li><a href="https://music.163.com/song?id=445450067" class="mdui-text-color-theme-text">Dripice / Pilton - Santa Monica</a></li>
-        <li><a href="https://music.163.com/song?id=29379952" class="mdui-text-color-theme-text">Tobu - Seven</a></li> 
-        <li><a href="https://music.163.com/song?id=423015272" class="mdui-text-color-theme-text">Jiaye / Tobu - Seven (Jiaye Reboot)</a></li>
-        <li><a href="https://music.163.com/song?id=31830308" class="mdui-text-color-theme-text">Janji - Shadows</a></li>
-        <li><a href="https://music.163.com/song?id=532510096" class="mdui-text-color-theme-text">Owen Keith - Shape&nbsp;of&nbsp;You&nbsp;(伴奏)</a></li>
-        <li><a href="https://music.163.com/song?id=404184088" class="mdui-text-color-theme-text">Janji - Shine</a></li>
-        <li><a href="https://music.163.com/song?id=29553031" class="mdui-text-color-theme-text">Steerner / Martell - Sky (Radio Edit)</a></li>
-        <li><a href="https://music.163.com/song?id=33785920" class="mdui-text-color-theme-text">Mich - Skyland</a></li>
-        <li><a href="https://music.163.com/song?id=34040854" class="mdui-text-color-theme-text">Starix​ / Jordan Kelvin James - Skyline</a></li>
-        <li><a href="https://music.163.com/song?id=33340727" class="mdui-text-color-theme-text">TomLeevis - Soaring (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=33479592" class="mdui-text-color-theme-text">K-391 - Solstice</a></li>
-        <li><a href="https://music.163.com/song?id=30064263" class="mdui-text-color-theme-text">Alan Walker - Spectre</a></li>
-        <li><a href="https://music.163.com/song?id=461876064" class="mdui-text-color-theme-text">LJY - Spring （春）</a></li>
-        <li><a href="https://music.163.com/song?id=442589178" class="mdui-text-color-theme-text">Metio / Sakana - Starlight</a></li>
-        <li><a href="https://music.163.com/song?id=419250586" class="mdui-text-color-theme-text">Sailar - Story</a></li>
-        <li><a href="https://music.163.com/song?id=36094238" class="mdui-text-color-theme-text">EnV - Streetlights</a></li>
-		<li><a href="https://music.163.com/song?id=1859969201" class="mdui-text-color-theme-text">Axero - Struggle</a></li>
-        <li><a href="https://music.163.com/song?id=512377137" class="mdui-text-color-theme-text">Vexento - Sudden Urge</a></li>
-      	<li><a href="https://music.163.com/song?id=407002841" class="mdui-text-color-theme-text">Joe Lyons - Summer</a></li>
-		<li><a href="https://music.163.com/song?id=30352832" class="mdui-text-color-theme-text">Tobu / Jordan Kelvin James - Summer Breeze</a></li>
-		<li><a href="https://music.163.com/song?id=1314359433" class="mdui-text-color-theme-text">Ninety / Wthegg - Summer Seaside</a></li>
-        <li><a href="https://music.163.com/song?id=33166666" class="mdui-text-color-theme-text">Steerner / Martell - Sun</a></li>
-        <li><a href="https://music.163.com/song?id=28830411" class="mdui-text-color-theme-text">Tobu / Itro - Sunburst</a></li>
-        <li><a href="https://music.163.com/song?id=414979072" class="mdui-text-color-theme-text">Dave Erpson - Sunlight</a></li>
-        <li><a href="https://music.163.com/song?id=411907329" class="mdui-text-color-theme-text">L3V3LS - Swing</a></li>
-        <li><a href="https://music.163.com/song?id=405597209" class="mdui-text-color-theme-text">Ahxello - Takeoff</a></li>
-        <li><a href="https://music.163.com/song?id=521415465" class="mdui-text-color-theme-text">Xomu - Tera</a></li>
-        <li><a href="https://music.163.com/song?id=403711524" class="mdui-text-color-theme-text">EnV - The #IcePack Rises (Original Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=1439046766" class="mdui-text-color-theme-text">TomLeevis - The Top</a></li>
-        <li><a href="https://music.163.com/song?id=31587912" class="mdui-text-color-theme-text">Dogena - Time</a></li>
-        <li><a href="https://music.163.com/song?id=412911872" class="mdui-text-color-theme-text">Hinkik - Time Leaper</a></li>
-        <li><a href="https://music.163.com/song?id=438466592" class="mdui-text-color-theme-text">Kadenza - Timeless</a></li>
-        <li><a href="https://music.163.com/song?id=546898943" class="mdui-text-color-theme-text">Itro - Times</a></li>
-        <li><a href="https://music.163.com/song?id=29392898" class="mdui-text-color-theme-text">Tobu - Times</a></li>
-        <li><a href="https://music.163.com/song?id=475943389" class="mdui-text-color-theme-text">HankJerry - Tobu精曲合集（HankJerry mashup）</a></li>
-        <li><a href="https://music.163.com/song?id=1818887071" class="mdui-text-color-theme-text">Axero - Tonight</a></li>
-        <li><a href="https://music.163.com/song?id=36492599" class="mdui-text-color-theme-text">Axero - Trip</a></li>
-        <li><a href="https://music.163.com/song?id=410801523" class="mdui-text-color-theme-text">Vexento - Trippy Love</a></li>
-        <li><a href="https://music.163.com/song?id=1486010730" class="mdui-text-color-theme-text">Axero - Tropical Heaven</a></li>
-        <li><a href="https://music.163.com/song?id=29710375" class="mdui-text-color-theme-text">Vicetone - United We Dance (Club Mix)</a></li>
-        <li><a href="https://music.163.com/song?id=569725354" class="mdui-text-color-theme-text">TheFatRat - Unity</a></li>
-        <li><a href="https://music.163.com/song?id=29759407" class="mdui-text-color-theme-text">Axero - Unity</a></li>
-        <li><a href="https://music.163.com/song?id=27794732" class="mdui-text-color-theme-text">EnV - Uprise</a></li>
-        <li><a href="https://music.163.com/song?id=38679061" class="mdui-text-color-theme-text">Elliot Hsu - Utopia</a></li>
-        <li><a href="https://music.163.com/song?id=34040716" class="mdui-text-color-theme-text">Acreix - Visions</a></li>
-        <li><a href="https://music.163.com/song?id=30854901" class="mdui-text-color-theme-text">Janji - Voyage</a></li>
-        <li><a href="https://music.163.com/song?id=466332069" class="mdui-text-color-theme-text">Middelthon - Wander</a></li>
-        <li><a href="https://music.163.com/song?id=427017128" class="mdui-text-color-theme-text">徐梦圆 - Water</a></li>
-        <li><a href="https://music.163.com/song?id=29759408" class="mdui-text-color-theme-text">Axero - Waves</a></li>
-        <li><a href="https://music.163.com/song?id=29774609" class="mdui-text-color-theme-text">TheFatRat - Windfall</a></li>
-        <li><a href="https://music.163.com/song?id=33479596" class="mdui-text-color-theme-text">K-391 - Windows</a></li>
-        <li><a href="https://music.163.com/song?id=431791046" class="mdui-text-color-theme-text">接个吻，开一枪 / ZICKSTRUDEL - 夜袭漓江塔</a></li>
-        <li><a href="https://music.163.com/song?id=464863017" class="mdui-text-color-theme-text">接个吻，开一枪 - 烟袋斜街</a></li>
-        <li><a href="https://music.163.com/song?id=29769300" class="mdui-text-color-theme-text">Axero - Dream</a></li>
-        <li><a href="https://music.163.com/song?id=440353010" class="mdui-text-color-theme-text">Hoaprox - #Lov3 #Ngẫu Hứng</a></li>
-        <li><a href="https://music.163.com/song?id=30621641" class="mdui-text-color-theme-text">Itro - 500</a></li>
-        <li><a href="https://music.163.com/song?id=563745734" class="mdui-text-color-theme-text">HOPE-T - ◢ ◤</a></li>
+        <ol class="mdui-list mdui-text-color-theme-a700 scaleappear" style="font-weight: bold;font-size: 15px;">
+        <li><a href="https://music.163.com/song?id=480768379">Kovan / Electro-Light - Skyline</a></li>
+        <li><a href="https://music.163.com/song?id=451113120">Fredji - Blue Sky</a></li>
+        <li><a href="https://music.163.com/song?id=29379951">Tobu - Mesmerize</a></li>
+        <li><a href="https://music.163.com/song?id=499934337">Austin Carl - Sunset</a></li>
+        <li><a href="https://music.163.com/song?id=555153205">Austin Carl - 梦中人</a></li>
+        <li><a href="https://music.163.com/song?id=1298081947">Young - Sparkle</a></li>
+        <li><a href="https://music.163.com/song?id=550867350">暴君de - Follow</a></li>
+        <li><a href="https://music.163.com/song?id=572372650">Xomu - Moonfall</a></li>
+        <li><a href="https://music.163.com/song?id=32192216">Ahrix - Evolving</a></li>
+        <li><a href="https://music.163.com/song?id=455502171">Cody Sorenson / Kadenza - Starset</a></li>
+        <li><a href="https://music.163.com/song?id=412175362">Tobu / Jim Yosef - Miracle</a></li>
+        <li><a href="https://music.163.com/song?id=31311812">TomLeevis - J'adore</a></li>
+        <li><a href="https://music.163.com/song?id=1334754377">EnV - The High Seas</a></li>
+        <li><a href="https://music.163.com/song?id=408814022">Vexento - Let's Run Away</a></li>
+        <li><a href="https://music.163.com/song?id=420500303">CelDro - Glistening</a></li>
+        <li><a href="https://music.163.com/song?id=33166668">Steerner / Martell - Crystals</a></li>
+        <li><a href="https://music.163.com/song?id=36924723">Tobu / Itro - Fantasy</a></li>
+        <li><a href="https://music.163.com/song?id=435289094">Vexento - Eyes Closed</a></li>
+        <li><a href="https://music.163.com/song?id=30854877">Janji - Dawn</a></li>
+        <li><a href="https://music.163.com/song?id=414980898">Mich - Somero</a></li>
+        <li><a href="https://music.163.com/song?id=1345058134">Couple N / Miraie - Endear</a></li>
+        <li><a href="https://music.163.com/song?id=1825214306">PIKASONIC - Otona !</a></li>
+        <li><a href="https://music.163.com/song?id=1314088792">Yirokos / Xomu - Sapphire (feat. Xomu)</a></li>
+        <li><a href="https://music.163.com/song?id=1367447060">Elektronomia - Summersong 2019</a></li>
+        <li><a href="https://music.163.com/song?id=456658875">Forwe兰斯 - SkyCity(天空之城)</a></li>
+        <li><a href="https://music.163.com/song?id=475279466">Vexento - Digital Hug</a></li>
+        <li><a href="https://music.163.com/song?id=1360122230">Kirara Magic - 花月</a></li>
+        <li><a href="https://music.163.com/song?id=1363966671">CH17S - Survivors</a></li>
+        <li><a href="https://music.163.com/song?id=479609145">HOPE-T / Relay - Cool</a></li>
+        <li><a href="https://music.163.com/song?id=431826037">Jebase - Turtle Beach</a></li>
+        <li><a href="https://music.163.com/song?id=535266611">CASE（呆萌K） - Autumn</a></li>
+        <li><a href="https://music.163.com/song?id=441612738">TheFatRat - Epic</a></li>
+        <li><a href="https://music.163.com/song?id=1356925947">SaMZIng - Play</a></li>
+        <li><a href="https://music.163.com/song?id=1870834564">PIKASONIC - Nostalgia</a></li>
+        <li><a href="https://music.163.com/song?id=484907411">浮云心丶 - Instant</a></li>
+        <li><a href="https://music.163.com/song?id=535755043">暴君de - Happyland</a></li>
+        <li><a href="https://music.163.com/song?id=1902354254">Janji - Fade</a></li>
+        <li><a href="https://music.163.com/song?id=510150818">SC / Error 404 - Front Of Our Eyes(Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=520581397">OYRH / Austin Carl - 光</a></li>
+        <li><a href="https://music.163.com/song?id=30373257">Axero - Together (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=447279067">Ampyx - Sunset Surf (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=435004270">Starix​ - We Were One (Radio Edit)</a></li>
+        <li><a href="https://music.163.com/song?id=1447458944">Xomu / Justin Klyvis - Setsuna</a></li>
+        <li><a href="https://music.163.com/song?id=30706664">JJD - Mario</a></li>
+        <li><a href="https://music.163.com/song?id=464553147">Cody Sorenson - Touch the Sky</a></li>
+        <li><a href="https://music.163.com/song?id=413812398">Starlyte / Krale - Artemis</a></li>
+        <li><a href="https://music.163.com/song?id=458496914">Cody Sorenson / Altimo - Oblivion</a></li>
+        <li><a href="https://music.163.com/song?id=439142436">XEON - Edge of the Sky(Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=26521799">Steerner - Waves</a></li>
+        <li><a href="https://music.163.com/song?id=494642092">Justin Apple - Cloud</a></li>
+        <li><a href="https://music.163.com/song?id=1441042229">PIKASONIC / Dank - World</a></li>
+        <li><a href="https://music.163.com/song?id=471385218">Kynez / Bot1 - Wanderlust</a></li>
+        <li><a href="https://music.163.com/song?id=412187939">K3vin - Air Plane (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=443277519">Atef - Glacial</a></li>
+        <li><a href="https://music.163.com/song?id=1386935172">Jim Yosef - Legend</a></li>
+        <li><a href="https://music.163.com/song?id=418603535">CelDro - Dynasty</a></li>
+        <li><a href="https://music.163.com/song?id=426852465">Luka Krajina / Mango - Into The Blue</a></li>
+        <li><a href="https://music.163.com/song?id=462166301">Elecprok - Summer Carnival (2017 Rework)</a></li>
+        <li><a href="https://music.163.com/song?id=30854949">TomLeevis - Over the Horizon</a></li>
+        <li><a href="https://music.163.com/song?id=437246223">Ulchero / B0untya - Summer Time</a></li>
+        <li><a href="https://music.163.com/song?id=1336866283">FEWZ - Myriads</a></li>
+        <li><a href="https://music.163.com/song?id=433107873">Elecprok - New Age (Original mix)</a></li>
+        <li><a href="https://music.163.com/song?id=34578305">Axel Wernberg - Lights (Radio Edit)</a></li>
+        <li><a href="https://music.163.com/song?id=413812198">Vindu - Runaway</a></li>
+        <li><a href="https://music.163.com/song?id=34040857">Sundholm / OLWIK - Göteborg (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=404184099">Linne - Sea</a></li>
+        <li><a href="https://music.163.com/song?id=408522832">Vicktor / Amasi - Lands (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=442869588">Atef / AcyD - Night Vision</a></li>
+        <li><a href="https://music.163.com/song?id=411314139">Axlance / Luka Krajina - Dreams (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=30854879">Janji - Miles Away (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=475258052">接个吻，开一枪 - 田子坊</a></li>
+        <li><a href="https://music.163.com/song?id=504685033">Sumeria - That's My Life</a></li>
+        <li><a href="https://music.163.com/song?id=1380149102">Wheazewolf - Diamonds</a></li>
+        <li><a href="https://music.163.com/song?id=453130276">千坂 - Fragments</a></li>
+        <li><a href="https://music.163.com/song?id=406086122">OceansWhoLied - Three Of Us</a></li>
+        <li><a href="https://music.163.com/song?id=26278745">MitiS / MaHi - Blu (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=1457925241">PIKASONIC - Wildflowers</a></li>
+        <li><a href="https://music.163.com/song?id=29979642">Tobu - Sweet Story</a></li>
+        <li><a href="https://music.163.com/song?id=410629778">Axero / Aroze - True Stories (Aroze Violin Remix)</a></li>
+        <li><a href="https://music.163.com/song?id=1433939254">Fillfox - Intel</a></li>
+        <li><a href="https://music.163.com/song?id=1876321302">Elektronomia / RUD - Rollercoaster</a></li>
+        <li><a href="https://music.163.com/song?id=29392895">Tobu - Sunrise</a></li>
+        <li><a href="https://music.163.com/song?id=864647378">Vexento / Allison - Banana Breeze</a></li>
+        <li><a href="https://music.163.com/song?id=515803144">Vexento - Across The Ocean</a></li>
+        <li><a href="https://music.163.com/song?id=417247048">JJD - Adventure</a></li>
+        <li><a href="https://music.163.com/song?id=38391514">Starix​ - Adventures</a></li>
+        <li><a href="https://music.163.com/song?id=1348239321">The Darkmaker / Frank Yang - Agilité</a></li>
+        <li><a href="https://music.163.com/song?id=35403461">Jim Yosef - Arrow</a></li>
+        <li><a href="https://music.163.com/song?id=1317507921">PIKASONIC - Asuka</a></li>
+        <li><a href="https://music.163.com/song?id=448596416">千坂 - At The Edge</a></li>
+        <li><a href="https://music.163.com/song?id=503323555">Avicii - Avicii-Faster Than Light（Avicii remix）</a></li>
+        <li><a href="https://music.163.com/song?id=543016872">Defqwop - Awakening</a></li>
+        <li><a href="https://music.163.com/song?id=422428569">FoXLvis - BLACK HISTORY NO.1</a></li>
+        <li><a href="https://music.163.com/song?id=435307482">FoXLvis / Janji / ... - BLACK HISTORY NO.2</a></li>
+        <li><a href="https://music.163.com/song?id=443194557">FoXLvis / Janji - BLACK HISTORY NO.3</a></li>
+        <li><a href="https://music.163.com/song?id=464377999">Zaza - Be Together</a></li>
+        <li><a href="https://music.163.com/song?id=455382413">接个吻，开一枪 / CLARE - Beijing</a></li>
+        <li><a href="https://music.163.com/song?id=30512731">Disfigure - Blank</a></li>
+        <li><a href="https://music.163.com/song?id=27792444">EnV - Bloom</a></li>
+        <li><a href="https://music.163.com/song?id=32640057">Stahl! - Breeze</a></li>
+        <li><a href="https://music.163.com/song?id=1346111359">FEWZ - By The River</a></li>
+        <li><a href="https://music.163.com/song?id=1411519067">徐梦圆 - CHINA-新春</a></li>
+        <li><a href="https://music.163.com/song?id=30621706">Tobu - Candyland</a></li>
+        <li><a href="https://music.163.com/song?id=30854874">Janji - Chasing Summer (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=491222808">千坂 - Chasing Lights</a></li>
+        <li><a href="https://music.163.com/song?id=409650440">徐梦圆 - China-A</a></li>
+        <li><a href="https://music.163.com/song?id=1304920086">徐梦圆 - China-E</a></li>
+        <li><a href="https://music.163.com/song?id=1369614120">徐梦圆 - China-G</a></li>
+        <li><a href="https://music.163.com/song?id=409654857">徐梦圆 - China-M</a></li>
+        <li><a href="https://music.163.com/song?id=409654858">徐梦圆 - China-P</a></li>
+        <li><a href="https://music.163.com/song?id=436675327">徐梦圆 - China-Rain</a></li>
+        <li><a href="https://music.163.com/song?id=409654859">徐梦圆 - China-X</a></li>
+        <li><a href="https://music.163.com/song?id=29797443">Tobu / Itro - Cloud 9</a></li>
+        <li><a href="https://music.163.com/song?id=32823727">Metio - Clouds</a></li>
+        <li><a href="https://music.163.com/song?id=28921656">Tobu - Colors</a></li>
+        <li><a href="https://music.163.com/song?id=408532744">MadEye - Complexity</a></li>
+        <li><a href="https://music.163.com/song?id=444267496">Tobu / Blume / Wholm - Cool</a></li>
+        <li><a href="https://music.163.com/song?id=29392900">Tobu - Crime (Instrumental)</a></li>
+        <li><a href="https://music.163.com/song?id=34779103">徐梦圆 - color-X</a></li>
+        <li><a href="https://music.163.com/song?id=30854854">Dripice - Delight</a></li>
+        <li><a href="https://music.163.com/song?id=33497412">Axero - Dusk (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=443622817">ae山子 - 电音60首好听乐曲高潮合集 第一期</a></li>
+        <li><a href="https://music.163.com/song?id=528272378">Stahl! / Kadenza - Echo</a></li>
+        <li><a href="https://music.163.com/song?id=406072136">Jim Yosef - Eclipse</a></li>
+        <li><a href="https://music.163.com/song?id=407679564">Hinkik - Ena</a></li>
+        <li><a href="https://music.163.com/song?id=431080988">Elektronomia - Energy</a></li>
+        <li><a href="https://music.163.com/song?id=33875177">Alex Skrindo / Distrion - Entropy</a></li>
+        <li><a href="https://music.163.com/song?id=403012527">Dripice - Escape</a></li>
+        <li><a href="https://music.163.com/song?id=425988090">CelDro / Wholm - Essence</a></li>
+        <li><a href="https://music.163.com/song?id=443876175">Dogena / Dripice - Euphoria</a></li>
+        <li><a href="https://music.163.com/song?id=29491727">Feint - Face Down (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=29947420">Alan Walker - Fade</a></li>
+        <li><a href="https://music.163.com/song?id=409931826">AndyM - Falling</a></li>
+        <li><a href="https://music.163.com/song?id=439915252">Luka Krajina - Far Beyond</a></li>
+        <li><a href="https://music.163.com/song?id=28263911">Deorro - Five Hours</a></li>
+        <li><a href="https://music.163.com/song?id=409060501">Andelon - Fly</a></li>
+        <li><a href="https://music.163.com/song?id=486814379">TheFatRat - Fly Away (Instrumental)</a></li>
+        <li><a href="https://music.163.com/song?id=32574997">Itro - For You</a></li>
+        <li><a href="https://music.163.com/song?id=442867844">Ayek - Forever</a></li>
+        <li><a href="https://music.163.com/song?id=473964580">Elektronomia / JJD - Free</a></li>
+        <li><a href="https://music.163.com/song?id=505449407">Pascal Letoublon - Friendships (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=418602744">Ahxello - Frisbee</a></li>
+        <li><a href="https://music.163.com/song?id=30987703">Doctor Vox - Frontier</a></li>
+		<li><a href="https://music.163.com/song?id=411907073">Adam Smits - Galaxy</a></li>
+        <li><a href="https://music.163.com/song?id=29485223">EnV - Ginseng</a></li>
+        <li><a href="https://music.163.com/song?id=469889836">千坂 - Glow</a></li>
+		<li><a href="https://music.163.com/song?id=32639048">Dogena - Happy</a></li>
+      	<li><a href="https://music.163.com/song?id=407002307">Multex - Hide</a></li>
+        <li><a href="https://music.163.com/song?id=485607552">Schtiffles - Hide &amp; Seek</a></li>
+        <li><a href="https://music.163.com/song?id=28830412">Tobu - Higher</a></li>
+        <li><a href="https://music.163.com/song?id=28953875">Tobu & Itro - Holiday</a></li>
+        <li><a href="https://music.163.com/song?id=420513460">Ampyx - Holo</a></li>
+        <li><a href="https://music.163.com/song?id=28921655">Tobu - Hope (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=32046918">Janji - Horizon</a></li>
+        <li><a href="https://music.163.com/song?id=3932221">Approaching Nirvana - I Dream of Ibiza</a></li>
+        <li><a href="https://music.163.com/song?id=28830409">Tobu - Infectious</a></li>
+		<li><a href="https://music.163.com/song?id=30621620">Ahxello - Infinity</a></li>
+        <li><a href="https://music.163.com/song?id=36783470">MitiS - Innocent Discretion</a></li>
+        <li><a href="https://music.163.com/song?id=32196838">DEAF KEV - Invincible</a></li>
+        <li><a href="https://music.163.com/song?id=430787437">Cgc / Janji - Janji - mashup 11 首 活力.电音.合集</a></li>
+        <li><a href="https://music.163.com/song?id=441617611">HOPE-T / 接个吻，开一枪 - 锦里</a></li>
+        <li><a href="https://music.163.com/song?id=32639094">Tobu - Legacy</a></li>
+        <li><a href="https://music.163.com/song?id=30706279">Lensko - Let's Go!</a></li>
+        <li><a href="https://music.163.com/song?id=406737893">FEWZ - Levitate</a></li>
+        <li><a href="https://music.163.com/song?id=28830410">Tobu - Life</a></li>
+        <li><a href="https://music.163.com/song?id=463840575">Elektronomia - Limitless</a></li>
+        <li><a href="https://music.163.com/song?id=1874787489">Tobu - Lost</a></li>
+        <li><a href="https://music.163.com/song?id=1395977748">Wisp X / Xomu - Lumina</a></li>
+        <li><a href="https://music.163.com/song?id=29379953">Tobu / Itro - Magic</a></li>
+        <li><a href="https://music.163.com/song?id=32046932">Vexento - Masked Heroes</a></li>
+        <li><a href="https://music.163.com/song?id=528272302">ColBreakz - Mind Control</a></li>
+        <li><a href="https://music.163.com/song?id=35920504">Stahl! / Alex Skrindo - Moments</a></li>
+        <li><a href="https://music.163.com/song?id=1309980823">TheFatRat - Monody</a></li>
+        <li><a href="https://music.163.com/song?id=30621637">Axero / Itro - Move</a></li>
+        <li><a href="https://music.163.com/song?id=30474763">EH!DE / Different Heaven - My Heart</a></li>
+        <li><a href="https://music.163.com/song?id=409646391">FEWZ - Mystic Tides</a></li>
+        <li><a href="https://music.163.com/song?id=31245329">Axero - Natural</a></li>
+        <li><a href="https://music.163.com/song?id=29392797">Tobu - Natural High</a></li>
+        <li><a href="https://music.163.com/song?id=35955864">Different Heaven - Nekozilla</a></li>
+        <li><a href="https://music.163.com/song?id=411907321">L3V3LS - Never Ending Rain</a></li>
+        <li><a href="https://music.163.com/song?id=36924964">JJD - Nyan Cat</a></li>
+        <li><a href="https://music.163.com/song?id=433059656">接个吻，开一枪 / CLARE - 南锣鼓巷</a></li>
+        <li><a href="https://music.163.com/song?id=30621635">Antrux - One Day (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=1353191063">TheFatRat - Origin</a></li>
+        <li><a href="https://music.163.com/song?id=408277644">Hinkik - Outbreaker</a></li>
+        <li><a href="https://music.163.com/song?id=454129387">徐梦圆 - PDD</a></li>
+        <li><a href="https://music.163.com/song?id=32063592">EnV - Paladin</a></li>
+        <li><a href="https://music.163.com/song?id=32046927">JJD - Particles</a></li>
+        <li><a href="https://music.163.com/song?id=33937527">EnV - Pneumatic Tokyo</a></li>
+        <li><a href="https://music.163.com/song?id=501214792">LFZ - Popsicle</a></li>
+        <li><a href="https://music.163.com/song?id=444524688">TheFatRat / JJD - Prelude (VIP Edit)</a></li>
+        <li><a href="https://music.163.com/song?id=419254478">Vindu - Purple Heart</a></li>
+        <li><a href="https://music.163.com/song?id=33668273">Tobu - Puzzle</a></li>
+        <li><a href="https://music.163.com/song?id=35527030">Axero / Jimmy Magardeau - Reason (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=27644359">（已下架）Sensitive / Bogdan Bondarenko - Remember (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=509530702">Ahxello - Revival</a></li>
+        <li><a href="https://music.163.com/song?id=30854833">Axero - River</a></li>
+        <li><a href="https://music.163.com/song?id=30569019">Tobu / Marcus Mouya - Running Away</a></li>
+        <li><a href="https://music.163.com/song?id=445450067">Dripice / Pilton - Santa Monica</a></li>
+        <li><a href="https://music.163.com/song?id=29379952">Tobu - Seven</a></li> 
+        <li><a href="https://music.163.com/song?id=423015272">Jiaye / Tobu - Seven (Jiaye Reboot)</a></li>
+        <li><a href="https://music.163.com/song?id=31830308">Janji - Shadows</a></li>
+        <li><a href="https://music.163.com/song?id=532510096">Owen Keith - Shape&nbsp;of&nbsp;You&nbsp;(伴奏)</a></li>
+        <li><a href="https://music.163.com/song?id=404184088">Janji - Shine</a></li>
+        <li><a href="https://music.163.com/song?id=29553031">Steerner / Martell - Sky (Radio Edit)</a></li>
+        <li><a href="https://music.163.com/song?id=33785920">Mich - Skyland</a></li>
+        <li><a href="https://music.163.com/song?id=34040854">Starix​ / Jordan Kelvin James - Skyline</a></li>
+        <li><a href="https://music.163.com/song?id=33340727">TomLeevis - Soaring (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=33479592">K-391 - Solstice</a></li>
+        <li><a href="https://music.163.com/song?id=30064263">Alan Walker - Spectre</a></li>
+        <li><a href="https://music.163.com/song?id=461876064">LJY - Spring （春）</a></li>
+        <li><a href="https://music.163.com/song?id=442589178">Metio / Sakana - Starlight</a></li>
+        <li><a href="https://music.163.com/song?id=419250586">Sailar - Story</a></li>
+        <li><a href="https://music.163.com/song?id=36094238">EnV - Streetlights</a></li>
+		<li><a href="https://music.163.com/song?id=1859969201">Axero - Struggle</a></li>
+        <li><a href="https://music.163.com/song?id=512377137">Vexento - Sudden Urge</a></li>
+      	<li><a href="https://music.163.com/song?id=407002841">Joe Lyons - Summer</a></li>
+		<li><a href="https://music.163.com/song?id=30352832">Tobu / Jordan Kelvin James - Summer Breeze</a></li>
+		<li><a href="https://music.163.com/song?id=1314359433">Ninety / Wthegg - Summer Seaside</a></li>
+        <li><a href="https://music.163.com/song?id=33166666">Steerner / Martell - Sun</a></li>
+        <li><a href="https://music.163.com/song?id=28830411">Tobu / Itro - Sunburst</a></li>
+        <li><a href="https://music.163.com/song?id=414979072">Dave Erpson - Sunlight</a></li>
+        <li><a href="https://music.163.com/song?id=411907329">L3V3LS - Swing</a></li>
+        <li><a href="https://music.163.com/song?id=405597209">Ahxello - Takeoff</a></li>
+        <li><a href="https://music.163.com/song?id=521415465">Xomu - Tera</a></li>
+        <li><a href="https://music.163.com/song?id=403711524">EnV - The #IcePack Rises (Original Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=1439046766">TomLeevis - The Top</a></li>
+        <li><a href="https://music.163.com/song?id=31587912">Dogena - Time</a></li>
+        <li><a href="https://music.163.com/song?id=412911872">Hinkik - Time Leaper</a></li>
+        <li><a href="https://music.163.com/song?id=438466592">Kadenza - Timeless</a></li>
+        <li><a href="https://music.163.com/song?id=546898943">Itro - Times</a></li>
+        <li><a href="https://music.163.com/song?id=29392898">Tobu - Times</a></li>
+        <li><a href="https://music.163.com/song?id=475943389">HankJerry - Tobu精曲合集（HankJerry mashup）</a></li>
+        <li><a href="https://music.163.com/song?id=1818887071">Axero - Tonight</a></li>
+        <li><a href="https://music.163.com/song?id=36492599">Axero - Trip</a></li>
+        <li><a href="https://music.163.com/song?id=410801523">Vexento - Trippy Love</a></li>
+        <li><a href="https://music.163.com/song?id=1486010730">Axero - Tropical Heaven</a></li>
+        <li><a href="https://music.163.com/song?id=29710375">Vicetone - United We Dance (Club Mix)</a></li>
+        <li><a href="https://music.163.com/song?id=569725354">TheFatRat - Unity</a></li>
+        <li><a href="https://music.163.com/song?id=29759407">Axero - Unity</a></li>
+        <li><a href="https://music.163.com/song?id=27794732">EnV - Uprise</a></li>
+        <li><a href="https://music.163.com/song?id=38679061">Elliot Hsu - Utopia</a></li>
+        <li><a href="https://music.163.com/song?id=34040716">Acreix - Visions</a></li>
+        <li><a href="https://music.163.com/song?id=30854901">Janji - Voyage</a></li>
+        <li><a href="https://music.163.com/song?id=466332069">Middelthon - Wander</a></li>
+        <li><a href="https://music.163.com/song?id=427017128">徐梦圆 - Water</a></li>
+        <li><a href="https://music.163.com/song?id=29759408">Axero - Waves</a></li>
+        <li><a href="https://music.163.com/song?id=29774609">TheFatRat - Windfall</a></li>
+        <li><a href="https://music.163.com/song?id=33479596">K-391 - Windows</a></li>
+        <li><a href="https://music.163.com/song?id=431791046">接个吻，开一枪 / ZICKSTRUDEL - 夜袭漓江塔</a></li>
+        <li><a href="https://music.163.com/song?id=464863017">接个吻，开一枪 - 烟袋斜街</a></li>
+        <li><a href="https://music.163.com/song?id=29769300">Axero - Dream</a></li>
+        <li><a href="https://music.163.com/song?id=440353010">Hoaprox - #Lov3 #Ngẫu Hứng</a></li>
+        <li><a href="https://music.163.com/song?id=30621641">Itro - 500</a></li>
+        <li><a href="https://music.163.com/song?id=563745734">HOPE-T - ◢ ◤</a></li>
         </ol>
 		</div>
         </div>
         </div>
         <br>
-        <footer class="mdui-text-center mdui-color-blue-grey-50">
+        <footer class="mdui-text-center mdui-color-theme-50">
         <br>
 		<div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
@@ -589,7 +533,7 @@
         <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br>
         </footer>
-        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
+        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-a700 mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
         <script type="text/javascript">
@@ -614,6 +558,230 @@
     fab.classList.add('mdui-fab-hide');
 }
     </script>
+    <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
+        <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
+           	<span class="mdui-typo-title">调色板</span>
+           	<div class="mdui-toolbar-spacer"></div>
+        	<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+        </div>
+        <div class="mdui-dialog-content">
+            <p style="font-size: 16px;">夜间模式</p>
+            <form>
+                <div class="mdui-row-xs-2">
+					<label class="mdui-radio mdui-col" onclick='setDarkTheme("bySystem")'>
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
+    					<i class="mdui-radio-icon"></i>
+    					跟随系统
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick='setDarkTheme("disabled")'>
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
+    					<i class="mdui-radio-icon"></i>
+    					关闭
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled')">
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
+    					<i class="mdui-radio-icon"></i>
+    					开启
+  					</label>
+                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
+    					<input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
+    					<i class="mdui-radio-icon"></i>
+    					基于时间
+  					</label>
+				</div>
+            </form>
+            <p style="font-size: 16px;">主色</p>
+            <form>
+            	<div class="mdui-row-xs-2">
+               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick='setPrimaryTheme("red")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
+    					<i class="mdui-radio-icon"></i>
+    					Red
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick='setPrimaryTheme("pink")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
+    					<i class="mdui-radio-icon"></i>
+    					Pink
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick='setPrimaryTheme("purple")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick='setPrimaryTheme("deep-purple")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick='setPrimaryTheme("indigo")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
+    					<i class="mdui-radio-icon"></i>
+    					Indigo
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick='setPrimaryTheme("blue")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick='setPrimaryTheme("light-blue")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick='setPrimaryTheme("cyan")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
+    					<i class="mdui-radio-icon"></i>
+    					Cyan
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick='setPrimaryTheme("teal")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
+    					<i class="mdui-radio-icon"></i>
+    					Teal
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick='setPrimaryTheme("green")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
+    					<i class="mdui-radio-icon"></i>
+    					Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick='setPrimaryTheme("light-green")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick='setPrimaryTheme("lime")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
+    					<i class="mdui-radio-icon"></i>
+    					Lime
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick='setPrimaryTheme("yellow")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
+    					<i class="mdui-radio-icon"></i>
+    					Yellow
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick='setPrimaryTheme("amber")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
+    					<i class="mdui-radio-icon"></i>
+    					Amber
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick='setPrimaryTheme("orange")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick='setPrimaryTheme("deep-orange")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-brown" onclick='setPrimaryTheme("brown")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
+    					<i class="mdui-radio-icon"></i>
+    					Brown
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-grey" onclick='setPrimaryTheme("grey")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
+    					<i class="mdui-radio-icon"></i>
+    					Grey
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick='setPrimaryTheme("blue-grey")'>
+    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue-Grey
+  					</label>
+               </div>
+            </form>
+            <p style="font-size: 16px;">强调色</p>
+            <form>
+            	<div class="mdui-row-xs-2">
+               		<label class="mdui-radio mdui-col mdui-text-color-red-accent" onclick='setAccentTheme("red")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
+    					<i class="mdui-radio-icon"></i>
+    					Red
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink-accent" onclick='setAccentTheme("pink")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
+    					<i class="mdui-radio-icon"></i>
+    					Pink
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple-accent" onclick='setAccentTheme("purple")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple-accent" onclick='setAccentTheme("deep-purple")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Purple
+  					</label>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo-accent" onclick='setAccentTheme("indigo")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
+    					<i class="mdui-radio-icon"></i>
+    					Indigo
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue-accent" onclick='setAccentTheme("blue")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue-accent" onclick='setAccentTheme("light-blue")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Blue
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan-accent" onclick='setAccentTheme("cyan")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
+    					<i class="mdui-radio-icon"></i>
+    					Cyan
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal-accent" onclick='setAccentTheme("teal")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
+    					<i class="mdui-radio-icon"></i>
+    					Teal
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-green-accent" onclick='setAccentTheme("green")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
+    					<i class="mdui-radio-icon"></i>
+    					Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green-accent" onclick='setAccentTheme("light-green")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
+    					<i class="mdui-radio-icon"></i>
+    					Light-Green
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime-accent" onclick='setAccentTheme("lime")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
+    					<i class="mdui-radio-icon"></i>
+    					Lime
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow-accent" onclick='setAccentTheme("yellow")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
+    					<i class="mdui-radio-icon"></i>
+    					Yellow
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber-accent" onclick='setAccentTheme("amber")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
+    					<i class="mdui-radio-icon"></i>
+    					Amber
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange-accent" onclick='setAccentTheme("orange")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Orange
+  					</label>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange-accent" onclick='setAccentTheme("deep-orange")'>
+    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
+    					<i class="mdui-radio-icon"></i>
+    					Deep-Orange
+  					</label>
+  					<br><br>
+               </div>
+            </form>
+        </div>
+        <div class="mdui-dialog-actions">
+        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;width: 128px;" onclick="resetTheme()" mdui-dialog-close>恢复默认设置</div>
+        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
+        </div>
+    </div>
     </body>
     <script>
       		var hour = new Date().getHours();
@@ -650,6 +818,7 @@
 		}
     </script>
     <script src="waves/waves.min.js"></script>
+    <script src="settheme.js"></script>
   	<script>
     var config = {
     duration: 500,
