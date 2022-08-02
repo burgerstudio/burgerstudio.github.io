@@ -46,8 +46,7 @@ function setDarkTheme(option){
 		localStorage.setItem("darkTheme","bySystem");
 	}
 	if (option == "disabled"){
-		document.body.classList.remove("mdui-theme-layout-auto");
-		document.body.classList.remove("mdui-theme-layout-dark");
+		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","disabled");
 	}
 	if (option == "enabled"){
@@ -56,8 +55,7 @@ function setDarkTheme(option){
 		localStorage.setItem("darkTheme","enabled");
 	}
 	if (option == "byTime"){
-		document.body.classList.remove("mdui-theme-layout-auto");
-		document.body.classList.remove("mdui-theme-layout-dark");
+		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","byTime");
 	}
 }
@@ -72,6 +70,7 @@ function setAccentTheme(color){
     localStorage.setItem("accentTheme",color);
 }
 function resetTheme(){
+    document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
     document.body.classList.remove("mdui-theme-primary-red", "mdui-theme-primary-pink", "mdui-theme-primary-purple", "mdui-theme-primary-deep-purple", "mdui-theme-primary-indigo", "mdui-theme-primary-blue", "mdui-theme-primary-light-blue", "mdui-theme-primary-cyan", "mdui-theme-primary-teal", "mdui-theme-primary-green", "mdui-theme-primary-light-green", "mdui-theme-primary-lime", "mdui-theme-primary-yellow", "mdui-theme-primary-amber", "mdui-theme-primary-orange", "mdui-theme-primary-deep-orange", "mdui-theme-primary-brown", "mdui-theme-primary-grey", "mdui-theme-primary-blue-grey");
     document.body.classList.remove("mdui-theme-accent-red", "mdui-theme-accent-pink", "mdui-theme-accent-purple", "mdui-theme-accent-deep-purple", "mdui-theme-accent-indigo", "mdui-theme-accent-blue", "mdui-theme-accent-light-blue", "mdui-theme-accent-cyan", "mdui-theme-accent-teal", "mdui-theme-accent-green", "mdui-theme-accent-light-green", "mdui-theme-accent-lime", "mdui-theme-accent-yellow", "mdui-theme-accent-amber", "mdui-theme-accent-orange", "mdui-theme-accent-deep-orange");
     document.body.classList.add("mdui-theme-layout-auto");
