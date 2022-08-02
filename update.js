@@ -3,7 +3,7 @@ function update(){
     document.getElementById("updateDate").innerHTML =  "";
     document.getElementById("updateChange").innerHTML =  "";
 	document.getElementById("updateNote").innerHTML =  "";
-	document.getElementById("updateSpinner").style = "display: none;";
+	document.getElementById("updateSpinner").style = "display: block;margin-top: 25%;";
 	document.getElementById("updateAvailable").style = "display: none;";
 	document.getElementById("alreadyUpdate").style = "display: none;";
 var xmlhttp = new XMLHttpRequest();
