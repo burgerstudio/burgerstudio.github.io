@@ -728,13 +728,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateMore20220605") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateMore20220802") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateMore20220605", "true");
+    		localStorage.setItem("doNotShowUpdateMore20220802", "true");
 		}
     </script>
     <script src="waves/waves.min.js"></script>
