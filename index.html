@@ -162,7 +162,7 @@
         <div id="updateChange"></div>
         <p class="mdui-text-color-red" id="updateNote"></p>
 		<p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
-      	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br><br>
+      	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br><br><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
         <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700">获取最新版本</button></a>
@@ -560,7 +560,7 @@
     </body>
     <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年7月29日<br>-加入了 Material You 视觉效果</div>
+        <div class="update-dialog-content">2022年8月1日<br>-新增“调色板”功能，可自由定制网页主题<br>-改用JSON获取离线版信息，便于检查更新</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
 	<script src="settheme.js"></script>
@@ -578,13 +578,13 @@
 			window.setTimeout('updateDialog.style.opacity = "0"',300)
 			dns();
 		}
-   		if (localStorage.getItem("doNotShowUpdateAbout20220729") == "true"){
+   		if (localStorage.getItem("doNotShowUpdateAbout20220801") == "true"){
 		}else{
     		window.setTimeout('openUpdateDialog();',1500)
 			window.setTimeout('hideUpdateDialog();',8500)
 		}
    		function dns(){
-    		localStorage.setItem("doNotShowUpdateAbout20220729", "true");
+    		localStorage.setItem("doNotShowUpdateAbout20220801", "true");
 		}
     </script>
 	<script src="waves/waves.min.js"></script>

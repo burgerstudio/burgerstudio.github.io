@@ -56,6 +56,18 @@ color: white !important;
 background-color: #212121 !important;
 color: white !important;
 }
+.mdui-panel-item{
+border-radius: 10px;
+margin: 8px 0;
+}
+.mdui-snackbar{
+background-color: #EFEFEF;
+color: black;
+}
+.mdui-theme-layout-dark .mdui-snackbar{
+background-color: #323232;
+color: white;
+}
 @media (prefers-color-scheme: dark){
 .mdui-theme-layout-auto footer{
 background-color: #212121 !important;
@@ -121,5 +133,9 @@ color: white !important;
 .mdui-theme-layout-auto .mdui-btn-block{
 background-color: #212121 !important;
 color: white !important;
+}
+.mdui-theme-layout-auto .mdui-snackbar{
+background-color: #323232;
+color: white;
 }
 }
