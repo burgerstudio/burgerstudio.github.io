@@ -1,0 +1,2 @@
+deb http://mirrors.ustc.edu.cn/ubuntu-ports jammy main restricted universe multiverse
+deb-src http://mirrors.ustc.edu.cn/ubuntu-ports jammy main restricted universe multiverse
