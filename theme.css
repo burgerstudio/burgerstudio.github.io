@@ -6,17 +6,9 @@ color: white;
 background-color: #434343;
 color: white;
 }
-.mdui-theme-layout-dark .mdui-btn-icon.mdui-float-right{
-background-color: #212121 !important;
-color: white !important;
-}
 .mdui-theme-layout-dark .mdui-tooltip{
 background-color: rgba(16,16,16,0.9);
 color: white;
-}
-.mdui-theme-layout-dark .mdui-fab{
-background-color: #212121 !important;
-color: white !important;
 }
 .mdui-theme-layout-dark .mdui-dialog{
 background-color: #434343 !important;
@@ -27,9 +19,6 @@ background-color: #323232 !important;
 color: white !important;
 }
 .mdui-theme-layout-dark .mdui-drawer-list-item-active{
-background-color: rgba(33, 150, 243, 0.4);
-}
-.mdui-theme-layout-dark .mdui-drawer-list-item-active:hover{
 background-color: rgba(33, 150, 243, 0.4);
 }
 .mdui-theme-layout-dark .footerlink{
@@ -48,11 +37,7 @@ color: white;
 background-color: #434343;
 color: white;
 }
-.mdui-theme-layout-dark .mdui-color-theme-50{
-background-color: #212121 !important;
-color: white !important;
-}
-.mdui-theme-layout-dark .mdui-btn-block{
+.mdui-theme-layout-dark .auto-dark{
 background-color: #212121 !important;
 color: white !important;
 }
@@ -68,12 +53,143 @@ color: black;
 background-color: #323232;
 color: white;
 }
+.mdui-dialog{
+border-radius: 32px;
+box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
+}
+.mdui-menu,.mdui-select-menu{
+border-radius: 10px;
+box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
+}
+.mdui-tooltip{
+border-radius: 20px;
+background-color: #EEEEEE;
+color:black;
+}
+@keyframes card{
+from {transform: scale(0.9);opacity: 0;}
+to {transform: scale(1);opacity: 1;}
+}
+.mdui-card{
+border-radius: 10px;
+animation-name: card;
+animation-duration: 0.7s;
+}
+.mdui-drawer-list-item-active{
+background-color: rgba(33, 150, 243, 0.4);
+}
+@keyframes toleft{
+from {transform: translateX(32px);opacity: 0;}
+to {transform: translateX(0px);opacity: 1;}
+}
+@keyframes toright{
+from {transform: translateX(-32px);opacity: 0;}
+to {transform: translateX(0px);opacity: 1;}
+}
+.toleft{
+animation-name: toleft;
+animation-duration: 0.7s;
+animation-fill-mode: forwards;
+animation-delay: 0.3s;
+transform: translateX(32px);
+opacity: 0;
+}
+.toright{
+animation-name: toright;
+animation-duration: 0.7s;
+animation-fill-mode: forwards;
+animation-delay: 0.3s;
+transform: translateX(-32px);
+opacity: 0;
+}
+.opacity{
+animation-name: opacity;
+animation-duration: 0.7s;
+}
+@keyframes opacity{
+from  {opacity: 0;}
+to {opacity: 1;}
+}
+.title{
+animation-name: toleft;
+animation-duration: 0.7s;
+animation-delay: 0.3s;
+opacity: 0;
+transform: translateX(32px);
+animation-fill-mode: forwards;
+}
+.footerlink{
+color: black;
+transition-duration: 0.2s;
+text-decoration: none;
+}
+.footerlink:hover{
+opacity: 0.7;
+}
+.footerlink:active{
+background-color: rgba(0,0,0,0.3);
+}
+.radius{
+border-radius: 20px;
+}
+.mdui-drawer-list-item-active:hover{
+background-color: rgba(33, 150, 243, 0.4);
+}
+footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, p, .mdui-divider, .mdui-btn-block, .mdui-drawer, .mdui-tooltip{
+transition-duration: 0.4s;
+}
+.mdui-drawer-list-item-active .mdui-list-item-content{
+font-weight: normal;
+}
+.update-dialog{
+position: fixed;
+right: -300px;
+bottom: 16px;
+background-color: rgba(240,240,240,0.9);
+box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
+padding: 16px;
+transition-duration: 0.5s;
+width: 250px;
+border-radius: 10px;
+z-index: 2;
+color: black;
+}
+.update-dialog-title{
+font-weight: bold;
+margin-bottom: 8px;
+font-size: 16px;
+}
+.update-dialog-btn{
+width: 200px;
+height: 30px;
+margin-top: 16px;
+border-radius: 5px;
+border: none;
+background-color: #FFFFFF;
+transition-duration: 0.3s;
+outline: none;
+}
+.update-dialog-btn:hover{
+box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
+}
+.update-dialog-btn:active{
+background-color: #EFEFEF;
+color: #ABABAB;
+}
+html{
+scroll-behavior:smooth;
+}
+.scaleappear{
+animation-name: card;
+animation-duration: 0.7s;
+}
+.mdui-panel-item-title{
+width: 75%;
+min-width: 75%;
+}
 @media (prefers-color-scheme: dark){
 .mdui-theme-layout-auto footer{
 background-color: #212121 !important;
-color: white !important;
-}
-.mdui-theme-layout-auto .warning{
 color: white !important;
 }
 .mdui-theme-layout-auto .update-dialog{
@@ -84,17 +200,9 @@ color: white;
 background-color: #434343;
 color: white;
 }
-.mdui-theme-layout-auto .mdui-btn-icon.mdui-float-right{
-background-color: #212121 !important;
-color: white !important;
-}
 .mdui-theme-layout-auto .mdui-tooltip{
 background-color: rgba(16,16,16,0.9);
 color: white;
-}
-.mdui-theme-layout-auto .mdui-fab{
-background-color: #212121 !important;
-color: white !important;
 }
 .mdui-theme-layout-auto .mdui-dialog{
 background-color: #434343 !important;
@@ -105,9 +213,6 @@ background-color: #323232 !important;
 color: white !important;
 }
 .mdui-theme-layout-auto .mdui-drawer-list-item-active{
-background-color: rgba(33, 150, 243, 0.4);
-}
-.mdui-theme-layout-auto .mdui-drawer-list-item-active:hover{
 background-color: rgba(33, 150, 243, 0.4);
 }
 .mdui-theme-layout-auto .footerlink{
@@ -126,11 +231,7 @@ color: white;
 background-color: #434343;
 color: white;
 }
-.mdui-theme-layout-auto .mdui-color-theme-50{
-background-color: #212121 !important;
-color: white !important;
-}
-.mdui-theme-layout-auto .mdui-btn-block{
+.mdui-theme-layout-auto .auto-dark{
 background-color: #212121 !important;
 color: white !important;
 }

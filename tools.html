@@ -3,44 +3,12 @@
 	<head> 
 		<meta charset="UTF-8"> 
 		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
-      	<link rel="icon" href="images/BGS_LOGO_20210919_WHITE.png" type="image/x-icon"> 
+      	<link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <link rel="stylesheet" type="text/css" href="theme.css" />
         <style>
-        .mdui-btn-raised{
-        border-radius: 5px;
-        }
-        .mdui-dialog{
-        border-radius: 32px;
-        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
-        }
-        .mdui-menu{
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
-        }
-        .mdui-tooltip{
-        border-radius: 20px;
-        background-color: #EEEEEE;
-        color:black;
-        }
-        @keyframes card{
-        from {transform: scale(0.9);opacity: 0;}
-        to {transform: scale(1);opacity: 1;}
-        }
-        .mdui-card{
-        border-radius: 10px;
-        animation-name: card;
-        animation-duration: 0.7s;
-        }
-         .mdui-drawer-list-item-active{
-        background-color: rgba(33, 150, 243, 0.4);
-        }
-        .mdui-drawer-list-item{
-        border-radius: 0 20px 20px 0;
-        margin-right: 8px;
-        }
 		.tool{
 		height: 70%;
 		width: 80%;
@@ -61,8 +29,8 @@
         max-width: 500px;
 		}
    		.mdui-theme-layout-dark .tool{
-         background-color: rgb(16,16,16);
-         }
+        background-color: rgb(16,16,16) !important;
+        }
 		.tool-header{
 		width: 100%;
 		height: 32px;
@@ -72,8 +40,8 @@
         transition-duration: 0.3s;
 		}
    		.mdui-theme-layout-dark .tool-header{
-         background-color: #444444;
-         }
+        background-color: #444444 !important;
+        }
 		.tool-close{
 		top: 0;
 		float: right;
@@ -87,15 +55,15 @@
 		border-radius: 4px;
 		}
    		.mdui-theme-layout-dark .tool-close{
-         background-color: #444444;
-         }
+        background-color: #444444 !important;
+        }
 		.tool-close:hover{
-		background-color: #F44336;
-		color: white;
+		background-color: #F44336 !important;
+		color: white !important;
 		}
    		.tool-close:active{
-         opacity: 0.7;
-         }
+        opacity: 0.7 !important;
+        }
 		.tool-button{
 		height: 32px;
 		width: 90%;
@@ -112,20 +80,13 @@
         color: white;
         max-width: 250px;
 		}
-   		.mdui-theme-layout-dark .tool-button{
-         background-color: #888888;
-         }
 		.tool-button:hover{
         box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
 		}
    		.tool-button:active{
-         transform: scale(0.9);
-         color: rgba(255,255,255,0.7);
-         background-color: #1976D2;
-         }
-         .mdui-theme-layout-dark .tool-button:active{
-         background-color: #AAAAAA;
-         }
+        transform: scale(0.9);
+        opacity: 0.9;
+        }
    		.tool-content{
 		margin: 8px;
 		padding: 4px;
@@ -138,33 +99,20 @@
         transition-duration: 0.3s;
 		}
    		.mdui-theme-layout-dark .tool-content{
-         background-color: #444444;
-         color: white;
-         }
-		.mdui-progress{
-		height: 16px;
-		margin: 4px 0;
-		border-style: solid;
-		border-color: #DEDEDE;
-		border-radius: 4px;
-      	transition-duration: 0.3s;
-		}
-   		.mdui-theme-layout-dark .tool-progress{
-         background-color: #AAAAAA;
-         }
-		.mdui-progress-determinate{
-		height: 16px;
-		}
-   		.mdui-theme-layout-dark .mdui-progress-determinate{
-         background-color: #AAAAAA;
-         }
+        background-color: #444444 !important;
+        color: white !important;
+        }
 		.tool-title{
 		width: 70%;
+		height: 16px;
 		float: left;
 		padding: 8px;
 		font-size: 16px;
       	color: white;
 		}
+		.mdui-theme-layout-dark .tool-title{
+        background-color: #444444 !important;
+        }
 		.tool-input{
 		width: 94%;
 		margin: 4px;
@@ -177,107 +125,26 @@
 		border-radius: 4px;
 		}
    		.mdui-theme-layout-dark .tool-input{
-         background-color: #AAAAAA;
-         border-color: #AAAAAA;
-         color: white;
-         }
+        background-color: #AAAAAA !important;
+        border-color: #AAAAAA !important;
+        color: white !important;
+        }
 		.tool-input:hover{
-		border-color: #2196F3;
+		border-color: #EFEFEF;
 		}
-   		.mdui-theme-layout-dark .tool-input:hover{
-         border-color: #EFEFEF;
-         }
-        @keyframes toleft{
-        from {margin-left: 32px;opacity: 0;}
-        to {margin-left: 0;opacity: 1;}
+		.mdui-progress{
+        height: 16px;
+        margin: 4px 0;
+        border-style: none;
+        border-radius: 4px;
+        transition-duration: 0.3s;
         }
-        @keyframes toright{
-        from {margin-right: 32px;opacity: 0;}
-        to {margin-right: 0;opacity: 1;}
+        .mdui-progress-determinate{
+        height: 16px;
         }
-        .toleft{
-        animation-name: toleft;
-        animation-duration: 0.7s;
+        .tool ::-webkit-scrollbar{
+        display: none;
         }
-        .toright{
-        animation-name: toright;
-        animation-duration: 0.7s;
-        }
-        .opacity{
-        animation-name: opacity;
-        animation-duration: 0.7s;
-        }
-		@keyframes opacity{
-		from  {opacity: 0;}
-		to {opacity: 1;}
-		}
-		.title{
-		animation-name: toleft;
-		animation-duration: 0.7s;
-      	animation-delay: 0.3s;
-        opacity: 0;
-        margin-left: 32px;
-        animation-fill-mode: forwards;
-		}
-   		.update-dialog{
-		position: fixed;
-		right: -300px;
-		bottom: 16px;
-		background-color: rgba(240,240,240,0.9);
-		box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
-		padding: 16px;
-		transition-duration: 0.5s;
-		width: 250px;
-		border-radius: 10px;
-		z-index: 1;
-      	color: black;
-        max-width: 100%;
-		}
-		.update-dialog-title{
-		font-weight: bold;
-		margin-bottom: 8px;
-		font-size: 16px;
-		}
-   		.update-dialog-btn{
-		width: 200px;
-		height: 30px;
-		margin-top: 16px;
-		border-radius: 5px;
-		border: none;
-		background-color: #FFFFFF;
-		transition-duration: 0.3s;
-      	outline: none;
-		}
-		.update-dialog-btn:hover{
-		box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
-		}
-   		.update-dialog-btn:active{
-         background-color: #EFEFEF;
-		 color: #ABABAB;
-         }
-        .footerlink{
-        color: black;
-        transition-duration: 0.2s;
-        text-decoration: none;
-        }
-        .footerlink:hover{
-        opacity: 0.7;
-        }
-        .footerlink:active{
-        background-color: rgba(0,0,0,0.3);
-        }
-        .radius{
-		border-radius: 20px;
-        }
-        .mdui-drawer-list-item-active:hover{
-        background-color: rgba(33, 150, 243, 0.4);
-        }
-        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab ,mdui-drawer .mdui-tooltip{
-        transition-duration: 0.4s;
-        }
-		.mdui-drawer-list-item-active .mdui-list-item-content{
-		font-weight: normal;
-		}
         </style>
         <title>JS工具</title>
 	</head> 
@@ -308,8 +175,8 @@
       	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700" mdui-dialog-close>关闭</button></div>
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
         </div>
 		<script src="update.js"></script>
         </div>
@@ -318,43 +185,43 @@
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
         <a href="index.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">home</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">storage</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">apps</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">public</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">attach_file</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme-500">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">build</i>
+        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme">
+        <i class="mdui-list-item-icon mdui-icon material-icons">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">info</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
         </a>
@@ -364,8 +231,8 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8" id="card">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            	<h1 class="mdui-text-color-theme-a700 title">JS工具</h1>
-            	<ul class="mdui-list mdui-text-color-theme-a700" style="font-weight: bold;font-size: 15px;">
+            	<h1 class="mdui-text-color-theme title">JS工具</h1>
+            	<ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
                		<div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('clock');">线性时钟</li></div>
                     <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('countdown');">线性倒计时</li></div>
                     <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('temperature');">摄氏度与华氏度转换</li></div>
@@ -378,7 +245,7 @@
         	</div>
         </div>
         <br>
-        <footer class="mdui-text-center mdui-color-theme-50">
+        <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
         <br>
 		<div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
@@ -415,15 +282,15 @@
         <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
         <img src="images/QQ.jpg" style="width:180px;height:336px;">
         </div>
-		<div class="tool mdui-center" id="clock">
-			<div class="tool-header">
-				<div class="tool-title">线性时钟</div>
-				<div class="tool-close" onclick="toolclose('clock');">
+		<div class="tool mdui-center mdui-color-theme" id="clock">
+			<div class="tool-header mdui-color-theme-700">
+				<div class="tool-title mdui-color-theme-700">线性时钟</div>
+				<div class="tool-close mdui-color-theme-700" onclick="toolclose('clock');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
-			<div class="tool-content">
-				<button class="tool-button" onclick="clock()">显示时钟</button>
+			<div class="tool-content mdui-color-theme-50">
+				<button class="tool-button mdui-color-theme" onclick="clock()">显示时钟</button>
 				<h3 class="mdui-text-center" id="clockText"></h3>
 				<div class="mdui-progress"><div class="mdui-progress-determinate" id="hour" style="width: 0;"></div></div>
 				<div class="mdui-progress"><div class="mdui-progress-determinate" id="minute" style="width: 0;"></div></div>
@@ -431,19 +298,19 @@
             	<p style="margin: 8px;text-align: center;" id="greeting"></p>
 			</div>
 		</div>
-      	<div class="tool mdui-center" id="countdown">
-        	<div class="tool-header">
-				<div class="tool-title">线性倒计时</div>
-            	<div class="tool-close" onclick="toolclose('countdown');">
+      	<div class="tool mdui-center mdui-color-theme" id="countdown">
+        	<div class="tool-header mdui-color-theme-700">
+				<div class="tool-title mdui-color-theme-700">线性倒计时</div>
+            	<div class="tool-close mdui-color-theme-700" onclick="toolclose('countdown');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
-			<div class="tool-content">
+			<div class="tool-content mdui-color-theme-50">
 				<form>
-					<input class="tool-input" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
+					<input class="tool-input mdui-color-theme-50" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
 					<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
 				</form>
-				<button class="tool-button" onclick="countdown()">开启倒计时</button>
+				<button class="tool-button mdui-color-theme" onclick="countdown()">开启倒计时</button>
 				<h1 id="cs" style="text-align: center;">倒计时未开启</h1>
             	<div class="mdui-progress">
                		<div class="mdui-progress-determinate" id="cp" style="width: 100%;"></div>
@@ -471,19 +338,19 @@
 				</script>
 			</div>
         </div>
-        <div class="tool mdui-center" id="temperature">
-        	<div class="tool-header">
-				<div class="tool-title">摄氏度与华氏度转换</div>
-         		<div class="tool-close" onclick="toolclose('temperature');">
+        <div class="tool mdui-center mdui-color-theme" id="temperature">
+        	<div class="tool-header mdui-color-theme-700">
+				<div class="tool-title mdui-color-theme-700">摄氏度与华氏度转换</div>
+         		<div class="tool-close mdui-color-theme-700" onclick="toolclose('temperature');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
-         	<div class="tool-content">
+         	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 0;margin-left: 4px;margin-top: 4px;">摄氏度转换为华氏度</p>
             	<form>
-               		<input class="tool-input" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
+               		<input class="tool-input mdui-color-theme-50" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
                	</form>
-                <button class="tool-button" onclick="toFahrenheit()">转换</button>
+                <button class="tool-button mdui-color-theme" onclick="toFahrenheit()">转换</button>
                 <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputCelsius = document.getElementById('celsius');
@@ -496,9 +363,9 @@
                 <div class="mdui-divider" style="margin: 8px;"></div>
                 <p style="margin: 0;margin-left: 4px;margin-top: 4px;">华氏度转换为摄氏度</p>
             	<form>
-               		<input class="tool-input" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
+               		<input class="tool-input mdui-color-theme-50" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
                	</form>
-                <button class="tool-button" onclick="toCelsius()">转换</button>
+                <button class="tool-button mdui-color-theme" onclick="toCelsius()">转换</button>
                 <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputFahrenheit = document.getElementById('fahrenheit');
@@ -539,15 +406,15 @@
   				return i;
 }
 		</script>
-      	<div class="tool mdui-center" id="navigator">
-        	<div class="tool-header">
-        		<div class="tool-title">获取浏览器信息</div>
-              	<div class="tool-close" onclick="toolclose('navigator');">
+      	<div class="tool mdui-center mdui-color-theme" id="navigator">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">获取浏览器信息</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('navigator');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-            <div class="tool-content">
-            	<button class="tool-button" onclick="info()">获取</button>
+            <div class="tool-content mdui-color-theme-50">
+            	<button class="tool-button mdui-color-theme" onclick="info()">获取</button>
                	<script>
                 	function info(){
     					document.getElementById("cookieenabled").innerHTML = "Cookie开启状态：" + navigator.cookieEnabled;
@@ -574,16 +441,16 @@
                 <p id="javaenabled" style="margin: 8px;"></p>
             </div>
         </div>
-        <div class="tool mdui-center" id="player">
-        	<div class="tool-header">
-        		<div class="tool-title">媒体播放器</div>
-              	<div class="tool-close" onclick="toolclose('player');">
+        <div class="tool mdui-center mdui-color-theme" id="player">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">媒体播放器</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('player');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-           	<div class="tool-content">
-            	<input type="text" class="tool-input" id="pi" placeholder="请输入要获取媒体的URL">
-               	<button class="tool-button" onclick="setPlayer()">获取媒体</button>
+           	<div class="tool-content mdui-color-theme-50">
+            	<input type="text" class="tool-input mdui-color-theme-50" id="pi" placeholder="请输入要获取媒体的URL">
+               	<button class="tool-button mdui-color-theme" onclick="setPlayer()">获取媒体</button>
                	<video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
                 	<source id="mediasrc">
                 </video>
@@ -595,18 +462,18 @@
                 </script>
             </div>
         </div>
-        <div class="tool mdui-center" id="translate">
-        	<div class="tool-header">
-        		<div class="tool-title">翻译</div>
-              	<div class="tool-close" onclick="toolclose('translate');">
+        <div class="tool mdui-center mdui-color-theme" id="translate">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">翻译</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('translate');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-           	<div class="tool-content">
-            	<input type="text" class="tool-input" id="gtrantext" placeholder="请输入要翻译的文字">
-               	<button class="tool-button" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
-                <button class="tool-button" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
-                <button class="tool-button" onclick="btran()">百度翻译</button>
+           	<div class="tool-content mdui-color-theme-50">
+            	<input type="text" class="tool-input mdui-color-theme-50" id="gtrantext" placeholder="请输入要翻译的文字">
+               	<button class="tool-button mdui-color-theme" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
+                <button class="tool-button mdui-color-theme" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
+                <button class="tool-button mdui-color-theme" onclick="btran()">百度翻译</button>
                 <script>
                 	function gtran(){
     					location.href = "http://translate.google.cn/?text=" + document.getElementById('gtrantext').value;
@@ -620,16 +487,16 @@
                 </script>
             </div>
         </div>
-        <div class="tool mdui-center" id="note">
-        	<div class="tool-header">
-        		<div class="tool-title">便笺</div>
-              	<div class="tool-close" onclick="toolclose('note');">
+        <div class="tool mdui-center mdui-color-theme" id="note">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">便笺</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('note');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-           	<div class="tool-content">
+           	<div class="tool-content mdui-color-theme-50">
             	<p id="notetext" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
-            	<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
+            	<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
 				<script>
 					function loadnote(){
 						if (localStorage.getItem("note")){
@@ -642,18 +509,18 @@
 				</script>
             </div>
         </div>
-		<div class="tool mdui-center" id="editnote">
-        	<div class="tool-header">
-        		<div class="tool-title">编辑便笺</div>
-              	<div class="tool-close" onclick="toolclose('editnote');toolopen('note');">
+		<div class="tool mdui-center mdui-color-theme" id="editnote">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">编辑便笺</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('editnote');toolopen('note');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-           	<div class="tool-content">
-            	<textarea id="noteinput" class="tool-input" style="height: 70%;"></textarea>
-				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();alert('已移除便笺')" id="removenote">移除</button>
-				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
-				<button class="tool-button" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
+           	<div class="tool-content mdui-color-theme-50">
+            	<textarea id="noteinput" class="tool-input mdui-color-theme-50" style="height: 70%;"></textarea>
+				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();alert('已移除便笺')" id="removenote">移除</button>
+				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
+				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
 				<script>
             		document.getElementById('noteinput').value = localStorage.getItem("note");
 					function savenote(){
@@ -664,19 +531,19 @@
 				</script>
             </div>
         </div>
-        <div class="tool mdui-center" id="unknown">
-        	<div class="tool-header">
-        		<div class="tool-title">一元二次方程求解</div>
-              	<div class="tool-close" onclick="toolclose('unknown');">
+        <div class="tool mdui-center mdui-color-theme" id="unknown">
+        	<div class="tool-header mdui-color-theme-700">
+        		<div class="tool-title mdui-color-theme-700">一元二次方程求解</div>
+              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('unknown');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
-           	<div class="tool-content">
+           	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
-                <p>a=<input class="tool-input" id="unknowna" style="max-width: 64px;"></p>
-                <p>b=<input class="tool-input" id="unknownb" style="max-width: 64px;"></p>
-                <p>c=<input class="tool-input" id="unknownc" style="max-width: 64px;"></p>
-                <button class="tool-button" onclick="workout()">求解</button>
+                <p>a=<input class="tool-input mdui-color-theme-50" id="unknowna" style="max-width: 64px;"></p>
+                <p>b=<input class="tool-input mdui-color-theme-50" id="unknownb" style="max-width: 64px;"></p>
+                <p>c=<input class="tool-input mdui-color-theme-50" id="unknownc" style="max-width: 64px;"></p>
+                <button class="tool-button mdui-color-theme" onclick="workout()">求解</button>
                 <p id="delta"></p>
                 <p id="rootnum"></p>
                 <p id="root"></p>
@@ -864,82 +731,82 @@
             <p style="font-size: 16px;">强调色</p>
             <form>
             	<div class="mdui-row-xs-2">
-               		<label class="mdui-radio mdui-col mdui-text-color-red-accent" onclick='setAccentTheme("red")'>
+               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick='setAccentTheme("red")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
     					<i class="mdui-radio-icon"></i>
     					Red
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-pink-accent" onclick='setAccentTheme("pink")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick='setAccentTheme("pink")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
     					<i class="mdui-radio-icon"></i>
     					Pink
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-purple-accent" onclick='setAccentTheme("purple")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick='setAccentTheme("purple")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
     					<i class="mdui-radio-icon"></i>
     					Purple
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple-accent" onclick='setAccentTheme("deep-purple")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick='setAccentTheme("deep-purple")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
     					<i class="mdui-radio-icon"></i>
     					Deep-Purple
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-indigo-accent" onclick='setAccentTheme("indigo")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick='setAccentTheme("indigo")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
     					<i class="mdui-radio-icon"></i>
     					Indigo
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-blue-accent" onclick='setAccentTheme("blue")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick='setAccentTheme("blue")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
     					<i class="mdui-radio-icon"></i>
     					Blue
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-blue-accent" onclick='setAccentTheme("light-blue")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick='setAccentTheme("light-blue")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
     					<i class="mdui-radio-icon"></i>
     					Light-Blue
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-cyan-accent" onclick='setAccentTheme("cyan")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick='setAccentTheme("cyan")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
     					<i class="mdui-radio-icon"></i>
     					Cyan
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-teal-accent" onclick='setAccentTheme("teal")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick='setAccentTheme("teal")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
     					<i class="mdui-radio-icon"></i>
     					Teal
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-green-accent" onclick='setAccentTheme("green")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick='setAccentTheme("green")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
     					<i class="mdui-radio-icon"></i>
     					Green
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-green-accent" onclick='setAccentTheme("light-green")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick='setAccentTheme("light-green")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
     					<i class="mdui-radio-icon"></i>
     					Light-Green
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-lime-accent" onclick='setAccentTheme("lime")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick='setAccentTheme("lime")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
     					<i class="mdui-radio-icon"></i>
     					Lime
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-yellow-accent" onclick='setAccentTheme("yellow")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick='setAccentTheme("yellow")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
     					<i class="mdui-radio-icon"></i>
     					Yellow
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-amber-accent" onclick='setAccentTheme("amber")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick='setAccentTheme("amber")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
     					<i class="mdui-radio-icon"></i>
     					Amber
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-orange-accent" onclick='setAccentTheme("orange")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick='setAccentTheme("orange")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
     					<i class="mdui-radio-icon"></i>
     					Orange
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange-accent" onclick='setAccentTheme("deep-orange")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick='setAccentTheme("deep-orange")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
     					<i class="mdui-radio-icon"></i>
     					Deep-Orange

@@ -1,1 +1,1 @@
-{"server":{"server_type":0,"port":8080,"form":true,"https":false}}
+{"server":{"server_type":0,"https":false,"port":8080,"form":true}}

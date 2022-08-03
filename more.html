@@ -3,135 +3,11 @@
     <head> 
         <meta charset="UTF-8"> 
         <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
-        <link rel="icon" href="images/BGS_LOGO_20210919_WHITE.png" type="image/x-icon"> 
+        <link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <link rel="stylesheet" type="text/css" href="theme.css" />
-        <style>
-        .mdui-btn-raised{
-        border-radius: 5px;
-        }
-        .mdui-dialog{
-        border-radius: 32px;
-        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
-        }
-        .mdui-menu{
-        border-radius: 10px;
-        box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
-        }
-        .mdui-tooltip{
-        border-radius: 20px;
-        background-color: #EEEEEE;
-        color:black;
-        }
-        @keyframes card{
-        from {transform: scale(0.9);opacity: 0;}
-        to {transform: scale(1);opacity: 1;}
-        }
-        .mdui-card{
-        border-radius: 10px;
-        animation-name: card;
-        animation-duration: 0.7s;
-        }
-         .mdui-drawer-list-item-active{
-        background-color: rgba(33, 150, 243, 0.4);
-        }
-        .mdui-drawer-list-item{
-        border-radius: 0 20px 20px 0;
-        margin-right: 8px;
-        }
-        @keyframes toleft{
-        from {margin-left: 32px;opacity: 0;}
-        to {margin-left: 0;opacity: 1;}
-        }
-        @keyframes toright{
-        from {margin-right: 32px;opacity: 0;}
-        to {margin-right: 0;opacity: 1;}
-        }
-        .toleft{
-        animation-name: toleft;
-        animation-duration: 0.7s;
-        }
-        .toright{
-        animation-name: toright;
-        animation-duration: 0.7s;
-        }
-        .opacity{
-        animation-name: opacity;
-        animation-duration: 0.7s;
-        }
-		@keyframes opacity{
-		from  {opacity: 0;}
-		to {opacity: 1;}
-		}
-		.title{
-		animation-name: toleft;
-		animation-duration: 0.7s;
-      	animation-delay: 0.3s;
-        opacity: 0;
-        margin-left: 32px;
-        animation-fill-mode: forwards;
-		}
-   		.update-dialog{
-		position: fixed;
-		right: -300px;
-		bottom: 16px;
-		background-color: rgba(240,240,240,0.9);
-		box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
-		padding: 16px;
-		transition-duration: 0.5s;
-		width: 250px;
-		border-radius: 10px;
-		z-index: 1;
-      	color: black;
-		}
-		.update-dialog-title{
-		font-weight: bold;
-		margin-bottom: 8px;
-		font-size: 16px;
-		}
-   		.update-dialog-btn{
-		width: 200px;
-		height: 30px;
-		margin-top: 16px;
-		border-radius: 5px;
-		border: none;
-		background-color: #FFFFFF;
-		transition-duration: 0.3s;
-      	outline: none;
-		}
-		.update-dialog-btn:hover{
-		box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
-		}
-   		.update-dialog-btn:active{
-         background-color: #EFEFEF;
-		 color: #ABABAB;
-         }
-         .footerlink{
-        color: black;
-        transition-duration: 0.2s;
-        text-decoration: none;
-        }
-        .footerlink:hover{
-        opacity: 0.7;
-        }
-        .footerlink:active{
-        background-color: rgba(0,0,0,0.3);
-        }
-        .radius{
-		border-radius: 20px;
-        }
-        .mdui-drawer-list-item-active:hover{
-        background-color: rgba(33, 150, 243, 0.4);
-        }
-        footer, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab .mdui-tooltip{
-        transition-duration: 0.4s;
-        }
-		.mdui-drawer-list-item-active .mdui-list-item-content{
-		font-weight: normal;
-		}
-        </style>
         <title>更多资源</title>
     </head> 
     <body class="mdui-theme-layout-auto mdui-drawer-body-left"> 
@@ -161,8 +37,8 @@
       	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn mdui-text-color-theme-a700" mdui-dialog-close>关闭</button></div>
+        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
+        <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
         </div>
 		<script src="update.js"></script>
         </div>
@@ -171,43 +47,43 @@
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;">
         <a href="index.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">home</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
         <a href="sysimg.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">storage</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
         </li>
         </a>
         <a href="apps.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">apps</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
         <div class="mdui-list-item-content">应用程序</div>
         </li>
         </a>
         <a href="websites.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">public</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">public</i>
         <div class="mdui-list-item-content">网络站点</div>
         </li>
         </a>
         <a href="more.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme-500">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">attach_file</i>
+        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme">
+        <i class="mdui-list-item-icon mdui-icon material-icons">attach_file</i>
         <div class="mdui-list-item-content">更多资源</div>
         </li>
         </a>
         <a href="tools.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">build</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
         </a>
         <a href="about.html" class="waves-block radius">
         <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme-a700">info</i>
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
         <div class="mdui-list-item-content">关于我们</div>
         </li>
         </a>
@@ -217,8 +93,8 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-shadow-8">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            <h1 class="mdui-text-color-theme-a700 title">更多资源</h1>
-            <ul class="mdui-list mdui-text-color-theme-a700" style="font-weight: bold;font-size: 15px;">
+            <h1 class="mdui-text-color-theme title">更多资源</h1>
+            <ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
             <div class="waves-block radius"><a href="settings.html"><li class="mdui-list-item">仿原生安卓设置</li></a></div>
             <div class="waves-block radius"><a href="music.html"><li class="mdui-list-item">极品电音</li></a></div>
             <div class="waves-block radius"><a href="files/AdminOS 2021.pptx"><li class="mdui-list-item">AdminOS 2021</li></a></div> 
@@ -240,7 +116,7 @@
             </div>
             <br>
             <br>
-        <footer class="mdui-text-center mdui-color-theme-50">
+        <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
         <br>
 		<div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
@@ -393,91 +269,6 @@
                 <div class="waves-block radius"><a href="https://windows96.net/"><li class="mdui-list-item">Windows 96</li></a></div>
             </ul>
         </div>
-        <div class="mdui-dialog mdui-color-theme-50" id="ubuntu">
-        	<div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
-           		<span class="mdui-typo-title">Termux Ubuntu 容器安装脚本</span>
-           		<div class="mdui-toolbar-spacer"></div>
-        		<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
-            </div>
-            <div class="mdui-dialog-content">
-            	<div class="mdui-typo">
-            	    <p>此脚本可帮助您在<a href="https://f-droid.org/zh_Hans/packages/com.termux/">Termux</a>上安装 Ubuntu 容器，原脚本来自<a href="https://apkpremier.com/download/exa-lnx-a">AnLinux</a>。<br>相对于原版的变化：所有的raw.githubusercontent.com被raw.kgithub.com替代，解决国内网络无法连接的问题；使用中科大源作为软件源，安装软件更快速；桌面环境（XFCE）增加中文支持（文泉驿-微米黑），解决中文乱码问题；默认挂载手机内部存储为 /sdcard，传输文件更便捷。<br>启动 Termux，并依次执行以下指令。</p>
-            	    <div class="mdui-panel" mdui-panel>
-            	        <div class="mdui-panel-item">
-            	            <div class="mdui-panel-item-header">
-            	                <div class="mdui-panel-item-title">1. 安装基本系统</div>
-            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-            	            </div>
-            	            <div class="mdui-panel-item-body">
-            	                <code>pkg install wget openssl-tool proot -y && hash -r && wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/ubuntu.sh && bash ubuntu.sh</code>
-            	                <div class="mdui-panel-item-actions">
-                                    <button class="mdui-btn waves-circle radius" onclick="copyHandle('pkg install wget openssl-tool proot -y && hash -r && wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/ubuntu.sh && bash ubuntu.sh')">复制指令</button>
-                                </div>
-            	            </div>
-            	        </div>
-            	    </div>
-            	    <div class="mdui-panel" mdui-panel>
-            	        <div class="mdui-panel-item">
-            	            <div class="mdui-panel-item-header">
-            	                <div class="mdui-panel-item-title">2. 换源并启动容器</div>
-            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-            	            </div>
-            	            <div class="mdui-panel-item-body">
-            	                <code>wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/sources.list && mv sources.list ubuntu-fs/etc/apt/ && ./start-ubuntu.sh</code>
-            	                <div class="mdui-panel-item-actions">
-                                    <button class="mdui-btn waves-circle radius" onclick="copyHandle('wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/sources.list && mv sources.list ubuntu-fs/etc/apt/ && ./start-ubuntu.sh')">复制指令</button>
-                                </div>
-            	            </div>
-            	        </div>
-            	    </div>
-            	    <div class="mdui-panel" mdui-panel>
-            	        <div class="mdui-panel-item">
-            	            <div class="mdui-panel-item-header">
-            	                <div class="mdui-panel-item-title">3. 安装更新和桌面环境</div>
-            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-            	            </div>
-            	            <div class="mdui-panel-item-body">
-            	                <code>wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/de-apt-xfce4.sh && bash de-apt-xfce4.sh</code>
-            	                <p>如果您不需要桌面环境，则只需执行<code>apt update -y</code>。</p>
-            	                <div class="mdui-panel-item-actions">
-                                    <button class="mdui-btn waves-circle radius" onclick="copyHandle('wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/de-apt-xfce4.sh && bash de-apt-xfce4.sh')">复制指令</button>
-                                </div>
-            	            </div>
-            	        </div>
-            	    </div>
-            	    <div class="mdui-panel" mdui-panel>
-            	        <div class="mdui-panel-item">
-            	            <div class="mdui-panel-item-header">
-            	                <div class="mdui-panel-item-title">4. 安装中文字体</div>
-            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-            	            </div>
-            	            <div class="mdui-panel-item-body">
-            	                <code>apt-get install ttf-wqy-microhei -y</code>
-            	                <p>如果您未安装桌面环境，则忽略此步骤。</p>
-            	                <div class="mdui-panel-item-actions">
-                                    <button class="mdui-btn waves-circle radius" onclick="copyHandle('apt-get install ttf-wqy-microhei -y')">复制指令</button>
-                                </div>
-            	            </div>
-            	        </div>
-            	    </div>
-            	    <br><br><br>
-            	</div>
-            	<script>
-            	    function copyHandle(content){
-                        let copy = (e)=>{
-                            e.preventDefault()
-                            e.clipboardData.setData('text/plain',content)
-                            document.removeEventListener('copy',copy)
-                            mdui.snackbar({
-                                message: '已复制'
-                            });
-                        }
-                        document.addEventListener('copy',copy)
-                        document.execCommand("Copy");
-                    }
-            	</script>
-            </div>
-        </div>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
            	<span class="mdui-typo-title">调色板</span>
@@ -613,82 +404,82 @@
             <p style="font-size: 16px;">强调色</p>
             <form>
             	<div class="mdui-row-xs-2">
-               		<label class="mdui-radio mdui-col mdui-text-color-red-accent" onclick='setAccentTheme("red")'>
+               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick='setAccentTheme("red")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
     					<i class="mdui-radio-icon"></i>
     					Red
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-pink-accent" onclick='setAccentTheme("pink")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick='setAccentTheme("pink")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
     					<i class="mdui-radio-icon"></i>
     					Pink
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-purple-accent" onclick='setAccentTheme("purple")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick='setAccentTheme("purple")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
     					<i class="mdui-radio-icon"></i>
     					Purple
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple-accent" onclick='setAccentTheme("deep-purple")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick='setAccentTheme("deep-purple")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
     					<i class="mdui-radio-icon"></i>
     					Deep-Purple
   					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-indigo-accent" onclick='setAccentTheme("indigo")'>
+                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick='setAccentTheme("indigo")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
     					<i class="mdui-radio-icon"></i>
     					Indigo
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-blue-accent" onclick='setAccentTheme("blue")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick='setAccentTheme("blue")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
     					<i class="mdui-radio-icon"></i>
     					Blue
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-blue-accent" onclick='setAccentTheme("light-blue")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick='setAccentTheme("light-blue")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
     					<i class="mdui-radio-icon"></i>
     					Light-Blue
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-cyan-accent" onclick='setAccentTheme("cyan")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick='setAccentTheme("cyan")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
     					<i class="mdui-radio-icon"></i>
     					Cyan
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-teal-accent" onclick='setAccentTheme("teal")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick='setAccentTheme("teal")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
     					<i class="mdui-radio-icon"></i>
     					Teal
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-green-accent" onclick='setAccentTheme("green")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick='setAccentTheme("green")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
     					<i class="mdui-radio-icon"></i>
     					Green
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-green-accent" onclick='setAccentTheme("light-green")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick='setAccentTheme("light-green")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
     					<i class="mdui-radio-icon"></i>
     					Light-Green
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-lime-accent" onclick='setAccentTheme("lime")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick='setAccentTheme("lime")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
     					<i class="mdui-radio-icon"></i>
     					Lime
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-yellow-accent" onclick='setAccentTheme("yellow")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick='setAccentTheme("yellow")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
     					<i class="mdui-radio-icon"></i>
     					Yellow
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-amber-accent" onclick='setAccentTheme("amber")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick='setAccentTheme("amber")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
     					<i class="mdui-radio-icon"></i>
     					Amber
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-orange-accent" onclick='setAccentTheme("orange")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick='setAccentTheme("orange")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
     					<i class="mdui-radio-icon"></i>
     					Orange
   					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange-accent" onclick='setAccentTheme("deep-orange")'>
+  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick='setAccentTheme("deep-orange")'>
     					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
     					<i class="mdui-radio-icon"></i>
     					Deep-Orange
@@ -702,6 +493,91 @@
         	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
         </div>
     </div>
+        <div class="mdui-dialog mdui-color-theme-50" id="ubuntu">
+        	<div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
+           		<span class="mdui-typo-title">Termux Ubuntu 容器安装脚本</span>
+           		<div class="mdui-toolbar-spacer"></div>
+        		<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+            </div>
+            <div class="mdui-dialog-content">
+            	<div class="mdui-typo">
+            	    <p>此脚本可帮助您在<a href="https://f-droid.org/zh_Hans/packages/com.termux/">Termux</a>上安装 Ubuntu 容器，原脚本来自<a href="https://apkpremier.com/download/exa-lnx-a">AnLinux</a>。<br>相对于原版的变化：所有的raw.githubusercontent.com被raw.kgithub.com替代，解决国内网络无法连接的问题；使用中科大源作为软件源，安装软件更快速；桌面环境（XFCE）增加中文支持（文泉驿-微米黑），解决中文乱码问题；默认挂载手机内部存储为 /sdcard，传输文件更便捷。<br>启动 Termux，并依次执行以下指令。</p>
+            	    <div class="mdui-panel" id="ubuntuPanel">
+            	        <div class="mdui-panel-item" id="ubuntuPanelItem1">
+            	            <div class="mdui-panel-item-header">
+            	                <div class="mdui-panel-item-title">1. 安装基本系统</div>
+            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            	            </div>
+            	            <div class="mdui-panel-item-body">
+            	                <code>pkg install wget openssl-tool proot -y && hash -r && wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/ubuntu.sh && bash ubuntu.sh</code>
+            	                <div class="mdui-panel-item-actions">
+                                    <div class="waves-circle" mdui-tooltip="{content: '复制指令'}"><button class="mdui-btn mdui-btn-icon" onclick="copyHandle('pkg install wget openssl-tool proot -y && hash -r && wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/ubuntu.sh && bash ubuntu.sh')"><i class="mdui-icon material-icons">content_copy</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '下一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem2');"><i class="mdui-icon material-icons">arrow_forward</i></button></div>
+                                </div>
+            	            </div>
+            	        </div>
+            	        <div class="mdui-panel-item" id="ubuntuPanelItem2">
+            	            <div class="mdui-panel-item-header">
+            	                <div class="mdui-panel-item-title">2. 换源并启动容器</div>
+            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            	            </div>
+            	            <div class="mdui-panel-item-body">
+            	                <code>wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/sources.list && mv sources.list ubuntu-fs/etc/apt/ && ./start-ubuntu.sh</code>
+            	                <div class="mdui-panel-item-actions">
+            	                    <div class="waves-circle mdui-float-left" mdui-tooltip="{content: '上一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem1');"><i class="mdui-icon material-icons">arrow_back</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '复制指令'}"><button class="mdui-btn mdui-btn-icon" onclick="copyHandle('wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/sources.list && mv sources.list ubuntu-fs/etc/apt/ && ./start-ubuntu.sh')"><i class="mdui-icon material-icons">content_copy</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '下一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem3');"><i class="mdui-icon material-icons">arrow_forward</i></button></div>
+                                </div>
+            	            </div>
+            	        </div>
+            	        <div class="mdui-panel-item" id="ubuntuPanelItem3">
+            	            <div class="mdui-panel-item-header">
+            	                <div class="mdui-panel-item-title">3. 安装更新和桌面环境</div>
+            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            	            </div>
+            	            <div class="mdui-panel-item-body">
+            	                <code>wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/de-apt-xfce4.sh && bash de-apt-xfce4.sh</code>
+            	                <p>如果您不需要桌面环境，则只需执行<code>apt update -y</code>。</p>
+            	                <div class="mdui-panel-item-actions">
+            	                    <div class="waves-circle mdui-float-left" mdui-tooltip="{content: '上一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem2');"><i class="mdui-icon material-icons">arrow_back</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '复制指令'}"><button class="mdui-btn mdui-btn-icon" onclick="copyHandle('wget https://raw.kgithub.com/burgerstudio/burgerstudio.github.io/main/files/de-apt-xfce4.sh && bash de-apt-xfce4.sh')"><i class="mdui-icon material-icons">content_copy</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '下一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem4');"><i class="mdui-icon material-icons">arrow_forward</i></button></div>
+                                </div>
+            	            </div>
+            	        </div>
+            	        <div class="mdui-panel-item" id="ubuntuPanelItem4">
+            	            <div class="mdui-panel-item-header">
+            	                <div class="mdui-panel-item-title">4. 安装中文字体</div>
+            	                <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+            	            </div>
+            	            <div class="mdui-panel-item-body">
+            	                <code>apt-get install ttf-wqy-microhei -y</code>
+            	                <p>如果您未安装桌面环境，则忽略此步骤。</p>
+            	                <div class="mdui-panel-item-actions">
+            	                    <div class="waves-circle mdui-float-left" mdui-tooltip="{content: '上一步'}"><button class="mdui-btn mdui-btn-icon" onclick="ubuntuPanel.open('#ubuntuPanelItem3');"><i class="mdui-icon material-icons">arrow_back</i></button></div>
+                                    <div class="waves-circle" mdui-tooltip="{content: '复制指令'}"><button class="mdui-btn mdui-btn-icon" onclick="copyHandle('apt-get install ttf-wqy-microhei -y')"><i class="mdui-icon material-icons">content_copy</i></button></div>
+                                </div>
+            	            </div>
+            	        </div>
+            	    <br><br><br>
+            	</div>
+            	<script>
+            	    var ubuntuPanel = new mdui.Panel('#ubuntuPanel', {accordion: true});
+            	    function copyHandle(content){
+                        let copy = (e)=>{
+                            e.preventDefault()
+                            e.clipboardData.setData('text/plain',content)
+                            document.removeEventListener('copy',copy)
+                            mdui.snackbar({
+                                message: '已复制'
+                            });
+                        }
+                        document.addEventListener('copy',copy)
+                        document.execCommand("Copy");
+                    }
+            	</script>
+            </div>
+        </div>
     </body>
     <script>
       		var hour = new Date().getHours();

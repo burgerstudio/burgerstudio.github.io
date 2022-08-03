@@ -1,8 +1,8 @@
 {
-    "version":"22-08-02",
-    "versionCode":220802,
-	"updateDate":"2022-08-02",
-    "change":"-“更多资源”新增“Termux Ubuntu 容器安装脚本”",
+    "version":"22-08-03",
+    "versionCode":220803,
+	"updateDate":"2022-08-03",
+    "change":"-“系统镜像”“网络站点”新增了内容<br>-优化了UI",
     "note":"安装时可能会报毒，属于误报，请放心安装。",
 	"spinner":"display: none !important;"
 }

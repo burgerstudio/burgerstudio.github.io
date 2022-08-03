@@ -1,0 +1,24 @@
+{
+	"appName": "BGTool",
+	"appPackageName": "io.github.burgerstudio",
+	"appVersionName": "22-08-03",
+	"appVersionCode": 220803,
+	"data": {		
+		"启用顶栏": false,
+		"顶栏标题": "Burger工具站",
+		"顶栏颜色": "#000000",
+		"横屏": false,
+		"显示状态栏": true,
+		"启用进度条": false,
+		"进度条颜色": "#00000000",
+		"支持打开外部应用": true,
+		"提示打开外部应用": true,
+		"启动页面": "index.html"
+	},
+	"indexPages": [
+		
+	],
+	"extraHeaders": {
+		
+	}
+}
