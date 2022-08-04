@@ -1,5 +1,5 @@
 function update(){
-    var version = 220803;
+    var version = 220804;
     document.getElementById("updateDate").innerHTML =  "";
     document.getElementById("updateChange").innerHTML =  "";
 	document.getElementById("updateNote").innerHTML =  "";
@@ -15,10 +15,10 @@ xmlhttp.onreadystatechange = function() {
 	document.getElementById("updateNote").innerHTML =  myObj.note;
 	document.getElementById("updateSpinner").style = myObj.spinner;
 	if (myObj.versionCode > version){
-    	document.getElementById("updateAvailable").style = "display: block;";
+    	document.getElementById("updateAvailable").style.display = "block";
 	}
 	if (myObj.versionCode == version){
-    	document.getElementById("alreadyUpdate").style = "display: block;";
+    	document.getElementById("alreadyUpdate").style.display = "block";
 	}
   }
 };

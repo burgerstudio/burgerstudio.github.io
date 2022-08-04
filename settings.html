@@ -9,22 +9,6 @@
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <title>设置</title>
 		<style>
-		@keyframes opacity{
-		from  {opacity: 0;}
-		to {opacity: 1;}
-		}
-		body{
-        animation-name: opacity;
-        animation-duration: 1s;
-        }
-		@keyframes header{
-		from {margin-top: -64px;}
-		to {}
-		}
-		.mdui-list,header{
-		animation-name: header;
-		animation-duration: 0.75s;
-		}
 		.mdui-theme-layout-dark .waves-ripple
 		{background:rgba(255,255,255,.4)}
 		.mdui-theme-layout-dark .mdui-toolbar{
@@ -187,29 +171,18 @@
     </div>
     </ul>
     </body>
-    <script>
-    	var hour = new Date().getHours();
-               if (hour >= 22 || hour < 7){
-    				document.body.classList.remove('mdui-theme-accent-blue');
-                	document.body.classList.add('mdui-theme-layout-dark');
-				}
-    </script>
     <script src="waves/waves.min.js"></script>
+    <script src="settheme.js"></script>
 	<script>
-    	if(localStorage.darkTheme || hour >= 22 || hour < 7){
-        document.body.classList.add("mdui-theme-layout-dark");
-        document.getElementById('google').classList.remove ('mdui-color-white');
-		document.getElementById('google').classList.add('mdui-color-grey-800');
-		}
 		var config = {
-    duration: 500,
-    delay: 0
-    };
-    Waves.init(config);
-	Waves.attach('.waves-block',['waves-block']);
-	Waves.attach('.waves-circle',['waves-circle']);
-	Waves.attach('.waves-light',['waves-light']);
-	Waves.attach('.waves-classic',['waves-classic']);
-	Waves.init(config);
+        duration: 500,
+        delay: 0
+        };
+        Waves.init(config);
+	    Waves.attach('.waves-block',['waves-block']);
+	    Waves.attach('.waves-circle',['waves-circle']);
+	    Waves.attach('.waves-light',['waves-light']);
+	    Waves.attach('.waves-classic',['waves-classic']);
+	    Waves.init(config);
 	</script>
 </html>

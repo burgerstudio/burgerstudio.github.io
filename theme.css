@@ -135,7 +135,7 @@ border-radius: 20px;
 .mdui-drawer-list-item-active:hover{
 background-color: rgba(33, 150, 243, 0.4);
 }
-footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, p, .mdui-divider, .mdui-btn-block, .mdui-drawer, .mdui-tooltip{
+footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, p, .mdui-divider, .mdui-btn-block, .mdui-drawer, .mdui-tooltip, #thumbicon{
 transition-duration: 0.4s;
 }
 .mdui-drawer-list-item-active .mdui-list-item-content{

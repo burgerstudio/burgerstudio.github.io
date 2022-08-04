@@ -10,11 +10,8 @@ if (localStorage.getItem('darkTheme') == 'enabled'){
 	document.getElementById('setDarkTheme3').checked = 'checked';
 }
 if (localStorage.getItem('darkTheme') == 'byTime'){
-	var hour = new Date().getHours();
-    if (hour >= 22 || hour < 7){
-    	document.body.classList.add('mdui-theme-layout-dark');
-	}
 	document.getElementById('setDarkTheme4').checked = 'checked';
+	var lt = setInterval(function(){ listenTime() }, 1000);
 }
 if (!localStorage.darkTheme){
     document.body.classList.add("mdui-theme-layout-auto");
@@ -41,22 +38,27 @@ if (!localStorage.accentTheme){
 }
 function setDarkTheme(option){
     if (option == "bySystem"){
+        stopListeningTime();
     	document.body.classList.add("mdui-theme-layout-auto");
 		document.body.classList.remove("mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","bySystem");
 	}
 	if (option == "disabled"){
+	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","disabled");
 	}
 	if (option == "enabled"){
+	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto");
 		document.body.classList.add("mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","enabled");
 	}
 	if (option == "byTime"){
+	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","byTime");
+		var lt = setInterval(function(){ listenTime() }, 1000);
 	}
 }
 function setPrimaryTheme(color){
@@ -82,4 +84,21 @@ function resetTheme(){
 	document.getElementById('setDarkTheme1').checked = 'checked';
 	document.getElementById('setPrimaryThemeblue-grey').checked = 'checked';
 	document.getElementById('setAccentThemeblue').checked = 'checked';
+}
+function listenTime(){
+    var hours = new Date().getHours();
+    if (hours >= 22 || hours < 6){
+        if (localStorage.getItem('darkTime') != true){
+            localStorage.setItem("darkTime",true);
+    	    document.body.classList.add('mdui-theme-layout-dark');
+    	}
+	}else {
+	    if (localStorage.getItem('darkTime') != false){
+            localStorage.setItem("darkTime",false);
+    	    document.body.classList.remove('mdui-theme-layout-dark');
+    	}
+	}
+}
+function stopListeningTime(){
+    clearInterval(lt);
 }

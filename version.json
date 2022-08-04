@@ -1,8 +1,7 @@
 {
-    "version":"22-08-03",
-    "versionCode":220803,
-	"updateDate":"2022-08-03",
-    "change":"-“系统镜像”“网络站点”新增了内容<br>-优化了UI",
-    "note":"安装时可能会报毒，属于误报，请放心安装。",
+    "versionCode":220804,
+	"updateDate":"2022-08-04",
+    "change":"-修复 基于时间设置夜间模式时的问题<br>-修复 “最近更新”对话框手动关闭后仍然遮挡内容的问题<br>-微调 UI",
+    "note":"已知问题：夜间模式设置为“基于时间”后，切换其他选项可能无效。",
 	"spinner":"display: none !important;"
 }
