@@ -11,7 +11,7 @@ if (localStorage.getItem('darkTheme') == 'enabled'){
 }
 if (localStorage.getItem('darkTheme') == 'byTime'){
 	document.getElementById('setDarkTheme4').checked = 'checked';
-	var lt = setInterval(function(){ listenTime() }, 1000);
+	listenTime();
 }
 if (!localStorage.darkTheme){
     document.body.classList.add("mdui-theme-layout-auto");
@@ -38,27 +38,23 @@ if (!localStorage.accentTheme){
 }
 function setDarkTheme(option){
     if (option == "bySystem"){
-        stopListeningTime();
     	document.body.classList.add("mdui-theme-layout-auto");
 		document.body.classList.remove("mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","bySystem");
 	}
 	if (option == "disabled"){
-	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","disabled");
 	}
 	if (option == "enabled"){
-	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto");
 		document.body.classList.add("mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","enabled");
 	}
 	if (option == "byTime"){
-	    stopListeningTime();
 		document.body.classList.remove("mdui-theme-layout-auto", "mdui-theme-layout-dark");
 		localStorage.setItem("darkTheme","byTime");
-		var lt = setInterval(function(){ listenTime() }, 1000);
+		listenTime();
 	}
 }
 function setPrimaryTheme(color){
@@ -87,18 +83,20 @@ function resetTheme(){
 }
 function listenTime(){
     var hours = new Date().getHours();
-    if (hours >= 22 || hours < 6){
-        if (localStorage.getItem('darkTime') != true){
-            localStorage.setItem("darkTime",true);
+    if (hours >= 22 && hours < 24){
+        if (localStorage.getItem('darkTheme') == 'byTime'){
     	    document.body.classList.add('mdui-theme-layout-dark');
+    	    setTimeout("listenTime()",1000);
     	}
-	}else {
-	    if (localStorage.getItem('darkTime') != false){
-            localStorage.setItem("darkTime",false);
+	}else if(hours >= 0 && hours < 6){
+	    if (localStorage.getItem('darkTheme') == 'byTime'){
+    	    document.body.classList.add('mdui-theme-layout-dark');
+    	    setTimeout("listenTime()",1000);
+    	}
+	}else if (hours >= 6 && hours < 22){
+	    if (localStorage.getItem('darkTheme') == 'byTime'){
     	    document.body.classList.remove('mdui-theme-layout-dark');
+    	    setTimeout("listenTime()",1000);
     	}
 	}
-}
-function stopListeningTime(){
-    clearInterval(lt);
 }

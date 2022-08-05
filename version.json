@@ -1,7 +1,7 @@
 {
-    "versionCode":220804,
-	"updateDate":"2022-08-04",
-    "change":"-修复 基于时间设置夜间模式时的问题<br>-修复 “最近更新”对话框手动关闭后仍然遮挡内容的问题<br>-微调 UI",
-    "note":"已知问题：夜间模式设置为“基于时间”后，切换其他选项可能无效。",
+    "versionCode":220805,
+	"updateDate":"2022-08-05",
+    "change":"-彻底修复 基于时间设置夜间模式时的问题<br>-微调 UI<br>-优化 夜间模式下的颜色表现",
+    "note":"发现了bug，可以向我反馈。",
 	"spinner":"display: none !important;"
 }

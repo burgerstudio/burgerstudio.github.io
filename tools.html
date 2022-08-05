@@ -29,7 +29,7 @@
         max-width: 500px;
 		}
    		.mdui-theme-layout-dark .tool{
-        background-color: rgb(16,16,16) !important;
+        background-color: #323232 !important;
         }
 		.tool-header{
 		width: 100%;
@@ -40,7 +40,7 @@
         transition-duration: 0.3s;
 		}
    		.mdui-theme-layout-dark .tool-header{
-        background-color: #444444 !important;
+        background-color: #212121 !important;
         }
 		.tool-close{
 		top: 0;
@@ -55,7 +55,7 @@
 		border-radius: 4px;
 		}
    		.mdui-theme-layout-dark .tool-close{
-        background-color: #444444 !important;
+        background-color: #212121 !important;
         }
 		.tool-close:hover{
 		background-color: #F44336 !important;
@@ -99,7 +99,7 @@
         transition-duration: 0.3s;
 		}
    		.mdui-theme-layout-dark .tool-content{
-        background-color: #444444 !important;
+        background-color: #434343 !important;
         color: white !important;
         }
 		.tool-title{
@@ -111,7 +111,7 @@
       	color: white;
 		}
 		.mdui-theme-layout-dark .tool-title{
-        background-color: #444444 !important;
+        background-color: #212121 !important;
         }
 		.tool-input{
 		width: 94%;
@@ -120,23 +120,25 @@
 		outline-style: none;
 		border-style: solid;
 		border-color: #DEDEDE;
-		background-color: #EFEFEF;
 		transition: 0.2s;
 		border-radius: 4px;
 		}
    		.mdui-theme-layout-dark .tool-input{
-        background-color: #AAAAAA !important;
-        border-color: #AAAAAA !important;
+        background-color: #545454 !important;
+        border-color: #656565;
         color: white !important;
         }
 		.tool-input:hover{
-		border-color: #EFEFEF;
+		border-color: #CDCDCD;
+		}
+		.mdui-theme-layout-dark .tool-input:hover{
+		border-color: #767676 !important;
 		}
 		.mdui-progress{
         height: 16px;
         margin: 4px 0;
         border-style: none;
-        border-radius: 4px;
+        border-radius: 8px;
         transition-duration: 0.3s;
         }
         .mdui-progress-determinate{
@@ -144,6 +146,32 @@
         }
         .tool ::-webkit-scrollbar{
         display: none;
+        }
+        @media (prefers-color-scheme: dark){
+        .mdui-theme-layout-auto .tool{
+        background-color: #323232 !important;
+        }
+        .mdui-theme-layout-auto .tool-header{
+        background-color: #212121 !important;
+        }
+        .mdui-theme-layout-auto .tool-close{
+        background-color: #212121 !important;
+        }
+        .mdui-theme-layout-auto .tool-content{
+        background-color: #434343 !important;
+        color: white !important;
+        }
+        .mdui-theme-layout-auto .tool-title{
+        background-color: #212121 !important;
+        }
+        .mdui-theme-layout-auto .tool-input{
+        background-color: #545454 !important;
+        border-color: #656565;
+        color: white !important;
+        }
+        .mdui-theme-layout-auto .tool-input:hover{
+		border-color: #767676 !important;
+		}
         }
         </style>
         <title>JS工具</title>
@@ -257,7 +285,7 @@
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
 		</div>
-        <div class="mdui-menu" id="wechat">
+        <div class="mdui-menu mdui-color-white" id="wechat">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
 		<div class="waves-circle">
@@ -265,8 +293,8 @@
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
 		</div>
-        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
-        <img src="images/QQ.jpg" style="width:180px;height:336px;">
+        <div class="mdui-dialog" id="qq" style="width: 26.7%;height: 50%;">
+        <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
         </div>
 		<div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
@@ -279,9 +307,6 @@
         <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br>
         </footer>
-        <div class="mdui-dialog" id="qq" style="width:180px;height:336px;">
-        <img src="images/QQ.jpg" style="width:180px;height:336px;">
-        </div>
 		<div class="tool mdui-center mdui-color-theme" id="clock">
 			<div class="tool-header mdui-color-theme-700">
 				<div class="tool-title mdui-color-theme-700">线性时钟</div>
@@ -307,7 +332,7 @@
 			</div>
 			<div class="tool-content mdui-color-theme-50">
 				<form>
-					<input class="tool-input mdui-color-theme-50" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
+					<input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
 					<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
 				</form>
 				<button class="tool-button mdui-color-theme" onclick="countdown()">开启倒计时</button>
@@ -321,17 +346,19 @@
                		var cp = document.getElementById('cp');
 					function countdown(){
 						var ci = c.value;
+						var cn = c.value;
 						countdownInitially()
                    		function countdownInitially(){
-							if (c.value > 0){
-								ct = setTimeout(countdownInitially,1000);
-								cs.innerHTML = c.value + "s";
-								cp.style.width = c.value / ci * 100 + "%";
-								c.value = c.value - 1;
-							}else{
-                         		clearTimeout(ct);
+							if (Number(cn) > 0){
+								var ct = setTimeout(countdownInitially,1000);
+								cs.innerHTML = cn + "s";
+								cp.style.width = cn / ci * 100 + "%";
+								cn = cn - 1;
+							}else if (cn > -1 && ci > 0){
     							cs.innerHTML = "倒计时已结束";
 								cp.style.width = 0;
+							}else{
+							    mdui.snackbar({ message: '输入错误', });
 							}
          				}
 					}
@@ -348,7 +375,7 @@
          	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 0;margin-left: 4px;margin-top: 4px;">摄氏度转换为华氏度</p>
             	<form>
-               		<input class="tool-input mdui-color-theme-50" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
+               		<input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
                	</form>
                 <button class="tool-button mdui-color-theme" onclick="toFahrenheit()">转换</button>
                 <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
@@ -363,7 +390,7 @@
                 <div class="mdui-divider" style="margin: 8px;"></div>
                 <p style="margin: 0;margin-left: 4px;margin-top: 4px;">华氏度转换为摄氏度</p>
             	<form>
-               		<input class="tool-input mdui-color-theme-50" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
+               		<input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
                	</form>
                 <button class="tool-button mdui-color-theme" onclick="toCelsius()">转换</button>
                 <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
@@ -449,7 +476,7 @@
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<input type="text" class="tool-input mdui-color-theme-50" id="pi" placeholder="请输入要获取媒体的URL">
+            	<input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的URL">
                	<button class="tool-button mdui-color-theme" onclick="setPlayer()">获取媒体</button>
                	<video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
                 	<source id="mediasrc">
@@ -470,7 +497,7 @@
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<input type="text" class="tool-input mdui-color-theme-50" id="gtrantext" placeholder="请输入要翻译的文字">
+            	<input type="text" class="tool-input mdui-color-theme-100" id="gtrantext" placeholder="请输入要翻译的文字">
                	<button class="tool-button mdui-color-theme" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
                 <button class="tool-button mdui-color-theme" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
                 <button class="tool-button mdui-color-theme" onclick="btran()">百度翻译</button>
@@ -517,8 +544,8 @@
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<textarea id="noteinput" class="tool-input mdui-color-theme-50" style="height: 70%;"></textarea>
-				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();alert('已移除便笺')" id="removenote">移除</button>
+            	<textarea id="noteinput" class="tool-input mdui-color-theme-100" style="height: 70%;"></textarea>
+				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();mdui.snackbar({ message: '已移除便笺' });" id="removenote">移除</button>
 				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
 				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
 				<script>
@@ -540,9 +567,9 @@
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
-                <p>a=<input class="tool-input mdui-color-theme-50" id="unknowna" style="max-width: 64px;"></p>
-                <p>b=<input class="tool-input mdui-color-theme-50" id="unknownb" style="max-width: 64px;"></p>
-                <p>c=<input class="tool-input mdui-color-theme-50" id="unknownc" style="max-width: 64px;"></p>
+                <p>a=<input class="tool-input mdui-color-theme-100" id="unknowna" style="max-width: 64px;" type="number"></p>
+                <p>b=<input class="tool-input mdui-color-theme-100" id="unknownb" style="max-width: 64px;" type="number"></p>
+                <p>c=<input class="tool-input mdui-color-theme-100" id="unknownc" style="max-width: 64px;" type="number"></p>
                 <button class="tool-button mdui-color-theme" onclick="workout()">求解</button>
                 <p id="delta"></p>
                 <p id="rootnum"></p>
@@ -570,14 +597,16 @@
                    		document.getElementById('rootnum').innerHTML = "∴此方程无实数根.";
                         document.getElementById('root').innerHTML = "";
 					}else{
-    					document.getElementById('delta').innerHTML = "错误：输入的内容非数字。";
+    					document.getElementById('delta').innerHTML = "";
                    		document.getElementById('rootnum').innerHTML = "";
                         document.getElementById('root').innerHTML = "";
+                        mdui.snackbar({ message: '错误：输入的内容非数字' });
 					}
           			if (unknowna == 0){
-    					document.getElementById('delta').innerHTML = "错误：a的值为0。";
+    					document.getElementById('delta').innerHTML = "";
                    		document.getElementById('rootnum').innerHTML = "";
                         document.getElementById('root').innerHTML = "";
+                        mdui.snackbar({ message: '错误：a的值为0' });
 					}
 				}
             </script>
