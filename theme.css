@@ -1,5 +1,5 @@
 .mdui-theme-layout-dark .update-dialog{
-background-color: rgba(32,32,32,0.9);
+background-color: rgba(32, 32, 32, 0.9);
 color: white;
 }
 .mdui-theme-layout-dark .update-dialog-btn{
@@ -10,7 +10,7 @@ color: white;
 background-color: #656565;
 }
 .mdui-theme-layout-dark .mdui-tooltip{
-background-color: rgba(240,240,240,0.9);
+background-color: rgba(240, 240, 240, 0.9);
 color: black;
 }
 .mdui-theme-layout-dark .mdui-dialog{
@@ -30,8 +30,9 @@ color: white;
 .mdui-theme-layout-dark .footerlink:active{
 background-color: rgba(255, 255, 255, 0.3);
 }
-.mdui-theme-layout-dark .waves-ripple
-{background:rgba(255,255,255,.4)}
+.mdui-theme-layout-dark .waves-ripple{
+background:rgba(255, 255, 255, 0.4)
+}
 .mdui-theme-layout-dark .auto-dark{
 background-color: #212121 !important;
 color: white !important;
@@ -43,19 +44,19 @@ margin: 8px 0;
 .mdui-snackbar{
 width: 80%;
 border-radius: 20px 20px 0 0;
-background-color: rgba(32,32,32,0.9);
+background-color: rgba(32, 32, 32, 0.9);
 }
 .mdui-theme-layout-dark .mdui-snackbar{
-background-color: rgba(240,240,240,0.9);
+background-color: rgba(240, 240, 240, 0.9);
 color: black;
 }
 .mdui-dialog{
 border-radius: 32px;
-box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2)
 }
 .mdui-menu{
 border-radius: 10px;
-box-shadow: 0 4px 8px 2px rgba(0,0,0,0.2)
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2)
 }
 .mdui-menu img{
 border-radius: 8px;
@@ -65,7 +66,7 @@ border-radius: 0 0 8px 8px;
 }
 .mdui-tooltip{
 border-radius: 20px;
-background-color: rgba(32,32,32,0.9);
+background-color: rgba(32, 32, 32, 0.9);
 }
 @keyframes card{
 from {transform: scale(0.9);opacity: 0;}
@@ -121,14 +122,14 @@ animation-fill-mode: forwards;
 }
 .footerlink{
 color: black;
-transition-duration: 0.2s;
+transition: 0.2s;
 text-decoration: none;
 }
 .footerlink:hover{
 opacity: 0.7;
 }
 .footerlink:active{
-background-color: rgba(0,0,0,0.3);
+background-color: rgba(0, 0, 0, 0.3);
 }
 .radius{
 border-radius: 20px;
@@ -137,7 +138,7 @@ border-radius: 20px;
 background-color: rgba(33, 150, 243, 0.4);
 }
 footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, p, .mdui-divider, .mdui-btn-block, .mdui-drawer, .mdui-tooltip, #thumbicon{
-transition-duration: 0.4s;
+transition: 0.4s;
 }
 .mdui-drawer-list-item-active .mdui-list-item-content{
 font-weight: normal;
@@ -146,10 +147,10 @@ font-weight: normal;
 position: fixed;
 right: -300px;
 bottom: 16px;
-background-color: rgba(240,240,240,0.9);
-box-shadow: 0 2px 8px 2px rgba(0,0,0,0.3);
+background-color: rgba(240, 240, 240, 0.9);
+box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
 padding: 16px;
-transition-duration: 0.5s;
+transition: 0.5s;
 width: 250px;
 border-radius: 10px;
 z-index: 2;
@@ -167,12 +168,12 @@ margin-top: 16px;
 border-radius: 5px;
 border: none;
 background-color: #FFFFFF;
-transition-duration: 0.3s;
+transition: 0.3s;
 outline: none;
 color: CCCCCC;
 }
 .update-dialog-btn:hover{
-box-shadow: 0 1px 4px 1px rgba(0,0,0,0.3);
+box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
 }
 .update-dialog-btn:active{
 background-color: #EEEEEE;
@@ -210,10 +211,11 @@ color: white;
 .mdui-theme-layout-auto .footerlink:active{
 background-color: rgba(255, 255, 255, 0.3);
 }
-.mdui-theme-layout-auto .waves-ripple
-{background:rgba(255,255,255,.4)}
+.mdui-theme-layout-auto .waves-ripple{
+background:rgba(255, 255, 255, 0.4)
+}
 .mdui-theme-layout-auto .update-dialog{
-background-color: rgba(32,32,32,0.9);
+background-color: rgba(32, 32, 32, 0.9);
 color: white;
 }
 .mdui-theme-layout-auto .update-dialog-btn{
@@ -224,7 +226,7 @@ color: white;
 background-color: #656565;
 }
 .mdui-theme-layout-auto .mdui-tooltip{
-background-color: rgba(240,240,240,0.9);
+background-color: rgba(240, 240, 240, 0.9);
 color: black;
 }
 .mdui-theme-layout-auto .auto-dark{
@@ -232,7 +234,7 @@ background-color: #212121 !important;
 color: white !important;
 }
 .mdui-theme-layout-auto .mdui-snackbar{
-background-color: rgba(240,240,240,0.9);
+background-color: rgba(240, 240, 240, 0.9);
 color: black;
 }
 }
