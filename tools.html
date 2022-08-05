@@ -316,7 +316,7 @@
 				</div>
 			</div>
 			<div class="tool-content mdui-color-theme-50">
-				<button class="tool-button mdui-color-theme" onclick="clock()">显示时钟</button>
+				<button class="tool-button mdui-color-theme-accent" onclick="clock()">显示时钟</button>
 				<h3 class="mdui-text-center" id="clockText"></h3>
 				<div class="mdui-progress"><div class="mdui-progress-determinate" id="hour" style="width: 0;"></div></div>
 				<div class="mdui-progress"><div class="mdui-progress-determinate" id="minute" style="width: 0;"></div></div>
@@ -336,7 +336,7 @@
 					<input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
 					<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
 				</form>
-				<button class="tool-button mdui-color-theme" onclick="countdown()">开启倒计时</button>
+				<button class="tool-button mdui-color-theme-accent" onclick="countdown()">开启倒计时</button>
 				<h1 id="cs" style="text-align: center;">倒计时未开启</h1>
             	<div class="mdui-progress">
                		<div class="mdui-progress-determinate" id="cp" style="width: 100%;"></div>
@@ -378,7 +378,7 @@
             	<form>
                		<input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
                	</form>
-                <button class="tool-button mdui-color-theme" onclick="toFahrenheit()">转换</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="toFahrenheit()">转换</button>
                 <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputCelsius = document.getElementById('celsius');
@@ -393,7 +393,7 @@
             	<form>
                		<input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
                	</form>
-                <button class="tool-button mdui-color-theme" onclick="toCelsius()">转换</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="toCelsius()">转换</button>
                 <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputFahrenheit = document.getElementById('fahrenheit');
@@ -442,7 +442,7 @@
                 </div>
         	</div>
             <div class="tool-content mdui-color-theme-50">
-            	<button class="tool-button mdui-color-theme" onclick="info()">获取</button>
+            	<button class="tool-button mdui-color-theme-accent" onclick="info()">获取</button>
                	<script>
                 	function info(){
     					document.getElementById("cookieenabled").innerHTML = "Cookie开启状态：" + navigator.cookieEnabled;
@@ -478,7 +478,7 @@
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的URL">
-               	<button class="tool-button mdui-color-theme" onclick="setPlayer()">获取媒体</button>
+               	<button class="tool-button mdui-color-theme-accent" onclick="setPlayer()">获取媒体</button>
                	<video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
                 	<source id="mediasrc">
                 </video>
@@ -499,9 +499,9 @@
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<input type="text" class="tool-input mdui-color-theme-100" id="gtrantext" placeholder="请输入要翻译的文字">
-               	<button class="tool-button mdui-color-theme" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
-                <button class="tool-button mdui-color-theme" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
-                <button class="tool-button mdui-color-theme" onclick="btran()">百度翻译</button>
+               	<button class="tool-button mdui-color-theme-accent" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="btran()">百度翻译</button>
                 <script>
                 	function gtran(){
     					location.href = "http://translate.google.cn/?text=" + document.getElementById('gtrantext').value;
@@ -524,7 +524,7 @@
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<p id="notetext" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
-            	<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
+            	<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
 				<script>
 					function loadnote(){
 						if (localStorage.getItem("note")){
@@ -546,9 +546,9 @@
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<textarea id="noteinput" class="tool-input mdui-color-theme-100" style="height: 70%;"></textarea>
-				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();mdui.snackbar({ message: '已移除便笺' });" id="removenote">移除</button>
-				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
-				<button class="tool-button mdui-color-theme" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();mdui.snackbar({ message: '已移除便笺' });" id="removenote">移除</button>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
 				<script>
             		document.getElementById('noteinput').value = localStorage.getItem("note");
 					function savenote(){
@@ -571,7 +571,7 @@
                 <p>a=<input class="tool-input mdui-color-theme-100" id="unknowna" style="max-width: 64px;" type="number"></p>
                 <p>b=<input class="tool-input mdui-color-theme-100" id="unknownb" style="max-width: 64px;" type="number"></p>
                 <p>c=<input class="tool-input mdui-color-theme-100" id="unknownc" style="max-width: 64px;" type="number"></p>
-                <button class="tool-button mdui-color-theme" onclick="workout()">求解</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="workout()">求解</button>
                 <p id="delta"></p>
                 <p id="rootnum"></p>
                 <p id="root"></p>
