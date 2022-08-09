@@ -1,7 +1,7 @@
 {
-    "versionCode":220805,
-	"updateDate":"2022-08-05",
-    "change":"-彻底修复 基于时间设置夜间模式时的问题<br>-微调 UI<br>-优化 夜间模式下的颜色表现",
-    "note":"发现了bug，可以向我反馈。",
+    "versionCode":220809,
+	"updateDate":"2022-08-09",
+    "change":"-“应用程序”新增了内容<br>-优化 “最近更新”对话框的动画效果",
+    "note":"报毒是由于腾讯误判，作者会申诉。",
 	"spinner":"display: none !important;"
 }

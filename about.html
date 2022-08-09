@@ -178,29 +178,10 @@
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = document.getElementById('updatedialog');
-		function openUpdateDialog(){
-    		updateDialog.style.right = "16px";
-		}
-		function hideUpdateDialog(){
-    		updateDialog.style.right = "-300px";
-		}
-		function closeUpdateDialog(){
-    		updateDialog.style.transform = "scale(0.7)"
-			window.setTimeout('updateDialog.style.bottom = "64px"',300)
-			window.setTimeout('updateDialog.style.opacity = "0"',300)
-			window.setTimeout('updateDialog.style.display = "none"',800)
-			dns();
-		}
-   		if (localStorage.getItem("doNotShowUpdateAbout20220508") == "true"){
-		}else{
-    		window.setTimeout('openUpdateDialog();',1500)
-			window.setTimeout('hideUpdateDialog();',8500)
-		}
-   		function dns(){
-    		localStorage.setItem("doNotShowUpdateAbout20220508", "true");
-		}
+        var page = "About";
+        var pageUpdateDate = 20220508;
     </script>
+    <script src="pageUpdateDialog.js"></script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
            	<span class="mdui-typo-title">调色板</span>

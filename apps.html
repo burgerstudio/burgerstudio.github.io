@@ -171,6 +171,7 @@
             <div class="waves-block radius"><a href="https://apkpremier.com/download/com-cpuid-cpu_z"><li class="mdui-list-item">CPU-Z</li></a></div>
             <div class="waves-block radius"><a href="https://apkpremier.com/download/com-iiordanov-freebVNC"><li class="mdui-list-item">bVNC</li></a></div>
             <div class="waves-block radius"><a href="https://apkpremier.com/download/net-christianbeier-droidvnc_ng"><li class="mdui-list-item">droidVNC-NG</li></a></div>
+            <div class="waves-block radius"><a href="http://www.hellodesk.cn/mobile/#/download"><li class="mdui-list-item">ToDesk远程控制</li></a></div>
             </ul>
             </div>
             <div id="windows">
@@ -207,6 +208,7 @@
 			<div class="waves-block radius"><a href="https://visualstudio.microsoft.com/zh-hans/vs/"><li class="mdui-list-item">Visual Studio</li></a></div>
 			<div class="waves-block radius"><a href="https://www.cpuid.com/downloads/cpu-z/cpu-z_2.01-cn.exe"><li class="mdui-list-item">CPU-Z</li></a></div>
 			<div class="waves-block radius"><a href="https://www.wepe.com.cn/download.html"><li class="mdui-list-item">微PE工具箱</li></a></div>
+			<div class="waves-block radius"><a href="http://www.hellodesk.cn/download.html"><li class="mdui-list-item">ToDesk远程控制</li></a></div>
             </ul>
         </div>  
         </div>
@@ -499,33 +501,14 @@
     </body>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年6月5日<br>-更新两款远程控制相关 Android 应用</div>
+        <div class="update-dialog-content">2022年8月9日<br>-新增 ToDesk远程控制</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
-   		var updateDialog = document.getElementById('updatedialog');
-		function openUpdateDialog(){
-    		updateDialog.style.right = "16px";
-		}
-		function hideUpdateDialog(){
-    		updateDialog.style.right = "-300px";
-		}
-		function closeUpdateDialog(){
-    		updateDialog.style.transform = "scale(0.7)"
-			window.setTimeout('updateDialog.style.bottom = "64px"',300)
-			window.setTimeout('updateDialog.style.opacity = "0"',300)
-			window.setTimeout('updateDialog.style.display = "none"',800)
-			dns();
-		}
-   		if (localStorage.getItem("doNotShowUpdateApps20220605") == "true"){
-		}else{
-    		window.setTimeout('openUpdateDialog();',1500)
-			window.setTimeout('hideUpdateDialog();',8500)
-		}
-   		function dns(){
-    		localStorage.setItem("doNotShowUpdateApps20220605", "true");
-		}
+        var page = "Apps";
+        var pageUpdateDate = 20220809;
     </script>
+    <script src="pageUpdateDialog.js"></script>
     <script src="waves/waves.min.js"></script>
     <script src="settheme.js"></script>
   	<script>

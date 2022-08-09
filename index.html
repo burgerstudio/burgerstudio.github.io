@@ -437,29 +437,10 @@
         </div>
 	<script src="settheme.js"></script>
     <script>
-   		var updateDialog = document.getElementById('updatedialog');
-		function openUpdateDialog(){
-    		updateDialog.style.right = "16px";
-		}
-		function hideUpdateDialog(){
-    		updateDialog.style.right = "-300px";
-		}
-		function closeUpdateDialog(){
-    		updateDialog.style.transform = "scale(0.7)"
-			window.setTimeout('updateDialog.style.bottom = "64px"',300)
-			window.setTimeout('updateDialog.style.opacity = "0"',300)
-			window.setTimeout('updateDialog.style.display = "none"',800)
-			dns();
-		}
-   		if (localStorage.getItem("doNotShowUpdateAbout20220801") == "true"){
-		}else{
-    		window.setTimeout('openUpdateDialog();',1500)
-			window.setTimeout('hideUpdateDialog();',8500)
-		}
-   		function dns(){
-    		localStorage.setItem("doNotShowUpdateAbout20220801", "true");
-		}
+        var page = "Index";
+        var pageUpdateDate = 20220801;
     </script>
+    <script src="pageUpdateDialog.js"></script>
 	<script src="waves/waves.min.js"></script>
   	<script>
     var config = {
