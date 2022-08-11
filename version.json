@@ -1,7 +1,7 @@
 {
-    "versionCode":220809,
-	"updateDate":"2022-08-09",
-    "change":"-“应用程序”新增了内容<br>-优化 “最近更新”对话框的动画效果",
-    "note":"报毒是由于腾讯误判，作者会申诉。",
+    "versionCode":220811,
+	"updateDate":"2022-08-11",
+    "change":"-“系统镜像”“应用程序”“网络站点”新增了内容<br>-修改了网页标题",
+    "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
