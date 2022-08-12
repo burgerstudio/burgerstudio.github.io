@@ -1,7 +1,7 @@
 {
-    "versionCode":220811,
-	"updateDate":"2022-08-11",
-    "change":"-“系统镜像”“应用程序”“网络站点”新增了内容<br>-修改了网页标题",
+    "versionCode":220812,
+	"updateDate":"2022-08-12",
+    "change":"-““应用程序”新增了内容",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
