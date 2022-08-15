@@ -1,8 +1,8 @@
 {
 	"appName": "BGTool",
 	"appPackageName": "io.github.burgerstudio",
-	"appVersionName": "22-08-13",
-	"appVersionCode": 220813,
+	"appVersionName": "22-08-15",
+	"appVersionCode": 220815,
 	"data": {		
 		"启用顶栏": false,
 		"顶栏标题": "Burger工具站",

@@ -1,7 +1,7 @@
 {
-    "versionCode":220813,
-	"updateDate":"2022-08-13",
-    "change":"-“应用程序”“网络站点”“更多资源”新增了内容<br>-优化 “JS工具”的UI",
+    "versionCode":220815,
+	"updateDate":"2022-08-15",
+    "change":"-“系统镜像”“应用程序”新增了内容",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
