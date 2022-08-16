@@ -13,7 +13,6 @@
 		height: 70%;
 		width: 80%;
 		border-radius: 8px;
-		background-color: #2196F3;
       	position: fixed;
 		opacity: 0;
 		transform: scale(0.8);
@@ -34,7 +33,6 @@
 		.tool-header{
 		width: 100%;
 		height: 32px;
-      	background-color: #1976D2;
         position: sticky;
         top: 0;
         transition: 0.3s;
@@ -49,7 +47,6 @@
 		width: 10%;
 		font-size: 24px;
 		text-align: center;
-		background-color: #1976D2;
 		transition: 0.3s;
       	color: white;
 		border-radius: 4px;
@@ -67,7 +64,6 @@
 		.tool-button{
 		height: 32px;
 		width: 90%;
-		background-color: #2196F3;
 		margin: 16px 0;
       	text-align: center;
 		font-size: 16px;
@@ -91,7 +87,6 @@
 		margin: 8px;
 		padding: 4px;
       	height: 80%;
-		background-color: white;
       	color: black;
 		overflow: scroll;
 		border-radius: 4px;
@@ -145,9 +140,6 @@
         .mdui-progress-determinate{
         height: 16px;
         }
-        .tool ::-webkit-scrollbar{
-        display: none;
-        }
         @media (prefers-color-scheme: dark){
         .mdui-theme-layout-auto .tool{
         background-color: #323232 !important;
@@ -177,7 +169,7 @@
         </style>
         <title>JS工具 - Burger工具站</title>
 	</head> 
-	<body class="mdui-theme-layout-auto  mdui-drawer-body-left"> 
+	<body class="mdui-drawer-body-left"> 
    		<header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0" id="appbar">
         <div class="mdui-toolbar mdui-color-theme-50">
         <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
@@ -243,7 +235,7 @@
         </li>
         </a>
         <a href="tools.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-list-item-active mdui-drawer-list-item-active mdui-color-theme">
+        <li class="mdui-list-item mdui-color-theme">
         <i class="mdui-list-item-icon mdui-icon material-icons">build</i>
         <div class="mdui-list-item-content">JS工具</div>
         </li>
