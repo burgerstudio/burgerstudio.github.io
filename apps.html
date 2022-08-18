@@ -25,13 +25,13 @@
         <i class="mdui-icon material-icons">color_lens</i>
         </a>
         </div>
-        <div class="mdui-tab mdui-color-theme-50" mdui-tab>
-            <a href="#android" class="waves-block radius">
-            <i class="mdui-icon material-icons">android</i>
+        <div class="mdui-tab mdui-tab-centered mdui-color-theme-50" mdui-tab>
+            <a href="#android" class="waves-block radius" onclick="activeTab1()">
+            <i class="mdui-icon material-icons" id="tabIcon1">android</i>
             <label>Android</label>
             </a>
-            <a href="#windows" class="waves-block radius">
-            <i class="mdui-icon material-icons">desktop_windows</i>
+            <a href="#windows" class="waves-block radius" onclick="activeTab2()">
+            <i class="mdui-icon material-icons" id="tabIcon2">desktop_windows</i>
             <label>Windows</label>
             </a>
             </div>
@@ -207,14 +207,13 @@
             <div class="waves-block radius"><a href="https://cn.ultraiso.net/xiazai.html"><li class="mdui-list-item">UltraISO</li></a></div>
             <div class="waves-block radius"><a href="https://www.diskgenius.cn/"><li class="mdui-list-item">DiskGenius</li></a></div>
             <div class="waves-block radius"><a href="https://www.disktool.cn/"><li class="mdui-list-item">傲梅分区助手</li></a></div>
-            <div class="waves-block radius"><a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4.exe"><li class="mdui-list-item">Python（32位）</li></a></div>
-            <div class="waves-block radius"><a href="https://www.python.org/ftp/python/3.10.4/python-3.10.4-amd64.exe"><li class="mdui-list-item">Python（64位）</li></a></div>
+            <div class="waves-block radius"><a href="https://www.python.org/downloads/"><li class="mdui-list-item">Python</li></a></div>
             <div class="waves-block radius"><a href="https://download.microsoft.com/download/d/5/9/d59a6828-52d9-4d08-a995-3c08cef7e802/3.7/x64/WindowsPCHealthCheckSetup.msi"><li class="mdui-list-item">电脑健康状况检查应用</li></a></div>
             <div class="waves-block radius"><a href="http://7to.cn/"><li class="mdui-list-item">奇兔刷机</li></a></div>
 			<div class="waves-block radius"><a href="https://www.i4.cn/"><li class="mdui-list-item">爱思助手</li></a></div>
 			<div class="waves-block radius"><a href="https://github.com/cloudreve/Cloudreve/releases"><li class="mdui-list-item">Cloudreve</li></a></div>
 			<div class="waves-block radius"><a href="https://visualstudio.microsoft.com/zh-hans/vs/"><li class="mdui-list-item">Visual Studio</li></a></div>
-			<div class="waves-block radius"><a href="https://www.cpuid.com/downloads/cpu-z/cpu-z_2.01-cn.exe"><li class="mdui-list-item">CPU-Z</li></a></div>
+			<div class="waves-block radius"><a href="https://www.cpuid.com/softwares/cpu-z.html"><li class="mdui-list-item">CPU-Z</li></a></div>
 			<div class="waves-block radius"><a href="https://www.wepe.com.cn/download.html"><li class="mdui-list-item">微PE工具箱</li></a></div>
 			<div class="waves-block radius"><a href="http://www.hellodesk.cn/download.html"><li class="mdui-list-item">ToDesk远程控制</li></a></div>
 			<div class="waves-block radius"><a href="https://github.com/alist-org/alist/releases"><li class="mdui-list-item">Alist</li></a></div>
@@ -283,6 +282,21 @@
     fab.classList.add('mdui-fab-hide');
 }
     </script>
+	<script>
+		function activeTab1(){
+    		document.getElementById('tabIcon1').classList.add("mdui-color-theme-100");
+			document.getElementById('tabIcon1').style.padding = "4px 24px";
+			document.getElementById('tabIcon2').classList.remove("mdui-color-theme-100");
+			document.getElementById('tabIcon2').style.padding = "4px 4px";
+		}
+		function activeTab2(){
+    		document.getElementById('tabIcon2').classList.add("mdui-color-theme-100");
+			document.getElementById('tabIcon2').style.padding = "4px 24px";
+			document.getElementById('tabIcon1').classList.remove("mdui-color-theme-100");
+			document.getElementById('tabIcon1').style.padding = "4px 4px";
+		}
+		activeTab1();
+	</script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
            	<span class="mdui-typo-title">调色板</span>

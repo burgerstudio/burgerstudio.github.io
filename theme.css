@@ -181,6 +181,14 @@ min-width: 75%;
 ::-webkit-scrollbar-thumb{
 border-radius: 10px;
 }
+.mdui-tab .mdui-icon{
+padding: 4px 4px;
+border-radius: 20px;
+transition: 0.3s;
+}
+.mdui-card-media-covered{
+border-radius: 10px 10px 0 0;
+}
 @media (prefers-color-scheme: dark){
 .mdui-theme-layout-auto .mdui-dialog{
 background-color: #434343 !important;
