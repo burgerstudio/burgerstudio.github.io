@@ -111,6 +111,7 @@
             <div class="waves-block radius"><li class="mdui-list-item" mdui-dialog="{target: '#mdweb'}">Material Design 网页前端框架</li></div>
             <div class="waves-block radius"><li class="mdui-list-item" mdui-dialog="{target: '#webos'}">网页操作系统收集</li></div>
             <div class="waves-block radius"><li class="mdui-list-item" mdui-dialog="{target: '#ubuntu'}">Termux Ubuntu 容器安装脚本</li></div>
+            <div class="waves-block radius"><li class="mdui-list-item" mdui-dialog="{target: '#mirror'}">国内开源镜像站收集</li></div>
             </ul>
             </div>
             </div>
@@ -270,6 +271,30 @@
                 <div class="waves-block radius"><a href="https://dustinbrett.com/"><li class="mdui-list-item">daedalOS</li></a></div>
                 <div class="waves-block radius"><a href="http://windows93.net/"><li class="mdui-list-item">WINDOWS93</li></a></div>
                 <div class="waves-block radius"><a href="https://windows96.net/"><li class="mdui-list-item">Windows 96</li></a></div>
+            </ul>
+        </div>
+         <div class="mdui-dialog mdui-color-theme-50" id="mirror">
+        	<div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
+           		<span class="mdui-typo-title">国内开源镜像站收集</span>
+           		<div class="mdui-toolbar-spacer"></div>
+        		<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+            </div>
+            <ul class="mdui-list mdui-dialog-content mdui-list-dense">
+            	<li class="mdui-subheader">公司站点</li>
+            	<div class="waves-block radius"><a href="https://developer.aliyun.com/mirror/"><li class="mdui-list-item">阿里巴巴开源镜像站</li></a></div>
+                <div class="waves-block radius"><a href="https://mirrors.tencent.com/"><li class="mdui-list-item">腾讯软件源</li></a></div>
+                <div class="waves-block radius"><a href="https://mirrors.163.com/"><li class="mdui-list-item">网易开源镜像站</li></a></div>
+                <div class="waves-block radius"><a href="https://mirrors.huaweicloud.com/"><li class="mdui-list-item">华为开源镜像站</li></a></div>
+                <div class="waves-block radius"><a href="http://mirrors.sohu.com/"><li class="mdui-list-item">搜狐开源镜像站</li></a></div>
+                <div class="waves-block radius"><a href="http://mirrors.yun-idc.com/"><li class="mdui-list-item">Capital Online Mirror Site</li></a></div>
+                <li class="mdui-subheader">教育站点</li>
+                <div class="waves-block radius"><a href="https://mirrors.tuna.tsinghua.edu.cn/"><li class="mdui-list-item">清华大学开源软件镜像站</li></a></div>
+                <div class="waves-block radius"><a href="http://mirrors.ustc.edu.cn/ "><li class="mdui-list-item">USTC Open Source Software Mirror </li></a></div>
+                <div class="waves-block radius"><a href="https://mirror.bjtu.edu.cn/"><li class="mdui-list-item">北京交通大学自由与开源软件镜像站</li></a></div>
+                <div class="waves-block radius"><a href="https://mirrors.sjtug.sjtu.edu.cn/"><li class="mdui-list-item">上海交通大学 Linux 用户组 软件源镜像服务</li></a></div>
+                <div class="waves-block radius"><a href="http://mirror.bit.edu.cn/"><li class="mdui-list-item">北京理工大学 开源软件镜像服务</li></a></div>
+                <div class="waves-block radius"><a href="http://mirrors.zju.edu.cn/"><li class="mdui-list-item">浙江大学开源软件镜像站</li></a></div>
+                <div class="waves-block radius"><a href="http://mirrors.hust.edu.cn/"><li class="mdui-list-item">华中科技大学开源镜像站</li></a></div>
             </ul>
         </div>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
@@ -498,7 +523,7 @@
     </div>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年8月16日<br>-“安卓美化工具收集”新增“Gesture”</div>
+        <div class="update-dialog-content">2022年8月19日<br>-新增 国内开源镜像站收集</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
         <div class="mdui-dialog mdui-color-theme-50" id="ubuntu">
@@ -589,7 +614,7 @@
     </body>
     <script>
         var page = "More";
-        var pageUpdateDate = 20220816;
+        var pageUpdateDate = 20220819;
     </script>
     <script src="pageUpdateDialog.js"></script>
     <script src="waves/waves.min.js"></script>

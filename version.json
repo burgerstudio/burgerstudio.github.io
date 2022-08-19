@@ -1,7 +1,7 @@
 {
-    "versionCode":220818,
-	"updateDate":"2022-08-18",
-    "change":"-优化 UI<br>-“应用程序”新增了内容",
+    "versionCode":220819,
+	"updateDate":"2022-08-19",
+    "change":"-“更多资源”新增了内容",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
