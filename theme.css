@@ -28,7 +28,7 @@ color: white;
 background-color: rgba(255, 255, 255, 0.3);
 }
 .mdui-theme-layout-dark .waves-ripple{
-background:rgba(255, 255, 255, 0.4)
+background:rgba(255, 255, 255, 0.4);
 }
 .mdui-theme-layout-dark .auto-dark{
 background-color: #212121 !important;
@@ -49,11 +49,13 @@ color: black;
 }
 .mdui-dialog{
 border-radius: 32px;
-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2)
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+transition-property: transform, opacity, visibility, -webkit-transform, background-color;
+transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.4s;
 }
 .mdui-menu{
 border-radius: 10px;
-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2)
+box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
 .mdui-menu img{
 border-radius: 8px;
@@ -64,6 +66,8 @@ border-radius: 0 0 8px 8px;
 .mdui-tooltip{
 border-radius: 20px;
 background-color: rgba(32, 32, 32, 0.9);
+transition-property: opacity, transform, -webkit-transform, background-color, color;
+transition-duration: 0.15s, 0.15s, 0.15s, 0.4s, 0.4s;
 }
 @keyframes card{
 from {transform: scale(0.9);opacity: 0;}
@@ -128,8 +132,15 @@ background-color: rgba(0, 0, 0, 0.3);
 .radius{
 border-radius: 20px;
 }
-footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, .mdui-fab, p, .mdui-divider, .mdui-btn-block, .mdui-drawer, .mdui-tooltip, #thumbicon{
+footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, p, .mdui-divider, #thumbicon, label, ol li, li a{
 transition: 0.4s;
+}
+body{
+transition: 0.4s !important;
+}
+.mdui-drawer{
+transition-property: transform, background-color, color !important;
+transition-duration: 0.3s, 0.4s, 0.4s !important;
 }
 .update-dialog{
 position: fixed;
@@ -205,7 +216,7 @@ color: white;
 background-color: rgba(255, 255, 255, 0.3);
 }
 .mdui-theme-layout-auto .waves-ripple{
-background:rgba(255, 255, 255, 0.4)
+background: rgba(255, 255, 255, 0.4);
 }
 .mdui-theme-layout-auto .update-dialog{
 background-color: rgba(32, 32, 32, 0.9);
