@@ -217,29 +217,7 @@
         <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
-        <script type="text/javascript">
-            var pageHeight =10;
-            window.onscroll =function () {
-                var backTop = document.documentElement.scrollTop || 
-                document.body.scrollTop;
-                if(backTop>pageHeight){
-                    show()
-                }else{
-                    hide()
-                }
- 
-            }
- 
-    </script>
-    <script type="text/javascript">
-    var fab = document.getElementById('fab');
-    function show(){
-    fab.classList.remove('mdui-fab-hide');
-}
-    function hide(){
-    fab.classList.add('mdui-fab-hide');
-}
-    </script>
+        <script src="totop.js"></script>
 	<script>
 		function activeTab1(){
     		document.getElementById('tabIcon1').classList.add("mdui-color-theme-100");
