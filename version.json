@@ -1,7 +1,7 @@
 {
-    "versionCode":220826,
-	"updateDate":"2022-08-26",
-    "change":"-“应用程序”“网络站点”新增了内容<br>-部分页面加入了“返回顶部”按钮<br>-优化 Snackbar 的 UI",
+    "versionCode":220827,
+	"updateDate":"2022-08-27",
+    "change":"-“更多资源”新增了内容<br>-“网络站点”部分内容迁移至“更多资源”",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
