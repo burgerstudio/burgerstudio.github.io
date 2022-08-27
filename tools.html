@@ -54,10 +54,6 @@
    		.mdui-theme-layout-dark .tool-close{
         background-color: #212121 !important;
         }
-		.tool-close:hover{
-		background-color: #F44336 !important;
-		color: white !important;
-		}
    		.tool-close:active{
         opacity: 0.7 !important;
         }
@@ -169,6 +165,10 @@
 		.tool ::-webkit-scrollbar{
 		display: none;
 		}
+   		.tool-close:hover{
+		background-color: #F44336 !important;
+		color: white !important;
+		}
         </style>
         <title>JS工具 - Burger工具站</title>
 	</head> 
@@ -257,14 +257,14 @@
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             	<h1 class="mdui-text-color-theme title">JS工具</h1>
             	<ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
-               		<div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('clock');">线性时钟</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('countdown');">线性倒计时</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('temperature');">摄氏度与华氏度转换</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('navigator');">获取浏览器信息</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('player');">媒体播放器</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('translate');">翻译</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('note');">便笺</li></div>
-                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolopen('unknown');">一元二次方程求解</li></div>
+               		<div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('clock');">线性时钟</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('countdown');">线性倒计时</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('temperature');">摄氏度与华氏度转换</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('navigator');">获取浏览器信息</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('player');">媒体播放器</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('translate');">翻译</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('note');">便笺</li></div>
+                    <div class="waves-block radius"><li class="mdui-list-item" onclick="toolOpen('unknown');">一元二次方程求解</li></div>
                	</ul>
         	</div>
         </div>
@@ -310,7 +310,7 @@
 		<div class="tool mdui-center mdui-color-theme" id="clock">
 			<div class="tool-header mdui-color-theme-700">
 				<div class="tool-title mdui-color-theme-700">线性时钟</div>
-				<div class="tool-close mdui-color-theme-700" onclick="toolclose('clock');">
+				<div class="tool-close mdui-color-theme-700" onclick="toolClose('clock');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
@@ -326,16 +326,14 @@
       	<div class="tool mdui-center mdui-color-theme" id="countdown">
         	<div class="tool-header mdui-color-theme-700">
 				<div class="tool-title mdui-color-theme-700">线性倒计时</div>
-            	<div class="tool-close mdui-color-theme-700" onclick="toolclose('countdown');">
+            	<div class="tool-close mdui-color-theme-700" onclick="toolClose('countdown');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
 			<div class="tool-content mdui-color-theme-50">
-				<form>
-					<input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）">
-					<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
-				</form>
-				<button class="tool-button mdui-color-theme-accent" onclick="countdown()">开启倒计时</button>
+				<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）"></form>
+				<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
+				<button class="tool-button mdui-color-theme-accent" onclick="countdown()" id="startCountdown">开启倒计时</button>
 				<h1 id="cs" style="text-align: center;">倒计时未开启</h1>
             	<div class="mdui-progress">
                		<div class="mdui-progress-determinate" id="cp" style="width: 100%;"></div>
@@ -351,7 +349,7 @@
                    		function countdownInitially(){
 							if (Number(cn) > 0){
 								var ct = setTimeout(countdownInitially,1000);
-								cs.innerHTML = cn + "s";
+								cs.innerHTML = cn + " s";
 								cp.style.width = cn / ci * 100 + "%";
 								cn = cn - 1;
 							}else if (cn > -1 && ci > 0){
@@ -368,38 +366,36 @@
         <div class="tool mdui-center mdui-color-theme" id="temperature">
         	<div class="tool-header mdui-color-theme-700">
 				<div class="tool-title mdui-color-theme-700">摄氏度与华氏度转换</div>
-         		<div class="tool-close mdui-color-theme-700" onclick="toolclose('temperature');">
+         		<div class="tool-close mdui-color-theme-700" onclick="toolClose('temperature');">
 					<i class="mdui-icon material-icons">close</i>
 				</div>
 			</div>
          	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 0;margin-left: 4px;margin-top: 4px;">摄氏度转换为华氏度</p>
-            	<form>
-               		<input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）">
-               	</form>
-                <button class="tool-button mdui-color-theme-accent" onclick="toFahrenheit()">转换</button>
+               	<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）"></form>
+                <button class="tool-button mdui-color-theme-accent" onclick="toFahrenheit()" id="toFahrenheit">转换</button>
                 <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputCelsius = document.getElementById('celsius');
                    	var outputFahrenheit = document.getElementById('of');
                 	function toFahrenheit(){
-                       	inputCelsius.value = 32 + inputCelsius.value * 1.8;
-                       	outputFahrenheit.innerHTML = "转换结果：" + inputCelsius.value + "°F";
+						var icv = inputCelsius.value;
+                       	icv = 32 + icv * 1.8;
+                       	outputFahrenheit.innerHTML = "转换结果：" + icv + " °F";
                    	}
                 </script>
                 <div class="mdui-divider" style="margin: 8px;"></div>
                 <p style="margin: 0;margin-left: 4px;margin-top: 4px;">华氏度转换为摄氏度</p>
-            	<form>
-               		<input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）">
-               	</form>
-                <button class="tool-button mdui-color-theme-accent" onclick="toCelsius()">转换</button>
+               	<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）"></form>
+                <button class="tool-button mdui-color-theme-accent" onclick="toCelsius()" id="toCelsius">转换</button>
                 <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
                 <script>
                 	var inputFahrenheit = document.getElementById('fahrenheit');
                    	var outputCelsius = document.getElementById('oc');
                 	function toCelsius(){
-                       	inputFahrenheit.value = ( inputFahrenheit.value - 32 ) / 1.8;
-                       	outputCelsius.innerHTML = "转换结果：" + inputFahrenheit.value + "°C";
+						var ifv = inputFahrenheit.value;
+                       	ifv = ( ifv - 32 ) / 1.8;
+                       	outputCelsius.innerHTML = "转换结果：" + ifv + " °C";
                    	}
                 </script>
             </div>
@@ -436,7 +432,7 @@
       	<div class="tool mdui-center mdui-color-theme" id="navigator">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">获取浏览器信息</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('navigator');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('navigator');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
@@ -444,7 +440,7 @@
             	<button class="tool-button mdui-color-theme-accent" onclick="info()">获取</button>
                	<script>
                 	function info(){
-    					document.getElementById("cookieenabled").innerHTML = "Cookie开启状态：" + navigator.cookieEnabled;
+    					document.getElementById("cookieenabled").innerHTML = "Cookie 开启状态：" + navigator.cookieEnabled;
                    		document.getElementById("appname").innerHTML = "浏览器应用程序名称：" + navigator.appName;
                         document.getElementById("appcodename").innerHTML = "浏览器应用程序代码名称：" + navigator.appCodeName;
                         document.getElementById("product").innerHTML = "浏览器引擎：" + navigator.product;
@@ -453,7 +449,7 @@
                         document.getElementById("platform").innerHTML = "浏览器平台：" + navigator.platform;
                         document.getElementById("language").innerHTML = "浏览器语言：" + navigator.language;
                         document.getElementById("online").innerHTML = "浏览器在线状态：" + navigator.onLine;
-                        document.getElementById("javaenabled").innerHTML = "Java开启状态：" + navigator.javaEnabled();
+                        document.getElementById("javaenabled").innerHTML = "Java 开启状态：" + navigator.javaEnabled();
 					}
                 </script>
                	<p id="cookieenabled" style="margin: 8px;"></p>
@@ -471,19 +467,19 @@
         <div class="tool mdui-center mdui-color-theme" id="player">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">媒体播放器</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('player');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('player');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的URL">
-               	<button class="tool-button mdui-color-theme-accent" onclick="setPlayer()">获取媒体</button>
+            	<form onsubmit="return false;"><input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的 URL"></form>
+               	<button class="tool-button mdui-color-theme-accent" onclick="loadPlayer()" id="loadPlayer">加载媒体</button>
                	<video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
-                	<source id="mediasrc">
+                	<source id="mediaSrc">
                 </video>
                 <script>
-                	function setPlayer(){
-    					document.getElementById('mediasrc').src = document.getElementById('pi').value;
+                	function loadPlayer(){
+    					document.getElementById('mediaSrc').src = document.getElementById('pi').value;
                    		document.getElementById('media').load();
 					}
                 </script>
@@ -492,24 +488,24 @@
         <div class="tool mdui-center mdui-color-theme" id="translate">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">翻译</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('translate');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('translate');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<input type="text" class="tool-input mdui-color-theme-100" id="gtrantext" placeholder="请输入要翻译的文字">
-               	<button class="tool-button mdui-color-theme-accent" onclick="gtran()" style="margin-bottom: 0;">Google 翻译</button>
-                <button class="tool-button mdui-color-theme-accent" onclick="mtran()" style="margin-bottom: 0;">Microsoft 翻译</button>
-                <button class="tool-button mdui-color-theme-accent" onclick="btran()">百度翻译</button>
+            	<textarea type="text" class="tool-input mdui-color-theme-100" id="tranText" placeholder="请输入要翻译的文本" style="height: auto;"></textarea>
+               	<button class="tool-button mdui-color-theme-accent" onclick="gTran()" style="margin-bottom: 0;">Google 翻译</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="mTran()" style="margin-bottom: 0;">Microsoft 翻译</button>
+                <button class="tool-button mdui-color-theme-accent" onclick="bTran()">百度翻译</button>
                 <script>
-                	function gtran(){
-    					location.href = "http://translate.google.cn/?text=" + document.getElementById('gtrantext').value;
+                	function gTran(){
+    					location.href = "http://translate.google.cn/?text=" + document.getElementById('tranText').value;
 					}
-      				function mtran(){
-    					location.href = "https://cn.bing.com/translator/?text=" + document.getElementById('gtrantext').value;
+      				function mTran(){
+    					location.href = "https://cn.bing.com/translator/?text=" + document.getElementById('tranText').value;
 					}
-      				function btran(){
-    					location.href = "https://fanyi.baidu.com/#en/zh/" + document.getElementById('gtrantext').value;
+      				function bTran(){
+    					location.href = "https://fanyi.baidu.com/#en/zh/" + document.getElementById('tranText').value;
 					}
                 </script>
             </div>
@@ -517,43 +513,57 @@
         <div class="tool mdui-center mdui-color-theme" id="note">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">便笺</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('note');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('note');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<p id="notetext" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
-            	<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('note');toolopen('editnote');">编辑</button>
+            	<p id="noteText" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
+            	<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolClose('note');toolOpen('editNote');loadnote2();">编辑</button>
 				<script>
 					function loadnote(){
 						if (localStorage.getItem("note")){
-    						document.getElementById('notetext').innerHTML = "便笺内容：<br><br>" + localStorage.getItem("note");
+    						document.getElementById('noteText').innerHTML = "便笺内容：<br><br>" + localStorage.getItem("note");
 						}else{
-    						document.getElementById('notetext').innerHTML = "便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。"
+    						document.getElementById('noteText').innerHTML = "便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。";
 						}
 					}
 					loadnote();
+               		function loadnote2(){
+						if (localStorage.getItem("note")){
+    						document.getElementById('noteInput').value = localStorage.getItem("note");
+						}else{
+    						document.getElementById('noteInput').value = "";
+						}
+					}
 				</script>
             </div>
         </div>
-		<div class="tool mdui-center mdui-color-theme" id="editnote">
+		<div class="tool mdui-center mdui-color-theme" id="editNote">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">编辑便笺</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('editnote');toolopen('note');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('editNote');toolOpen('note');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
-            	<textarea id="noteinput" class="tool-input mdui-color-theme-100" style="height: 70%;"></textarea>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="localStorage.removeItem('note');loadnote();mdui.snackbar({ message: '已移除便笺' });" id="removenote">移除</button>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="savenote()">保存</button>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolclose('editnote');toolopen('note');">取消</button>
+            	<textarea id="noteInput" class="tool-input mdui-color-theme-100" style="height: 70%;" placeholder="请输入便笺内容"></textarea>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="removenote()" id="removenote">移除</button>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="saveNote()">保存</button>
+				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolClose('editNote');toolOpen('note');">取消</button>
 				<script>
-            		document.getElementById('noteinput').value = localStorage.getItem("note");
-					function savenote(){
-    					localStorage.setItem("note",document.getElementById('noteinput').value);
+            		document.getElementById('noteInput').value = localStorage.getItem("note");
+					function saveNote(){
+    					localStorage.setItem("note",document.getElementById('noteInput').value);
 						loadnote();
-						toolclose('editnote');toolopen('note');
+						mdui.snackbar({ message: '已保存便笺' });
+						toolClose('editNote');toolOpen('note');
+					}
+					function removenote(){
+					    localStorage.removeItem('note');
+					    loadnote();
+					    mdui.snackbar({ message: '已移除便笺' });
+					    toolClose('editNote');toolOpen('note');
 					}
 				</script>
             </div>
@@ -561,65 +571,98 @@
         <div class="tool mdui-center mdui-color-theme" id="unknown">
         	<div class="tool-header mdui-color-theme-700">
         		<div class="tool-title mdui-color-theme-700">一元二次方程求解</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolclose('unknown');">
+              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('unknown');">
                 	<i class="mdui-icon material-icons">close</i>
                 </div>
         	</div>
            	<div class="tool-content mdui-color-theme-50">
             	<p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
-                <p>a=<input class="tool-input mdui-color-theme-100" id="unknowna" style="max-width: 64px;" type="number"></p>
-                <p>b=<input class="tool-input mdui-color-theme-100" id="unknownb" style="max-width: 64px;" type="number"></p>
-                <p>c=<input class="tool-input mdui-color-theme-100" id="unknownc" style="max-width: 64px;" type="number"></p>
-                <button class="tool-button mdui-color-theme-accent" onclick="workout()">求解</button>
+				<form onsubmit="return false;">
+                <p>a = <input class="tool-input mdui-color-theme-100" id="unknownA" style="max-width: 64px;" type="number"></p>
+                <p>b = <input class="tool-input mdui-color-theme-100" id="unknownB" style="max-width: 64px;" type="number"></p>
+                <p>c = <input class="tool-input mdui-color-theme-100" id="unknownC" style="max-width: 64px;" type="number"></p>
+				</form>
+                <button class="tool-button mdui-color-theme-accent" onclick="workOut()" id="workOut">求解</button>
                 <p id="delta"></p>
-                <p id="rootnum"></p>
+                <p id="rootNum"></p>
                 <p id="root"></p>
             </div>
             <script>
-                function workout(){
-    				unknowna = document.getElementById('unknowna').value;
-                	unknownb = document.getElementById('unknownb').value;
-                	unknownc = document.getElementById('unknownc').value;
-                	delta = unknownb ** 2 - 4 * unknowna * unknownc;
+                function workOut(){
+    				unknownA = document.getElementById('unknownA').value;
+                	unknownB = document.getElementById('unknownB').value;
+                	unknownC = document.getElementById('unknownC').value;
+                	delta = unknownB ** 2 - 4 * unknownA * unknownC;
                 	if (delta > 0){
     					document.getElementById('delta').innerHTML = "Δ = " + delta + " > 0，";
-                   		document.getElementById('rootnum').innerHTML = "∴此方程有2个不相等的实数根，";
-                        root1 = ( - unknownb + Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
-                        root2 = ( - unknownb - Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
+                   		document.getElementById('rootNum').innerHTML = "∴此方程有 2 个不相等的实数根，";
+                        root1 = ( - unknownB + Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
+                        root2 = ( - unknownB - Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
                         document.getElementById('root').innerHTML = "此方程的根为：x₁ = " + root1 + "，x₂ = " + root2 + ".";
 					}else if (delta == 0){
     					document.getElementById('delta').innerHTML = "Δ = " + delta + "，";
-                   		document.getElementById('rootnum').innerHTML = "∴此方程有2个相等的实数根，";
-                        root = ( - unknownb + Math.sqrt(unknownb ** 2 - 4 * unknowna * unknownc) ) / ( 2 * unknowna );
+                   		document.getElementById('rootNum').innerHTML = "∴此方程有 2 个相等的实数根，";
+                        root = ( - unknownB + Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
                         document.getElementById('root').innerHTML = "此方程的根为：x₁ = x₂ = " + root + ".";
 					}else if (delta < 0){
     					document.getElementById('delta').innerHTML = "Δ = " + delta + " < 0，";
-                   		document.getElementById('rootnum').innerHTML = "∴此方程无实数根.";
+                   		document.getElementById('rootNum').innerHTML = "∴此方程无实数根.";
                         document.getElementById('root').innerHTML = "";
 					}
-          			if (unknowna == 0){
+          			if (unknownA == 0){
     					document.getElementById('delta').innerHTML = "";
-                   		document.getElementById('rootnum').innerHTML = "";
+                   		document.getElementById('rootNum').innerHTML = "";
                         document.getElementById('root').innerHTML = "";
-                        mdui.snackbar({ message: '错误：a的值为0' });
+                        mdui.snackbar({ message: '错误：a 的值为 0' });
 					}
 				}
             </script>
         </div>
 	<script>
-		function toolopen(id){
+		function toolOpen(id){
     		document.getElementById(id).style = "opacity: 1;transform: scale(1);z-index: 1;";
-          	//document.getElementById('drawer').style = "left: -100%;";
-			//document.getElementById('appbar').style = "z-index: 0;";
-         	//document.getElementById('card').style = "z-index: -1;";
 		}
-		function toolclose(id){
+		function toolClose(id){
     		document.getElementById(id).style = "opacity: 0;transform: scale(0.8);z-index: -1;";
-			//document.getElementById('drawer').style = "left: 0;";
-			//document.getElementById('appbar').style = "z-index: 1;";
-			//document.getElementById('card').style = "z-index: 0;";
 		}
 	</script>
+   	<script>
+    	var c = document.getElementById('c');
+		var celsius = document.getElementById('celsius');
+		var fahrenheit = document.getElementById('fahrenheit');
+      	var pi = document.getElementById('pi');
+        var unknownC = document.getElementById('unknownC');
+		c.addEventListener("keyup",function(event){
+    		event.preventDefault();
+			if (event.keyCode === 13){
+    			document.getElementById('startCountdown').click();
+			}
+		})
+		celsius.addEventListener("keyup",function(event){
+    		event.preventDefault();
+			if (event.keyCode === 13){
+    			document.getElementById('toFahrenheit').click();
+			}
+		})
+		fahrenheit.addEventListener("keyup",function(event){
+    		event.preventDefault();
+			if (event.keyCode === 13){
+    			document.getElementById('toCelsius').click();
+			}
+		})
+      	pi.addEventListener("keyup",function(event){
+    		event.preventDefault();
+			if (event.keyCode === 13){
+    			document.getElementById('loadPlayer').click();
+			}
+		})
+      	unknownC.addEventListener("keyup",function(event){
+    		event.preventDefault();
+			if (event.keyCode === 13){
+    			document.getElementById('workOut').click();
+			}
+		})
+    </script>
 	<div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
            	<span class="mdui-typo-title">调色板</span>
@@ -847,12 +890,12 @@
 	</body>
         <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年6月11日<br>-新增“一元二次方程求解”</div>
+        <div class="update-dialog-content">2022年8月27日<br>-优化 UI</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
     <script>
         var page = "Tools";
-        var pageUpdateDate = 20220611;
+        var pageUpdateDate = 20220827;
     </script>
     <script src="pageUpdateDialog.js"></script>
     <script src="waves/waves.min.js"></script>
