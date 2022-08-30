@@ -51,7 +51,7 @@
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
-        <a href="sysimg.html" class="waves-block radius">
+        <a href="sysImg.html" class="waves-block radius">
         <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
@@ -101,9 +101,10 @@
             </div>
             <div class="mdui-divider"></div><br> 
             <ul class="mdui-list">
-            <a href="sysimg.html">
+			<div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-2 mdui-row-lg-3 mdui-row-gapless">
+            <a href="sysImg.html" class="mdui-col">
 			<div class="radius waves-block">
-            <li class="mdui-list-item ">
+            <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-red">storage</i>
             <div class="mdui-list-item-content">
             	<div class="mdui-list-item-title">系统镜像</div>
@@ -112,7 +113,7 @@
             </li>
 			</div>
             </a> 
-            <a href="apps.html">
+            <a href="apps.html" class="mdui-col">
 			<div class="radius waves-block">
             <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-orange mdui-text-color-white">apps</i>
@@ -123,7 +124,7 @@
             </li>
 			</div>
             </a> 
-            <a href="websites.html">
+            <a href="websites.html" class="mdui-col">
 			<div class="radius waves-block">
             <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-green mdui-text-color-white">public</i>
@@ -134,7 +135,7 @@
             </li>
 			</div>
             </a> 
-            <a href="more.html">
+            <a href="more.html" class="mdui-col">
 			<div class="radius waves-block">
             <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-cyan mdui-text-color-white">attach_file</i>
@@ -145,7 +146,7 @@
             </li>
 			</div>
             </a> 
-            <a href="tools.html">
+            <a href="tools.html" class="mdui-col">
 			<div class="radius waves-block">
             <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-blue mdui-text-color-white">build</i>
@@ -156,7 +157,7 @@
             </li>
 			</div>
             </a>
-            <a href="about.html">
+            <a href="about.html" class="mdui-col">
 			<div class="radius waves-block">
             <li class="mdui-list-item">
             <i class="mdui-icon material-icons mdui-list-item-avatar mdui-color-purple">info</i>
@@ -167,6 +168,7 @@
             </li>
 			</div>
             </a> 
+			</div>
             </ul>
         </div>
         </div>
@@ -214,7 +216,7 @@
         <div class="mdui-dialog-content">
             <p style="font-size: 16px;">夜间模式</p>
             <form>
-                <div class="mdui-row-xs-2">
+                <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
 					<label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
     					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
     					<i class="mdui-radio-icon"></i>
@@ -239,7 +241,7 @@
             </form>
             <p style="font-size: 16px;">主色</p>
             <form>
-            	<div class="mdui-row-xs-2">
+            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
     					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
     					<i class="mdui-radio-icon"></i>
@@ -339,7 +341,7 @@
             </form>
             <p style="font-size: 16px;">强调色</p>
             <form>
-            	<div class="mdui-row-xs-2">
+            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
     					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
     					<i class="mdui-radio-icon"></i>
@@ -432,13 +434,13 @@
     </body>
     <div id="updatedialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年8月1日<br>-新增“调色板”功能，可自由定制网页主题<br>-改用JSON获取离线版信息，便于检查更新</div>
+        <div class="update-dialog-content">2022年8月30日<br>-部分列表采用网格布局，优化大屏体验</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
         </div>
-	<script src="settheme.js"></script>
+	<script src="setTheme.js"></script>
     <script>
         var page = "Index";
-        var pageUpdateDate = 20220801;
+        var pageUpdateDate = 20220830;
     </script>
     <script src="pageUpdateDialog.js"></script>
 	<script src="waves/waves.min.js"></script>

@@ -51,7 +51,7 @@
         <div class="mdui-list-item-content">首页</div>
         </li>
         </a>
-        <a href="sysimg.html" class="waves-block radius">
+        <a href="sysImg.html" class="waves-block radius">
         <li class="mdui-list-item">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
         <div class="mdui-list-item-content">系统镜像</div>
@@ -160,7 +160,7 @@
         <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
-        <script src="totop.js"></script>
+        <script src="toTop.js"></script>
         <script>
         	function thumb(){
     			localStorage.thumb = Number(localStorage.thumb) + 1;
@@ -193,7 +193,7 @@
         <div class="mdui-dialog-content">
             <p style="font-size: 16px;">夜间模式</p>
             <form>
-                <div class="mdui-row-xs-2">
+                <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
 					<label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
     					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
     					<i class="mdui-radio-icon"></i>
@@ -218,7 +218,7 @@
             </form>
             <p style="font-size: 16px;">主色</p>
             <form>
-            	<div class="mdui-row-xs-2">
+            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
     					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
     					<i class="mdui-radio-icon"></i>
@@ -318,7 +318,7 @@
             </form>
             <p style="font-size: 16px;">强调色</p>
             <form>
-            	<div class="mdui-row-xs-2">
+            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
     					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
     					<i class="mdui-radio-icon"></i>
@@ -410,7 +410,7 @@
     </div>
     </body>
     <script src="waves/waves.min.js"></script>
-    <script src="settheme.js"></script>
+    <script src="setTheme.js"></script>
   	<script>
     var config = {
     duration: 500,
