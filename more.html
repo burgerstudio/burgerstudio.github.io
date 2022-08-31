@@ -614,7 +614,7 @@
 					<label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
     					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
     					<i class="mdui-radio-icon"></i>
-    					跟随系统
+    					跟随浏览器
   					</label>
                  	<label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
     					<input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
@@ -825,11 +825,6 @@
         	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
         </div>
     </div>
-        <div id="updatedialog" class="update-dialog">
-        <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年8月31日<br>-新增了内容</div>
-		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
-        </div>
         <div class="mdui-dialog mdui-color-theme-50" id="ubuntu">
         	<div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
            		<span class="mdui-typo-title" style="width: 70%;">Termux Ubuntu 容器安装脚本</span>
@@ -917,6 +912,11 @@
             </div>
         </div>
     </body>
+    <div id="updatedialog" class="update-dialog">
+        <div class="update-dialog-title">最近更新</div>
+        <div class="update-dialog-content">2022年8月31日<br>-新增了内容</div>
+		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
+    </div>
     <script>
         var page = "More";
         var pageUpdateDate = 20220831;
