@@ -1,7 +1,7 @@
 {
-    "versionCode":220830,
-	"updateDate":"2022-08-30",
-    "change":"-“网络站点”“更多资源”新增了内容<br>-部分列表采用网格布局，优化大屏体验<br>-“JS工具”优化 UI，增加窗口拖动功能",
+    "versionCode":220831,
+	"updateDate":"2022-08-31",
+    "change":"-“应用程序”“网络站点”“更多资源”新增了内容<br>-“网络站点”部分内容迁移至“更多资源”",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
