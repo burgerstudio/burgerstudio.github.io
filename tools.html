@@ -35,8 +35,8 @@
 		z-index: 1000000;
 		}
    		.tool-opened.tool-unactive{
-		filter: grayscale(25%);
-		box-shadow: 0 8px 8px 2px rgba(0, 0, 0, 0.3);
+		filter: grayscale(30%);
+		box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
 		z-index: 100000;
 		}
    		.mdui-theme-layout-dark .tool{
@@ -317,7 +317,7 @@
 		</div>
         <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
-        <p><label>开发工具：<a href="https://www.coolapk.com/apk/241241" class="footerlink">EasyWeb IDE</a></label></p>
+        <p><label>开发工具：<a href="http://tools.huluxia.com/share/page/ANDROID/4.1?app_id=69815" class="footerlink">EasyWeb IDE</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2022 - Burger Studio</p>
         <br>
         </footer>
@@ -914,14 +914,14 @@
         </div>
     </div>
 	</body>
-    <div id="updatedialog" class="update-dialog">
+    <div id="updatedialog" class="update-dialog" onclick="activeWindow();">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年8月30日<br>-优化 UI，增加窗口拖动功能</div>
+        <div class="update-dialog-content">2022年9月1日<br>-优化 UI</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
     </div>
     <script>
         var page = "Tools";
-        var pageUpdateDate = 20220830;
+        var pageUpdateDate = 20220901;
     </script>
     <script src="pageUpdateDialog.js"></script>
     <script src="waves/waves.min.js"></script>
