@@ -35,7 +35,7 @@
 		z-index: 1000000;
 		}
    		.tool-opened.tool-unactive{
-		filter: grayscale(30%);
+		filter: grayscale(25%);
 		box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
 		z-index: 100000;
 		}
@@ -48,9 +48,10 @@
         position: sticky;
         top: 0;
         transition: 0.3s;
+        opacity: 1;
 		}
 		.tool-unactive .tool-header{
-        opacity: 0.7;  
+        opacity: 0.75;  
         }
    		.mdui-theme-layout-dark .tool-header{
         background-color: #212121 !important;
@@ -128,7 +129,7 @@
 		outline-style: none;
 		border-style: solid;
 		border-color: #DEDEDE;
-		transition: 0.2s;
+		transition: 0.3s;
 		border-radius: 4px;
 		}
    		.mdui-theme-layout-dark .tool-input{
