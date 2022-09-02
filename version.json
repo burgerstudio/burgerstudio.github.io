@@ -1,7 +1,7 @@
 {
-    "versionCode":220901,
-	"updateDate":"2022-09-01",
-    "change":"-“应用程序”“更多资源”新增了内容<br>-优化 “JS工具”的 UI",
+    "versionCode":220902,
+	"updateDate":"2022-09-02",
+    "change":"-优化 动画速度",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
