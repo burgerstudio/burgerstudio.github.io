@@ -1,7 +1,7 @@
 {
     "versionCode":220902,
 	"updateDate":"2022-09-02",
-    "change":"-优化 动画速度",
+    "change":"-优化 动画速度<br>-“网络站点”新增了内容",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }
