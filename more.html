@@ -13,15 +13,15 @@
     <body class="mdui-drawer-body-left"> 
         <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
         <div class="mdui-toolbar mdui-color-theme-50">
-        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-drawer="{target: '#drawer', swipe: true}">
+        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
         </a>
         <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
         <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon waves-circle" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
+        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
         <i class="mdui-icon material-icons">cloud_download</i>
         </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
+        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
         <i class="mdui-icon material-icons">color_lens</i>
         </a>
         </div>
@@ -913,7 +913,7 @@
             </div>
         </div>
     </body>
-    <div id="updatedialog" class="update-dialog">
+    <div id="updateDialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
         <div class="update-dialog-content">2022年9月1日<br>-新增了内容</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>

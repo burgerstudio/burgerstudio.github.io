@@ -1,4 +1,4 @@
-var updateDialog = document.getElementById('updatedialog');
+var updateDialog = document.getElementById('updateDialog');
 function openUpdateDialog(){
     updateDialog.style.transform = "translateX(-316px)";
 }
