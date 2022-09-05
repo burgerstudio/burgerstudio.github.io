@@ -1,7 +1,7 @@
 {
-    "versionCode":220904,
-	"updateDate":"2022-09-04",
-    "change":"-优化 UI",
+    "versionCode":220905,
+	"updateDate":"2022-09-05",
+    "change":"-“网络站点”新增了内容",
     "note":"报毒问题已解决。",
 	"spinner":"display: none !important;"
 }

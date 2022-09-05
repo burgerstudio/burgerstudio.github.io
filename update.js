@@ -1,5 +1,5 @@
 function update(){
-    var version = 220904;
+    var version = 220905;
     document.getElementById("updateDate").innerHTML =  "";
     document.getElementById("updateChange").innerHTML =  "";
 	document.getElementById("updateNote").innerHTML =  "";
