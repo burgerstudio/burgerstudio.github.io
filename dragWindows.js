@@ -1,3 +1,4 @@
+// 窗口拖拽源码来自：https://blog.csdn.net/hangGe0111/article/details/81288379
 const PASSIVE = function (e) {
 	e.preventDefault();
 }

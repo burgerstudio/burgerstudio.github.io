@@ -8,7 +8,9 @@
         <script src="mdui/js/mdui.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
 		<link rel="stylesheet" type="text/css" href="theme.css" />
-        <title>Burger工具站</title> 
+        <title>Burger工具站 - 资源收藏与分享</title>
+        <meta name=“Description” content=“Burger工具站，一个资源分享站，致力于收集实用与有趣的资源。” />
+        <meta name=“Keywords” content=“资源 工具” />
     </head> 
     <body class="mdui-drawer-body-left"> 
         <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
@@ -432,14 +434,38 @@
         </div>
     </div>
     </body>
+	<script>
+		var offline = new mdui.Dialog('#offline', {history: false});
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+  		if (this.readyState == 4 && this.status == 200) {
+    		var VersionInfo = JSON.parse(this.responseText);
+			if (VersionInfo.versionCode > version){
+				if (localStorage.getItem("doNotShowUpdateOffline" + VersionInfo.versionCode) != "true"){
+    				mdui.snackbar({
+                		message: '有可用的版本更新',
+						buttonText: '查看',
+               			onButtonClick: function(){
+							offline.open();
+							update();
+							localStorage.setItem("doNotShowUpdateOffline" + VersionInfo.versionCode, "true");
+  						}
+                	});
+				}
+			}
+  		}
+		};
+		xmlhttp.open("GET", "https://burgerstudio.github.io/version.json", true);
+		xmlhttp.send();
+	</script>
     <div id="updateDialog" class="update-dialog">
         <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2022年8月30日<br>-部分列表采用网格布局，优化大屏体验</div>
+        <div class="update-dialog-content">2022年12月6日<br>-新增 自动检查版本更新</div>
 		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
     </div>
     <script>
         var page = "Index";
-        var pageUpdateDate = 20220830;
+        var pageUpdateDate = 20221206;
     </script>
     <script src="pageUpdateDialog.js"></script>
 	<script src="waves/waves.min.js"></script>
