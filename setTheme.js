@@ -102,6 +102,6 @@ function listenTime(){
 }
 // 页面变灰
 var date = new Date();
-if (date.getFullYear() == 2022 && date.getMonth() == 11 && date.getDate() == 7){
+if (date.getFullYear() == 2022 && date.getMonth() == 11 && date.getDate() <= 8){
     document.documentElement.style.filter = "grayscale(100%)";
 }

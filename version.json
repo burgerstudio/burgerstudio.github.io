@@ -1,7 +1,7 @@
 {
-    "versionCode":220905,
-	"updateDate":"2022-09-05",
-    "change":"-“应用程序”“网络站点”新增了内容",
-    "note":"报毒问题已解决。",
+    "versionCode":221207,
+	"updateDate":"2022-12-07",
+    "change":"-“系统镜像”“应用程序”“网络站点”“更多资源”新增了内容<br>-新增 打开首页时自动检查版本更新<br>-优化 UI<br>-“极品电音”同步歌单更新<br>-新增 应用栏自动添加阴影",
+    "note":"我的 WordPress 站点（bgs.code.blog）将继续更新！",
 	"spinner":"display: none !important;"
 }
