@@ -71,9 +71,6 @@ transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.4s;
 border-radius: 10px;
 box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
 }
-.mdui-menu img{
-border-radius: 8px;
-}
 .mdui-drawer img{
 border-radius: 0 0 8px 8px;
 }
@@ -146,7 +143,7 @@ background-color: rgba(0, 0, 0, 0.3);
 .radius{
 border-radius: 20px;
 }
-footer, h3, h2, h1, .mdui-toolbar, .mdui-card, .mdui-tab, p, .mdui-divider, #thumbIcon, label, ol li, li a{
+footer, h3, h2, h1, .mdui-toolbar, .mdui-appbar, .mdui-card, .mdui-tab, p, .mdui-divider, #thumbIcon, label, ol li, li a{
 transition: 0.4s;
 }
 body{
@@ -222,6 +219,9 @@ background-color: rgba(0, 0, 0, 0.1) !important;
 }
 .mdui-theme-layout-dark .toolbar-btn:hover{
 background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.mdui-snackbar-action{
+border-radius: 20px;
 }
 @media (prefers-color-scheme: dark){
 .mdui-theme-layout-auto .mdui-dialog{

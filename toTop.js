@@ -10,8 +10,13 @@ window.onscroll =function () {
     var backTop = document.documentElement.scrollTop || 
     document.body.scrollTop;
     if(backTop > pageHeight){
-        showFab()
+        showFab();
     }else{
-        hideFab()
+        hideFab();
+    }
+    if(backTop > 0){
+        document.getElementsByTagName('header')[0].classList.add('mdui-shadow-4');
+    }else{
+        document.getElementsByTagName('header')[0].classList.remove('mdui-shadow-4');
     }
 }
