@@ -105,3 +105,5 @@ var date = new Date();
 if (date.getFullYear() == 2022 && date.getMonth() == 11 && date.getDate() <= 8){
     document.documentElement.style.filter = "grayscale(100%)";
 }
+// 设置抽屉式导航栏中列表的高度
+document.getElementById('mduiDrawerList').style.height = "calc(100% - " + document.getElementById('bgsImage').clientHeight + "px)";

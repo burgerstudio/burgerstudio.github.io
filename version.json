@@ -1,7 +1,7 @@
 {
-    "versionCode":221207,
-	"updateDate":"2022-12-07",
-    "change":"-“系统镜像”“应用程序”“网络站点”“更多资源”新增了内容<br>-新增 打开首页时自动检查版本更新<br>-优化 UI<br>-“极品电音”同步歌单更新<br>-新增 应用栏自动添加阴影",
+    "versionCode":221212,
+	"updateDate":"2022-12-12",
+    "change":"-“网络站点”新增了内容<br>-抽屉式导航栏 添加圆角，优化内容溢出时的滚动方式<br>-修复 离线版无法打开“新年倒计时”和“简易红绿灯”的问题",
     "note":"我的 WordPress 站点（bgs.code.blog）将继续更新！",
 	"spinner":"display: none !important;"
 }
