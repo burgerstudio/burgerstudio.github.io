@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+		<title>Burgros-Autoplay</title>
+      	<link rel="icon" href="appIcon.png" type="image/x-icon">
+		<style>
+		body{
+			overflow: hidden;
+         	margin: 0;
+		}
+		.button{
+			font-size: 16px;
+			text-align: center;
+			width: 32px;
+			padding: 16px;
+			border-radius: 25%;
+			margin-left: calc(50% - 32px);
+			transition: 0.1s;
+			background-color: white;
+		}
+		.button-active{
+		 	filter: brightness(50%);
+		}
+   		@keyframes appear{
+				from {filter: blur(16px);opacity: 0;transform: scale(1.2);}
+				to {filter: blur(0);opacity: 1;transform: scale(1);}
+		}
+		.sign{
+		 		font-size: 16px;
+				text-shadow: 0 1px 4px #999999;
+				width: 100%;
+				text-align: center;
+				animation-name: appear;
+				animation-delay: 0.5s;
+				animation-duration: 0.5s;
+				animation-fill-mode: forwards;
+				filter: blur(16px);
+				opacity: 0;
+				transform: scale(1.2);
+            	margin: 16px 0;
+		   }
+			.result{
+				position: fixed;
+				bottom: 16px;
+				font-size: 16px;
+				width: 128px;
+				padding: 16px 8px;
+				left: calc(50% - 72px);
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 16px;
+				color: white;
+				transform: scale(1.2);
+				opacity: 0;
+				transition: 0.2s;
+			}
+			.result div{
+				line-height: 4px;
+			}
+			.held{
+				transform: scale(0);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="sign">
+			Made by Burger Studio.
+		</div>
+		<div onclick="start();" class="button" id="button">
+			开始
+		</div>
+		<div id="number"></div>
+		<div id="result" class="result"><div id="time">已用时间：0 s</div><br><div id="held">打击个数：0</div><br><div id="percent">打击率：0%</div></div>
+		<script>
+			x = 0;
+			time = 0;
+			held = 0;
+			function start(){
+    			document.getElementById('result').style.opacity = 1;
+				document.getElementById('result').style.transform = "scale(1)";
+				window.setTimeout(create, 500);
+				window.setInterval(refreshTime, 1000);
+				var startAudio = "mediae/Tap7.mp3";
+				var startAudio = new Audio(startAudio);
+				startAudio.play();
+			}
+			function create(){
+				var div = document.createElement("h2");
+				div.innerText = x;
+				div.style.transition = 0.3 + "s";
+				div.style.transform = "translateX(" + Math.floor(Math.random() * document.body.clientWidth) + "px)";
+				a = Math.floor(Math.random() * 255);
+				b = Math.floor(Math.random() * 255);
+				c = Math.floor(Math.random() * 255);
+				div.style.color = "rgb("  + a + ", " + b + ", " + c + ")";
+				div.style.margin = 0;
+				div.style.width = 0 + "px";
+            	div.addEventListener("click", function (){refreshHeld(div)});
+				window.setTimeout(function (){div.click();}, 300);
+				refreshPercent();
+				x += 1;
+				document.getElementById('number').appendChild(div);
+				window.scrollTo(0, document.body.clientHeight);
+				window.setTimeout(create, 0);
+			}
+			document.getElementById('button').addEventListener("touchstart", activeButton);
+			document.getElementById('button').addEventListener("mousedown", activeButton);
+			function activeButton(){
+				document.getElementById('button').classList.add('button-active');
+				document.getElementById('button').addEventListener("touchend", UnActiveButton);
+				document.getElementById('button').addEventListener("mouseup", UnActiveButton);
+			}
+			function UnActiveButton(){
+				setTimeout("document.getElementById('button').classList.remove('button-active');", 100);
+			}
+			function refreshTime(){
+    			time += 1;
+				document.getElementById('time').innerHTML = "已用时间：" + time + " s";
+			}
+			function refreshHeld(obj){
+    			held += 1;
+				document.getElementById('held').innerHTML = "打击个数：" + held;
+				obj.style.transform = "rotate(90deg) translateY(16px)";
+				refreshPercent();
+            	var tapAudio = "mediae/HitSong0.mp3";
+				var tapAudio = new Audio(tapAudio);
+				tapAudio.play();
+			}
+			function refreshPercent(){
+    			percent = held / x * 100;
+             	document.getElementById('percent').innerHTML = "打击率：" + percent.toFixed(2) + " %";
+			}
+		</script>
+	</body>
+</html>
