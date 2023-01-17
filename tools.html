@@ -1,149 +1,149 @@
 <!doctype html>
 <html>
-	<head> 
-		<meta charset="UTF-8"> 
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
-      	<link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
+          <link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
         <link rel="stylesheet" href="mdui/css/mdui.min.css">
         <script src="mdui/js/mdui.min.js"></script>
         <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
         <link rel="stylesheet" type="text/css" href="theme.css" />
         <style>
-		.tool{
-		height: 70%;
-		width: 80%;
-		border-radius: 8px;
-      	position: fixed;
-		opacity: 0;
-		transform: scale(0.85);
-      	transition-property: opacity, transform, z-index, box-shadow, filter, background-color, left, top;
-		transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.1s, 0.1s;
-		overflow: hidden;
-		left: 10%;
-		right: 10%;
-		top: 15%;
-		bottom: 15%;
-      	max-height: 500px;
+        .tool{
+        height: 70%;
+        width: 80%;
+        border-radius: 8px;
+          position: fixed;
+        opacity: 0;
+        transform: scale(0.85);
+          transition-property: opacity, transform, z-index, box-shadow, filter, background-color, left, top;
+        transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.1s, 0.1s;
+        overflow: hidden;
+        left: 10%;
+        right: 10%;
+        top: 15%;
+        bottom: 15%;
+          max-height: 500px;
         max-width: 500px;
-		filter: grayscale(0);
-		box-shadow: 0 8px 32px 8px rgba(0, 0, 0, 0.3);
-      	z-index: -1;
-		}
-		.tool-opened{
-		opacity: 1;
-		transform: scale(1);
-		z-index: 1000000;
-		}
-   		.tool-opened.tool-unactive{
-		filter: grayscale(25%);
-		box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
-		z-index: 100000;
-		}
-   		.mdui-theme-layout-dark .tool{
+        filter: grayscale(0);
+        box-shadow: 0 8px 32px 8px rgba(0, 0, 0, 0.3);
+          z-index: -1;
+        }
+        .tool-opened{
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1000000;
+        }
+           .tool-opened.tool-unactive{
+        filter: grayscale(25%);
+        box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
+        z-index: 100000;
+        }
+           .mdui-theme-layout-dark .tool{
         background-color: #323232 !important;
         }
-		.tool-header{
-		width: 100%;
-		height: 32px;
+        .tool-header{
+        width: 100%;
+        height: 32px;
         position: sticky;
         top: 0;
         transition: 0.3s;
         opacity: 1;
-		}
-		.tool-unactive .tool-header{
+        }
+        .tool-unactive .tool-header{
         opacity: 0.75;  
         }
-   		.mdui-theme-layout-dark .tool-header{
+           .mdui-theme-layout-dark .tool-header{
         background-color: #212121 !important;
         }
-		.tool-close{
-		top: 0;
-		float: right;
-		height: 32px;
-		width: 10%;
-		font-size: 24px;
-		text-align: center;
-		transition: 0.3s;
-      	color: white;
-		border-radius: 4px;
-		}
-   		.mdui-theme-layout-dark .tool-close{
+        .tool-close{
+        top: 0;
+        float: right;
+        height: 32px;
+        width: 10%;
+        font-size: 24px;
+        text-align: center;
+        transition: 0.3s;
+          color: white;
+        border-radius: 4px;
+        }
+           .mdui-theme-layout-dark .tool-close{
         background-color: #212121 !important;
         }
-   		.tool-close:active{
+           .tool-close:active{
         opacity: 0.7 !important;
         }
-		.tool-button{
-		height: 32px;
-		width: 90%;
-		margin: 16px 0;
-      	text-align: center;
-		font-size: 16px;
-		padding-top: 4px;
-		border: none;
-		transition: 0.3s;
-      	outline-style: none;
-		border-radius: 4px;
-      	padding-bottom: 4px;
+        .tool-button{
+        height: 32px;
+        width: 90%;
+        margin: 16px 0;
+          text-align: center;
+        font-size: 16px;
+        padding-top: 4px;
+        border: none;
+        transition: 0.3s;
+          outline-style: none;
+        border-radius: 4px;
+          padding-bottom: 4px;
         color: white;
         max-width: 250px;
-		}
-		.tool-button:hover{
+        }
+        .tool-button:hover{
         box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
-		}
-   		.tool-button:active{
+        }
+           .tool-button:active{
         transform: scale(0.9);
         opacity: 0.9;
         }
-   		.tool-content{
-		margin: 8px;
-		padding: 4px;
-      	height: 80%;
-      	color: black;
-		overflow: scroll;
-		border-radius: 4px;
-      	text-align: center;
+           .tool-content{
+        margin: 8px;
+        padding: 4px;
+          height: 80%;
+          color: black;
+        overflow: scroll;
+        border-radius: 4px;
+          text-align: center;
         transition: 0.3s;
-		}
-   		.mdui-theme-layout-dark .tool-content{
+        }
+           .mdui-theme-layout-dark .tool-content{
         background-color: #434343 !important;
         color: white !important;
         }
-		.tool-title{
-		width: 80%;
-		height: 16px;
-		float: left;
-		padding: 8px;
-		font-size: 16px;
-      	color: white;
-      	transition: 0.3s;
-		opacity: 1;
-		}
-		.mdui-theme-layout-dark .tool-title{
+        .tool-title{
+        width: 80%;
+        height: 16px;
+        float: left;
+        padding: 8px;
+        font-size: 16px;
+          color: white;
+          transition: 0.3s;
+        opacity: 1;
+        }
+        .mdui-theme-layout-dark .tool-title{
         background-color: #212121 !important;
         }
-		.tool-input{
-		width: 94%;
-		margin: 4px 0;
-		padding: 4px;
-		outline-style: none;
-		border-style: solid;
-		border-color: #DEDEDE;
-		transition: 0.3s;
-		border-radius: 4px;
-		}
-   		.mdui-theme-layout-dark .tool-input{
+        .tool-input{
+        width: 94%;
+        margin: 4px 0;
+        padding: 4px;
+        outline-style: none;
+        border-style: solid;
+        border-color: #DEDEDE;
+        transition: 0.3s;
+        border-radius: 4px;
+        }
+           .mdui-theme-layout-dark .tool-input{
         background-color: #545454 !important;
         border-color: #656565;
         color: white !important;
         }
-		.tool-input:hover{
-		border-color: #CDCDCD;
-		}
-		.mdui-theme-layout-dark .tool-input:hover{
-		border-color: #767676 !important;
-		}
-		.mdui-progress{
+        .tool-input:hover{
+        border-color: #CDCDCD;
+        }
+        .mdui-theme-layout-dark .tool-input:hover{
+        border-color: #767676 !important;
+        }
+        .mdui-progress{
         height: 16px;
         margin: 4px 0;
         border-style: none;
@@ -176,21 +176,21 @@
         color: white !important;
         }
         .mdui-theme-layout-auto .tool-input:hover{
-		border-color: #767676 !important;
-		}
+        border-color: #767676 !important;
         }
-		.tool ::-webkit-scrollbar{
-		display: none;
-		}
-   		.tool-close:hover{
-		background-color: #F44336 !important;
-		color: white !important;
-		}
+        }
+        .tool ::-webkit-scrollbar{
+        display: none;
+        }
+           .tool-close:hover{
+        background-color: #F44336 !important;
+        color: white !important;
+        }
         </style>
         <title>JS工具 - Burger工具站</title>
-	</head> 
-	<body class="mdui-drawer-body-left"> 
-   		<header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0" id="appbar" onclick="activeWindow();">
+    </head> 
+    <body class="mdui-drawer-body-left"> 
+           <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0" id="appbar" onclick="activeWindow();">
         <div class="mdui-toolbar mdui-color-theme-50">
         <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
         <i class="mdui-icon material-icons">menu</i>
@@ -212,14 +212,14 @@
         <div id="updateDate"></div>
         <div id="updateChange"></div>
         <p class="mdui-text-color-red" id="updateNote"></p>
-		<p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
-      	<p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
+        <p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
+          <p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
         <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
         <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
         </div>
-		<script src="update.js"></script>
+        <script src="update.js"></script>
         </div>
         <div class="mdui-drawer mdui-color-theme-50" id="drawer" onclick="activeWindow();">
         <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/ id="bgsImage">
@@ -272,10 +272,10 @@
         <br><br><br><br>
         <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8" id="card">
             <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            	<h1 class="mdui-text-color-theme title" onclick="activeWindow();">JS工具</h1>
-            	<ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
-               		<div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
-               		<div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('clock');">线性时钟</li></div>
+                <h1 class="mdui-text-color-theme title" onclick="activeWindow();">JS工具</h1>
+                <ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
+                       <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
+                       <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('clock');">线性时钟</li></div>
                     <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('countdown');">线性倒计时</li></div>
                     <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('temperature');">摄氏度与华氏度转换</li></div>
                     <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('navigator');">获取浏览器信息</li></div>
@@ -284,41 +284,41 @@
                     <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('note');">便笺</li></div>
                     <div class="waves-block radius mdui-col"><li class="mdui-list-item" onclick="toolOpen('unknown');">一元二次方程求解</li></div>
                     </div>
-               	</ul>
-        	</div>
+                   </ul>
+            </div>
         </div>
         <br>
         <footer class="mdui-text-center mdui-color-theme-50 auto-dark" onclick="activeWindow();">
         <br>
-		<div class="waves-circle">
+        <div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
         <i class="mdui-icon material-icons">email</i>
         </a>
-		</div>
-		<div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
+        </div>
+        <div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
         <button class="mdui-btn mdui-btn-icon">
         <img src="images/WeChat-logo.png" class="mdui-img-fluid">
         </button>
-		</div>
+        </div>
         <div class="mdui-menu mdui-color-white" id="wechat" onclick="activeWindow();">
         <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
-		<div class="waves-circle">
+        <div class="waves-circle">
         <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
         <img src="images/QQ-logo.png" style="width:32px;height:32px;">
         </button>
-		</div>
+        </div>
         <div class="mdui-dialog" id="qq" style="width: 26.7%;height: 50%;" onclick="activeWindow();">
         <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
         </div>
-		<div class="waves-circle">
+        <div class="waves-circle">
         <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
         <i class="mdui-icon material-icons">send</i>
         </a>
-		</div>
+        </div>
         <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
-        <p><label>开发工具：<a href="https://www.coolapk.com/apk/com.venter.easyweb" class="footerlink">EasyWeb IDE</a></label></p>
+        <p><label>开发工具：<a href="https://atreep.netlify.app/hopweb/index.html" class="footerlink">HopWeb</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2023 - Burger Studio</p>
         <br>
         </footer>
@@ -326,141 +326,141 @@
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
         </a>
         <script src="toTop.js"></script>
-		<div class="tool mdui-center mdui-color-theme" id="clock" onclick="activeWindow('clock')">
-			<div class="tool-header mdui-color-theme-700">
-				<div class="tool-title mdui-color-theme-700" id="clockTitle">线性时钟</div>
-				<div class="tool-close mdui-color-theme-700" onclick="toolClose('clock');">
-					<i class="mdui-icon material-icons">close</i>
-				</div>
-			</div>
-			<div class="tool-content mdui-color-theme-50">
-				<button class="tool-button mdui-color-theme-accent" onclick="clock()">显示时钟</button>
-				<h3 class="mdui-text-center" id="clockText"></h3>
-				<div class="mdui-progress"><div class="mdui-progress-determinate" id="hour" style="width: 0;"></div></div>
-				<div class="mdui-progress"><div class="mdui-progress-determinate" id="minute" style="width: 0;"></div></div>
-				<div class="mdui-progress"><div class="mdui-progress-determinate" id="second" style="width: 0;"></div></div>
-            	<p style="margin: 8px;text-align: center;" id="greeting"></p>
-               	<script>
-					var hour = document.getElementById('hour');
-					var minute = document.getElementById('minute');
-					var second = document.getElementById('second');
-					function clock() {
-  						var today = new Date();
-  						var h = today.getHours();
-  						var m = today.getMinutes();
-  						var s = today.getSeconds();
-  						h = checkTime(h);
-						m = checkTime(m);
-  						s = checkTime(s);
-  						document.getElementById('clockText').innerHTML =
-  						h + ":" + m + ":" + s;
-  						var t = setTimeout(clock, 100);
-						hour.style.width = h / 24 * 100+ "%";
-						minute.style.width = m / 60 * 100 + "%";
-						second.style.width = s / 60 * 100 + "%";
-           					if (h < 9){
-    						document.getElementById('greeting').innerHTML = "新的一天！";
-						}else if (h >= 18){
-    						document.getElementById('greeting').innerHTML = "今天过得如何？";
-						}
-					}
-					function checkTime(i) {
-  						if (i < 10) {i = "0" + i};
-  						return i;
-					}
-				</script>
-			</div>
-		</div>
-      	<div class="tool mdui-center mdui-color-theme" id="countdown" onclick="activeWindow('countdown')">
-        	<div class="tool-header mdui-color-theme-700">
-				<div class="tool-title mdui-color-theme-700" id="countdownTitle">线性倒计时</div>
-            	<div class="tool-close mdui-color-theme-700" onclick="toolClose('countdown');">
-					<i class="mdui-icon material-icons">close</i>
-				</div>
-			</div>
-			<div class="tool-content mdui-color-theme-50">
-				<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）"></form>
-				<p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
-				<button class="tool-button mdui-color-theme-accent" onclick="countdown()" id="startCountdown">开启倒计时</button>
-				<h1 id="cs" style="text-align: center;">倒计时未开启</h1>
-            	<div class="mdui-progress">
-               		<div class="mdui-progress-determinate" id="cp" style="width: 100%;"></div>
-               	</div>
-				<script>
-					var c = document.getElementById('c');
-					var cs = document.getElementById('cs');
-               		var cp = document.getElementById('cp');
-					function countdown(){
-						var ci = c.value;
-						var cn = c.value;
-						countdownInitially()
-                   		function countdownInitially(){
-							if (Number(cn) > 0){
-								var ct = setTimeout(countdownInitially,1000);
-								cs.innerHTML = cn + " s";
-								cp.style.width = cn / ci * 100 + "%";
-								cn = cn - 1;
-							}else if (cn > -1 && ci > 0){
-    							cs.innerHTML = "倒计时已结束";
-								cp.style.width = 0;
-							}else{
-							    mdui.snackbar({ message: '输入错误', });
-							}
-         				}
-					}
-				</script>
-			</div>
-        </div>
-        <div class="tool mdui-center mdui-color-theme" id="temperature" onclick="activeWindow('temperature')">
-        	<div class="tool-header mdui-color-theme-700">
-				<div class="tool-title mdui-color-theme-700" id="temperatureTitle">摄氏度与华氏度转换</div>
-         		<div class="tool-close mdui-color-theme-700" onclick="toolClose('temperature');">
-					<i class="mdui-icon material-icons">close</i>
-				</div>
-			</div>
-         	<div class="tool-content mdui-color-theme-50">
-            	<p style="margin: 0;margin-left: 4px;margin-top: 4px;">摄氏度转换为华氏度</p>
-               	<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）"></form>
-                <button class="tool-button mdui-color-theme-accent" onclick="toFahrenheit()" id="toFahrenheit">转换</button>
-                <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
-                <script>
-                	var inputCelsius = document.getElementById('celsius');
-                   	var outputFahrenheit = document.getElementById('of');
-                	function toFahrenheit(){
-						var icv = inputCelsius.value;
-                       	icv = 32 + icv * 1.8;
-                       	outputFahrenheit.innerHTML = "转换结果：" + icv + " °F";
-                   	}
-                </script>
-                <div class="mdui-divider" style="margin: 8px;"></div>
-                <p style="margin: 0;margin-left: 4px;margin-top: 4px;">华氏度转换为摄氏度</p>
-               	<form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）"></form>
-                <button class="tool-button mdui-color-theme-accent" onclick="toCelsius()" id="toCelsius">转换</button>
-                <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
-                <script>
-                	var inputFahrenheit = document.getElementById('fahrenheit');
-                   	var outputCelsius = document.getElementById('oc');
-                	function toCelsius(){
-						var ifv = inputFahrenheit.value;
-                       	ifv = ( ifv - 32 ) / 1.8;
-                       	outputCelsius.innerHTML = "转换结果：" + ifv + " °C";
-                   	}
+        <div class="tool mdui-center mdui-color-theme" id="clock" onclick="activeWindow('clock')">
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="clockTitle">线性时钟</div>
+                <div class="tool-close mdui-color-theme-700" onclick="toolClose('clock');">
+                    <i class="mdui-icon material-icons">close</i>
+                </div>
+            </div>
+            <div class="tool-content mdui-color-theme-50">
+                <button class="tool-button mdui-color-theme-accent" onclick="clock()">显示时钟</button>
+                <h3 class="mdui-text-center" id="clockText"></h3>
+                <div class="mdui-progress"><div class="mdui-progress-determinate" id="hour" style="width: 0;"></div></div>
+                <div class="mdui-progress"><div class="mdui-progress-determinate" id="minute" style="width: 0;"></div></div>
+                <div class="mdui-progress"><div class="mdui-progress-determinate" id="second" style="width: 0;"></div></div>
+                <p style="margin: 8px;text-align: center;" id="greeting"></p>
+                   <script>
+                    var hour = document.getElementById('hour');
+                    var minute = document.getElementById('minute');
+                    var second = document.getElementById('second');
+                    function clock() {
+                          var today = new Date();
+                          var h = today.getHours();
+                          var m = today.getMinutes();
+                          var s = today.getSeconds();
+                          h = checkTime(h);
+                        m = checkTime(m);
+                          s = checkTime(s);
+                          document.getElementById('clockText').innerHTML =
+                          h + ":" + m + ":" + s;
+                          var t = setTimeout(clock, 100);
+                        hour.style.width = h / 24 * 100+ "%";
+                        minute.style.width = m / 60 * 100 + "%";
+                        second.style.width = s / 60 * 100 + "%";
+                               if (h < 9){
+                            document.getElementById('greeting').innerHTML = "新的一天！";
+                        }else if (h >= 18){
+                            document.getElementById('greeting').innerHTML = "今天过得如何？";
+                        }
+                    }
+                    function checkTime(i) {
+                          if (i < 10) {i = "0" + i};
+                          return i;
+                    }
                 </script>
             </div>
         </div>
-      	<div class="tool mdui-center mdui-color-theme" id="navigator" onclick="activeWindow('navigator')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="navigatorTitle">获取浏览器信息</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('navigator');">
-                	<i class="mdui-icon material-icons">close</i>
+          <div class="tool mdui-center mdui-color-theme" id="countdown" onclick="activeWindow('countdown')">
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="countdownTitle">线性倒计时</div>
+                <div class="tool-close mdui-color-theme-700" onclick="toolClose('countdown');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
+            </div>
             <div class="tool-content mdui-color-theme-50">
-            	<button class="tool-button mdui-color-theme-accent" onclick="info()">获取</button>
-               	<script>
-                	function info(){
-    					document.getElementById("cookieenabled").innerHTML = "Cookie 开启状态：" + navigator.cookieEnabled;
-                   		document.getElementById("appname").innerHTML = "浏览器应用程序名称：" + navigator.appName;
+                <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="c" type="number" placeholder="请输入倒计时时长（单位：秒）"></form>
+                <p style="margin: 0;margin-left: 4px;">倒计时时长必须为正数</p>
+                <button class="tool-button mdui-color-theme-accent" onclick="countdown()" id="startCountdown">开启倒计时</button>
+                <h1 id="cs" style="text-align: center;">倒计时未开启</h1>
+                <div class="mdui-progress">
+                       <div class="mdui-progress-determinate" id="cp" style="width: 100%;"></div>
+                   </div>
+                <script>
+                    var c = document.getElementById('c');
+                    var cs = document.getElementById('cs');
+                       var cp = document.getElementById('cp');
+                    function countdown(){
+                        var ci = c.value;
+                        var cn = c.value;
+                        countdownInitially()
+                           function countdownInitially(){
+                            if (Number(cn) > 0){
+                                var ct = setTimeout(countdownInitially,1000);
+                                cs.innerHTML = cn + " s";
+                                cp.style.width = cn / ci * 100 + "%";
+                                cn = cn - 1;
+                            }else if (cn > -1 && ci > 0){
+                                cs.innerHTML = "倒计时已结束";
+                                cp.style.width = 0;
+                            }else{
+                                mdui.snackbar({ message: '输入错误', });
+                            }
+                         }
+                    }
+                </script>
+            </div>
+        </div>
+        <div class="tool mdui-center mdui-color-theme" id="temperature" onclick="activeWindow('temperature')">
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="temperatureTitle">摄氏度与华氏度转换</div>
+                 <div class="tool-close mdui-color-theme-700" onclick="toolClose('temperature');">
+                    <i class="mdui-icon material-icons">close</i>
+                </div>
+            </div>
+             <div class="tool-content mdui-color-theme-50">
+                <p style="margin: 0;margin-left: 4px;margin-top: 4px;">摄氏度转换为华氏度</p>
+                   <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="celsius" type="number" placeholder="请输入要转换的温度（单位：°C）"></form>
+                <button class="tool-button mdui-color-theme-accent" onclick="toFahrenheit()" id="toFahrenheit">转换</button>
+                <p id="of" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
+                <script>
+                    var inputCelsius = document.getElementById('celsius');
+                       var outputFahrenheit = document.getElementById('of');
+                    function toFahrenheit(){
+                        var icv = inputCelsius.value;
+                           icv = 32 + icv * 1.8;
+                           outputFahrenheit.innerHTML = "转换结果：" + icv + " °F";
+                       }
+                </script>
+                <div class="mdui-divider" style="margin: 8px;"></div>
+                <p style="margin: 0;margin-left: 4px;margin-top: 4px;">华氏度转换为摄氏度</p>
+                   <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="fahrenheit" type="number" placeholder="请输入要转换的温度（单位：°F）"></form>
+                <button class="tool-button mdui-color-theme-accent" onclick="toCelsius()" id="toCelsius">转换</button>
+                <p id="oc" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;">这里将显示转换结果</p>
+                <script>
+                    var inputFahrenheit = document.getElementById('fahrenheit');
+                       var outputCelsius = document.getElementById('oc');
+                    function toCelsius(){
+                        var ifv = inputFahrenheit.value;
+                           ifv = ( ifv - 32 ) / 1.8;
+                           outputCelsius.innerHTML = "转换结果：" + ifv + " °C";
+                       }
+                </script>
+            </div>
+        </div>
+          <div class="tool mdui-center mdui-color-theme" id="navigator" onclick="activeWindow('navigator')">
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="navigatorTitle">获取浏览器信息</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('navigator');">
+                    <i class="mdui-icon material-icons">close</i>
+                </div>
+            </div>
+            <div class="tool-content mdui-color-theme-50">
+                <button class="tool-button mdui-color-theme-accent" onclick="info()">获取</button>
+                   <script>
+                    function info(){
+                        document.getElementById("cookieenabled").innerHTML = "Cookie 开启状态：" + navigator.cookieEnabled;
+                           document.getElementById("appname").innerHTML = "浏览器应用程序名称：" + navigator.appName;
                         document.getElementById("appcodename").innerHTML = "浏览器应用程序代码名称：" + navigator.appCodeName;
                         document.getElementById("product").innerHTML = "浏览器引擎：" + navigator.product;
                         document.getElementById("appversion").innerHTML = "浏览器版本：" + navigator.appVersion;
@@ -469,9 +469,9 @@
                         document.getElementById("language").innerHTML = "浏览器语言：" + navigator.language;
                         document.getElementById("online").innerHTML = "浏览器在线状态：" + navigator.onLine;
                         document.getElementById("javaenabled").innerHTML = "Java 开启状态：" + navigator.javaEnabled();
-					}
+                    }
                 </script>
-               	<p id="cookieenabled" style="margin: 8px;"></p>
+                   <p id="cookieenabled" style="margin: 8px;"></p>
                 <p id="appname" style="margin: 8px;"></p>
                 <p id="appcodename" style="margin: 8px;"></p>
                 <p id="product" style="margin: 8px;"></p>
@@ -484,127 +484,127 @@
             </div>
         </div>
         <div class="tool mdui-center mdui-color-theme" id="player" onclick="activeWindow('player')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="playerTitle">媒体播放器</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('player');">
-                	<i class="mdui-icon material-icons">close</i>
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="playerTitle">媒体播放器</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('player');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
-           	<div class="tool-content mdui-color-theme-50">
-            	<form onsubmit="return false;"><input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的 URL"></form>
-               	<button class="tool-button mdui-color-theme-accent" onclick="loadPlayer()" id="loadPlayer">加载媒体</button>
-               	<video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
-                	<source id="mediaSrc">
+            </div>
+               <div class="tool-content mdui-color-theme-50">
+                <form onsubmit="return false;"><input type="text" class="tool-input mdui-color-theme-100" id="pi" placeholder="请输入要获取媒体的 URL"></form>
+                   <button class="tool-button mdui-color-theme-accent" onclick="loadPlayer()" id="loadPlayer">加载媒体</button>
+                   <video class="mdui-video-fluid" style="margin-left: auto;margin-right: auto;" id="media" controls>
+                    <source id="mediaSrc">
                 </video>
                 <script>
-                	function loadPlayer(){
-    					document.getElementById('mediaSrc').src = document.getElementById('pi').value;
-                   		document.getElementById('media').load();
-					}
+                    function loadPlayer(){
+                        document.getElementById('mediaSrc').src = document.getElementById('pi').value;
+                           document.getElementById('media').load();
+                    }
                 </script>
             </div>
         </div>
         <div class="tool mdui-center mdui-color-theme" id="translate" onclick="activeWindow('translate')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="translateTitle">翻译</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('translate');">
-                	<i class="mdui-icon material-icons">close</i>
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="translateTitle">翻译</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('translate');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
-           	<div class="tool-content mdui-color-theme-50">
-            	<textarea type="text" class="tool-input mdui-color-theme-100" id="tranText" placeholder="请输入要翻译的文本" style="height: auto;"></textarea>
-               	<button class="tool-button mdui-color-theme-accent" onclick="gTran()" style="margin-bottom: 0;">Google 翻译</button>
+            </div>
+               <div class="tool-content mdui-color-theme-50">
+                <textarea type="text" class="tool-input mdui-color-theme-100" id="tranText" placeholder="请输入要翻译的文本" style="height: auto;"></textarea>
+                   <button class="tool-button mdui-color-theme-accent" onclick="gTran()" style="margin-bottom: 0;">Google 翻译</button>
                 <button class="tool-button mdui-color-theme-accent" onclick="mTran()" style="margin-bottom: 0;">Microsoft 翻译</button>
                 <button class="tool-button mdui-color-theme-accent" onclick="bTran()">百度翻译</button>
                 <script>
-                	function gTran(){
-    					location.href = "http://translate.google.cn/?text=" + document.getElementById('tranText').value;
-					}
-      				function mTran(){
-    					location.href = "https://cn.bing.com/translator/?text=" + document.getElementById('tranText').value;
-					}
-      				function bTran(){
-    					location.href = "https://fanyi.baidu.com/#en/zh/" + document.getElementById('tranText').value;
-					}
+                    function gTran(){
+                        location.href = "http://translate.google.cn/?text=" + document.getElementById('tranText').value;
+                    }
+                      function mTran(){
+                        location.href = "https://cn.bing.com/translator/?text=" + document.getElementById('tranText').value;
+                    }
+                      function bTran(){
+                        location.href = "https://fanyi.baidu.com/#en/zh/" + document.getElementById('tranText').value;
+                    }
                 </script>
             </div>
         </div>
         <div class="tool mdui-center mdui-color-theme" id="note" onclick="activeWindow('note')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="noteTitle">便笺</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('note');">
-                	<i class="mdui-icon material-icons">close</i>
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="noteTitle">便笺</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('note');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
-           	<div class="tool-content mdui-color-theme-50">
-            	<p id="noteText" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
-            	<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="window.setTimeout(editNote, 300);">编辑</button>
-				<script>
-					function editNote(){
-    					toolOpen('editNote');
-						loadNote2();
-					}
-					function loadNote(){
-						if (localStorage.getItem("note")){
-    						document.getElementById('noteText').innerHTML = "便笺内容：<br><br>" + localStorage.getItem("note");
-						}else{
-    						document.getElementById('noteText').innerHTML = "便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。";
-						}
-					}
-					loadNote();
-               		function loadNote2(){
-						if (localStorage.getItem("note")){
-    						document.getElementById('noteInput').value = localStorage.getItem("note");
-						}else{
-    						document.getElementById('noteInput').value = "";
-						}
-					}
-				</script>
+            </div>
+               <div class="tool-content mdui-color-theme-50">
+                <p id="noteText" style="margin: 8px;">便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。</p>
+                <button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="window.setTimeout(editNote, 300);">编辑</button>
+                <script>
+                    function editNote(){
+                        toolOpen('editNote');
+                        loadNote2();
+                    }
+                    function loadNote(){
+                        if (localStorage.getItem("note")){
+                            document.getElementById('noteText').innerHTML = "便笺内容：<br><br>" + localStorage.getItem("note");
+                        }else{
+                            document.getElementById('noteText').innerHTML = "便笺利用的是浏览器存储（localStroage），当相应数据被清除时会随之被删除。<br><br>点击“编辑”按钮来修改此便笺。";
+                        }
+                    }
+                    loadNote();
+                       function loadNote2(){
+                        if (localStorage.getItem("note")){
+                            document.getElementById('noteInput').value = localStorage.getItem("note");
+                        }else{
+                            document.getElementById('noteInput').value = "";
+                        }
+                    }
+                </script>
             </div>
         </div>
-		<div class="tool mdui-center mdui-color-theme" id="editNote" onclick="activeWindow('editNote')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="editNoteTitle">编辑便笺</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('editNote');">
-                	<i class="mdui-icon material-icons">close</i>
+        <div class="tool mdui-center mdui-color-theme" id="editNote" onclick="activeWindow('editNote')">
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="editNoteTitle">编辑便笺</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('editNote');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
-           	<div class="tool-content mdui-color-theme-50">
-            	<textarea id="noteInput" class="tool-input mdui-color-theme-100" style="height: 70%;" placeholder="请输入便笺内容"></textarea>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="removenote()" id="removenote">移除</button>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="saveNote()">保存</button>
-				<button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolClose('editNote');">取消</button>
-				<script>
-            		document.getElementById('noteInput').value = localStorage.getItem("note");
-					function saveNote(){
-    					localStorage.setItem("note",document.getElementById('noteInput').value);
-						loadNote();
-						mdui.snackbar({ message: '已保存便笺' });
-						toolClose('editNote');
-					}
-					function removenote(){
-					    localStorage.removeItem('note');
-					    loadNote();
-					    mdui.snackbar({ message: '已移除便笺' });
-					    toolClose('editNote');
-					}
-				</script>
+            </div>
+               <div class="tool-content mdui-color-theme-50">
+                <textarea id="noteInput" class="tool-input mdui-color-theme-100" style="height: 70%;" placeholder="请输入便笺内容"></textarea>
+                <button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="removenote()" id="removenote">移除</button>
+                <button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="saveNote()">保存</button>
+                <button class="tool-button mdui-color-theme-accent" style="width: 30%;float: right;margin: 4px;" onclick="toolClose('editNote');">取消</button>
+                <script>
+                    document.getElementById('noteInput').value = localStorage.getItem("note");
+                    function saveNote(){
+                        localStorage.setItem("note",document.getElementById('noteInput').value);
+                        loadNote();
+                        mdui.snackbar({ message: '已保存便笺' });
+                        toolClose('editNote');
+                    }
+                    function removenote(){
+                        localStorage.removeItem('note');
+                        loadNote();
+                        mdui.snackbar({ message: '已移除便笺' });
+                        toolClose('editNote');
+                    }
+                </script>
             </div>
         </div>
         <div class="tool mdui-center mdui-color-theme" id="unknown" onclick="activeWindow('unknown')">
-        	<div class="tool-header mdui-color-theme-700">
-        		<div class="tool-title mdui-color-theme-700" id="unknownTitle">一元二次方程求解</div>
-              	<div class="tool-close mdui-color-theme-700" onclick="toolClose('unknown');">
-                	<i class="mdui-icon material-icons">close</i>
+            <div class="tool-header mdui-color-theme-700">
+                <div class="tool-title mdui-color-theme-700" id="unknownTitle">一元二次方程求解</div>
+                  <div class="tool-close mdui-color-theme-700" onclick="toolClose('unknown');">
+                    <i class="mdui-icon material-icons">close</i>
                 </div>
-        	</div>
-           	<div class="tool-content mdui-color-theme-50">
-            	<p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
-				<form onsubmit="return false;">
+            </div>
+               <div class="tool-content mdui-color-theme-50">
+                <p style="margin: 8px;">请先将方程化为一般形式：ax²+bx+c=0(a≠0)。</p>
+                <form onsubmit="return false;">
                 <p>a = <input class="tool-input mdui-color-theme-100" id="unknownA" style="max-width: 64px;" type="number"></p>
                 <p>b = <input class="tool-input mdui-color-theme-100" id="unknownB" style="max-width: 64px;" type="number"></p>
                 <p>c = <input class="tool-input mdui-color-theme-100" id="unknownC" style="max-width: 64px;" type="number"></p>
-				</form>
+                </form>
                 <button class="tool-button mdui-color-theme-accent" onclick="workOut()" id="workOut">求解</button>
                 <p id="delta"></p>
                 <p id="rootNum"></p>
@@ -612,313 +612,313 @@
             </div>
             <script>
                 function workOut(){
-    				unknownA = document.getElementById('unknownA').value;
-                	unknownB = document.getElementById('unknownB').value;
-                	unknownC = document.getElementById('unknownC').value;
-                	delta = unknownB ** 2 - 4 * unknownA * unknownC;
-                	if (delta > 0){
-    					document.getElementById('delta').innerHTML = "Δ = " + delta + " > 0，";
-                   		document.getElementById('rootNum').innerHTML = "∴此方程有 2 个不相等的实数根，";
+                    unknownA = document.getElementById('unknownA').value;
+                    unknownB = document.getElementById('unknownB').value;
+                    unknownC = document.getElementById('unknownC').value;
+                    delta = unknownB ** 2 - 4 * unknownA * unknownC;
+                    if (delta > 0){
+                        document.getElementById('delta').innerHTML = "Δ = " + delta + " > 0，";
+                           document.getElementById('rootNum').innerHTML = "∴此方程有 2 个不相等的实数根，";
                         root1 = ( - unknownB + Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
                         root2 = ( - unknownB - Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
                         document.getElementById('root').innerHTML = "此方程的根为：x₁ = " + root1 + "，x₂ = " + root2 + ".";
-					}else if (delta == 0){
-    					document.getElementById('delta').innerHTML = "Δ = " + delta + "，";
-                   		document.getElementById('rootNum').innerHTML = "∴此方程有 2 个相等的实数根，";
+                    }else if (delta == 0){
+                        document.getElementById('delta').innerHTML = "Δ = " + delta + "，";
+                           document.getElementById('rootNum').innerHTML = "∴此方程有 2 个相等的实数根，";
                         root = ( - unknownB + Math.sqrt(unknownB ** 2 - 4 * unknownA * unknownC) ) / ( 2 * unknownA );
                         document.getElementById('root').innerHTML = "此方程的根为：x₁ = x₂ = " + root + ".";
-					}else if (delta < 0){
-    					document.getElementById('delta').innerHTML = "Δ = " + delta + " < 0，";
-                   		document.getElementById('rootNum').innerHTML = "∴此方程无实数根.";
+                    }else if (delta < 0){
+                        document.getElementById('delta').innerHTML = "Δ = " + delta + " < 0，";
+                           document.getElementById('rootNum').innerHTML = "∴此方程无实数根.";
                         document.getElementById('root').innerHTML = "";
-					}
-          			if (unknownA == 0){
-    					document.getElementById('delta').innerHTML = "";
-                   		document.getElementById('rootNum').innerHTML = "";
+                    }
+                      if (unknownA == 0){
+                        document.getElementById('delta').innerHTML = "";
+                           document.getElementById('rootNum').innerHTML = "";
                         document.getElementById('root').innerHTML = "";
                         mdui.snackbar({ message: '错误：a 的值为 0' });
-					}
-				}
+                    }
+                }
             </script>
         </div>
-	<script>
-		function toolOpen(id){
-    		document.getElementById(id).classList.add('tool-opened');
-			document.getElementById(id).style.transform = "scale(1)";
-			activeWindow(id);
-		}
-		function toolClose(id){
-    		document.getElementById(id).classList.remove('tool-opened');
-			document.getElementById(id).style.transform = "scale(0.85)";
-		}
-	</script>
-   	<script>
-    	var c = document.getElementById('c');
-		var celsius = document.getElementById('celsius');
-		var fahrenheit = document.getElementById('fahrenheit');
-      	var pi = document.getElementById('pi');
+    <script>
+        function toolOpen(id){
+            document.getElementById(id).classList.add('tool-opened');
+            document.getElementById(id).style.transform = "scale(1)";
+            activeWindow(id);
+        }
+        function toolClose(id){
+            document.getElementById(id).classList.remove('tool-opened');
+            document.getElementById(id).style.transform = "scale(0.85)";
+        }
+    </script>
+       <script>
+        var c = document.getElementById('c');
+        var celsius = document.getElementById('celsius');
+        var fahrenheit = document.getElementById('fahrenheit');
+          var pi = document.getElementById('pi');
         var unknownC = document.getElementById('unknownC');
-		c.addEventListener("keyup",function(event){
-    		event.preventDefault();
-			if (event.keyCode === 13){
-    			document.getElementById('startCountdown').click();
-			}
-		})
-		celsius.addEventListener("keyup",function(event){
-    		event.preventDefault();
-			if (event.keyCode === 13){
-    			document.getElementById('toFahrenheit').click();
-			}
-		})
-		fahrenheit.addEventListener("keyup",function(event){
-    		event.preventDefault();
-			if (event.keyCode === 13){
-    			document.getElementById('toCelsius').click();
-			}
-		})
-      	pi.addEventListener("keyup",function(event){
-    		event.preventDefault();
-			if (event.keyCode === 13){
-    			document.getElementById('loadPlayer').click();
-			}
-		})
-      	unknownC.addEventListener("keyup",function(event){
-    		event.preventDefault();
-			if (event.keyCode === 13){
-    			document.getElementById('workOut').click();
-			}
-		})
+        c.addEventListener("keyup",function(event){
+            event.preventDefault();
+            if (event.keyCode === 13){
+                document.getElementById('startCountdown').click();
+            }
+        })
+        celsius.addEventListener("keyup",function(event){
+            event.preventDefault();
+            if (event.keyCode === 13){
+                document.getElementById('toFahrenheit').click();
+            }
+        })
+        fahrenheit.addEventListener("keyup",function(event){
+            event.preventDefault();
+            if (event.keyCode === 13){
+                document.getElementById('toCelsius').click();
+            }
+        })
+          pi.addEventListener("keyup",function(event){
+            event.preventDefault();
+            if (event.keyCode === 13){
+                document.getElementById('loadPlayer').click();
+            }
+        })
+          unknownC.addEventListener("keyup",function(event){
+            event.preventDefault();
+            if (event.keyCode === 13){
+                document.getElementById('workOut').click();
+            }
+        })
     </script>
     <script src="dragWindows.js"></script>
-	<div class="mdui-dialog mdui-color-theme-50" id="setTheme" onclick="activeWindow();">
+    <div class="mdui-dialog mdui-color-theme-50" id="setTheme" onclick="activeWindow();">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
-           	<span class="mdui-typo-title">调色板</span>
-           	<div class="mdui-toolbar-spacer"></div>
-        	<div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
+               <span class="mdui-typo-title">调色板</span>
+               <div class="mdui-toolbar-spacer"></div>
+            <div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
         </div>
         <div class="mdui-dialog-content">
             <p style="font-size: 16px;">夜间模式</p>
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-					<label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
-    					<input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
-    					<i class="mdui-radio-icon"></i>
-    					跟随浏览器
-  					</label>
-                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
-    					<input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
-    					<i class="mdui-radio-icon"></i>
-    					关闭
-  					</label>
-                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
-    					<input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
-    					<i class="mdui-radio-icon"></i>
-    					开启
-  					</label>
-                 	<label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
-    					<input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
-    					<i class="mdui-radio-icon"></i>
-    					基于时间
-  					</label>
-				</div>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
+                        <i class="mdui-radio-icon"></i>
+                        跟随浏览器
+                      </label>
+                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
+                        <i class="mdui-radio-icon"></i>
+                        关闭
+                      </label>
+                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
+                        <i class="mdui-radio-icon"></i>
+                        开启
+                      </label>
+                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
+                        <i class="mdui-radio-icon"></i>
+                        基于时间
+                      </label>
+                </div>
             </form>
             <p style="font-size: 16px;">主色</p>
             <form>
-            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
-    					<i class="mdui-radio-icon"></i>
-    					Red
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
-    					<i class="mdui-radio-icon"></i>
-    					Pink
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
-    					<i class="mdui-radio-icon"></i>
-    					Purple
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
-    					<i class="mdui-radio-icon"></i>
-    					Deep-Purple
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
-    					<i class="mdui-radio-icon"></i>
-    					Indigo
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
-    					<i class="mdui-radio-icon"></i>
-    					Blue
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
-    					<i class="mdui-radio-icon"></i>
-    					Light-Blue
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
-    					<i class="mdui-radio-icon"></i>
-    					Cyan
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
-    					<i class="mdui-radio-icon"></i>
-    					Teal
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
-    					<i class="mdui-radio-icon"></i>
-    					Green
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
-    					<i class="mdui-radio-icon"></i>
-    					Light-Green
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
-    					<i class="mdui-radio-icon"></i>
-    					Lime
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
-    					<i class="mdui-radio-icon"></i>
-    					Yellow
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
-    					<i class="mdui-radio-icon"></i>
-    					Amber
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
-    					<i class="mdui-radio-icon"></i>
-    					Orange
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
-    					<i class="mdui-radio-icon"></i>
-    					Deep-Orange
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
-    					<i class="mdui-radio-icon"></i>
-    					Brown
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
-    					<i class="mdui-radio-icon"></i>
-    					Grey
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
-    					<input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
-    					<i class="mdui-radio-icon"></i>
-    					Blue-Grey
-  					</label>
+                <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
+                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
+                        <i class="mdui-radio-icon"></i>
+                        Red
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
+                        <i class="mdui-radio-icon"></i>
+                        Pink
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
+                        <i class="mdui-radio-icon"></i>
+                        Purple
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
+                        <i class="mdui-radio-icon"></i>
+                        Deep-Purple
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
+                        <i class="mdui-radio-icon"></i>
+                        Indigo
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
+                        <i class="mdui-radio-icon"></i>
+                        Blue
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
+                        <i class="mdui-radio-icon"></i>
+                        Light-Blue
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
+                        <i class="mdui-radio-icon"></i>
+                        Cyan
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
+                        <i class="mdui-radio-icon"></i>
+                        Teal
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
+                        <i class="mdui-radio-icon"></i>
+                        Green
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
+                        <i class="mdui-radio-icon"></i>
+                        Light-Green
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
+                        <i class="mdui-radio-icon"></i>
+                        Lime
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
+                        <i class="mdui-radio-icon"></i>
+                        Yellow
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
+                        <i class="mdui-radio-icon"></i>
+                        Amber
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
+                        <i class="mdui-radio-icon"></i>
+                        Orange
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
+                        <i class="mdui-radio-icon"></i>
+                        Deep-Orange
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
+                        <i class="mdui-radio-icon"></i>
+                        Brown
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
+                        <i class="mdui-radio-icon"></i>
+                        Grey
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
+                        <i class="mdui-radio-icon"></i>
+                        Blue-Grey
+                      </label>
                </div>
             </form>
             <p style="font-size: 16px;">强调色</p>
             <form>
-            	<div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-               		<label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemered"/>
-    					<i class="mdui-radio-icon"></i>
-    					Red
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
-    					<i class="mdui-radio-icon"></i>
-    					Pink
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
-    					<i class="mdui-radio-icon"></i>
-    					Purple
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
-    					<i class="mdui-radio-icon"></i>
-    					Deep-Purple
-  					</label>
-                 	<label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
-    					<i class="mdui-radio-icon"></i>
-    					Indigo
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
-    					<i class="mdui-radio-icon"></i>
-    					Blue
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
-    					<i class="mdui-radio-icon"></i>
-    					Light-Blue
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
-    					<i class="mdui-radio-icon"></i>
-    					Cyan
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
-    					<i class="mdui-radio-icon"></i>
-    					Teal
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
-    					<i class="mdui-radio-icon"></i>
-    					Green
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
-    					<i class="mdui-radio-icon"></i>
-    					Light-Green
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
-    					<i class="mdui-radio-icon"></i>
-    					Lime
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
-    					<i class="mdui-radio-icon"></i>
-    					Yellow
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
-    					<i class="mdui-radio-icon"></i>
-    					Amber
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
-    					<i class="mdui-radio-icon"></i>
-    					Orange
-  					</label>
-  					<label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
-    					<input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
-    					<i class="mdui-radio-icon"></i>
-    					Deep-Orange
-  					</label>
-  					<br><br>
+                <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
+                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemered"/>
+                        <i class="mdui-radio-icon"></i>
+                        Red
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
+                        <i class="mdui-radio-icon"></i>
+                        Pink
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
+                        <i class="mdui-radio-icon"></i>
+                        Purple
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
+                        <i class="mdui-radio-icon"></i>
+                        Deep-Purple
+                      </label>
+                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
+                        <i class="mdui-radio-icon"></i>
+                        Indigo
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
+                        <i class="mdui-radio-icon"></i>
+                        Blue
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
+                        <i class="mdui-radio-icon"></i>
+                        Light-Blue
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
+                        <i class="mdui-radio-icon"></i>
+                        Cyan
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
+                        <i class="mdui-radio-icon"></i>
+                        Teal
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
+                        <i class="mdui-radio-icon"></i>
+                        Green
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
+                        <i class="mdui-radio-icon"></i>
+                        Light-Green
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
+                        <i class="mdui-radio-icon"></i>
+                        Lime
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
+                        <i class="mdui-radio-icon"></i>
+                        Yellow
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
+                        <i class="mdui-radio-icon"></i>
+                        Amber
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
+                        <i class="mdui-radio-icon"></i>
+                        Orange
+                      </label>
+                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
+                        <i class="mdui-radio-icon"></i>
+                        Deep-Orange
+                      </label>
+                      <br><br>
                </div>
             </form>
         </div>
         <div class="mdui-dialog-actions">
-        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;width: 128px;" onclick="resetTheme()" mdui-dialog-close>恢复默认设置</div>
-        	<div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
+            <div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;width: 128px;" onclick="resetTheme()" mdui-dialog-close>恢复默认设置</div>
+            <div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
         </div>
     </div>
-	</body>
+    </body>
     <div id="updateDialog" class="update-dialog" onclick="activeWindow();">
         <div class="update-dialog-title">最近更新</div>
         <div class="update-dialog-content">2022年9月1日<br>-优化 UI</div>
-		<div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
+        <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
     </div>
     <script>
         var page = "Tools";
@@ -927,16 +927,16 @@
     <script src="pageUpdateDialog.js"></script>
     <script src="waves/waves.min.js"></script>
     <script src="setTheme.js"></script>
-  	<script>
+      <script>
     var config = {
     duration: 500,
     delay: 0
     };
     Waves.init(config);
-	Waves.attach('.waves-block',['waves-block']);
-	Waves.attach('.waves-circle',['waves-circle']);
-	Waves.attach('.waves-light',['waves-light']);
-	Waves.attach('.waves-classic',['waves-classic']);
-	Waves.init(config);
+    Waves.attach('.waves-block',['waves-block']);
+    Waves.attach('.waves-circle',['waves-circle']);
+    Waves.attach('.waves-light',['waves-light']);
+    Waves.attach('.waves-classic',['waves-classic']);
+    Waves.init(config);
     </script>
 </html>

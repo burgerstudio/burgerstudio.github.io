@@ -12,8 +12,7 @@ function closeUpdateDialog(){
 	window.setTimeout('updateDialog.style.display = "none"',800)
 	localStorage.setItem("doNotShowUpdate" + page + pageUpdateDate, "true");
 }
-if (localStorage.getItem("doNotShowUpdate" + page + pageUpdateDate) == "true"){
-}else{
+if (localStorage.getItem("doNotShowUpdate" + page + pageUpdateDate) != "true"){
     window.setTimeout('openUpdateDialog();',1500)
 	window.setTimeout('hideUpdateDialog();',11500)
 }
