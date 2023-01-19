@@ -20,6 +20,10 @@ var editNoteTool = document.querySelector('#editNote');
 var editNoteTitle = document.querySelector('#editNoteTitle');
 var unknownTool = document.querySelector('#unknown');
 var unknownTitle = document.querySelector('#unknownTitle');
+var passwordTool = document.querySelector('#password');
+var passwordTitle = document.querySelector('#passwordTitle');
+var QRCodeTool = document.querySelector('#QRCode');
+var QRCodeTitle = document.querySelector('#QRCodeTitle');
 function dragWindow(tool, title){
     
 //移动端（触屏）效果
@@ -46,6 +50,8 @@ title.addEventListener('touchstart', function(e) {
 	document.getElementById('note').classList.add('tool-unactive');
 	document.getElementById('editNote').classList.add('tool-unactive');
 	document.getElementById('unknown').classList.add('tool-unactive');
+	document.getElementById('password').classList.add('tool-unactive');
+    	document.getElementById('QRCode').classList.add('tool-unactive');
     tool.classList.remove('tool-unactive');
 	//缩小窗口
     tool.style.transform = "scale(0.85) translateY(" + tool.clientHeight * -0.075 + "px)";
@@ -98,6 +104,8 @@ title.addEventListener('touchend', function() {
 	document.getElementById('note').classList.add('tool-unactive');
 	document.getElementById('editNote').classList.add('tool-unactive');
 	document.getElementById('unknown').classList.add('tool-unactive');
+	document.getElementById('password').classList.add('tool-unactive');
+	document.getElementById('QRCode').classList.add('tool-unactive');
     tool.classList.remove('tool-unactive');
 	//缩小窗口
     tool.style.transform = "scale(0.85) translateY(" + tool.clientHeight * -0.075 + "px)";
@@ -146,6 +154,8 @@ dragWindow(translateTool, translateTitle);
 dragWindow(noteTool, noteTitle);
 dragWindow(editNoteTool, editNoteTitle);
 dragWindow(unknownTool, unknownTitle);
+dragWindow(passwordTool, passwordTitle);
+dragWindow(QRCodeTool, QRCodeTitle);
 function activeWindow(tool){
 	document.getElementById('clock').classList.add('tool-unactive');
 	document.getElementById('countdown').classList.add('tool-unactive');
@@ -156,5 +166,7 @@ function activeWindow(tool){
 	document.getElementById('note').classList.add('tool-unactive');
 	document.getElementById('editNote').classList.add('tool-unactive');
 	document.getElementById('unknown').classList.add('tool-unactive');
+	document.getElementById('password').classList.add('tool-unactive');
+	document.getElementById('QRCode').classList.add('tool-unactive');
     document.getElementById(tool).classList.remove('tool-unactive');
 }

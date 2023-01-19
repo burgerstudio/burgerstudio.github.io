@@ -1,7 +1,7 @@
 {
-    "versionCode":230117,
-	"updateDate":"2023-01-17",
-    "change":"-“系统镜像”“应用程序”“网络站点”“更多资源”新增了内容<br>-“极品电音”同步歌单更新<br>-修复 新年倒计时静止的问题<br>-离线版改用 HopWeb 打包，并更换了包名，更新后可以卸载旧版本",
+    "versionCode":230119,
+	"updateDate":"2023-01-19",
+    "change":"-“JS工具”新增“数据加密/解密”“二维码生成”",
     "note":"新年快乐🎉🎉🎉",
 	"spinner":"display: none !important;"
 }
