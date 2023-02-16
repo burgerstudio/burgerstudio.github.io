@@ -1,259 +1,290 @@
 <!doctype html>
-<html> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-        <link rel="stylesheet" href="mdui/css/mdui.min.css">
-        <script src="mdui/js/mdui.min.js"></script>
-        <title>班主任发起的视频会议 - Burger工具站</title>
-        <link rel="icon" href="images/DTCall.png" type="image/x-icon">
-        <meta name='description' content="班主任邀请你加入视频会议">
-        <style>
-        	body{
-        	    background-color: #2B2B2B;
-        	}
-           	.bzr{
-             	position: fixed;
-                width: 64px;
-                height: 64px;
-                border-radius: 8px;
-                left: calc(50% - 32px);
-                top: 10%;
-                background-color: #0089FF;
-            }
-            .bzrwz{
-                position: fixed;
-                font-size: 20px;
-                color: white;
-               	left: calc(50% - 20px);
-                top: calc(10% + 22px);
-            }
-            .qp{
-            	position: fixed;
-               	left: 16px;
-               	top: 16px;
-                color: white;
-            }
-            .yq{
-                position: fixed;
-            	top: calc(10% + 80px);
-               	color: white;
-                opacity: 0.7;
-                width: 100%;
-                font-size: 16px;
-                text-align: center;
-            }
-            .sphy{
-            	position: fixed;
-               	top: calc(10% + 112px);
-                color: white;
-                width: 100%;
-                font-size: 20px;
-                text-align: center;
-            }
-            .zhyz{
-            	position: fixed;
-               	top: calc(10% + 196px);
-                color: white;
-                width: 128px;
-                left: calc(50% - 64px);
-                font-size: 16px;
-                text-align: center;
-                vertical-align: middle;
-            }
-            .zhyztb{
-                float: left;
-            }
-            .zhyzwz{
-                float: right;
-            	opacity: 0.7;
-               	margin-top: 3px;
-            }
-            .jjjt{
-            	position: fixed;
-               	bottom: 10%;
-               	width: 70%;
-              	height: 88px;
-                max-width: 600px;
-            }
-            .jj{
-            	float: left;
-               	color: white;
-                width: 64px;
-                height: 88px;
-                text-align: center;
-            }
-            .jjan{
-            	background-color: #FF5218 !important;
-               	width: 64px;
-                height: 64px;
-            }
-            .jjtb{
-            	font-size: 32px;
-               	margin-left: -3.8px;
-            }
-            .jjwz{
-            	font-size: 14px;
-               	opacity: 0.7;
-                margin-top: 8px;
-            }
-            .jt{
-            	float: right;
-               	color: white;
-                width: 64px;
-                height: 88px;
-                text-align: center;
-            }
-            .jtan{
-            	background-color: #00B853 !important;
-               	width: 64px;
-                height: 64px;
-            }
-            .jttb{
-            	font-size: 32px;
-               	margin-left: -3.8px;
-            }
-            .jtwz{
-            	font-size: 14px;
-               	opacity: 0.7;
-                margin-top: 8px;
-            }
-            .sp{
-            	position: fixed;
-               	bottom: calc(10% + 104px);
-               	width: 70%;
-              	height: 88px;
-                max-width: 600px;
-            }
-            .spjt{
-            	float: right;
-               	color: white;
-                width: 64px;
-                height: 88px;
-                text-align: center;
-            }
-            .spjtan{
-            	background-color: #1F1F1F !important;
-               	width: 64px;
-                height: 64px;
-            }
-            .spjttb{
-            	font-size: 32px;
-               	margin-left: -3.8px;
-            }
-            .spjtwz{
-            	font-size: 14px;
-               	opacity: 0.7;
-                margin-top: 8px;
-            }
-            .mdui-dialog{
-            	transform: scale(1);
-               	transition: 0.2s;
-               	border-radius: 8px;
-                max-width: 256px;
-            }
-            .mdui-dialog-actions .mdui-btn{
-            	border-radius: 4px;
-            }
-        </style>
-    </head> 
-    <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue"> 
-    	<button class="mdui-btn mdui-btn-icon qp mdui-ripple mdui-ripple-white" onclick="requestFullScreen(document.documentElement);">
-       		<i class="mdui-icon material-icons" id="qptb">fullscreen</i>
-        </button>
-        <div class="bzr"></div>
-        <div class="bzrwz">主任</div>
-        <div class="yq">班主任邀请你加入</div>
-        <div class="sphy">班主任发起的视频会议</div>
-        <div class="zhyz">
-        	<i class="mdui-icon material-icons zhyztb">equalizer</i>
-           	<div class="zhyzwz"> 50 人在会议中</div>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <title>班主任发起的视频会议 - Burger工具站</title>
+    <link rel="icon" href="images/DTCall.png" type="image/x-icon">
+    <meta name='description' content="班主任邀请你加入视频会议">
+    <style>
+        body {
+            background-color: #2B2B2B;
+        }
+
+        .bzr {
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            left: calc(50% - 32px);
+            top: 10%;
+            background-color: #0089FF;
+        }
+
+        .bzrwz {
+            position: fixed;
+            font-size: 20px;
+            color: white;
+            left: calc(50% - 20px);
+            top: calc(10% + 22px);
+        }
+
+        .qp {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            color: white;
+        }
+
+        .yq {
+            position: fixed;
+            top: calc(10% + 80px);
+            color: white;
+            opacity: 0.7;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .sphy {
+            position: fixed;
+            top: calc(10% + 112px);
+            color: white;
+            width: 100%;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .zhyz {
+            position: fixed;
+            top: calc(10% + 196px);
+            color: white;
+            width: 128px;
+            left: calc(50% - 64px);
+            font-size: 16px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .zhyztb {
+            float: left;
+        }
+
+        .zhyzwz {
+            float: right;
+            opacity: 0.7;
+            margin-top: 3px;
+        }
+
+        .jjjt {
+            position: fixed;
+            bottom: 10%;
+            width: 70%;
+            height: 88px;
+            max-width: 600px;
+        }
+
+        .jj {
+            float: left;
+            color: white;
+            width: 64px;
+            height: 88px;
+            text-align: center;
+        }
+
+        .jjan {
+            background-color: #FF5218 !important;
+            width: 64px;
+            height: 64px;
+        }
+
+        .jjtb {
+            font-size: 32px;
+            margin-left: -3.8px;
+        }
+
+        .jjwz {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .jt {
+            float: right;
+            color: white;
+            width: 64px;
+            height: 88px;
+            text-align: center;
+        }
+
+        .jtan {
+            background-color: #00B853 !important;
+            width: 64px;
+            height: 64px;
+        }
+
+        .jttb {
+            font-size: 32px;
+            margin-left: -3.8px;
+        }
+
+        .jtwz {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .sp {
+            position: fixed;
+            bottom: calc(10% + 104px);
+            width: 70%;
+            height: 88px;
+            max-width: 600px;
+        }
+
+        .spjt {
+            float: right;
+            color: white;
+            width: 64px;
+            height: 88px;
+            text-align: center;
+        }
+
+        .spjtan {
+            background-color: #1F1F1F !important;
+            width: 64px;
+            height: 64px;
+        }
+
+        .spjttb {
+            font-size: 32px;
+            margin-left: -3.8px;
+        }
+
+        .spjtwz {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-top: 8px;
+        }
+
+        .mdui-dialog {
+            transform: scale(1);
+            transition: 0.2s;
+            border-radius: 8px;
+            max-width: 256px;
+        }
+
+        .mdui-dialog-actions .mdui-btn {
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
+    <button class="mdui-btn mdui-btn-icon qp mdui-ripple mdui-ripple-white" onclick="requestFullScreen(document.documentElement);">
+        <i class="mdui-icon material-icons" id="qptb">fullscreen</i>
+    </button>
+    <div class="bzr"></div>
+    <div class="bzrwz">主任</div>
+    <div class="yq">班主任邀请你加入</div>
+    <div class="sphy">班主任发起的视频会议</div>
+    <div class="zhyz">
+        <i class="mdui-icon material-icons zhyztb">equalizer</i>
+        <div class="zhyzwz"> 50 人在会议中</div>
+    </div>
+    <div class="jjjt" id="jjjt">
+        <div class="jj">
+            <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white jjan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons jjtb">call_end</i></button>
+            <div class="jjwz">拒绝</div>
         </div>
-        <div class="jjjt" id="jjjt">
-        	<div class="jj">
-           		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white jjan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons jjtb">call_end</i></button>
-                <div class="jjwz">拒绝</div>
-            </div>
-           	<div class="jt">
-            	<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white jtan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons jttb">call</i></button>
-                <div class="jtwz">接听</div>
+        <div class="jt">
+            <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white jtan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons jttb">call</i></button>
+            <div class="jtwz">接听</div>
+        </div>
+    </div>
+    <div class="sp" id="sp">
+        <div class="spjt">
+            <button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white spjtan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons spjttb">videocam</i></button>
+            <div class="spjtwz">视频接听</div>
+        </div>
+    </div>
+    <div class="mdui-dialog" id="siteInfo">
+        <div class="mdui-dialog-title">关于本项目</div>
+        <div class="mdui-dialog-content">
+            <div class="mdui-typo">
+                仿钉钉视频会议界面<br>前端框架：<a href="https://www.mdui.org/">MDUI</a><br>开发工具：<a href="https://www.coolapk.com/apk/com.venter.easyweb">EasyWeb IDE</a><br>Made by Burger Studio.
             </div>
         </div>
-        <div class="sp" id="sp">
-        	<div class="spjt">
-        		<button class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white spjtan" mdui-dialog="{target: '#siteInfo'}"><i class="mdui-icon material-icons spjttb">videocam</i></button>
-            	<div class="spjtwz">视频接听</div>
-            </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>确定</button>
         </div>
-        <div class="mdui-dialog" id="siteInfo">
-  			<div class="mdui-dialog-title">关于本项目</div>
-  			<div class="mdui-dialog-content">
-           		<div class="mdui-typo">
-                	仿钉钉视频会议界面<br>前端框架：<a href="https://www.mdui.org/">MDUI</a><br>开发工具：<a href="https://www.coolapk.com/apk/com.venter.easyweb">EasyWeb IDE</a><br>Made by Burger Studio.
-                </div>
-           	</div>
-  			<div class="mdui-dialog-actions">
-    			<button class="mdui-btn mdui-ripple" mdui-dialog-close>确定</button>
-  			</div>
-		</div>
+    </div>
     <audio src="mediae/incoming.mp3" autoplay="autoplay" loop="loop" preload="auto" id="bgm"></audio>
     <script>
-    	qp = 0;
-       	var qptb = document.getElementById('qptb');
-       	// 全屏显示源码来自：https://www.php.cn/article/397034.html
-    	function requestFullScreen(element) {
-        	if (qp == 0){
-				// 判断各种浏览器，找到正确的方法
-				var requestMethod = element.requestFullScreen || //W3C
- 				element.webkitRequestFullScreen || //Chrome等
- 				element.mozRequestFullScreen || //FireFox
- 				element.msRequestFullScreen; //IE11
- 				if (requestMethod) {
- 		 			requestMethod.call(element);
- 				}
- 				else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer
-  					var wscript = new ActiveXObject("WScript.Shell");
-  					if (wscript !== null) {
-   						wscript.SendKeys("{F11}");
-  					}
- 				}
-       			qp = 1;
-       			qptb.innerHTML = "fullscreen_exit";
-			}else if (qp == 1){
-    			exitFull();
-             	qp = 0;
+        qp = 0;
+        var qptb = document.getElementById('qptb');
+        // 全屏显示源码来自：https://www.php.cn/article/397034.html
+        function requestFullScreen(element) {
+            if (qp == 0) {
+                // 判断各种浏览器，找到正确的方法
+                var requestMethod = element.requestFullScreen || //W3C
+                    element.webkitRequestFullScreen || //Chrome等
+                    element.mozRequestFullScreen || //FireFox
+                    element.msRequestFullScreen; //IE11
+                if (requestMethod) {
+                    requestMethod.call(element);
+                } else if (typeof window.ActiveXObject !== "undefined") { //for Internet Explorer
+                    var wscript = new ActiveXObject("WScript.Shell");
+                    if (wscript !== null) {
+                        wscript.SendKeys("{F11}");
+                    }
+                }
+                qp = 1;
+                qptb.innerHTML = "fullscreen_exit";
+            } else if (qp == 1) {
+                exitFull();
+                qp = 0;
                 qptb.innerHTML = "fullscreen";
-			}
-   		}
-   		function exitFull() {
- 			// 判断各种浏览器，找到正确的方法
- 			var exitMethod = document.exitFullscreen || //W3C
- 			document.mozCancelFullScreen || //Chrome等
- 			document.webkitExitFullscreen || //FireFox
- 			document.webkitExitFullscreen; //IE11
- 			if (exitMethod) {
-  				exitMethod.call(document);
- 			}
- 			else if (typeof window.ActiveXObject !== "undefined") {//for Internet Explorer
-  				var wscript = new ActiveXObject("WScript.Shell");
-  				if (wscript !== null) {
-   					wscript.SendKeys("{F11}");
-  				}
- 			}
-		}
-   		//点击页面任意位置播放背景音乐
-   		document.documentElement.addEventListener("click", function (){document.getElementById('bgm').play();});
+            }
+        }
+
+        function exitFull() {
+            // 判断各种浏览器，找到正确的方法
+            var exitMethod = document.exitFullscreen || //W3C
+                document.mozCancelFullScreen || //Chrome等
+                document.webkitExitFullscreen || //FireFox
+                document.webkitExitFullscreen; //IE11
+            if (exitMethod) {
+                exitMethod.call(document);
+            } else if (typeof window.ActiveXObject !== "undefined") { //for Internet Explorer
+                var wscript = new ActiveXObject("WScript.Shell");
+                if (wscript !== null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+        //点击页面任意位置播放背景音乐
+        document.documentElement.addEventListener("click", function() {
+            document.getElementById('bgm').play();
+        });
         //按钮定位
         var jjjt = document.getElementById('jjjt');
-		var sp = document.getElementById('sp');
-      	function andw(){
-			jjjt.style.left = "calc(50% - " + jjjt.clientWidth / 2 + "px)";
-			sp.style.left = "calc(50% - " + sp.clientWidth / 2 + "px)";
-      	}
+        var sp = document.getElementById('sp');
+
+        function andw() {
+            jjjt.style.left = "calc(50% - " + jjjt.clientWidth / 2 + "px)";
+            sp.style.left = "calc(50% - " + sp.clientWidth / 2 + "px)";
+        }
         andw();
         //屏幕旋转时自动重新定位按钮
         //监听屏幕旋转源码来自：https://blog.csdn.net/Lc_style/article/details/121100574
-        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function (){window.setTimeout('andw();', 10);}, false);
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+            window.setTimeout('andw();', 10);
+        }, false);
     </script>
-    </body>
+</body>
+
 </html>

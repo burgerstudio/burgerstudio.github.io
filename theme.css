@@ -1,277 +1,396 @@
-.mdui-theme-layout-dark .update-dialog{
-background-color: rgba(32, 32, 32, 0.9);
-color: white;
-}
-.mdui-theme-layout-dark .update-dialog-btn{
-background-color: #545454;
-color: white;
-}
-.mdui-theme-layout-dark .update-dialog-btn:hover{
-background-color: #656565;
-}
-.mdui-theme-layout-dark .mdui-tooltip{
-background-color: rgba(240, 240, 240, 0.9);
-color: black;
-}
-.mdui-theme-layout-dark .mdui-dialog{
-background-color: #434343 !important;
-color: white !important;
-}
-.mdui-theme-layout-dark .mdui-drawer{
-background-color: #323232 !important;
-color: white !important;
-}
-.mdui-theme-layout-dark .footerlink{
-color: white;
-}
-.mdui-theme-layout-dark .footerlink:active{
-background-color: rgba(255, 255, 255, 0.3);
-}
-.mdui-theme-layout-dark .waves-ripple{
-background:rgba(255, 255, 255, 0.4);
-}
-.mdui-theme-layout-dark .auto-dark{
-background-color: #212121 !important;
-color: white !important;
-}
-.mdui-panel-item{
-border-radius: 10px;
-margin: 8px 0;
-}
-.mdui-snackbar{
-width: 66.66%;
-border-radius: 20px 20px 0 0;
-background-color: rgba(32, 32, 32, 0.9);
-}
-.mdui-tab .toolbar-btn{
-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-@media (min-width: 600px){
-.mdui-snackbar{
-width: auto !important;
-min-width: 288px !important;
-max-width: 568px !important;
-}
-}
-.mdui-snackbar-text{
-margin-left: auto;
-margin-right: auto;
-}
-.mdui-theme-layout-dark .mdui-snackbar{
-background-color: rgba(240, 240, 240, 0.9);
-color: black;
-}
-.mdui-dialog{
-border-radius: 32px;
-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
-transition-property: transform, opacity, visibility, -webkit-transform, background-color;
-transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.4s;
-}
-.mdui-menu{
-border-radius: 10px;
-box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
-}
-.mdui-drawer img{
-border-radius: 0 0 8px 8px;
-}
-.mdui-tooltip{
-border-radius: 20px;
-background-color: rgba(32, 32, 32, 0.9);
-transition-property: opacity, transform, -webkit-transform, background-color, color;
-transition-duration: 0.15s, 0.15s, 0.15s, 0.4s, 0.4s;
-}
-@keyframes card{
-from {transform: scale(0.9);opacity: 0;}
-to {transform: scale(1);opacity: 1;}
-}
-.mdui-card{
-border-radius: 10px;
-animation-name: card;
-animation-duration: 0.7s;
-}
-@keyframes toleft{
-from {transform: translateX(32px);opacity: 0;}
-to {transform: translateX(0px);opacity: 1;}
-}
-@keyframes toright{
-from {transform: translateX(-32px);opacity: 0;}
-to {transform: translateX(0px);opacity: 1;}
-}
-.toleft{
-animation-name: toleft;
-animation-duration: 0.7s;
-animation-fill-mode: forwards;
-animation-delay: 0.3s;
-transform: translateX(32px);
-opacity: 0;
-}
-.toright{
-animation-name: toright;
-animation-duration: 0.7s;
-animation-fill-mode: forwards;
-animation-delay: 0.3s;
-transform: translateX(-32px);
-opacity: 0;
-}
-.opacity{
-animation-name: opacity;
-animation-duration: 0.7s;
-}
-@keyframes opacity{
-from  {opacity: 0;}
-to {opacity: 1;}
-}
-.title{
-animation-name: toleft;
-animation-duration: 0.7s;
-animation-delay: 0.3s;
-opacity: 0;
-transform: translateX(32px);
-animation-fill-mode: forwards;
-}
-.footerlink{
-color: black;
-transition: 0.2s;
-text-decoration: none;
-}
-.footerlink:hover{
-opacity: 0.7;
-}
-.footerlink:active{
-background-color: rgba(0, 0, 0, 0.3);
-}
-.radius{
-border-radius: 20px;
-}
-footer, h3, h2, h1, .mdui-toolbar, .mdui-appbar, .mdui-card, .mdui-tab, p, .mdui-divider, #thumbIcon, label, ol li, li a{
-transition: 0.4s;
-}
-body{
-transition: 0.4s !important;
-}
-.mdui-drawer{
-transition-property: transform, background-color, color !important;
-transition-duration: 0.3s, 0.4s, 0.4s !important;
-}
-.update-dialog{
-position: fixed;
-right: -300px;
-bottom: 16px;
-background-color: rgba(240, 240, 240, 0.9);
-box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
-padding: 16px;
-transition: 0.5s;
-width: 250px;
-border-radius: 10px;
-z-index: 2;
-color: black;
-}
-.update-dialog-title{
-font-weight: bold;
-margin-bottom: 8px;
-font-size: 16px;
-}
-.update-dialog-btn{
-width: 200px;
-height: 30px;
-margin-top: 16px;
-border-radius: 5px;
-border: none;
-background-color: #FFFFFF;
-transition: 0.3s;
-outline: none;
-color: CCCCCC;
-}
-.update-dialog-btn:hover{
-box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
-}
-.update-dialog-btn:active{
-background-color: #EEEEEE;
-color: #999999;
-}
-html{
-scroll-behavior:smooth;
-}
-.scaleappear{
-animation-name: card;
-animation-duration: 0.7s;
-}
-.mdui-panel-item-title{
-width: 75%;
-min-width: 75%;
-}
-::-webkit-scrollbar-thumb{
-border-radius: 10px;
-}
-.mdui-tab .mdui-icon{
-padding: 4px 4px;
-border-radius: 20px;
-transition: 0.3s;
-}
-.mdui-card-media-covered{
-border-radius: 10px 10px 0 0;
-}
-.toolbar-btn:hover{
-background-color: rgba(0, 0, 0, 0.1) !important;
-}
-.mdui-card-menu .mdui-btn:hover{
-background-color: rgba(0, 0, 0, 0.1) !important;
-}
-.mdui-theme-layout-dark .toolbar-btn:hover{
-background-color: rgba(255, 255, 255, 0.1) !important;
-}
-.mdui-snackbar-action{
-border-radius: 20px;
-}
-.mdui-drawer{
-border-radius: 0 20px 20px 0;
-overflow: hidden;
-}
-.mdui-drawer .mdui-list{
-overflow: scroll;
-}
-@media (prefers-color-scheme: dark){
-.mdui-theme-layout-auto .mdui-dialog{
-background-color: #434343 !important;
-color: white !important;
-}
-.mdui-theme-layout-auto .mdui-drawer{
-background-color: #323232 !important;
-color: white !important;
-}
-.mdui-theme-layout-auto .footerlink{
-color: white;
-}
-.mdui-theme-layout-auto .footerlink:active{
-background-color: rgba(255, 255, 255, 0.3);
-}
-.mdui-theme-layout-auto .waves-ripple{
-background: rgba(255, 255, 255, 0.4);
-}
-.mdui-theme-layout-auto .update-dialog{
-background-color: rgba(32, 32, 32, 0.9);
-color: white;
-}
-.mdui-theme-layout-auto .update-dialog-btn{
-background-color: #545454;
-color: white;
-}
-.mdui-theme-layout-auto .update-dialog-btn:hover{
-background-color: #656565;
-}
-.mdui-theme-layout-auto .mdui-tooltip{
-background-color: rgba(240, 240, 240, 0.9);
-color: black;
-}
-.mdui-theme-layout-auto .auto-dark{
-background-color: #212121 !important;
-color: white !important;
-}
-.mdui-theme-layout-auto .mdui-snackbar{
-background-color: rgba(240, 240, 240, 0.9);
-color: black;
-}
-.mdui-theme-layout-auto .toolbar-btn:hover{
-background-color: rgba(255, 255, 255, 0.1) !important;
-}
+.mdui-theme-layout-dark .update-dialog {
+    background-color: rgba(32, 32, 32, 0.9);
+    color: white;
+}
+
+.mdui-theme-layout-dark .update-dialog-btn {
+    background-color: #545454;
+    color: white;
+}
+
+.mdui-theme-layout-dark .update-dialog-btn:hover {
+    background-color: #656565;
+}
+
+.mdui-theme-layout-dark .mdui-tooltip {
+    background-color: rgba(240, 240, 240, 0.9);
+    color: black;
+}
+
+.mdui-theme-layout-dark .mdui-dialog {
+    background-color: #434343 !important;
+    color: white !important;
+}
+
+.mdui-theme-layout-dark .mdui-drawer {
+    background-color: #323232 !important;
+    color: white !important;
+}
+
+.mdui-theme-layout-dark .footerlink {
+    color: white;
+}
+
+.mdui-theme-layout-dark .footerlink:active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.mdui-theme-layout-dark .waves-ripple {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.mdui-theme-layout-dark .auto-dark {
+    background-color: #212121 !important;
+    color: white !important;
+}
+
+.mdui-theme-layout-dark .mdui-card {
+    color: #fff !important;
+    background-color: #424242 !important;
+}
+
+.mdui-panel-item {
+    border-radius: 10px;
+    margin: 8px 0;
+}
+
+.mdui-snackbar {
+    width: 66.66%;
+    border-radius: 20px 20px 0 0;
+    background-color: rgba(32, 32, 32, 0.9);
+}
+
+.mdui-tab .toolbar-btn {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 600px) {
+    .mdui-snackbar {
+        width: auto !important;
+        min-width: 288px !important;
+        max-width: 568px !important;
+    }
+}
+
+.mdui-snackbar-text {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mdui-theme-layout-dark .mdui-snackbar {
+    background-color: rgba(240, 240, 240, 0.9);
+    color: black;
+}
+
+.mdui-dialog {
+    border-radius: 32px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+    transition-property: transform, opacity, visibility, -webkit-transform, background-color;
+    transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.4s;
+}
+
+.mdui-menu {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mdui-fab {
+    border-radius: 16px;
+    box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mdui-drawer img {
+    border-radius: 0 0 8px 8px;
+}
+
+.mdui-tooltip {
+    border-radius: 20px;
+    background-color: rgba(32, 32, 32, 0.9);
+    transition-property: opacity, transform, -webkit-transform, background-color, color;
+    transition-duration: 0.15s, 0.15s, 0.15s, 0.4s, 0.4s;
+}
+
+@keyframes card {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mdui-card {
+    border-radius: 10px;
+    animation-name: card;
+    animation-duration: 0.7s;
+}
+
+@keyframes toleft {
+    from {
+        transform: translateX(32px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes toright {
+    from {
+        transform: translateX(-32px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+.toleft {
+    animation-name: toleft;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.3s;
+    transform: translateX(32px);
+    opacity: 0;
+}
+
+.toright {
+    animation-name: toright;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.3s;
+    transform: translateX(-32px);
+    opacity: 0;
+}
+
+.opacity {
+    animation-name: opacity;
+    animation-duration: 0.7s;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.title {
+    animation-name: toleft;
+    animation-duration: 0.7s;
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: translateX(32px);
+    animation-fill-mode: forwards;
+}
+
+.footerlink {
+    color: black;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+.footerlink:hover {
+    opacity: 0.7;
+}
+
+.footerlink:active {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.radius {
+    border-radius: 20px;
+}
+
+footer,
+h3,
+h2,
+h1,
+.mdui-toolbar,
+.mdui-appbar,
+.mdui-card,
+.mdui-tab,
+p,
+.mdui-divider,
+#thumbIcon,
+label,
+ol li,
+li a,
+#headline {
+    transition: 0.4s;
+}
+
+body {
+    transition: 0.4s !important;
+}
+
+.mdui-drawer {
+    transition-property: transform, background-color, color !important;
+    transition-duration: 0.3s, 0.4s, 0.4s !important;
+}
+
+.update-dialog {
+    position: fixed;
+    right: -300px;
+    bottom: 16px;
+    background-color: rgba(240, 240, 240, 0.9);
+    box-shadow: 0 2px 8px 2px rgba(0, 0, 0, 0.3);
+    padding: 16px;
+    transition: 0.5s;
+    width: 250px;
+    border-radius: 10px;
+    z-index: 2;
+    color: black;
+}
+
+.update-dialog-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.update-dialog-btn {
+    width: 200px;
+    height: 30px;
+    margin-top: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FFFFFF;
+    transition: 0.3s;
+    outline: none;
+    color: CCCCCC;
+}
+
+.update-dialog-btn:hover {
+    box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+.update-dialog-btn:active {
+    background-color: #EEEEEE;
+    color: #999999;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.scaleappear {
+    animation-name: card;
+    animation-duration: 0.7s;
+}
+
+.mdui-panel-item-title {
+    width: 75%;
+    min-width: 75%;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
+.mdui-tab .mdui-icon {
+    padding: 4px 4px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.mdui-card-media-covered {
+    border-radius: 10px 10px 0 0;
+}
+
+.toolbar-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.mdui-card-menu .mdui-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.mdui-theme-layout-dark .toolbar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.mdui-snackbar-action {
+    border-radius: 20px;
+}
+
+.mdui-drawer {
+    border-radius: 0 20px 20px 0;
+    overflow: hidden;
+}
+
+.mdui-drawer .mdui-list {
+    overflow: scroll;
+}
+
+@media (prefers-color-scheme: dark) {
+    .mdui-theme-layout-auto .mdui-dialog {
+        background-color: #434343 !important;
+        color: white !important;
+    }
+
+    .mdui-theme-layout-auto .mdui-drawer {
+        background-color: #323232 !important;
+        color: white !important;
+    }
+
+    .mdui-theme-layout-auto .footerlink {
+        color: white;
+    }
+
+    .mdui-theme-layout-auto .footerlink:active {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mdui-theme-layout-auto .waves-ripple {
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .mdui-theme-layout-auto .update-dialog {
+        background-color: rgba(32, 32, 32, 0.9);
+        color: white;
+    }
+
+    .mdui-theme-layout-auto .update-dialog-btn {
+        background-color: #545454;
+        color: white;
+    }
+
+    .mdui-theme-layout-auto .update-dialog-btn:hover {
+        background-color: #656565;
+    }
+
+    .mdui-theme-layout-auto .mdui-tooltip {
+        background-color: rgba(240, 240, 240, 0.9);
+        color: black;
+    }
+
+    .mdui-theme-layout-auto .auto-dark {
+        background-color: #212121 !important;
+        color: white !important;
+    }
+
+    .mdui-theme-layout-auto .mdui-snackbar {
+        background-color: rgba(240, 240, 240, 0.9);
+        color: black;
+    }
+
+    .mdui-theme-layout-auto .toolbar-btn:hover {
+        background-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .mdui-theme-layout-auto .mdui-card {
+        color: #fff !important;
+        background-color: #424242 !important;
+    }
 }

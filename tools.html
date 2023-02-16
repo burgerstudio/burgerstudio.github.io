@@ -303,7 +303,7 @@
     </ul>
     </div>
     <br><br><br><br>
-    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8" id="card">
+    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-0 mdui-color-theme-50" id="card">
         <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme title" onclick="activeWindow();">JS工具</h1>
             <ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
@@ -377,7 +377,7 @@
         <p style="font-size: 16px;font-weight: bold;">2023 - Burger Studio</p>
         <br>
     </footer>
-    <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);activeWindow();">
+    <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);activeWindow();">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
     </a>
     <script src="toTop.js"></script>
@@ -839,6 +839,7 @@
             document.getElementById(id).style.transform = "scale(1)";
             activeWindow(id);
         }
+
         function toolClose(id) {
             document.getElementById(id).classList.remove('tool-opened');
             document.getElementById(id).style.transform = "scale(0.85)";

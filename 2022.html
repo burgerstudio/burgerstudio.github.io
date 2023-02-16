@@ -1,77 +1,120 @@
 <!doctype html>
-<html> 
-	<head> 
-		<meta charset="UTF-8"> 
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1"> 
-		<title>2022年春节倒计时 - Burger工具站</title> 
-		<link rel="icon" href="images/favicon.jpg" type="image/x-icon">
-		<style>
-	  		*{
-			font-family: Sans-serif;
-			}
-			.card{
-			margin-left: auto;
-		 	margin-right: auto;
-			margin-top: 32px;
-			margin-bottom: 32px;
-			border-radius: 5px;
-		 	background-image: linear-gradient(to bottom right,orange,red,orange);
-			color: white;
-			height: 100px;
-			width: 300px;
-			animation-name: rainbow;
-			animation-duration: 14s;
-		 	animation-iteration-count: infinite;
-			}
-			@keyframes rainbow{
-			0% {box-shadow: 0 0 16px 6px red;}
-			16% {box-shadow: 0 0 16px 6px orange;}
-	 		32% {box-shadow: 0 0 16px 6px yellow;}
-			48% {box-shadow: 0 0 16px 6px green;}
-			64% {box-shadow: 0 0 16px 6px blue;}
-			80% {box-shadow: 0 0 16px 6px indigo;}
-			96% {box-shadow: 0 0 16px 6px violet;}
-		 	100% {box-shadow: 0 0 16px 6px red;}
-			}
-			@keyframes swipe{
-			from {opacity: 0;}
-			to {opacity: 1;transform: scale(1);margin-top: 16px;}
-			}
-	  		@keyframes opacity{
-			from {opacity: 0;}
-			to {opacity: 1;}
-			}
-		</style> 
-	</head> 
-	<body> 
-		<div> 
-			<p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;animation-name: swipe;animation-duration: 1.5s;animation-delay: 0.5s;transform: scale3d(0,0.7,1);animation-fill-mode: forwards;" id="1"></p> 
-			<div style="animation-name: swipe;animation-duration: 1.5s;animation-delay: 1s;margin-top: 16px;transform: scale3d(0.7,0,1);animation-fill-mode: forwards;"> 
-				<div class="card"> 
-					<p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p> 
-				</div> 
-			</div> 
-			<h5 style="float: right;margin: 16px;animation-name: opacity;animation-duration: 1s;animation-delay: 1.5s;animation-fill-mode: forwards;opacity: 0;">2023 - Burger Studio</h5> 
-		</div> 
-		<script>
-			var text = document.getElementById("2");
-			function js(){
-				var date = new Date();
-				if (date.getFullYear() == 2022 && date.getMonth() == 0){
-					document.getElementById("1"). innerHTML = "距离2022年春节： ";
-					var days = 31 - date.getDate();
-					var hours = 24 - date.getHours();
-					var minutes = 60 - date.getMinutes();
-					var seconds = 60 - date.getSeconds();
-					var str = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
-					text.innerHTML = str;
-				}
-				if (date.getFullYear() == 2022 && date.getMonth() == 1 && date.getDate() <= 15){
-					document.getElementById("1"). innerHTML = "2022年已至！";
-					text.innerHTML = "新年快乐！";
-				}
-			}
-			window.setInterval("js()",100);
-		</script>  
-	</body>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>2022年春节倒计时 - Burger工具站</title>
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <style>
+        * {
+            font-family: Sans-serif;
+        }
+
+        .card {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            border-radius: 5px;
+            background-image: linear-gradient(to bottom right, orange, red, orange);
+            color: white;
+            height: 100px;
+            width: 300px;
+            animation-name: rainbow;
+            animation-duration: 14s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rainbow {
+            0% {
+                box-shadow: 0 0 16px 6px red;
+            }
+
+            16% {
+                box-shadow: 0 0 16px 6px orange;
+            }
+
+            32% {
+                box-shadow: 0 0 16px 6px yellow;
+            }
+
+            48% {
+                box-shadow: 0 0 16px 6px green;
+            }
+
+            64% {
+                box-shadow: 0 0 16px 6px blue;
+            }
+
+            80% {
+                box-shadow: 0 0 16px 6px indigo;
+            }
+
+            96% {
+                box-shadow: 0 0 16px 6px violet;
+            }
+
+            100% {
+                box-shadow: 0 0 16px 6px red;
+            }
+        }
+
+        @keyframes swipe {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+                margin-top: 16px;
+            }
+        }
+
+        @keyframes opacity {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p style="font-size: 24px;margin-left: 16px;margin-top: 16px;text-shadow: 1px 1px 4px orange;animation-name: swipe;animation-duration: 1.5s;animation-delay: 0.5s;transform: scale3d(0,0.7,1);animation-fill-mode: forwards;" id="1"></p>
+        <div style="animation-name: swipe;animation-duration: 1.5s;animation-delay: 1s;margin-top: 16px;transform: scale3d(0.7,0,1);animation-fill-mode: forwards;">
+            <div class="card">
+                <p id="2" style="text-align: center;padding: 32px;font-size: 18px;"></p>
+            </div>
+        </div>
+        <h5 style="float: right;margin: 16px;animation-name: opacity;animation-duration: 1s;animation-delay: 1.5s;animation-fill-mode: forwards;opacity: 0;">2023 - Burger Studio</h5>
+    </div>
+    <script>
+        var text = document.getElementById("2");
+
+        function js() {
+            var date = new Date();
+            if (date.getFullYear() == 2022 && date.getMonth() == 0) {
+                document.getElementById("1").innerHTML = "距离2022年春节： ";
+                var days = 31 - date.getDate();
+                var hours = 24 - date.getHours();
+                var minutes = 60 - date.getMinutes();
+                var seconds = 60 - date.getSeconds();
+                var str = days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+                text.innerHTML = str;
+            }
+            if (date.getFullYear() == 2022 && date.getMonth() == 1 && date.getDate() <= 15) {
+                document.getElementById("1").innerHTML = "2022年已至！";
+                text.innerHTML = "新年快乐！";
+            }
+        }
+        window.setInterval("js()", 100);
+    </script>
+</body>
+
 </html>

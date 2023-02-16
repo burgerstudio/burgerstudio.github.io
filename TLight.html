@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="images/favicon.jpg" type="image/x-icon">
-	<title>简易红绿灯 - Burger工具站</title>
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <title>简易红绿灯 - Burger工具站</title>
     <style>
-    	.box{
-           	position: fixed;
-       		top: calc(50% - 64px);
+        .box {
+            position: fixed;
+            top: calc(50% - 64px);
             left: calc(50% - 64px);
             height: 128px;
             width: 128px;
@@ -21,16 +22,27 @@
             filter: blur(5px);
             animation-delay: 0.5s;
             animation-fill-mode: forwards;
-         }
-         @keyframes box{
-         	from {transform: scale(1.2);opacity: 0;filter: blur(5px);}
-            to {transform: scale(1);opacity: 1;filter: blur(0);}
-         }
-         .light{
+        }
+
+        @keyframes box {
+            from {
+                transform: scale(1.2);
+                opacity: 0;
+                filter: blur(5px);
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .light {
             position: fixed;
             top: calc(50% - 48px);
             left: calc(50% - 48px);
-         	height: 96px;
+            height: 96px;
             width: 96px;
             background-color: #4CAF50;
             box-shadow: 0 1px 4px 1px #4CAF50;
@@ -38,29 +50,102 @@
             animation-name: light;
             animation-duration: 25s;
             animation-iteration-count: infinite;
-         }
-         @keyframes light{
-         	0% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            47% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            48% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            49% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            50% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            51% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            52% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            53% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            54% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            55% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            56% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            57% {background-color: #333333;box-shadow: 0 1px 4px 1px #333333;}
-            58% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            59% {background-color: #4CAF50;box-shadow: 0 1px 4px 1px #4CAF50;}
-            60% {background-color: #FFC107;box-shadow: 0 1px 4px 1px #FFC107;}
-            71% {background-color: #FFC107;box-shadow: 0 1px 4px 1px #FFC107;}
-            72% {background-color: #F44336;box-shadow: 0 1px 4px 1px #F44336;}
-            99% {background-color: #F44336;box-shadow: 0 1px 4px 1px #F44336;}
-         }
-         .sign{
-         	font-size: 16px;
+        }
+
+        @keyframes light {
+            0% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            47% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            48% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            49% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            50% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            51% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            52% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            53% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            54% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            55% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            56% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            57% {
+                background-color: #333333;
+                box-shadow: 0 1px 4px 1px #333333;
+            }
+
+            58% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            59% {
+                background-color: #4CAF50;
+                box-shadow: 0 1px 4px 1px #4CAF50;
+            }
+
+            60% {
+                background-color: #FFC107;
+                box-shadow: 0 1px 4px 1px #FFC107;
+            }
+
+            71% {
+                background-color: #FFC107;
+                box-shadow: 0 1px 4px 1px #FFC107;
+            }
+
+            72% {
+                background-color: #F44336;
+                box-shadow: 0 1px 4px 1px #F44336;
+            }
+
+            99% {
+                background-color: #F44336;
+                box-shadow: 0 1px 4px 1px #F44336;
+            }
+        }
+
+        .sign {
+            font-size: 16px;
             text-shadow: 0 1px 4px #999999;
             position: fixed;
             top: 75%;
@@ -73,13 +158,15 @@
             filter: blur(5px);
             animation-delay: 0.5s;
             animation-fill-mode: forwards;
-         }
+        }
     </style>
-  </head>
-  <body>	
-		<div class="box">
-      		<div class="light"></div>
-      	</div>
-        <div class="sign">Made by Burger Studio.</div>
-  </body>
+</head>
+
+<body>
+    <div class="box">
+        <div class="light"></div>
+    </div>
+    <div class="sign">Made by Burger Studio.</div>
+</body>
+
 </html>

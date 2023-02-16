@@ -1,153 +1,183 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-		<link rel="icon" href="appIcon.png" type="image/x-icon">
-		<title>MIUI 滑入动画 - Burger工具站</title>
-		<style>
-			body{
-				margin: 0;
-				transition-duration: 0.5s;
-			}
-			.div1{
-				position: fixed;
-				width: 200%;
-				height: 100%;
-				left: 0;
-				top: 0;
-				background-color: white;
-				transition-duration: 0.5s;
-			}
-			.div1-covered{
-				transform: translateX(-25%);
-				filter: brightness(50%);
-			}
-			.toDiv2{
-				font-size: 16px;
-				text-align: center;
-				margin-top: calc(25% - 12px);
-				margin-left: calc(25% - 50px);
-				padding: 4px;
-				border-radius: 16px;
-				width: 96px;
-				transition: 0.1s;
-			}
-			.toDiv1{
-				font-size: 16px;
-				text-align: center;
-				margin-top: calc(50% - 12px);
-				margin-left: calc(50% - 50px);
-				padding: 4px;
-				border-radius: 16px;
-				width: 96px;
-				transition: 0.1s;
-			}
-			.div2{
-				position: fixed;
-				width: 100%;
-				height: 100%;
-				margin: 0;
-				transform: translateX(125%);
-				transition-property: transform, border-radius, box-shadow;
-				transition-duration: 0.5s, 0.075s, 0.1s;
-				background-color: white;
-				border-radius: 32px 0 0 32px;
-				box-shadow: 0px 0 64px 2px;
-			}
-			.div2-opening{
-				transform: translateX(0);
-				box-shadow: 0px 0 64px 2px;
-			}
-			.div2-opened{
-				border-radius: 0;
-			}
-			.div2-closing{
-				box-shadow: 0px 0 64px 2px;
-				border-radius: 32px 0 0 32px;
-			}
-			.div2-closed{
-				transform: translateX(125%);
-				box-shadow: 0px 0 64px 2px;
-			}
-			.active{
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			@keyframes appear{
-				from {filter: blur(16px);opacity: 0;transform: scale(1.2);}
-				to {filter: blur(0);opacity: 1;transform: scale(1);}
-			}
-			.sign{
-		 		font-size: 16px;
-				text-shadow: 0 1px 4px #999999;
-		   	 	position: fixed;
-				top: 75%;
-				width: 100%;
-				text-align: center;
-				animation-name: appear;
-				animation-delay: 0.5s;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-				filter: blur(16px);
-				opacity: 0;
-				transform: scale(1.2);
-		</style>
-	</head>
-	<body>
-		<div class="div1" id="div1">
-			<div class="toDiv2" id="toDiv2">
-				转到界面2
-			</div>
-		</div>
-		<div class="div2" id="div2">
-			<div class="toDiv1" id="toDiv1">
-				转到界面1
-			</div>
-		</div>
-		<div class="sign">
-			Made by Burger Studio.
-		</div>
-		<script>
-			var div1 = document.getElementById('div1');
-			var toDiv2 = document.getElementById('toDiv2');
-			var div2 = document.getElementById('div2');
-			var toDiv1 = document.getElementById('toDiv1');
-			function openDiv2(){
-				div2.classList.remove('div2-closing');
-				div2.classList.remove('div2-closed');
-				div2.classList.add('div2-opening');
-				div1.classList.add('div1-covered');
-				window.setTimeout('div2.classList.add("div2-opened");', 500);
-			}
-			function unActiveToDiv2(){
-				window.setTimeout("toDiv2.classList.remove('active');", 100);
-			}
-			function activeToDiv2(){
-				toDiv2.classList.add('active');
-				toDiv2.addEventListener('touchend', unActiveToDiv2);
-				toDiv2.addEventListener('mouseup', unActiveToDiv2);
-			}
-			toDiv2.addEventListener('touchstart', activeToDiv2);
-			toDiv2.addEventListener('mousedown', activeToDiv2);
-			toDiv2.addEventListener('click', openDiv2);
-			function closeDiv2(){
-				div2.classList.remove('div2-opened');
-				window.setTimeout('div1.classList.remove("div1-covered");', 75);
-				window.setTimeout('div2.classList.remove("82e5cdea41da47d596aca2d9652bd639");', 75);
-				window.setTimeout('div2.classList.add("d98d9a69271742ef8b6bfaf5288943b0");', 75);
-				window.setTimeout('div2.classList.add("div2-closed");', 75);
-			}
-			function unActiveToDiv1(){
-				window.setTimeout("toDiv1.classList.remove('active');", 100);
-			}
-			function activeToDiv1(){
-				toDiv1.classList.add('active');
-				toDiv1.addEventListener('touchend', unActiveToDiv1);
-				toDiv1.addEventListener('mouseup', unActiveToDiv1);
-			}
-			toDiv1.addEventListener('touchstart', activeToDiv1);
-			toDiv1.addEventListener('mousedown', activeToDiv1);
-			toDiv1.addEventListener('click', closeDiv2);
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" href="appIcon.png" type="image/x-icon">
+    <title>MIUI 滑入动画 - Burger工具站</title>
+    <style>
+        body {
+            margin: 0;
+            transition-duration: 0.5s;
+        }
+
+        .div1 {
+            position: fixed;
+            width: 200%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+            transition-duration: 0.5s;
+        }
+
+        .div1-covered {
+            transform: translateX(-25%);
+            filter: brightness(50%);
+        }
+
+        .toDiv2 {
+            font-size: 16px;
+            text-align: center;
+            margin-top: calc(25% - 12px);
+            margin-left: calc(25% - 50px);
+            padding: 4px;
+            border-radius: 16px;
+            width: 96px;
+            transition: 0.1s;
+        }
+
+        .toDiv1 {
+            font-size: 16px;
+            text-align: center;
+            margin-top: calc(50% - 12px);
+            margin-left: calc(50% - 50px);
+            padding: 4px;
+            border-radius: 16px;
+            width: 96px;
+            transition: 0.1s;
+        }
+
+        .div2 {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            transform: translateX(125%);
+            transition-property: transform, border-radius, box-shadow;
+            transition-duration: 0.5s, 0.075s, 0.1s;
+            background-color: white;
+            border-radius: 32px 0 0 32px;
+            box-shadow: 0px 0 64px 2px;
+        }
+
+        .div2-opening {
+            transform: translateX(0);
+            box-shadow: 0px 0 64px 2px;
+        }
+
+        .div2-opened {
+            border-radius: 0;
+        }
+
+        .div2-closing {
+            box-shadow: 0px 0 64px 2px;
+            border-radius: 32px 0 0 32px;
+        }
+
+        .div2-closed {
+            transform: translateX(125%);
+            box-shadow: 0px 0 64px 2px;
+        }
+
+        .active {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes appear {
+            from {
+                filter: blur(16px);
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            to {
+                filter: blur(0);
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sign {
+            font-size: 16px;
+            text-shadow: 0 1px 4px #999999;
+            position: fixed;
+            top: 75%;
+            width: 100%;
+            text-align: center;
+            animation-name: appear;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            filter: blur(16px);
+            opacity: 0;
+            transform: scale(1.2);
+    </style>
+</head>
+
+<body>
+    <div class="div1" id="div1">
+        <div class="toDiv2" id="toDiv2">
+            转到界面2
+        </div>
+    </div>
+    <div class="div2" id="div2">
+        <div class="toDiv1" id="toDiv1">
+            转到界面1
+        </div>
+    </div>
+    <div class="sign">
+        Made by Burger Studio.
+    </div>
+    <script>
+        var div1 = document.getElementById('div1');
+        var toDiv2 = document.getElementById('toDiv2');
+        var div2 = document.getElementById('div2');
+        var toDiv1 = document.getElementById('toDiv1');
+
+        function openDiv2() {
+            div2.classList.remove('div2-closing');
+            div2.classList.remove('div2-closed');
+            div2.classList.add('div2-opening');
+            div1.classList.add('div1-covered');
+            window.setTimeout('div2.classList.add("div2-opened");', 500);
+        }
+
+        function unActiveToDiv2() {
+            window.setTimeout("toDiv2.classList.remove('active');", 100);
+        }
+
+        function activeToDiv2() {
+            toDiv2.classList.add('active');
+            toDiv2.addEventListener('touchend', unActiveToDiv2);
+            toDiv2.addEventListener('mouseup', unActiveToDiv2);
+        }
+        toDiv2.addEventListener('touchstart', activeToDiv2);
+        toDiv2.addEventListener('mousedown', activeToDiv2);
+        toDiv2.addEventListener('click', openDiv2);
+
+        function closeDiv2() {
+            div2.classList.remove('div2-opened');
+            window.setTimeout('div1.classList.remove("div1-covered");', 75);
+            window.setTimeout('div2.classList.remove("82e5cdea41da47d596aca2d9652bd639");', 75);
+            window.setTimeout('div2.classList.add("d98d9a69271742ef8b6bfaf5288943b0");', 75);
+            window.setTimeout('div2.classList.add("div2-closed");', 75);
+        }
+
+        function unActiveToDiv1() {
+            window.setTimeout("toDiv1.classList.remove('active');", 100);
+        }
+
+        function activeToDiv1() {
+            toDiv1.classList.add('active');
+            toDiv1.addEventListener('touchend', unActiveToDiv1);
+            toDiv1.addEventListener('mouseup', unActiveToDiv1);
+        }
+        toDiv1.addEventListener('touchstart', activeToDiv1);
+        toDiv1.addEventListener('mousedown', activeToDiv1);
+        toDiv1.addEventListener('click', closeDiv2);
+    </script>
+</body>
+
 </html>

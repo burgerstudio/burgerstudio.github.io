@@ -1,131 +1,163 @@
 <!doctype html>
 <html>
-	<head> 
-		<meta charset="UTF-8"> 
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0"> 
-		<title>勾股 Chrome 下载 - Burger工具站</title>
-      	<link rel="shortcut  icon" href="images/Gougu_Chrome.png" type="image/x-icon" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      	<style>
-        *{
-		font-family: sans-serif;
-		}
-        header{
-		background-color: #EFEFEF;
-		top: 0;
-		left: 0;
-		position: fixed;
-		width: 100%;
-		padding-left: 16px;
-		padding-top: 12px;
-		padding-bottom: 12px;
-		box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.2);
-		transition-duration: 0.3s;
-		}
-		header:hover{
-		box-shadow: 0 4px 12px 6px rgba(0, 0, 0, 0.3);
-		}
-		.title{
-		font-size: 18px;
-		margin: 0;
-		}
-   		.card{
-        border-radius: 12px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        animation-name: card;
-        animation-duration: 0.5s;
-        box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.2);
-		transition-duration: 0.3s;
-      	max-width: 512px;
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=0">
+    <title>勾股 Chrome 下载 - Burger工具站</title>
+    <link rel="shortcut  icon" href="images/Gougu_Chrome.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        * {
+            font-family: sans-serif;
         }
-        @keyframes card{
-        from {opacity: 0;transform: scale(0.8);}
-        to {opacity: 1;transform: scale(1);}
+
+        header {
+            background-color: #EFEFEF;
+            top: 0;
+            left: 0;
+            position: fixed;
+            width: 100%;
+            padding-left: 16px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            box-shadow: 0 2px 8px 4px rgba(0, 0, 0, 0.2);
+            transition-duration: 0.3s;
         }
-		.card:hover{
-		box-shadow: 0 8px 32px 8px rgba(0, 0, 0, 0.3);
-		}
-		.card-title{
-		font-weight: bold;
-		font-size: 20px;
-		}
-		.card-content{
-		margin-bottom: 0;
-		padding: 8px;
-		background-color: #EFEFEF;
-		border-radius: 0 0 12px 12px;
-		}
-   		.button{
-		width: 80px;
-		height: 40px;
-      	background-color: #448AFF;
-        color: white;
-        border-style: none;
-        outline-style: none;
-        border-radius: 8px;
-		transition-duration: 0.3s;
-		box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
-		}
-		.button:hover{
-		box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.3);
-		}
-   		.button:active{
-         color: #EFEFEF;
-		 background-color: #2962FF;
-		 transform: scale(0.9);
-         }
-   		footer{
-        background-color: #EFEFEF;
-      	position: fixed;
-        bottom: 0;
-        width: 100%;
-        left: 0;
+
+        header:hover {
+            box-shadow: 0 4px 12px 6px rgba(0, 0, 0, 0.3);
         }
-		html{
-		padding: 0 8px;
-		}
-        </style>
-	</head> 
-	<body> 
-		<header>
-      		<p class="title">勾股 Chrome 下载</p>
-        </header>
-		<div class="card" style="margin: 36px auto;margin-top: 80px;">
-			<div class="card-title"><p style="margin-left: 16px;">介绍</p></div>
-         	<div class="card-content"><p>这些图标是作者由“赵爽弦图”和 Google Chrome 图标结合而成。点击“下载”将跳转至 Google Chrome 对应版本的下载页面。</p></div>
-		</div>
-      	<div class="card" style="margin: 36px auto;">
-        	<div class="card-title"><img src="images/Gougu_Chrome.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
-           	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome</p>
-            	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/';">下载</button></div>
-            </div>
-       	</div>
-		<div class="card" style="margin: 36px auto;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Beta.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
-           	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Beta</p>
-            	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/beta/';">下载</button></div>
-            </div>
-       	</div>
-        <div class="card" style="margin: 36px auto;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Dev.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
-           	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Dev</p>
-            	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/dev/';">下载</button></div>
-            </div>
-       	</div>
-        <div class="card" style="margin: 36px auto;">
-        	<div class="card-title"><img src="images/Gougu_Chrome_Canary.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
-           	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Canary</p>
-            	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/canary/';">下载</button></div>
-            </div>
-       	</div>
-        <div class="card" style="margin: 36px auto;margin-bottom: 80px;">
-        	<div class="card-title"><img src="images/Gougu_Chromium.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
-           	<div class="card-content"><p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chromium</p>
-            	<div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.chromium.org/';">下载</button></div>
-            </div>
-       	</div>
-        <footer>
-        	<p style="font-weight: bold;text-align: center;">2023 - Burger Studio</p>
-        </footer>
-	</body>
+
+        .title {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .card {
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            animation-name: card;
+            animation-duration: 0.5s;
+            box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.2);
+            transition-duration: 0.3s;
+            max-width: 512px;
+        }
+
+        @keyframes card {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 32px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .card-content {
+            margin-bottom: 0;
+            padding: 8px;
+            background-color: #EFEFEF;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .button {
+            width: 80px;
+            height: 40px;
+            background-color: #448AFF;
+            color: white;
+            border-style: none;
+            outline-style: none;
+            border-radius: 8px;
+            transition-duration: 0.3s;
+            box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:hover {
+            box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .button:active {
+            color: #EFEFEF;
+            background-color: #2962FF;
+            transform: scale(0.9);
+        }
+
+        footer {
+            background-color: #EFEFEF;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+
+        html {
+            padding: 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <p class="title">勾股 Chrome 下载</p>
+    </header>
+    <div class="card" style="margin: 36px auto;margin-top: 80px;">
+        <div class="card-title">
+            <p style="margin-left: 16px;">介绍</p>
+        </div>
+        <div class="card-content">
+            <p>这些图标是作者由“赵爽弦图”和 Google Chrome 图标结合而成。点击“下载”将跳转至 Google Chrome 对应版本的下载页面。</p>
+        </div>
+    </div>
+    <div class="card" style="margin: 36px auto;">
+        <div class="card-title"><img src="images/Gougu_Chrome.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
+        <div class="card-content">
+            <p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome</p>
+            <div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/';">下载</button></div>
+        </div>
+    </div>
+    <div class="card" style="margin: 36px auto;">
+        <div class="card-title"><img src="images/Gougu_Chrome_Beta.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
+        <div class="card-content">
+            <p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Beta</p>
+            <div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/beta/';">下载</button></div>
+        </div>
+    </div>
+    <div class="card" style="margin: 36px auto;">
+        <div class="card-title"><img src="images/Gougu_Chrome_Dev.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
+        <div class="card-content">
+            <p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Dev</p>
+            <div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/dev/';">下载</button></div>
+        </div>
+    </div>
+    <div class="card" style="margin: 36px auto;">
+        <div class="card-title"><img src="images/Gougu_Chrome_Canary.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
+        <div class="card-content">
+            <p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chrome Canary</p>
+            <div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.google.cn/intl/zh-CN/chrome/canary/';">下载</button></div>
+        </div>
+    </div>
+    <div class="card" style="margin: 36px auto;margin-bottom: 80px;">
+        <div class="card-title"><img src="images/Gougu_Chromium.png" style="margin-left: 35%;margin-top: 16px;margin-bottom: 16px;height: 30%;width: 30%;border-radius: 12px;"></div>
+        <div class="card-content">
+            <p style="margin-left: 16px;font-size: 20px;font-weight: bold;">Chromium</p>
+            <div style="text-align: center;"><button class="button" onclick="window.location.href = 'https://www.chromium.org/';">下载</button></div>
+        </div>
+    </div>
+    <footer>
+        <p style="font-weight: bold;text-align: center;">2023 - Burger Studio</p>
+    </footer>
+</body>
+
 </html>

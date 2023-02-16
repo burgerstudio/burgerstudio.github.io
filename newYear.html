@@ -1,156 +1,196 @@
 <!doctype html>
 <html>
-	<head> 
-		<meta charset="UTF-8"> 
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=0"> 
-     	<title>新年倒计时 - Burger工具站</title>
-     	<link rel="icon" href="images/favicon.jpg" type="image/x-icon">
-        <style>
-        	.body{
-				position: fixed;
-				background-image: linear-gradient(to bottom right, #FFEB3B, #F44336, #FFEB3B);
-				height: 100%;
-				width: 100%;
-				left: 0;
-				top: 0;
-            	overflow: scroll;
-			}
-      		.title{
-				margin-top: 10%;
-            	margin-left: 10%;
-				font-size: 32px;
-            	color: white;
-               	text-shadow: 0 0 16px black;
-				animation-name: title;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-				animation-delay: 0.1s;
-				transform: translateX(64px);
-				opacity: 0;
-			}
-			@keyframes title{
-				from {transform: translateX(64px);opacity: 0;}
-				to {transform: translateX(0);opacity: 1;}
-			}
-			.ydcard, .cjcard{
-				width: 80%;
-				height: 30%;
-				background-color: white;
-            	background-clip: padding-box;
-				border-radius: 8px;
-				border: 16px solid rgba(255, 255, 255, 0.5);
-				animation-name: card;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-				opacity: 0;
-				margin-top: 64px;
-				margin-bottom: 64px;
-				max-width: 600px;
-				max-height: 225px;
-				transform: scale(0.85);
-			}
-			@keyframes card{
-				from {opacity: 0;margin-top: 64px;margin-bottom: 64px;transform: scale(0.85);}
-				to {opacity: 1;margin-top: 16px;margin-bottom: 16px;transform: scale(1);}
-			}
-      		.jl1, .jl2{
-				font-size: 16px;
-				margin-top: 8px;
-				margin-left: 8px;
-				opacity: 0;
-				animation-name: opacity;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-			}
-      		.jlyd, .jlcj{
-				font-size: 24px;
-				font-weight: bolder;
-				text-align: center;
-				opacity: 0;
-				animation-name: opacity;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-            	color: transparent;
-               	-webkit-background-clip: text;
-				text-shadow: 0 12px 16px #F44336;
-			}
-			@keyframes opacity{
-				from {opacity: 0;}
-				to {opacity: 1;}
-			}
-			.jl1{
-				animation-delay: 0.4s;
-			}
-			.jl2 {
-				animation-delay: 0.6s;
-			}
-			.sign{
-				margin: 16px;
-				font-size: 16px;
-            	color: white;
-               	text-shadow: 0 0 8px black;
-				animation-name: opacity;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-				animation-delay: 0.8s;
-				opacity: 0;
-				text-align: center;
-			}
-        </style>
-	</head> 
-	<body> 
-		<div class="body">
-			<div class="title">新年倒计时</div>
-         	<div class="ydcard" id="ydcard">
-				<div class="jl1">距离 2023 年元旦：</div>
-				<div id="jlyd" class="jlyd"></div>
-			</div>
-			<div class="cjcard" id="cjcard">
-				<div class="jl2">距离 2023 年春节：</div>
-				<div id="jlcj" class="jlyd"></div>
-			</div>
-			<div class="sign">Made by Burger Studio.</div>
-		</div>
-		<script>
-				//卡片定位
-        		var ydcard = document.getElementById('ydcard');
-				var cjcard = document.getElementById('cjcard');
-      			function kpdw(){
-					ydcard.style = "margin-left: calc(50% - " + (ydcard.clientWidth / 2 + 16) + "px);animation-delay: 0.2s;";
-					cjcard.style = "margin-left: calc(50% - " + (cjcard.clientWidth / 2 + 16) + "px);animation-delay: 0.3s;";
-					jlyd.style = "margin-top: calc(" + (ydcard.clientHeight / 2 - 52) + "px);animation-delay: 0.5s;background-image: linear-gradient(to right, #FFC107, #FF6F00);";
-					jlcj.style = "margin-top: calc(" + (cjcard.clientHeight / 2 - 52) + "px);animation-delay: 0.7s;background-image: linear-gradient(to right, #FF5722, #BF360C);";
-      			}
-        		window.setInterval('kpdw();', 10);//每隔10毫秒定位一次卡片
-              	//倒计时源码来自：https://blog.csdn.net/ednah/article/details/54755594
-				function freshTime(){
-        			var ydTime = new Date("2023/1/1,00:00:00");//元旦时间
-                 	var cjTime = new Date("2023/1/22,00:00:00");//春节时间
-        			var nowTime = new Date();//当前时间
-       				var ydLeftTime = parseInt((ydTime.getTime() - nowTime.getTime()) / 1000); //距离元旦的时间
-                   	var cjLeftTime = parseInt((cjTime.getTime() - nowTime.getTime()) / 1000); //距离春节的时间
-        			ydD = parseInt(ydLeftTime / (24 * 60 * 60));
-                 	cjD = parseInt(cjLeftTime / (24 * 60 * 60));
-        			ydH = parseInt(ydLeftTime / (60 * 60) % 24);
-                 	cjH = parseInt(cjLeftTime / (60 * 60) % 24);
-        			ydM = parseInt(ydLeftTime / 60 % 60);
-                 	cjM = parseInt(cjLeftTime / 60 % 60);
-        			ydS = parseInt(ydLeftTime % 60);
-                 	cjS = parseInt(cjLeftTime % 60);
-        			document.getElementById("jlyd").innerHTML = ydD + " 天 " + ydH + " 时 " + ydM + " 分 " + ydS + " 秒";//输出距离元旦的时间
-                 	document.getElementById("jlcj").innerHTML = cjD + " 天 " + cjH + " 时 " + cjM + " 分 " + cjS + " 秒";//输出距离春节的时间
-                    //当元旦到达时
-        			if(ydLeftTime <= 0){
-        				document.getElementById("jlyd").innerHTML = "元旦已至！";
-        			}
-              		//当春节到达时
-        			if(cjLeftTime <= 0){
-        				document.getElementById("jlcj").innerHTML = "春节已至！";
-        			}
-				}
-   				freshTime()
-   				var sh;
-   				sh = setInterval(freshTime, 10);//每隔10毫秒刷新一次时间
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>新年倒计时 - Burger工具站</title>
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <style>
+        .body {
+            position: fixed;
+            background-image: linear-gradient(to bottom right, #FFEB3B, #F44336, #FFEB3B);
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            overflow: scroll;
+        }
+
+        .title {
+            margin-top: 10%;
+            margin-left: 10%;
+            font-size: 32px;
+            color: white;
+            text-shadow: 0 0 16px black;
+            animation-name: title;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            animation-delay: 0.1s;
+            transform: translateX(64px);
+            opacity: 0;
+        }
+
+        @keyframes title {
+            from {
+                transform: translateX(64px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .ydcard,
+        .cjcard {
+            width: 80%;
+            height: 30%;
+            background-color: white;
+            background-clip: padding-box;
+            border-radius: 8px;
+            border: 16px solid rgba(255, 255, 255, 0.5);
+            animation-name: card;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            margin-top: 64px;
+            margin-bottom: 64px;
+            max-width: 600px;
+            max-height: 225px;
+            transform: scale(0.85);
+        }
+
+        @keyframes card {
+            from {
+                opacity: 0;
+                margin-top: 64px;
+                margin-bottom: 64px;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                margin-top: 16px;
+                margin-bottom: 16px;
+                transform: scale(1);
+            }
+        }
+
+        .jl1,
+        .jl2 {
+            font-size: 16px;
+            margin-top: 8px;
+            margin-left: 8px;
+            opacity: 0;
+            animation-name: opacity;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        .jlyd,
+        .jlcj {
+            font-size: 24px;
+            font-weight: bolder;
+            text-align: center;
+            opacity: 0;
+            animation-name: opacity;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            color: transparent;
+            -webkit-background-clip: text;
+            text-shadow: 0 12px 16px #F44336;
+        }
+
+        @keyframes opacity {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .jl1 {
+            animation-delay: 0.4s;
+        }
+
+        .jl2 {
+            animation-delay: 0.6s;
+        }
+
+        .sign {
+            margin: 16px;
+            font-size: 16px;
+            color: white;
+            text-shadow: 0 0 8px black;
+            animation-name: opacity;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            animation-delay: 0.8s;
+            opacity: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="title">新年倒计时</div>
+        <div class="ydcard" id="ydcard">
+            <div class="jl1">距离 2023 年元旦：</div>
+            <div id="jlyd" class="jlyd"></div>
+        </div>
+        <div class="cjcard" id="cjcard">
+            <div class="jl2">距离 2023 年春节：</div>
+            <div id="jlcj" class="jlyd"></div>
+        </div>
+        <div class="sign">Made by Burger Studio.</div>
+    </div>
+    <script>
+        //卡片定位
+        var ydcard = document.getElementById('ydcard');
+        var cjcard = document.getElementById('cjcard');
+
+        function kpdw() {
+            ydcard.style = "margin-left: calc(50% - " + (ydcard.clientWidth / 2 + 16) + "px);animation-delay: 0.2s;";
+            cjcard.style = "margin-left: calc(50% - " + (cjcard.clientWidth / 2 + 16) + "px);animation-delay: 0.3s;";
+            jlyd.style = "margin-top: calc(" + (ydcard.clientHeight / 2 - 52) + "px);animation-delay: 0.5s;background-image: linear-gradient(to right, #FFC107, #FF6F00);";
+            jlcj.style = "margin-top: calc(" + (cjcard.clientHeight / 2 - 52) + "px);animation-delay: 0.7s;background-image: linear-gradient(to right, #FF5722, #BF360C);";
+        }
+        window.setInterval('kpdw();', 10); //每隔10毫秒定位一次卡片
+        //倒计时源码来自：https://blog.csdn.net/ednah/article/details/54755594
+        function freshTime() {
+            var ydTime = new Date("2023/1/1,00:00:00"); //元旦时间
+            var cjTime = new Date("2023/1/22,00:00:00"); //春节时间
+            var nowTime = new Date(); //当前时间
+            var ydLeftTime = parseInt((ydTime.getTime() - nowTime.getTime()) / 1000); //距离元旦的时间
+            var cjLeftTime = parseInt((cjTime.getTime() - nowTime.getTime()) / 1000); //距离春节的时间
+            ydD = parseInt(ydLeftTime / (24 * 60 * 60));
+            cjD = parseInt(cjLeftTime / (24 * 60 * 60));
+            ydH = parseInt(ydLeftTime / (60 * 60) % 24);
+            cjH = parseInt(cjLeftTime / (60 * 60) % 24);
+            ydM = parseInt(ydLeftTime / 60 % 60);
+            cjM = parseInt(cjLeftTime / 60 % 60);
+            ydS = parseInt(ydLeftTime % 60);
+            cjS = parseInt(cjLeftTime % 60);
+            document.getElementById("jlyd").innerHTML = ydD + " 天 " + ydH + " 时 " + ydM + " 分 " + ydS + " 秒"; //输出距离元旦的时间
+            document.getElementById("jlcj").innerHTML = cjD + " 天 " + cjH + " 时 " + cjM + " 分 " + cjS + " 秒"; //输出距离春节的时间
+            //当元旦到达时
+            if (ydLeftTime <= 0) {
+                document.getElementById("jlyd").innerHTML = "元旦已至！";
+            }
+            //当春节到达时
+            if (cjLeftTime <= 0) {
+                document.getElementById("jlcj").innerHTML = "春节已至！";
+            }
+        }
+        freshTime()
+        var sh;
+        sh = setInterval(freshTime, 10); //每隔10毫秒刷新一次时间
+    </script>
+</body>
+
 </html>

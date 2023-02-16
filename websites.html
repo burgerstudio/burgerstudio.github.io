@@ -1,220 +1,364 @@
 <!doctype html>
-<html> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
-        <link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
-        <link rel="stylesheet" href="mdui/css/mdui.min.css">
-        <script src="mdui/js/mdui.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
-        <link rel="stylesheet" type="text/css" href="theme.css" />
-        <title>网络站点 - Burger工具站</title>
-    </head> 
-    <body class="mdui-drawer-body-left"> 
-        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <title>网络站点 - Burger工具站</title>
+</head>
+
+<body class="mdui-drawer-body-left">
+    <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
         <div class="mdui-toolbar mdui-color-theme-50">
-        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
-        <i class="mdui-icon material-icons">menu</i>
-        </a>
-        <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
-        <i class="mdui-icon material-icons">cloud_download</i>
-        </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
-        <i class="mdui-icon material-icons">color_lens</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
+                <i class="mdui-icon material-icons">cloud_download</i>
+            </a>
+            <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
+                <i class="mdui-icon material-icons">color_lens</i>
+            </a>
         </div>
-        </header>
-        <div class="mdui-dialog mdui-color-theme-50" id="offline">
+    </header>
+    <div class="mdui-dialog mdui-color-theme-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
-        <div id="updateDate"></div>
-        <div id="updateChange"></div>
-        <p class="mdui-text-color-red" id="updateNote"></p>
-        <p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
-          <p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
+            <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
+            <div id="updateDate"></div>
+            <div id="updateChange"></div>
+            <p class="mdui-text-color-red" id="updateNote"></p>
+            <p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
+            <p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
+            <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
+            <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
         </div>
         <script src="update.js"></script>
-        </div>
-        <div class="mdui-drawer mdui-color-theme-50" id="drawer">
-        <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/ id="bgsImage">
+    </div>
+    <div class="mdui-drawer mdui-color-theme-50" id="drawer">
+        <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg" / id="bgsImage">
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;" id="mduiDrawerList">
-        <a href="index.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
-        <div class="mdui-list-item-content">首页</div>
-        </li>
-        </a>
-        <a href="sysImg.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
-        <div class="mdui-list-item-content">系统镜像</div>
-        </li>
-        </a>
-        <a href="apps.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
-        <div class="mdui-list-item-content">应用程序</div>
-        </li>
-        </a>
-        <a href="websites.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-color-theme">
-        <i class="mdui-list-item-icon mdui-icon material-icons">public</i>
-        <div class="mdui-list-item-content">网络站点</div>
-        </li>
-        </a>
-        <a href="more.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">attach_file</i>
-        <div class="mdui-list-item-content">更多资源</div>
-        </li>
-        </a>
-        <a href="tools.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">build</i>
-        <div class="mdui-list-item-content">JS工具</div>
-        </li>
-        </a>
-        <a href="about.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
-        <div class="mdui-list-item-content">关于我们</div>
-        </li>
-        </a>
-        </div>
-        </ul>
-        </div>
-        <br><br><br><br>
-        <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-8">
-            <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
+            <a href="index.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
+                    <div class="mdui-list-item-content">首页</div>
+                </li>
+            </a>
+            <a href="sysImg.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
+                    <div class="mdui-list-item-content">系统镜像</div>
+                </li>
+            </a>
+            <a href="apps.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
+                    <div class="mdui-list-item-content">应用程序</div>
+                </li>
+            </a>
+            <a href="websites.html" class="waves-block radius">
+                <li class="mdui-list-item mdui-color-theme">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">public</i>
+                    <div class="mdui-list-item-content">网络站点</div>
+                </li>
+            </a>
+            <a href="more.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">attach_file</i>
+                    <div class="mdui-list-item-content">更多资源</div>
+                </li>
+            </a>
+            <a href="tools.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">build</i>
+                    <div class="mdui-list-item-content">JS工具</div>
+                </li>
+            </a>
+            <a href="about.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
+                    <div class="mdui-list-item-content">关于我们</div>
+                </li>
+            </a>
+    </div>
+    </ul>
+    </div>
+    <br><br><br><br>
+    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-0 mdui-color-theme-50">
+        <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme title">网络站点</h1>
             <ul class="mdui-list mdui-list-dense mdui-text-color-theme" style="font-size: 16px;">
-            <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
-            <div class="waves-block radius mdui-col"><a href="https://yuanyubo-studio.vercel.app/"><li class="mdui-list-item">YUANYUBO Studio Official</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://bgstool.github.io/"><li class="mdui-list-item">Burger工具站 历史版本</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://bgs.code.blog/"><li class="mdui-list-item">Burger Studio 主页</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://opengapps.org/"><li class="mdui-list-item">The Open GApps Project</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.magiskapp.cn/"><li class="mdui-list-item">Magisk中文网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://magisk.me/"><li class="mdui-list-item">Magisk</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.magisk.cool/"><li class="mdui-list-item">Magisk仓库</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://twrp.me/"><li class="mdui-list-item">TWRP</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.ngrok.cc/"><li class="mdui-list-item">Sunny-Ngrok内网转发</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://bing.ioliu.cn/"><li class="mdui-list-item">必应每日高清壁纸</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.icdown.club/"><li class="mdui-list-item">IXCM工作室下载站（主页）</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://od.ixcmstudio.cn/"><li class="mdui-list-item">IXCM工作室下载站</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.jdkdownload.com/"><li class="mdui-list-item">JDK下载</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://scratch.mit.edu/"><li class="mdui-list-item">Scratch（国内无法访问）</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://material.io/"><li class="mdui-list-item">Material Design</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.natfrp.com/"><li class="mdui-list-item">Sakura Frp</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://jixia.ink/"><li class="mdui-list-item">极下</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.freenom.com/"><li class="mdui-list-item">Freenom（国内速度较慢）</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://www.freehost.cc/"><li class="mdui-list-item">免费主机</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.speedtest.cn/"><li class="mdui-list-item">测速网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://test.ustc.edu.cn/"><li class="mdui-list-item">中国科学技术大学测速网站</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://burger.ysepan.com/"><li class="mdui-list-item">Burger Studio 的空间</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://javag.ysepan.com/"><li class="mdui-list-item">JavaGame 存储网盘</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://iniche.cn/"><li class="mdui-list-item">小众网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://youquhome.com/"><li class="mdui-list-item">有趣网址之家</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://emoji.supply/"><li class="mdui-list-item">emoji.supply</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://tikolu.net/"><li class="mdui-list-item">Tikolu</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://emojipedia.org/"><li class="mdui-list-item">Emojipedia</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://logos.fandom.com/"><li class="mdui-list-item">Logopedia</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://home.unicode.org/"><li class="mdui-list-item">Unicode</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://unicode-table.com/cn/"><li class="mdui-list-item">Unicode 字符百科</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.dospy.wang/"><li class="mdui-list-item">DOSPY论坛</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.deviceinfo.me/"><li class="mdui-list-item">Device Info</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://sheeptester.github.io/"><li class="mdui-list-item">SheepTester</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://turbowarp.org/"><li class="mdui-list-item">TurboWarp</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://cli.im/"><li class="mdui-list-item">草料二维码生成器</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://jamesfriend.com.au/"><li class="mdui-list-item">James Friend</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://fuun.fun/"><li class="mdui-list-item">FUUN.FUN</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://cn.wordpress.org/"><li class="mdui-list-item">WordPress</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.androiddevtools.cn/"><li class="mdui-list-item">AndroidDevTools</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://js.design/"><li class="mdui-list-item">即时设计</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://vscode.dev/"><li class="mdui-list-item">Visual Studio Code</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.jb51.net/"><li class="mdui-list-item">脚本之家</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://cn.dll-files.com/"><li class="mdui-list-item">DLL-files.com</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://kamiui.ml/"><li class="mdui-list-item">萤火虫资源站</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.manye.net/"><li class="mdui-list-item">漫夜分享网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://www.yougais.com/"><li class="mdui-list-item">iApp资源网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://note.ms/"><li class="mdui-list-item">Note.ms</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.vmask.cn/"><li class="mdui-list-item">Vmask面具资源网</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.haipc.cn/"><li class="mdui-list-item">嗨PC主页</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://x1g.la/"><li class="mdui-list-item">下1个好软件</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://xiaomirom.com/"><li class="mdui-list-item">XiaomiROM.com</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://whiteboard.microsoft.com/"><li class="mdui-list-item">Microsoft Whiteboard</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://linux.cn/"><li class="mdui-list-item">Linux 中国</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://codepen.io/"><li class="mdui-list-item">CodePen</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.zygx8.com/"><li class="mdui-list-item">资源共享吧</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://modao.cc/"><li class="mdui-list-item">墨刀</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.ghxi.com/"><li class="mdui-list-item">果核剥壳</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.xda-developers.com/"><li class="mdui-list-item">XDA Developers</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://aigc.yizhentv.com/h5/ai-paint"><li class="mdui-list-item">一帧秒创•AI作画</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://40code.com/"><li class="mdui-list-item">40code少儿编程社区</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://ywyj.cn/"><li class="mdui-list-item">一网一匠极速版</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.firepx.com/"><li class="mdui-list-item">火哥分享</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://space.webcat.top/"><li class="mdui-list-item">WebCat共享空间</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.jishusongshu.com/"><li class="mdui-list-item">技术松鼠</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://termbbs.ixcm.org/"><li class="mdui-list-item">Termux-Zero技术社区</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://bbs.binmt.cc/"><li class="mdui-list-item">MT论坛</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://runapp.kyyai.com/"><li class="mdui-list-item">快云游云手机</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://xiguacloud.net/"><li class="mdui-list-item">西瓜云</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.yunair.cn/"><li class="mdui-list-item">王健铮的个人主页</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://sylgroup.ml/"><li class="mdui-list-item">SYL科技工作室官网</li></a></div>
-            </div>
+                <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
+                    <div class="waves-block radius mdui-col"><a href="https://yuanyubo-studio.vercel.app/">
+                            <li class="mdui-list-item">YUANYUBO Studio Official</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://bgstool.github.io/">
+                            <li class="mdui-list-item">Burger工具站 历史版本</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://bgs.code.blog/">
+                            <li class="mdui-list-item">Burger Studio 主页</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://opengapps.org/">
+                            <li class="mdui-list-item">The Open GApps Project</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.magiskapp.cn/">
+                            <li class="mdui-list-item">Magisk中文网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://magisk.me/">
+                            <li class="mdui-list-item">Magisk</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.magisk.cool/">
+                            <li class="mdui-list-item">Magisk仓库</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://twrp.me/">
+                            <li class="mdui-list-item">TWRP</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.ngrok.cc/">
+                            <li class="mdui-list-item">Sunny-Ngrok内网转发</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://bing.ioliu.cn/">
+                            <li class="mdui-list-item">必应每日高清壁纸</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.icdown.club/">
+                            <li class="mdui-list-item">IXCM工作室下载站（主页）</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://od.ixcmstudio.cn/">
+                            <li class="mdui-list-item">IXCM工作室下载站</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.jdkdownload.com/">
+                            <li class="mdui-list-item">JDK下载</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://scratch.mit.edu/">
+                            <li class="mdui-list-item">Scratch（国内无法访问）</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://material.io/">
+                            <li class="mdui-list-item">Material Design</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.natfrp.com/">
+                            <li class="mdui-list-item">Sakura Frp</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://jixia.ink/">
+                            <li class="mdui-list-item">极下</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.freenom.com/">
+                            <li class="mdui-list-item">Freenom（国内速度较慢）</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://www.freehost.cc/">
+                            <li class="mdui-list-item">免费主机</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.speedtest.cn/">
+                            <li class="mdui-list-item">测速网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://test.ustc.edu.cn/">
+                            <li class="mdui-list-item">中国科学技术大学测速网站</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://burger.ysepan.com/">
+                            <li class="mdui-list-item">Burger Studio 的空间</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://javag.ysepan.com/">
+                            <li class="mdui-list-item">JavaGame 存储网盘</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://iniche.cn/">
+                            <li class="mdui-list-item">小众网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://youquhome.com/">
+                            <li class="mdui-list-item">有趣网址之家</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://emoji.supply/">
+                            <li class="mdui-list-item">emoji.supply</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://tikolu.net/">
+                            <li class="mdui-list-item">Tikolu</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://emojipedia.org/">
+                            <li class="mdui-list-item">Emojipedia</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://logos.fandom.com/">
+                            <li class="mdui-list-item">Logopedia</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://home.unicode.org/">
+                            <li class="mdui-list-item">Unicode</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://unicode-table.com/cn/">
+                            <li class="mdui-list-item">Unicode 字符百科</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.dospy.wang/">
+                            <li class="mdui-list-item">DOSPY论坛</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.deviceinfo.me/">
+                            <li class="mdui-list-item">Device Info</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://sheeptester.github.io/">
+                            <li class="mdui-list-item">SheepTester</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://turbowarp.org/">
+                            <li class="mdui-list-item">TurboWarp</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://cli.im/">
+                            <li class="mdui-list-item">草料二维码生成器</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://jamesfriend.com.au/">
+                            <li class="mdui-list-item">James Friend</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://fuun.fun/">
+                            <li class="mdui-list-item">FUUN.FUN</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://cn.wordpress.org/">
+                            <li class="mdui-list-item">WordPress</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.androiddevtools.cn/">
+                            <li class="mdui-list-item">AndroidDevTools</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://js.design/">
+                            <li class="mdui-list-item">即时设计</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://vscode.dev/">
+                            <li class="mdui-list-item">Visual Studio Code</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.jb51.net/">
+                            <li class="mdui-list-item">脚本之家</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://cn.dll-files.com/">
+                            <li class="mdui-list-item">DLL-files.com</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://kamiui.ml/">
+                            <li class="mdui-list-item">萤火虫资源站</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.manye.net/">
+                            <li class="mdui-list-item">漫夜分享网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://www.yougais.com/">
+                            <li class="mdui-list-item">iApp资源网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://note.ms/">
+                            <li class="mdui-list-item">Note.ms</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.vmask.cn/">
+                            <li class="mdui-list-item">Vmask面具资源网</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.haipc.cn/">
+                            <li class="mdui-list-item">嗨PC主页</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://x1g.la/">
+                            <li class="mdui-list-item">下1个好软件</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://xiaomirom.com/">
+                            <li class="mdui-list-item">XiaomiROM.com</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://whiteboard.microsoft.com/">
+                            <li class="mdui-list-item">Microsoft Whiteboard</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://linux.cn/">
+                            <li class="mdui-list-item">Linux 中国</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://codepen.io/">
+                            <li class="mdui-list-item">CodePen</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.zygx8.com/">
+                            <li class="mdui-list-item">资源共享吧</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://modao.cc/">
+                            <li class="mdui-list-item">墨刀</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.ghxi.com/">
+                            <li class="mdui-list-item">果核剥壳</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.xda-developers.com/">
+                            <li class="mdui-list-item">XDA Developers</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://aigc.yizhentv.com/h5/ai-paint">
+                            <li class="mdui-list-item">一帧秒创•AI作画</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://40code.com/">
+                            <li class="mdui-list-item">40code少儿编程社区</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://ywyj.cn/">
+                            <li class="mdui-list-item">一网一匠极速版</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.firepx.com/">
+                            <li class="mdui-list-item">火哥分享</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://space.webcat.top/">
+                            <li class="mdui-list-item">WebCat共享空间</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.jishusongshu.com/">
+                            <li class="mdui-list-item">技术松鼠</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://termbbs.ixcm.org/">
+                            <li class="mdui-list-item">Termux-Zero技术社区</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://bbs.binmt.cc/">
+                            <li class="mdui-list-item">MT论坛</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://runapp.kyyai.com/">
+                            <li class="mdui-list-item">快云游云手机</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="http://xiguacloud.net/">
+                            <li class="mdui-list-item">西瓜云</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://www.yunair.cn/">
+                            <li class="mdui-list-item">王健铮的个人主页</li>
+                        </a></div>
+                    <div class="waves-block radius mdui-col"><a href="https://sylgroup.ml/">
+                            <li class="mdui-list-item">SYL科技工作室官网</li>
+                        </a></div>
+                </div>
             </ul>
         </div>
-        </div>
-        </div>
-        <br>
-        <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
+    </div>
+    </div>
+    <br>
+    <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
         <br>
         <div class="waves-circle">
-        <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
-        <i class="mdui-icon material-icons">email</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
         </div>
         <div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
-        <button class="mdui-btn mdui-btn-icon">
-        <img src="images/WeChat-logo.png" class="mdui-img-fluid">
-        </button>
+            <button class="mdui-btn mdui-btn-icon">
+                <img src="images/WeChat-logo.png" class="mdui-img-fluid">
+            </button>
         </div>
         <div class="mdui-menu mdui-color-white" id="wechat">
-        <img src="images/WeChat.png" class="mdui-img-fluid">
+            <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
         <div class="waves-circle">
-        <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
-        <img src="images/QQ-logo.png" style="width:32px;height:32px;">
-        </button>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+                <img src="images/QQ-logo.png" style="width:32px;height:32px;">
+            </button>
         </div>
         <div class="mdui-dialog" id="qq" style="width: 26.7%;height: 50%;">
-        <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
+            <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
         </div>
         <div class="waves-circle">
-        <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
-        <i class="mdui-icon material-icons">send</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+                <i class="mdui-icon material-icons">send</i>
+            </a>
         </div>
         <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
         <p><label>开发工具：<a href="https://atreep.netlify.app/hopweb/index.html" class="footerlink">HopWeb</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2023 - Burger Studio</p>
         <br>
-        </footer>
-        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
+    </footer>
+    <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
-        </a>
-        <script src="toTop.js"></script>
+    </a>
+    <script src="toTop.js"></script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
-               <span class="mdui-typo-title">调色板</span>
-               <div class="mdui-toolbar-spacer"></div>
+            <span class="mdui-typo-title">调色板</span>
+            <div class="mdui-toolbar-spacer"></div>
             <div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
         </div>
         <div class="mdui-dialog-content">
@@ -222,212 +366,212 @@
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme1" />
                         <i class="mdui-radio-icon"></i>
                         跟随浏览器
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme2" />
                         <i class="mdui-radio-icon"></i>
                         关闭
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme3" />
                         <i class="mdui-radio-icon"></i>
                         开启
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme4" />
                         <i class="mdui-radio-icon"></i>
                         基于时间
-                      </label>
+                    </label>
                 </div>
             </form>
             <p style="font-size: 16px;">主色</p>
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
+                    <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemered" />
                         <i class="mdui-radio-icon"></i>
                         Red
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink" />
                         <i class="mdui-radio-icon"></i>
                         Pink
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple" />
                         <i class="mdui-radio-icon"></i>
                         Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo" />
                         <i class="mdui-radio-icon"></i>
                         Indigo
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue" />
                         <i class="mdui-radio-icon"></i>
                         Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue" />
                         <i class="mdui-radio-icon"></i>
                         Light-Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan" />
                         <i class="mdui-radio-icon"></i>
                         Cyan
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal" />
                         <i class="mdui-radio-icon"></i>
                         Teal
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen" />
                         <i class="mdui-radio-icon"></i>
                         Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green" />
                         <i class="mdui-radio-icon"></i>
                         Light-Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime" />
                         <i class="mdui-radio-icon"></i>
                         Lime
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow" />
                         <i class="mdui-radio-icon"></i>
                         Yellow
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber" />
                         <i class="mdui-radio-icon"></i>
                         Amber
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange" />
                         <i class="mdui-radio-icon"></i>
                         Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown" />
                         <i class="mdui-radio-icon"></i>
                         Brown
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey" />
                         <i class="mdui-radio-icon"></i>
                         Grey
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey" />
                         <i class="mdui-radio-icon"></i>
                         Blue-Grey
-                      </label>
-               </div>
+                    </label>
+                </div>
             </form>
             <p style="font-size: 16px;">强调色</p>
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemered"/>
+                    <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemered" />
                         <i class="mdui-radio-icon"></i>
                         Red
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepink" />
                         <i class="mdui-radio-icon"></i>
                         Pink
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepurple" />
                         <i class="mdui-radio-icon"></i>
                         Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeindigo" />
                         <i class="mdui-radio-icon"></i>
                         Indigo
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeblue" />
                         <i class="mdui-radio-icon"></i>
                         Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-blue" />
                         <i class="mdui-radio-icon"></i>
                         Light-Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemecyan" />
                         <i class="mdui-radio-icon"></i>
                         Cyan
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeteal" />
                         <i class="mdui-radio-icon"></i>
                         Teal
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemegreen" />
                         <i class="mdui-radio-icon"></i>
                         Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-green" />
                         <i class="mdui-radio-icon"></i>
                         Light-Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelime" />
                         <i class="mdui-radio-icon"></i>
                         Lime
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeyellow" />
                         <i class="mdui-radio-icon"></i>
                         Yellow
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeamber" />
                         <i class="mdui-radio-icon"></i>
                         Amber
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeorange" />
                         <i class="mdui-radio-icon"></i>
                         Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Orange
-                      </label>
-                      <br><br>
-               </div>
+                    </label>
+                    <br><br>
+                </div>
             </form>
         </div>
         <div class="mdui-dialog-actions">
@@ -435,29 +579,30 @@
             <div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
         </div>
     </div>
-    </body>
-    <div id="updateDialog" class="update-dialog">
-        <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2023年1月17日<br>-新增了内容</div>
-        <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
-    </div>
-    <script>
-        var page = "Websites";
-        var pageUpdateDate = 20230117;
-    </script>
-    <script src="pageUpdateDialog.js"></script>
-    <script src="waves/waves.min.js"></script>
-    <script src="setTheme.js"></script>
-      <script>
+</body>
+<div id="updateDialog" class="update-dialog">
+    <div class="update-dialog-title">最近更新</div>
+    <div class="update-dialog-content">2023年1月17日<br>-新增了内容</div>
+    <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
+</div>
+<script>
+    var page = "Websites";
+    var pageUpdateDate = 20230117;
+</script>
+<script src="pageUpdateDialog.js"></script>
+<script src="waves/waves.min.js"></script>
+<script src="setTheme.js"></script>
+<script>
     var config = {
-    duration: 500,
-    delay: 0
+        duration: 500,
+        delay: 0
     };
     Waves.init(config);
-    Waves.attach('.waves-block',['waves-block']);
-    Waves.attach('.waves-circle',['waves-circle']);
-    Waves.attach('.waves-light',['waves-light']);
-    Waves.attach('.waves-classic',['waves-classic']);
+    Waves.attach('.waves-block', ['waves-block']);
+    Waves.attach('.waves-circle', ['waves-circle']);
+    Waves.attach('.waves-light', ['waves-light']);
+    Waves.attach('.waves-classic', ['waves-classic']);
     Waves.init(config);
-    </script>
+</script>
+
 </html>

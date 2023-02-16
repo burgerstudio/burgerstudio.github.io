@@ -1,169 +1,200 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-		<link rel="icon" href="appIcon.png" type="image/x-icon">
-		<style>
-		 	body{
-				background-image: linear-gradient(#90CAF9, #A5D6A7);
-			   	background-size: 100% 100%;
-				background-attachment: fixed;
-				margin: 0;
-			}
-			@keyframes appear{
-				from {filter: blur(16px);opacity: 0;transform: scale(1.2);}
-				to {filter: blur(0);opacity: 1;transform: scale(1);}
-			}
-		 	.image{
-				position: fixed;
-				width: 64px;
-				height: 64px;
-				border-radius: 100%;
-				transition-property: transform, width, height, border-radius, margin, box-shadow;
-				transition-duration: 0.15s, 0.75s, 0.75s, 0.75s, 0.5s, 0.15s;
-				margin: 16px;
-				z-index: 2;
-			}
-			.image-2{
-				position: fixed;
-				width: 64px;
-				height: 64px;
-				border-radius: 100%;
-				transition-property: transform, width, height, border-radius, margin,  opacity;
-				transition-duration: 0.15s, 0.75s, 0.75s, 0.75s, 0.5s,  0.5s;
-				margin: 16px;
-				z-index: 2;
-				opacity: 0;
-			}
-			.active{
-				transform: scale(0.85);
-				filter: brightness(80%);
-			}
-			.active-2{;
-				filter: brightness(80%);
-			}
-			.opening{
-				width: 100%;
-				height: 100%;
-				border-radius: 0;
-				transform: scale(0.85);
-			   	margin: 50%;
-				box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.3);
-			}
-			.opening-2{
-				width: 100%;
-				height: 100%;
-				border-radius: 0;
-			   	margin: 50%;
-			}
-			.opened{
-				transform: scale(1);
-				margin: 0;
-			}
-			.opened-2{
-				margin: 0;
-				opacity: 1;
-			}
-			.closing{
-				margin: 50%;
-			}
-			.closing-2{
-				margin: 50%;
-				opacity: 0;
-			}
-			.closed{
-				margin: 16px;
-				box-shadow: 0 0 0 0;
-			}
-			.closed-2{
-				margin: 16px;
-			}
-			.sign{
-		 		font-size: 16px;
-				text-shadow: 0 1px 4px #999999;
-		   	 	position: fixed;
-				top: 75%;
-				width: 100%;
-				text-align: center;
-				animation-name: appear;
-				animation-delay: 0.5s;
-				animation-duration: 0.5s;
-				animation-fill-mode: forwards;
-				filter: blur(16px);
-				opacity: 0;
-				transform: scale(1.2);
-		 }
-		.cover{
-			position: fixed;
-			width: 100%;
-			height: 100%;
-			z-index: 1;
-			opacity: 0;
-			background-color: rgba(0, 0, 0, 0.5);
-			transition: 0.5s;
-		}
-		.covered{
-			opacity: 1;
-		}
-		 </style>
-		<title>启动器 - Burger工具站</title>
-	</head>
-	<body><img src="images/BGS_LOGO_20210919_BLUE.png" class="image" id="image">
-		<div class="sign">
-			Made by Burger Studio.
-		</div>
-		<div class="cover" id="cover"></div>
-		<img src="images/BGS_IMAGE_20210919.jpg" class="image-2" id="image2">
-		<script>
-			status = 0;
-			var image = document.getElementById('image');
-			var cover = document.getElementById('cover');
-			var image2 = document.getElementById('image2');
-			function active(){
-				image.classList.add('active');
-				image2.classList.add('active-2');
-				function unactive(){
-					window.setTimeout("image.classList.remove('active');", 100);
-					window.setTimeout("image2.classList.remove('active-2');", 100);
-				}
-				image.addEventListener('touchend', unactive);
-				image.addEventListener('mouseup', unactive);
-				image2.addEventListener('touchend', unactive);
-				image2.addEventListener('mouseup', unactive);
-			}
-			image.addEventListener('touchstart', active);
-			image.addEventListener('mousedown', active);
-			image2.addEventListener('touchstart', active);
-			image2.addEventListener('mousedown', active);
-			function switchStatus(){
-				if (status == 0){
-					image.classList.remove('closing');
-					image.classList.remove('closed');
-					image.classList.add('opening');
-					window.setTimeout("image.classList.add('opened');", 125);
-					image2.classList.remove('closing-2');
-					image2.classList.remove('closed-2');
-					image2.classList.add('opening-2');
-					window.setTimeout("image2.classList.add('opened-2');", 125);
-					status = 1;
-					cover.classList.add('covered');
-				}
-				else if (status == 1){
-					image.classList.remove('opening');
-					image.classList.remove('opened');
-					image.classList.add('closing');
-					window.setTimeout("image.classList.add('closed');", 250);
-					image2.classList.remove('opening-2');
-					image2.classList.remove('opened-2');
-					image2.classList.add('closing-2');
-					window.setTimeout("image2.classList.add('closed-2');", 250);
-					status = 0;
-					cover.classList.remove('covered');
-				}
-			}
-			image.addEventListener('click', switchStatus);
-			image2.addEventListener('click', switchStatus);
-		</script>
-	</body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" href="appIcon.png" type="image/x-icon">
+    <style>
+        body {
+            background-image: linear-gradient(#90CAF9, #A5D6A7);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            margin: 0;
+        }
+
+        @keyframes appear {
+            from {
+                filter: blur(16px);
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            to {
+                filter: blur(0);
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .image {
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            border-radius: 100%;
+            transition-property: transform, width, height, border-radius, margin, box-shadow;
+            transition-duration: 0.15s, 0.75s, 0.75s, 0.75s, 0.5s, 0.15s;
+            margin: 16px;
+            z-index: 2;
+        }
+
+        .image-2 {
+            position: fixed;
+            width: 64px;
+            height: 64px;
+            border-radius: 100%;
+            transition-property: transform, width, height, border-radius, margin, opacity;
+            transition-duration: 0.15s, 0.75s, 0.75s, 0.75s, 0.5s, 0.5s;
+            margin: 16px;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .active {
+            transform: scale(0.85);
+            filter: brightness(80%);
+        }
+
+        .active-2 {
+            ;
+            filter: brightness(80%);
+        }
+
+        .opening {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            transform: scale(0.85);
+            margin: 50%;
+            box-shadow: 0 4px 16px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .opening-2 {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            margin: 50%;
+        }
+
+        .opened {
+            transform: scale(1);
+            margin: 0;
+        }
+
+        .opened-2 {
+            margin: 0;
+            opacity: 1;
+        }
+
+        .closing {
+            margin: 50%;
+        }
+
+        .closing-2 {
+            margin: 50%;
+            opacity: 0;
+        }
+
+        .closed {
+            margin: 16px;
+            box-shadow: 0 0 0 0;
+        }
+
+        .closed-2 {
+            margin: 16px;
+        }
+
+        .sign {
+            font-size: 16px;
+            text-shadow: 0 1px 4px #999999;
+            position: fixed;
+            top: 75%;
+            width: 100%;
+            text-align: center;
+            animation-name: appear;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            filter: blur(16px);
+            opacity: 0;
+            transform: scale(1.2);
+        }
+
+        .cover {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+        }
+
+        .covered {
+            opacity: 1;
+        }
+    </style>
+    <title>启动器 - Burger工具站</title>
+</head>
+
+<body><img src="images/BGS_LOGO_20210919_BLUE.png" class="image" id="image">
+    <div class="sign">
+        Made by Burger Studio.
+    </div>
+    <div class="cover" id="cover"></div>
+    <img src="images/BGS_IMAGE_20210919.jpg" class="image-2" id="image2">
+    <script>
+        status = 0;
+        var image = document.getElementById('image');
+        var cover = document.getElementById('cover');
+        var image2 = document.getElementById('image2');
+
+        function active() {
+            image.classList.add('active');
+            image2.classList.add('active-2');
+
+            function unactive() {
+                window.setTimeout("image.classList.remove('active');", 100);
+                window.setTimeout("image2.classList.remove('active-2');", 100);
+            }
+            image.addEventListener('touchend', unactive);
+            image.addEventListener('mouseup', unactive);
+            image2.addEventListener('touchend', unactive);
+            image2.addEventListener('mouseup', unactive);
+        }
+        image.addEventListener('touchstart', active);
+        image.addEventListener('mousedown', active);
+        image2.addEventListener('touchstart', active);
+        image2.addEventListener('mousedown', active);
+
+        function switchStatus() {
+            if (status == 0) {
+                image.classList.remove('closing');
+                image.classList.remove('closed');
+                image.classList.add('opening');
+                window.setTimeout("image.classList.add('opened');", 125);
+                image2.classList.remove('closing-2');
+                image2.classList.remove('closed-2');
+                image2.classList.add('opening-2');
+                window.setTimeout("image2.classList.add('opened-2');", 125);
+                status = 1;
+                cover.classList.add('covered');
+            } else if (status == 1) {
+                image.classList.remove('opening');
+                image.classList.remove('opened');
+                image.classList.add('closing');
+                window.setTimeout("image.classList.add('closed');", 250);
+                image2.classList.remove('opening-2');
+                image2.classList.remove('opened-2');
+                image2.classList.add('closing-2');
+                window.setTimeout("image2.classList.add('closed-2');", 250);
+                status = 0;
+                cover.classList.remove('covered');
+            }
+        }
+        image.addEventListener('click', switchStatus);
+        image2.addEventListener('click', switchStatus);
+    </script>
+</body>
+
 </html>

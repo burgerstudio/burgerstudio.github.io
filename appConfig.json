@@ -1,1 +1,18 @@
-{"appName":"BGTool","appIconPath":"appIcon.png","packageName":"com.burger.tool","versionName":"23-01-19","versionCode":230119,"isFullscreen":false,"isHideTitleBar":true,"titleBarBackgroundColor":"#000000","isAllowLongClick":true,"isShowLoadingUI":false,"isAllowZoom":true,"isPCMode":false,"isAllowAutoplay":true,"homePage":"index.html","withPHPEnv":false,"PHPPort":57249}
+{
+    "appName": "BGTool",
+    "appIconPath": "appIcon.png",
+    "packageName": "com.burger.tool",
+    "versionName": "23-01-19",
+    "versionCode": 230119,
+    "isFullscreen": false,
+    "isHideTitleBar": true,
+    "titleBarBackgroundColor": "#000000",
+    "isAllowLongClick": true,
+    "isShowLoadingUI": false,
+    "isAllowZoom": true,
+    "isPCMode": false,
+    "isAllowAutoplay": true,
+    "homePage": "index.html",
+    "withPHPEnv": false,
+    "PHPPort": 57249
+}

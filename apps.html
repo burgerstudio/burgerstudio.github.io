@@ -1,260 +1,441 @@
 <!doctype html>
-<html> 
-    <head> 
-        <meta charset="UTF-8"> 
-        <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> 
-        <link rel="icon" href="images/favicon.jpg" type="image/x-icon"> 
-        <link rel="stylesheet" href="mdui/css/mdui.min.css">
-        <script src="mdui/js/mdui.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
-        <link rel="stylesheet" type="text/css" href="theme.css" />
-        <title>应用程序 - Burger工具站</title> 
-    </head> 
-    <body class="mdui-drawer-body-left"> 
-        <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" href="images/favicon.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+    <link rel="stylesheet" type="text/css" href="theme.css" />
+    <title>应用程序 - Burger工具站</title>
+</head>
+
+<body class="mdui-drawer-body-left">
+    <header class="mdui-appbar mdui-appbar-fixed mdui-appbar-inset mdui-shadow-0">
         <div class="mdui-toolbar mdui-color-theme-50">
-        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
-        <i class="mdui-icon material-icons">menu</i>
-        </a>
-        <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
-        <div class="mdui-toolbar-spacer"></div>
-        <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
-        <i class="mdui-icon material-icons">cloud_download</i>
-        </a>
-        <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
-        <i class="mdui-icon material-icons">color_lens</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-drawer="{target: '#drawer', swipe: true}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <a class="mdui-typo-headline" href="index.html">Burger工具站</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-dialog="{target: '#offline'}" mdui-tooltip="{content: '获取离线版'}" onclick="update()">
+                <i class="mdui-icon material-icons">cloud_download</i>
+            </a>
+            <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
+                <i class="mdui-icon material-icons">color_lens</i>
+            </a>
         </div>
         <div class="mdui-tab mdui-tab-centered mdui-color-theme-50" mdui-tab>
             <a href="#android" class="waves-block radius" onclick="activeTab1()">
-            <i class="mdui-icon material-icons" id="tabIcon1">android</i>
-            <label>Android</label>
+                <i class="mdui-icon material-icons" id="tabIcon1">android</i>
+                <label>Android</label>
             </a>
             <a href="#windows" class="waves-block radius" onclick="activeTab2()">
-            <i class="mdui-icon material-icons" id="tabIcon2">desktop_windows</i>
-            <label>Windows</label>
+                <i class="mdui-icon material-icons" id="tabIcon2">desktop_windows</i>
+                <label>Windows</label>
             </a>
-            </div>
-        </header>
-        <div class="mdui-dialog mdui-color-theme-50" id="offline">
+        </div>
+    </header>
+    <div class="mdui-dialog mdui-color-theme-50" id="offline">
         <div class="mdui-dialog-title">获取离线版</div>
         <div class="mdui-dialog-content">
-        <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
-        <div id="updateDate"></div>
-        <div id="updateChange"></div>
-        <p class="mdui-text-color-red" id="updateNote"></p>
-        <p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
-          <p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
+            <div class="mdui-spinner mdui-center" id="updateSpinner"></div>
+            <div id="updateDate"></div>
+            <div id="updateChange"></div>
+            <p class="mdui-text-color-red" id="updateNote"></p>
+            <p class="mdui-text-color-green" id="alreadyUpdate" style="display: none;">已是最新版本</p>
+            <p class="mdui-text-color-green" id="updateAvailable" style="display: none;">有可用的版本更新</p><br><br><br>
         </div>
         <div class="mdui-dialog-actions mdui-dialog-actions-stacked" style="padding: 8px;">
-        <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
-        <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
+            <a href="https://www.123pan.com/s/kklDVv-6R0bd" class="waves-block radius"><button class="mdui-btn">获取最新版本</button></a>
+            <div class="waves-block radius"><button class="mdui-btn" mdui-dialog-close>关闭</button></div>
         </div>
         <script src="update.js"></script>
-        </div>
-        <div class="mdui-drawer mdui-color-theme-50" id="drawer">
-        <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg"/ id="bgsImage">
+    </div>
+    <div class="mdui-drawer mdui-color-theme-50" id="drawer">
+        <img class="mdui-img-fluid" src="images/BGS_IMAGE_20210919.jpg" / id="bgsImage">
         <ul class="mdui-list" mdui-collapse="{accordion: true}" style="padding: 8px;" id="mduiDrawerList">
-        <a href="index.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
-        <div class="mdui-list-item-content">首页</div>
-        </li>
-        </a>
-        <a href="sysImg.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
-        <div class="mdui-list-item-content">系统镜像</div>
-        </li>
-        </a>
-        <a href="apps.html" class="waves-block radius">
-        <li class="mdui-list-item mdui-color-theme">
-        <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
-        <div class="mdui-list-item-content">应用程序</div>
-        </li>
-        </a>
-        <a href="websites.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">public</i>
-        <div class="mdui-list-item-content">网络站点</div>
-        </li>
-        </a>
-        <a href="more.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">attach_file</i>
-        <div class="mdui-list-item-content">更多资源</div>
-        </li>
-        </a>
-        <a href="tools.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">build</i>
-        <div class="mdui-list-item-content">JS工具</div>
-        </li>
-        </a>
-        <a href="about.html" class="waves-block radius">
-        <li class="mdui-list-item">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
-        <div class="mdui-list-item-content">关于我们</div>
-        </li>
-        </a>
-        </div>
-        </ul>
-        </div>
-        <br><br><br><br><br><br><br>
-            </div>
-            <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-8">
-            <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
+            <a href="index.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">home</i>
+                    <div class="mdui-list-item-content">首页</div>
+                </li>
+            </a>
+            <a href="sysImg.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-orange">storage</i>
+                    <div class="mdui-list-item-content">系统镜像</div>
+                </li>
+            </a>
+            <a href="apps.html" class="waves-block radius">
+                <li class="mdui-list-item mdui-color-theme">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                    <div class="mdui-list-item-content">应用程序</div>
+                </li>
+            </a>
+            <a href="websites.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">public</i>
+                    <div class="mdui-list-item-content">网络站点</div>
+                </li>
+            </a>
+            <a href="more.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">attach_file</i>
+                    <div class="mdui-list-item-content">更多资源</div>
+                </li>
+            </a>
+            <a href="tools.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">build</i>
+                    <div class="mdui-list-item-content">JS工具</div>
+                </li>
+            </a>
+            <a href="about.html" class="waves-block radius">
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">info</i>
+                    <div class="mdui-list-item-content">关于我们</div>
+                </li>
+            </a>
+    </div>
+    </ul>
+    </div>
+    <br><br><br><br><br><br><br>
+    </div>
+    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-0 mdui-color-theme-50">
+        <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
             <h1 class="mdui-text-color-theme title">应用程序</h1>
             <div id="android">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
-            <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
-            <div class="waves-block radius mdui-col"><a href="https://coolapk.com/qr/download"><li class="mdui-list-item">酷安</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/co.clinux.googleinstaller"><li class="mdui-list-item">X 谷歌安装器</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.microsoft.office.officehubrow"><li class="mdui-list-item">Microsoft Office</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-inputmethod-pinyin"><li class="mdui-list-item">谷歌拼音输入法</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://repo.xposed.info/module/de.robv.android.xposed.installer"><li class="mdui-list-item">Xposed Installer</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/exa-lnx-a"><li class="mdui-list-item">AnLinux</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.topjohnwu.magisk"><li class="mdui-list-item">Magisk</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.jakting.opengapps"><li class="mdui-list-item">氡·OpenGApps</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.rair.adbwifi"><li class="mdui-list-item">ADB WiFi</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.nightmare.adbtools"><li class="mdui-list-item">ADB KIT</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://hsk.oray.com/download/"><li class="mdui-list-item">花生壳</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.example.ryanc.andserv"><li class="mdui-list-item">手机服务器</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ru-kslabs-ksweb"><li class="mdui-list-item">KSWEB</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/xzr.La.systemtoolbox"><li class="mdui-list-item">镧·系统工具箱</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://m.w3cschool.cn/download"><li class="mdui-list-item">编程狮</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/studio-com-techriz-andronix"><li class="mdui-list-item">Andronix</li></a></div>
-             <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/me-twrp-twrpapp"><li class="mdui-list-item">Official TWRP App</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-scratch"><li class="mdui-list-item">Scratch</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-instantbits-cast-webvideo"><li class="mdui-list-item scale">Web Video Caster</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-instantbits-cast-receiver"><li class="mdui-list-item scale">Web Video Caster Receiver</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.bt.cn/download/app.html"><li class="mdui-list-item">堡塔APP</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://mo.camscanner.com/"><li class="mdui-list-item">扫描全能王</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/web1n.stopapp"><li class="mdui-list-item">小黑屋</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://woobx.cn/"><li class="mdui-list-item">一个木函</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-teacapps-barcodescanner"><li class="mdui-list-item">QR码扫描</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/me.piebridge.brevent"><li class="mdui-list-item">黑阈</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ru-meefik-busybox"><li class="mdui-list-item">BusyBox</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ua-com-streamsoft-pingtools"><li class="mdui-list-item">PingTools</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.x2.clicker"><li class="mdui-list-item">自动连点器</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://m.i4.cn/installBoxAndroid"><li class="mdui-list-item">爱思助手</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.123pan.com/s/kklDVv-D00bd"><li class="mdui-list-item">Lucky Patcher Installer</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.merxury.blocker"><li class="mdui-list-item">Blocker</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-inputmethod-latin"><li class="mdui-list-item">Gboard</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-pranavpandey-rotation"><li class="mdui-list-item">Rotation</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.dede.android_eggs"><li class="mdui-list-item">Easter Eggs</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://www.sygjx.com/"><li class="mdui-list-item">实用工具箱</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-wordpress-android"><li class="mdui-list-item">WordPress</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-github-android"><li class="mdui-list-item">GitHub</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/dym.unique.mindmap"><li class="mdui-list-item">思维导图</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://m.7to.cn/"><li class="mdui-list-item">奇兔刷机</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.github.ghmxr.ftpshare"><li class="mdui-list-item">FTP Share</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-microsoft-whiteboard-publicpreview"><li class="mdui-list-item">Microsoft Whiteboard</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.hfhuaizhi.bird"><li class="mdui-list-item">灵动鸟</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/cn.skyrin.ntfh"><li class="mdui-list-item">一条通知</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.pmm.remember"><li class="mdui-list-item">记得倒数日</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/me.i38.gesture"><li class="mdui-list-item">微动手势</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/io.iftech.android.box"><li class="mdui-list-item">小组件盒子</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/io.zhuliang.pipphotos"><li class="mdui-list-item">果仁相册</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/moe.shizuku.privileged.api"><li class="mdui-list-item">Shizuku</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.x1y9.battery"><li class="mdui-list-item">电池守护</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://coolapk.com/apk/com.x1y9.beautify"><li class="mdui-list-item">脸谱</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-videolan-vlc"><li class="mdui-list-item">VLC for Android</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.yuanwofei.cardemulator"><li class="mdui-list-item">NFC卡模拟</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/tech.evlsoc.captivemgr"><li class="mdui-list-item">CaptiveMgr清除x和!</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-apps-translate"><li class="mdui-list-item">Google Translate</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-microsoft-translator"><li class="mdui-list-item">Microsoft Translator</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.byyoung.setting"><li class="mdui-list-item">爱玩机工具箱</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-sonelli-juicessh"><li class="mdui-list-item">JuiceSSH</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.vmos.cn/zhushou.htm"><li class="mdui-list-item">VMOS助手</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://kyyai.com/h5"><li class="mdui-list-item">快云游云手机</li></a></div>
-            </div>
-            </ul>
+                <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
+                    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
+                        <div class="waves-block radius mdui-col"><a href="https://coolapk.com/qr/download">
+                                <li class="mdui-list-item">酷安</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/co.clinux.googleinstaller">
+                                <li class="mdui-list-item">X 谷歌安装器</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.microsoft.office.officehubrow">
+                                <li class="mdui-list-item">Microsoft Office</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-inputmethod-pinyin">
+                                <li class="mdui-list-item">谷歌拼音输入法</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://repo.xposed.info/module/de.robv.android.xposed.installer">
+                                <li class="mdui-list-item">Xposed Installer</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/exa-lnx-a">
+                                <li class="mdui-list-item">AnLinux</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.topjohnwu.magisk">
+                                <li class="mdui-list-item">Magisk</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.jakting.opengapps">
+                                <li class="mdui-list-item">氡·OpenGApps</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.rair.adbwifi">
+                                <li class="mdui-list-item">ADB WiFi</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.nightmare.adbtools">
+                                <li class="mdui-list-item">ADB KIT</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://hsk.oray.com/download/">
+                                <li class="mdui-list-item">花生壳</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.example.ryanc.andserv">
+                                <li class="mdui-list-item">手机服务器</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ru-kslabs-ksweb">
+                                <li class="mdui-list-item">KSWEB</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/xzr.La.systemtoolbox">
+                                <li class="mdui-list-item">镧·系统工具箱</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://m.w3cschool.cn/download">
+                                <li class="mdui-list-item">编程狮</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/studio-com-techriz-andronix">
+                                <li class="mdui-list-item">Andronix</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/me-twrp-twrpapp">
+                                <li class="mdui-list-item">Official TWRP App</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-scratch">
+                                <li class="mdui-list-item">Scratch</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-instantbits-cast-webvideo">
+                                <li class="mdui-list-item scale">Web Video Caster</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-instantbits-cast-receiver">
+                                <li class="mdui-list-item scale">Web Video Caster Receiver</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.bt.cn/download/app.html">
+                                <li class="mdui-list-item">堡塔APP</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://mo.camscanner.com/">
+                                <li class="mdui-list-item">扫描全能王</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/web1n.stopapp">
+                                <li class="mdui-list-item">小黑屋</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="http://woobx.cn/">
+                                <li class="mdui-list-item">一个木函</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-teacapps-barcodescanner">
+                                <li class="mdui-list-item">QR码扫描</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/me.piebridge.brevent">
+                                <li class="mdui-list-item">黑阈</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ru-meefik-busybox">
+                                <li class="mdui-list-item">BusyBox</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/ua-com-streamsoft-pingtools">
+                                <li class="mdui-list-item">PingTools</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.x2.clicker">
+                                <li class="mdui-list-item">自动连点器</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://m.i4.cn/installBoxAndroid">
+                                <li class="mdui-list-item">爱思助手</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.123pan.com/s/kklDVv-D00bd">
+                                <li class="mdui-list-item">Lucky Patcher Installer</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.merxury.blocker">
+                                <li class="mdui-list-item">Blocker</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-inputmethod-latin">
+                                <li class="mdui-list-item">Gboard</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-pranavpandey-rotation">
+                                <li class="mdui-list-item">Rotation</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.dede.android_eggs">
+                                <li class="mdui-list-item">Easter Eggs</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="http://www.sygjx.com/">
+                                <li class="mdui-list-item">实用工具箱</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-wordpress-android">
+                                <li class="mdui-list-item">WordPress</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-github-android">
+                                <li class="mdui-list-item">GitHub</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/dym.unique.mindmap">
+                                <li class="mdui-list-item">思维导图</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="http://m.7to.cn/">
+                                <li class="mdui-list-item">奇兔刷机</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.github.ghmxr.ftpshare">
+                                <li class="mdui-list-item">FTP Share</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-microsoft-whiteboard-publicpreview">
+                                <li class="mdui-list-item">Microsoft Whiteboard</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.hfhuaizhi.bird">
+                                <li class="mdui-list-item">灵动鸟</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/cn.skyrin.ntfh">
+                                <li class="mdui-list-item">一条通知</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.pmm.remember">
+                                <li class="mdui-list-item">记得倒数日</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/me.i38.gesture">
+                                <li class="mdui-list-item">微动手势</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/io.iftech.android.box">
+                                <li class="mdui-list-item">小组件盒子</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/io.zhuliang.pipphotos">
+                                <li class="mdui-list-item">果仁相册</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/moe.shizuku.privileged.api">
+                                <li class="mdui-list-item">Shizuku</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.x1y9.battery">
+                                <li class="mdui-list-item">电池守护</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://coolapk.com/apk/com.x1y9.beautify">
+                                <li class="mdui-list-item">脸谱</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/org-videolan-vlc">
+                                <li class="mdui-list-item">VLC for Android</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.yuanwofei.cardemulator">
+                                <li class="mdui-list-item">NFC卡模拟</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/tech.evlsoc.captivemgr">
+                                <li class="mdui-list-item">CaptiveMgr清除x和!</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-google-android-apps-translate">
+                                <li class="mdui-list-item">Google Translate</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-microsoft-translator">
+                                <li class="mdui-list-item">Microsoft Translator</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.coolapk.com/apk/com.byyoung.setting">
+                                <li class="mdui-list-item">爱玩机工具箱</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://apkpremier.com/download/com-sonelli-juicessh">
+                                <li class="mdui-list-item">JuiceSSH</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.vmos.cn/zhushou.htm">
+                                <li class="mdui-list-item">VMOS助手</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://kyyai.com/h5">
+                                <li class="mdui-list-item">快云游云手机</li>
+                            </a></div>
+                    </div>
+                </ul>
             </div>
             <div id="windows">
-            <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
-            <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
-            <div class="waves-block radius mdui-col"><a href="https://www.java.com/zh-CN/download/"><li class="mdui-list-item">Java</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://hsk.oray.com/download/"><li class="mdui-list-item">花生壳</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.flash.cn/download-wins"><li class="mdui-list-item scale">Adobe Flash Player</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.123pan.com/s/kklDVv-Ru0bd"><li class="mdui-list-item">Scratch</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.huorong.cn/person5.html"><li class="mdui-list-item">火绒安全软件</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.bt.cn/download.html"><li class="mdui-list-item">宝塔面板</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.camscanner.com/user/download"><li class="mdui-list-item">扫描全能王</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://github.com/zbezj/HEU_KMS_Activator/releases"><li class="mdui-list-item">HEU KMS Activator</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://cn.ultraiso.net/xiazai.html"><li class="mdui-list-item">UltraISO</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.diskgenius.cn/download.php"><li class="mdui-list-item">DiskGenius</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.disktool.cn/download.html"><li class="mdui-list-item">傲梅分区助手</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.python.org/downloads/windows/"><li class="mdui-list-item">Python</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://aka.ms/GetPCHealthCheckApp"><li class="mdui-list-item">电脑健康状况检查应用</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://7to.cn/"><li class="mdui-list-item">奇兔刷机</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.i4.cn/"><li class="mdui-list-item">爱思助手</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://github.com/cloudreve/Cloudreve/releases"><li class="mdui-list-item">Cloudreve</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://github.com/alist-org/alist/releases"><li class="mdui-list-item">Alist</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://wintool.cc/yd/"><li class="mdui-list-item">云图工具箱</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.mdclub.org/"><li class="mdui-list-item">MDClub</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://cn.wordpress.org/download/#download-install"><li class="mdui-list-item">WordPress</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://desktop.github.com/"><li class="mdui-list-item">GitHub Desktop</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://js.design/download"><li class="mdui-list-item">即时设计</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://hipc.cn/"><li class="mdui-list-item">HiPC 移动助手</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://github.com/pbatard/Fido/releases"><li class="mdui-list-item">Fido</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="http://dm.weishi.360.cn/home.html"><li class="mdui-list-item">360驱动大师</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://www.videolan.org/vlc/download-windows.html"><li class="mdui-list-item">VLC for Windows</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://git-scm.com/downloads"><li class="mdui-list-item">Git</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://github.com/ventoy/Ventoy/releases"><li class="mdui-list-item">Ventoy</li></a></div>
-            <div class="waves-block radius mdui-col"><a href="https://kyyai.com/pc"><li class="mdui-list-item">快云游云手机</li></a></div>
+                <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
+                    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless">
+                        <div class="waves-block radius mdui-col"><a href="https://www.java.com/zh-CN/download/">
+                                <li class="mdui-list-item">Java</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://hsk.oray.com/download/">
+                                <li class="mdui-list-item">花生壳</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.flash.cn/download-wins">
+                                <li class="mdui-list-item scale">Adobe Flash Player</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.123pan.com/s/kklDVv-Ru0bd">
+                                <li class="mdui-list-item">Scratch</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.huorong.cn/person5.html">
+                                <li class="mdui-list-item">火绒安全软件</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.bt.cn/download.html">
+                                <li class="mdui-list-item">宝塔面板</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.camscanner.com/user/download">
+                                <li class="mdui-list-item">扫描全能王</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://github.com/zbezj/HEU_KMS_Activator/releases">
+                                <li class="mdui-list-item">HEU KMS Activator</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://cn.ultraiso.net/xiazai.html">
+                                <li class="mdui-list-item">UltraISO</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.diskgenius.cn/download.php">
+                                <li class="mdui-list-item">DiskGenius</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.disktool.cn/download.html">
+                                <li class="mdui-list-item">傲梅分区助手</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.python.org/downloads/windows/">
+                                <li class="mdui-list-item">Python</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://aka.ms/GetPCHealthCheckApp">
+                                <li class="mdui-list-item">电脑健康状况检查应用</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="http://7to.cn/">
+                                <li class="mdui-list-item">奇兔刷机</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.i4.cn/">
+                                <li class="mdui-list-item">爱思助手</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://github.com/cloudreve/Cloudreve/releases">
+                                <li class="mdui-list-item">Cloudreve</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://github.com/alist-org/alist/releases">
+                                <li class="mdui-list-item">Alist</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://wintool.cc/yd/">
+                                <li class="mdui-list-item">云图工具箱</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.mdclub.org/">
+                                <li class="mdui-list-item">MDClub</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://cn.wordpress.org/download/#download-install">
+                                <li class="mdui-list-item">WordPress</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://desktop.github.com/">
+                                <li class="mdui-list-item">GitHub Desktop</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://js.design/download">
+                                <li class="mdui-list-item">即时设计</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://hipc.cn/">
+                                <li class="mdui-list-item">HiPC 移动助手</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://github.com/pbatard/Fido/releases">
+                                <li class="mdui-list-item">Fido</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="http://dm.weishi.360.cn/home.html">
+                                <li class="mdui-list-item">360驱动大师</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://www.videolan.org/vlc/download-windows.html">
+                                <li class="mdui-list-item">VLC for Windows</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://git-scm.com/downloads">
+                                <li class="mdui-list-item">Git</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://github.com/ventoy/Ventoy/releases">
+                                <li class="mdui-list-item">Ventoy</li>
+                            </a></div>
+                        <div class="waves-block radius mdui-col"><a href="https://kyyai.com/pc">
+                                <li class="mdui-list-item">快云游云手机</li>
+                            </a></div>
+                    </div>
+                </ul>
             </div>
-            </ul>
         </div>
-        </div>
-        </div>
-        <br>
-        <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
+    </div>
+    <br>
+    <footer class="mdui-text-center mdui-color-theme-50 auto-dark">
         <br>
         <div class="waves-circle">
-        <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
-        <i class="mdui-icon material-icons">email</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon" href="mailto:vmos1624@163.com" mdui-tooltip="{content: '网易邮箱'}">
+                <i class="mdui-icon material-icons">email</i>
+            </a>
         </div>
         <div class="waves-circle" mdui-tooltip="{content: '微信'}" mdui-menu="{target: '#wechat'}">
-        <button class="mdui-btn mdui-btn-icon">
-        <img src="images/WeChat-logo.png" class="mdui-img-fluid">
-        </button>
+            <button class="mdui-btn mdui-btn-icon">
+                <img src="images/WeChat-logo.png" class="mdui-img-fluid">
+            </button>
         </div>
         <div class="mdui-menu mdui-color-white" id="wechat">
-        <img src="images/WeChat.png" class="mdui-img-fluid">
+            <img src="images/WeChat.png" class="mdui-img-fluid">
         </div>
         <div class="waves-circle">
-        <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
-        <img src="images/QQ-logo.png" style="width:32px;height:32px;">
-        </button>
+            <button class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'QQ'}" mdui-dialog="{target: '#qq'}">
+                <img src="images/QQ-logo.png" style="width:32px;height:32px;">
+            </button>
         </div>
         <div class="mdui-dialog" id="qq" style="width: 26.7%;height: 50%;">
-        <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
+            <img src="images/QQ.jpg" style="width: 100%;height: 100%;">
         </div>
         <div class="waves-circle">
-        <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
-        <i class="mdui-icon material-icons">send</i>
-        </a>
+            <a class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'Telegram'}" href="https://t.me/BGS_XNJ">
+                <i class="mdui-icon material-icons">send</i>
+            </a>
         </div>
         <br>
         <p><label>前端框架：<a href="https://www.mdui.org/" class="footerlink">MDUI</a></label></p>
         <p><label>开发工具：<a href="https://atreep.netlify.app/hopweb/index.html" class="footerlink">HopWeb</a></label></p>
         <p style="font-size: 16px;font-weight: bold;">2023 - Burger Studio</p>
         <br>
-        </footer>
-        <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide radius waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
+    </footer>
+    <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
-        </a>
-        <script src="toTop.js"></script>
+    </a>
+    <script src="toTop.js"></script>
     <script>
-        function activeTab1(){
+        function activeTab1() {
             document.getElementById('tabIcon1').classList.add("mdui-color-theme-100");
             document.getElementById('tabIcon1').style.padding = "4px 24px";
             document.getElementById('tabIcon2').classList.remove("mdui-color-theme-100");
             document.getElementById('tabIcon2').style.padding = "4px 4px";
         }
-        function activeTab2(){
+
+        function activeTab2() {
             document.getElementById('tabIcon2').classList.add("mdui-color-theme-100");
             document.getElementById('tabIcon2').style.padding = "4px 24px";
             document.getElementById('tabIcon1').classList.remove("mdui-color-theme-100");
@@ -264,8 +445,8 @@
     </script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
-               <span class="mdui-typo-title">调色板</span>
-               <div class="mdui-toolbar-spacer"></div>
+            <span class="mdui-typo-title">调色板</span>
+            <div class="mdui-toolbar-spacer"></div>
             <div class="waves-circle"><button class="mdui-btn mdui-btn-icon" mdui-dialog-close><i class="mdui-icon material-icons">close</i></button></div>
         </div>
         <div class="mdui-dialog-content">
@@ -273,212 +454,212 @@
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('bySystem');">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme1"/>
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme1" />
                         <i class="mdui-radio-icon"></i>
                         跟随浏览器
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme2"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('disabled')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme2" />
                         <i class="mdui-radio-icon"></i>
                         关闭
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme3"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('enabled');">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme3" />
                         <i class="mdui-radio-icon"></i>
                         开启
-                      </label>
-                     <label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
-                        <input type="radio" name="setDarkTheme" id="setDarkTheme4"/>
+                    </label>
+                    <label class="mdui-radio mdui-col" onclick="setDarkTheme('byTime')">
+                        <input type="radio" name="setDarkTheme" id="setDarkTheme4" />
                         <i class="mdui-radio-icon"></i>
                         基于时间
-                      </label>
+                    </label>
                 </div>
             </form>
             <p style="font-size: 16px;">主色</p>
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemered"/>
+                    <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setPrimaryTheme('red')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemered" />
                         <i class="mdui-radio-icon"></i>
                         Red
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setPrimaryTheme('pink')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepink" />
                         <i class="mdui-radio-icon"></i>
                         Pink
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setPrimaryTheme('purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemepurple" />
                         <i class="mdui-radio-icon"></i>
                         Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setPrimaryTheme('deep-purple')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-purple" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setPrimaryTheme('indigo')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeindigo" />
                         <i class="mdui-radio-icon"></i>
                         Indigo
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setPrimaryTheme('blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue" />
                         <i class="mdui-radio-icon"></i>
                         Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setPrimaryTheme('light-blue')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-blue" />
                         <i class="mdui-radio-icon"></i>
                         Light-Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setPrimaryTheme('cyan')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemecyan" />
                         <i class="mdui-radio-icon"></i>
                         Cyan
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setPrimaryTheme('teal')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeteal" />
                         <i class="mdui-radio-icon"></i>
                         Teal
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setPrimaryTheme('green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegreen" />
                         <i class="mdui-radio-icon"></i>
                         Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setPrimaryTheme('light-green')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelight-green" />
                         <i class="mdui-radio-icon"></i>
                         Light-Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setPrimaryTheme('lime')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemelime" />
                         <i class="mdui-radio-icon"></i>
                         Lime
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setPrimaryTheme('yellow')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeyellow" />
                         <i class="mdui-radio-icon"></i>
                         Yellow
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setPrimaryTheme('amber')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeamber" />
                         <i class="mdui-radio-icon"></i>
                         Amber
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setPrimaryTheme('orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeorange" />
                         <i class="mdui-radio-icon"></i>
                         Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setPrimaryTheme('deep-orange')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemedeep-orange" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-brown" onclick="setPrimaryTheme('brown')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemebrown" />
                         <i class="mdui-radio-icon"></i>
                         Brown
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-grey" onclick="setPrimaryTheme('grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemegrey" />
                         <i class="mdui-radio-icon"></i>
                         Grey
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
-                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue-grey" onclick="setPrimaryTheme('blue-grey')">
+                        <input type="radio" name="setPrimaryTheme" id="setPrimaryThemeblue-grey" />
                         <i class="mdui-radio-icon"></i>
                         Blue-Grey
-                      </label>
-               </div>
+                    </label>
+                </div>
             </form>
             <p style="font-size: 16px;">强调色</p>
             <form>
                 <div class="mdui-row-xs-2 mdui-row-sm-3 mdui-row-md-4 mdui-row-lg-5">
-                       <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemered"/>
+                    <label class="mdui-radio mdui-col mdui-text-color-red" onclick="setAccentTheme('red')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemered" />
                         <i class="mdui-radio-icon"></i>
                         Red
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemepink"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-pink" onclick="setAccentTheme('pink')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepink" />
                         <i class="mdui-radio-icon"></i>
                         Pink
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemepurple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-purple" onclick="setAccentTheme('purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemepurple" />
                         <i class="mdui-radio-icon"></i>
                         Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-purple" onclick="setAccentTheme('deep-purple')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-purple" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Purple
-                      </label>
-                     <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeindigo"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-indigo" onclick="setAccentTheme('indigo')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeindigo" />
                         <i class="mdui-radio-icon"></i>
                         Indigo
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeblue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-blue" onclick="setAccentTheme('blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeblue" />
                         <i class="mdui-radio-icon"></i>
                         Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-blue"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-blue" onclick="setAccentTheme('light-blue')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-blue" />
                         <i class="mdui-radio-icon"></i>
                         Light-Blue
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemecyan"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-cyan" onclick="setAccentTheme('cyan')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemecyan" />
                         <i class="mdui-radio-icon"></i>
                         Cyan
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeteal"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-teal" onclick="setAccentTheme('teal')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeteal" />
                         <i class="mdui-radio-icon"></i>
                         Teal
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemegreen"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-green" onclick="setAccentTheme('green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemegreen" />
                         <i class="mdui-radio-icon"></i>
                         Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-green"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-light-green" onclick="setAccentTheme('light-green')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelight-green" />
                         <i class="mdui-radio-icon"></i>
                         Light-Green
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemelime"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-lime" onclick="setAccentTheme('lime')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemelime" />
                         <i class="mdui-radio-icon"></i>
                         Lime
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeyellow"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-yellow" onclick="setAccentTheme('yellow')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeyellow" />
                         <i class="mdui-radio-icon"></i>
                         Yellow
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeamber"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-amber" onclick="setAccentTheme('amber')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeamber" />
                         <i class="mdui-radio-icon"></i>
                         Amber
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemeorange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-orange" onclick="setAccentTheme('orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemeorange" />
                         <i class="mdui-radio-icon"></i>
                         Orange
-                      </label>
-                      <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
-                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange"/>
+                    </label>
+                    <label class="mdui-radio mdui-col mdui-text-color-deep-orange" onclick="setAccentTheme('deep-orange')">
+                        <input type="radio" name="setAccentTheme" id="setAccentThemedeep-orange" />
                         <i class="mdui-radio-icon"></i>
                         Deep-Orange
-                      </label>
-                      <br><br>
-               </div>
+                    </label>
+                    <br><br>
+                </div>
             </form>
         </div>
         <div class="mdui-dialog-actions">
@@ -486,29 +667,30 @@
             <div class="mdui-btn radius waves-circle" style="margin-bottom: 64px;" mdui-dialog-close>确定</div>
         </div>
     </div>
-    </body>
-    <div id="updateDialog" class="update-dialog">
-        <div class="update-dialog-title">最近更新</div>
-        <div class="update-dialog-content">2023年1月17日<br>-新增了内容</div>
-        <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
-    </div>
-    <script>
-        var page = "Apps";
-        var pageUpdateDate = 20230117;
-    </script>
-    <script src="pageUpdateDialog.js"></script>
-    <script src="waves/waves.min.js"></script>
-    <script src="setTheme.js"></script>
-      <script>
+</body>
+<div id="updateDialog" class="update-dialog">
+    <div class="update-dialog-title">最近更新</div>
+    <div class="update-dialog-content">2023年1月17日<br>-新增了内容</div>
+    <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
+</div>
+<script>
+    var page = "Apps";
+    var pageUpdateDate = 20230117;
+</script>
+<script src="pageUpdateDialog.js"></script>
+<script src="waves/waves.min.js"></script>
+<script src="setTheme.js"></script>
+<script>
     var config = {
-    duration: 500,
-    delay: 0
+        duration: 500,
+        delay: 0
     };
     Waves.init(config);
-    Waves.attach('.waves-block',['waves-block']);
-    Waves.attach('.waves-circle',['waves-circle']);
-    Waves.attach('.waves-light',['waves-light']);
-    Waves.attach('.waves-classic',['waves-classic']);
+    Waves.attach('.waves-block', ['waves-block']);
+    Waves.attach('.waves-circle', ['waves-circle']);
+    Waves.attach('.waves-light', ['waves-light']);
+    Waves.attach('.waves-classic', ['waves-classic']);
     Waves.init(config);
-    </script>
+</script>
+
 </html>
