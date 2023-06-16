@@ -9,7 +9,7 @@
     <script src="mdui/js/mdui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
     <link rel="stylesheet" type="text/css" href="theme.css" />
-    <title>应用程序 - Burger工具站</title>
+    <title>PURE - 纯音 - Burger工具站</title>
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -25,16 +25,6 @@
             </a>
             <a id="switch-theme" class="mdui-btn mdui-btn-icon waves-circle toolbar-btn" mdui-tooltip="{content: '打开调色板'}" mdui-dialog="{target: '#setTheme'}">
                 <i class="mdui-icon material-icons">color_lens</i>
-            </a>
-        </div>
-        <div class="mdui-tab mdui-tab-centered mdui-color-theme-50" mdui-tab>
-            <a href="#android" class="waves-block radius" onclick="activeTab1()">
-                <i class="mdui-icon material-icons" id="tabIcon1">android</i>
-                <label>Android</label>
-            </a>
-            <a href="#windows" class="waves-block radius" onclick="activeTab2()">
-                <i class="mdui-icon material-icons" id="tabIcon2">desktop_windows</i>
-                <label>Windows</label>
             </a>
         </div>
     </header>
@@ -70,20 +60,20 @@
                 </li>
             </a>
             <a href="apps.html" class="waves-block radius">
-                <li class="mdui-list-item mdui-color-theme">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">apps</i>
+                <li class="mdui-list-item">
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">apps</i>
                     <div class="mdui-list-item-content">应用程序</div>
                 </li>
             </a>
             <a href="websites.html" class="waves-block radius">
                 <li class="mdui-list-item">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">public</i>
+                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">public</i>
                     <div class="mdui-list-item-content">网络站点</div>
                 </li>
             </a>
             <a href="more.html" class="waves-block radius">
-                <li class="mdui-list-item">
-                    <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-cyan">attach_file</i>
+                <li class="mdui-list-item mdui-color-theme">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">attach_file</i>
                     <div class="mdui-list-item-content">更多资源</div>
                 </li>
             </a>
@@ -102,22 +92,51 @@
     </div>
     </ul>
     </div>
-    <br><br><br><br><br><br><br>
-    </div>
-    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-4 mdui-m-b-2 mdui-shadow-0 mdui-color-theme-50">
+    <br><br><br><br>
+    <div class="mdui-card mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2 mdui-shadow-0 mdui-color-theme-50">
         <div class="mdui-m-l-2 mdui-m-r-2 mdui-m-t-2 mdui-m-b-2">
-            <h1 class="mdui-text-color-theme title">应用程序</h1>
-            <div id="android">
-                <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
-                    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless" id="androidApps">
-                    </div>
-                </ul>
+            <h1 class="mdui-text-color-theme title">PURE - 纯音</h1>
+            <div class="mdui-text-center">
+                <h3 class="mdui-text-color-theme" style="font-weight: normal;">播放源：网易云音乐</h3>
+                <div class="waves-block radius waves-light mdui-center" style="max-width: 500px;">
+                    <a href="https://y.music.163.com/m/playlist?id=8417254609&userid=3721764037&creatorId=3721764037" class="mdui-btn mdui-color-theme-accent mdui-btn-block">
+                        <i class="mdui-icon material-icons">playlist_play</i>
+                        <label>查看原歌单</label>
+                    </a>
+                </div>
+                <br>
             </div>
-            <div id="windows">
-                <ul class="mdui-list mdui-list-dense mdui-text-color-theme scaleappear" style="font-size: 16px;">
-                    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-gapless" id="winApps">
-                    </div>
-                </ul>
+            <ul class="mdui-list">
+                <div class="waves-block radius">
+                    <li class="mdui-list-item">
+                        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-theme">play_circle_filled</i>
+                        <div class="mdui-list-item-content">页面内播放</div>
+                        <label class="mdui-switch">
+                            <input type="checkbox" onclick="javascript:switchPlayMode();" />
+                            <i class="mdui-switch-icon"></i>
+                        </label>
+                    </li>
+                </div>
+            </ul>
+            <br>
+            <div id="loadSpinner" style="margin-bottom: 32px;">
+                <div class="mdui-spinner mdui-center"></div>
+            </div>
+            <div class="mdui-typo">
+                <div class="mdui-table-fluid mdui-shadow-0" id="table" style="display: none;">
+                    <table class="mdui-table mdui-color-theme-100">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>音乐</th>
+                                <th>作者</th>
+                                <th>时长</th>
+                            </tr>
+                        </thead>
+                        <tbody id="list">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -156,26 +175,11 @@
         <p style="font-size: 16px;font-weight: bold;">2023 - Burger Studio</p>
         <br>
     </footer>
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 id="iframe" style="position: fixed;bottom: 0;"></iframe>
     <a class="mdui-fab mdui-fab-fixed mdui-color-theme-accent mdui-fab-hide waves-block waves-light" id="fab" onclick="window.scrollTo(0,0);">
         <i class="mdui-icon material-icons">keyboard_arrow_up</i>
     </a>
     <script src="toTop.js"></script>
-    <script>
-        function activeTab1() {
-            document.getElementById('tabIcon1').classList.add("mdui-color-theme-100");
-            document.getElementById('tabIcon1').style.padding = "4px 24px";
-            document.getElementById('tabIcon2').classList.remove("mdui-color-theme-100");
-            document.getElementById('tabIcon2').style.padding = "4px 4px";
-        }
-
-        function activeTab2() {
-            document.getElementById('tabIcon2').classList.add("mdui-color-theme-100");
-            document.getElementById('tabIcon2').style.padding = "4px 24px";
-            document.getElementById('tabIcon1').classList.remove("mdui-color-theme-100");
-            document.getElementById('tabIcon1').style.padding = "4px 4px";
-        }
-        activeTab1();
-    </script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme">
         <div class="mdui-toolbar" style="margin-top: 8px;padding-left: 8px;">
             <span class="mdui-typo-title">调色板</span>
@@ -403,12 +407,12 @@
 </body>
 <div id="updateDialog" class="update-dialog">
     <div class="update-dialog-title">最近更新</div>
-    <div class="update-dialog-content">2023年6月15日<br>-新增了内容</div>
+    <div class="update-dialog-content">2023年6月16日<br>-本歌单首次在 Burger工具站 发布</div>
     <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
 </div>
 <script>
-    var page = "Apps";
-    var pageUpdateDate = 20230615;
+    var page = "Music-2";
+    var pageUpdateDate = 20230616;
 </script>
 <script src="pageUpdateDialog.js"></script>
 <script src="waves/waves.min.js"></script>
@@ -426,15 +430,53 @@
     Waves.init(config);
 </script>
 <script>
-    var apps_android_url = ["https://coolapk.com/qr/download", "https://www.coolapk.com/apk/co.clinux.googleinstaller", "https://www.coolapk.com/apk/com.microsoft.office.officehubrow", "https://apkpremier.com/download/com-google-android-inputmethod-pinyin", "https://repo.xposed.info/module/de.robv.android.xposed.installer", "https://apkpremier.com/download/exa-lnx-a", "https://www.coolapk.com/apk/com.topjohnwu.magisk", "https://www.coolapk.com/apk/com.jakting.opengapps", "https://www.coolapk.com/apk/com.rair.adbwifi", "https://www.coolapk.com/apk/com.nightmare.adbtools", "https://hsk.oray.com/download/", "https://www.coolapk.com/apk/com.example.ryanc.andserv", "https://apkpremier.com/download/ru-kslabs-ksweb", "https://www.coolapk.com/apk/xzr.La.systemtoolbox", "https://m.w3cschool.cn/download", "https://apkpremier.com/download/studio-com-techriz-andronix", "https://apkpremier.com/download/me-twrp-twrpapp", "https://apkpremier.com/download/org-scratch", "https://apkpremier.com/download/com-instantbits-cast-webvideo", "https://apkpremier.com/download/com-instantbits-cast-receiver", "https://www.bt.cn/download/app.html", "https://mo.camscanner.com/", "https://www.coolapk.com/apk/web1n.stopapp", "http://woobx.cn/", "https://apkpremier.com/download/com-teacapps-barcodescanner", "https://www.coolapk.com/apk/me.piebridge.brevent", "https://apkpremier.com/download/ru-meefik-busybox", "https://apkpremier.com/download/ua-com-streamsoft-pingtools", "https://www.coolapk.com/apk/com.x2.clicker", "https://m.i4.cn/installBoxAndroid", "https://www.123pan.com/s/kklDVv-D00bd", "https://www.coolapk.com/apk/com.merxury.blocker", "https://apkpremier.com/download/com-google-android-inputmethod-latin", "https://apkpremier.com/download/com-pranavpandey-rotation", "https://www.coolapk.com/apk/com.dede.android_eggs", "http://www.sygjx.com/", "https://apkpremier.com/download/org-wordpress-android", "https://apkpremier.com/download/com-github-android", "https://www.coolapk.com/apk/dym.unique.mindmap", "http://m.7to.cn/", "https://www.coolapk.com/apk/com.github.ghmxr.ftpshare", "https://apkpremier.com/download/com-microsoft-whiteboard-publicpreview", "https://www.coolapk.com/apk/com.hfhuaizhi.bird", "https://www.coolapk.com/apk/cn.skyrin.ntfh", "https://www.coolapk.com/apk/com.pmm.remember", "https://www.coolapk.com/apk/me.i38.gesture", "https://www.coolapk.com/apk/io.iftech.android.box", "https://www.coolapk.com/apk/io.zhuliang.pipphotos", "https://www.coolapk.com/apk/moe.shizuku.privileged.api", "https://www.coolapk.com/apk/com.x1y9.battery", "https://coolapk.com/apk/com.x1y9.beautify", "https://apkpremier.com/download/org-videolan-vlc", "https://www.coolapk.com/apk/com.yuanwofei.cardemulator", "https://www.coolapk.com/apk/tech.evlsoc.captivemgr", "https://apkpremier.com/download/com-google-android-apps-translate", "https://apkpremier.com/download/com-microsoft-translator", "https://www.coolapk.com/apk/com.byyoung.setting", "https://apkpremier.com/download/com-sonelli-juicessh", "https://www.vmos.cn/zhushou.htm", "https://kyyai.com/h5", "https://www.coolapk.com/apk/com.android.superli.btremote", "https://www.coolapk.com/apk/com.catchingnow.np"];
-    var apps_android_name = ["酷安", "X 谷歌安装器", "Microsoft Office", "谷歌拼音输入法", "Xposed Installer", "AnLinux", "Magisk", "氡·OpenGApps", "ADB WiFi", "ADB KIT", "花生壳", "手机服务器", "KSWEB", "镧·系统工具箱", "编程狮", "Andronix", "Official TWRP App", "Scratch", "Web Video Caster", "Web Video Caster Receiver", "堡塔APP", "扫描全能王", "小黑屋", "一个木函", "QR码扫描", "黑阈", "BusyBox", "PingTools", "自动连点器", "爱思助手", "Lucky Patcher Installer", "Blocker", "Gboard", "Rotation", "Easter Eggs", "实用工具箱", "WordPress", "GitHub", "思维导图", "奇兔刷机", "FTP Share", "Microsoft Whiteboard", "灵动鸟", "一条通知", "记得倒数日", "微动手势", "小组件盒子", "果仁相册", "Shizuku", "电池守护", "脸谱", "VLC for Android", "NFC卡模拟", "CaptiveMgr清除x和!", "Google Translate", "Microsoft Translator", "爱玩机工具箱", "JuiceSSH", "VMOS助手", "快云游云手机", "蓝牙遥控", "通知滤盒"];
-    var apps_win_url = ["https://www.java.com/zh-CN/download/", "https://hsk.oray.com/download/", "https://www.flash.cn/download-wins", "https://www.123pan.com/s/kklDVv-Ru0bd", "https://www.huorong.cn/person5.html", "https://www.bt.cn/download.html", "https://www.camscanner.com/user/download", "https://github.com/zbezj/HEU_KMS_Activator/releases", "https://cn.ultraiso.net/xiazai.html", "https://www.diskgenius.cn/download.php", "https://www.disktool.cn/download.html", "https://www.python.org/downloads/windows/", "https://aka.ms/GetPCHealthCheckApp", "http://7to.cn/", "https://www.i4.cn/", "https://github.com/cloudreve/Cloudreve/releases", "https://github.com/alist-org/alist/releases", "https://wintool.cc/yd/", "https://www.mdclub.org/", "https://cn.wordpress.org/download/#download-install", "https://desktop.github.com/", "https://js.design/download", "https://hipc.cn/", "https://github.com/pbatard/Fido/releases", "http://dm.weishi.360.cn/home.html", "https://www.videolan.org/vlc/download-windows.html", "https://git-scm.com/downloads", "https://github.com/ventoy/Ventoy/releases", "https://kyyai.com/pc"];
-    var apps_win_name = ["Java", "花生壳", "Adobe Flash Player", "Scratch", "火绒安全软件", "宝塔面板", "扫描全能王", "HEU KMS Activator", "UltraISO", "DiskGenius", "傲梅分区助手", "Python", "电脑健康状况检查应用", "奇兔刷机", "爱思助手", "Cloudreve", "Alist", "云图工具箱", "MDClub", "WordPress", "GitHub Desktop", "即时设计", "HiPC 移动助手", "Fido", "360驱动大师", "VLC for Windows", "Git", "Ventoy", "快云游云手机"];
-    for (a = 0; a < apps_android_url.length; a++) {
-        document.getElementById("androidApps").innerHTML += `<div class="waves-block waves-effect radius mdui-col"><a href="` + apps_android_url[a] + `"><li class="mdui-list-item">` + apps_android_name[a] + `</li></a></div>`;
+    function dateConvert(original) {
+        var hDifference = parseInt(original / (60 * 60)).toString().padStart(2, "0");
+        var mDifference = parseInt(original / 60 % 60).toString().padStart(2, "0");
+        var sDifference = parseInt(original % 60).toString().padStart(2, "0");
+        return hDifference + ":" + mDifference + ":" + sDifference;
     }
-    for (w = 0; w < apps_win_url.length; w++) {
-        document.getElementById("winApps").innerHTML += `<div class="waves-block waves-effect radius mdui-col"><a href="` + apps_win_url[w] + `"><li class="mdui-list-item">` + apps_win_name[w] + `</li></a></div>`;
+    var getMusicData = new XMLHttpRequest();
+    getMusicData.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            musicData = JSON.parse(this.responseText);
+            document.getElementById("loadSpinner").style.display = "none";
+            document.getElementById("table").style.display = "block";
+            var listContent = "";
+            var totalDt = 0;
+            for (n = 0; n < musicData.name.length; n++) {
+                var ar = "";
+                for (a = 0; a < musicData.arId[n].length; a++) {
+                    ar += `<a href="https://music.163.com/#/artist?id=` + musicData.arId[n][a] + `">` + musicData.arName[n][a] + `</a>` + ((a + 1) == musicData.arId[n].length ? "" : " & ");
+                }
+                listContent += "<tr><th>" + (n + 1) + "</th>";
+                listContent += "<th>" + `<a onclick="play(` + musicData.id[n] + `);">` + musicData.name[n] + `</a>` + "</th>";
+                listContent += "<th>" + ar + "</th>";
+                listContent += "<th>" + dateConvert(musicData.dt[n] / 1000) + "</th></tr>";
+                totalDt += musicData.dt[n];
+            }
+            listContent += "<tr><th>总计</th><th>-</th><th>-</th><th>" + dateConvert(totalDt / 1000) + "</th></tr>";
+            document.getElementById("list").innerHTML = listContent;
+        }
+    };
+    getMusicData.open("GET", "playlist-2.json", true);
+    getMusicData.send();
+    playInPage = 0;
+
+    function switchPlayMode() {
+        if (playInPage == 0) {
+            playInPage = 1;
+        } else {
+            playInPage = 0;
+        }
+    }
+
+    function play(id) {
+        if (playInPage == 0) {
+            location.href = "https://music.163.com/#/song?id=" + id;
+        } else {
+            document.getElementById("iframe").src = "https://music.163.com/outchain/player?type=2&id=" + id + "&auto=1&height=66";
+        }
     }
 </script>
 

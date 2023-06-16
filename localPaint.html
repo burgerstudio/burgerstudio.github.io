@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>画册 - Burger工具站</title>
+    <style>
+        .mdui-theme-layout-dark .waves-ripple {
+            background: rgba(255, 255, 255, .4) !important;
+            background: -webkit-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+            background: -o-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+            background: -moz-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+            background: radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mdui-theme-layout-auto .waves-ripple {
+                background: rgba(255, 255, 255, .4) !important;
+                background: -webkit-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+                background: -o-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+                background: -moz-radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important;
+                background: radial-gradient(rgba(255, 255, 255, .2) 0, rgba(255, 255, 255, .3) 40%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .5) 60%, rgba(255, 255, 255, 0) 70%) !important
+            }
+
+            .mdui-theme-layout-auto .mdui-color-theme-50 {
+                background-color: #424242 !important;
+                color: #ffffff !important;
+            }
+
+            .mdui-theme-layout-auto .mdui-color-theme-accent {
+                background-color: #C51162 !important;
+                color: #ffffff !important;
+            }
+
+            .mdui-theme-layout-auto .mdui-tooltip {
+                background-color: rgba(158, 158, 158, 0.9);
+                color: #000;
+            }
+
+            .mdui-theme-layout-auto .mdui-snackbar {
+                background-color: #CDCDCD;
+                color: #000;
+            }
+
+            .mdui-theme-layout-auto .mdui-panel-item {
+                color: #fff !important;
+                background-color: #303030 !important;
+            }
+        }
+
+        .mdui-btn-raised {
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .mdui-list-item-content {
+            word-wrap: break-word;
+            overflow: auto;
+        }
+
+        form.mdui-center {
+            padding: 16px;
+            max-width: 640px;
+            margin: 16px !important;
+            margin-top: 16px !important;
+            border-radius: 16px;
+        }
+
+        @media (min-width: 672px) {
+            form.mdui-center {
+                margin: auto !important;
+                margin-top: 16px !important;
+            }
+        }
+
+        .mdui-drawer {
+            border-radius: 0 16px 16px 0;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 16px;
+        }
+
+        .mdui-theme-layout-dark .mdui-color-theme-50 {
+            background-color: #424242 !important;
+            color: #ffffff !important;
+        }
+
+        .mdui-theme-layout-dark .mdui-color-theme-accent {
+            background-color: #C51162 !important;
+            color: #ffffff !important;
+        }
+
+        .mdui-tooltip {
+            border-radius: 16px;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        .mdui-theme-layout-dark .mdui-tooltip {
+            background-color: rgba(158, 158, 158, 0.9);
+            color: #000;
+        }
+
+        .mdui-snackbar {
+            width: 66.66%;
+            border-radius: 16px 16px 0 0;
+            background-color: rgba(32, 32, 32, 0.9);
+        }
+
+        @media (min-width: 600px) {
+            .mdui-snackbar {
+                width: auto !important;
+                min-width: 288px !important;
+                max-width: 568px !important;
+            }
+        }
+
+        .mdui-snackbar-text {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mdui-theme-layout-dark .mdui-snackbar {
+            background-color: #CDCDCD;
+            color: #000;
+        }
+
+        .mdui-dialog {
+            border-radius: 24px;
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            -webkit-box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12) !important;
+            box-shadow: 0 3px 3px -2px rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 8px 0 rgba(0, 0, 0, 0.12) !important;
+            -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+        }
+
+        .mdui-overlay {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .mdui-dialog .mdui-btn {
+            border-radius: 16px;
+        }
+
+        .mdui-drawer {
+            -webkit-transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1) !important;
+            transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1) !important;
+        }
+
+        .mdui-panel-item {
+            border-radius: 16px;
+        }
+
+        .mdui-panel-item-header {
+            border-radius: 16px;
+        }
+
+        .mdui-panel-item-header:active {
+            background: #9FA8DA;
+        }
+
+        .mdui-theme-layout-dark .mdui-panel-item {
+            color: #fff !important;
+            background-color: #303030 !important;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-drawer-body-left mdui-theme-layout-auto mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-3">
+        <div class="mdui-toolbar mdui-color-theme-50">
+            <a class="mdui-btn mdui-btn-icon waves-block mdui-ripple-white" mdui-drawer="{target: '#drawer', swipe: true}">
+                <i class="mdui-icon material-icons">menu</i>
+            </a>
+            <a class="mdui-typo-title">画册</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon waves-block mdui-ripple-white" mdui-tooltip="{content: '删除'}" style="display: none;" id="delete" mdui-dialog="{target: '#deleting'}">
+                <i class="mdui-icon material-icons">delete</i>
+            </a>
+            <a class="mdui-btn mdui-btn-icon waves-block mdui-ripple-white" mdui-tooltip="{content: '星标'}" style="display: none;" id="star">
+                <i class="mdui-icon material-icons" id="starIcon" onclick="javascript:starPaint();">star_border</i>
+            </a>
+            <a class="mdui-btn mdui-btn-icon waves-block mdui-ripple-white" mdui-tooltip="{content: '新建'}" onclick="javascript:newPaint();">
+                <i class="mdui-icon material-icons">add</i>
+            </a>
+            <a class="mdui-btn mdui-btn-icon waves-block mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" onclick="javascript:darkMode();">
+                <i class="mdui-icon material-icons">brightness_medium</i>
+            </a>
+        </div>
+    </div>
+    <div class="mdui-drawer mdui-color-theme-50 mdui-shadow-3" id="drawer" style="transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);">
+        <ul class="mdui-list" id="paintList" style="width: 100%;"></ul>
+        <div id="guide" style="width: 100%;text-align: center;">
+            <div class="mdui-typo-body-2 mdui-text-center mdui-m-b-1">没有可显示的内容</div>
+            <button class="mdui-btn mdui-btn-raised waves-block mdui-color-theme-accent mdui-valign mdui-center" onclick="javascript:newPaint();" style="margin: 12px;">新建画布</button>
+        </div>
+    </div>
+    <div id="choose"><button class="mdui-btn mdui-btn-raised waves-block mdui-color-theme-accent mdui-center mdui-valign" style="margin: 16px;" onclick="javascript:new mdui.Drawer('#drawer', {swipe: true}).open();">选择一张画布</button></div>
+    <form class="mdui-center mdui-color-theme-50" style="padding: 16px;max-width: 640px;" onsubmit="return false;">
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">标题</label>
+            <input class="mdui-textfield-input" type="text" id="title" />
+        </div>
+        <div class="mdui-panel" mdui-panel style="margin-bottom: 8px;">
+            <div class="mdui-panel-item mdui-color-theme-100 mdui-shadow-0">
+                <div class="mdui-panel-item-header">
+                    <div class="mdui-panel-item-title">画笔设置</div>
+                    <i class="mdui-panel-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+                </div>
+                <div class="mdui-panel-item-body">
+                    <div class="mdui-textfield" style="padding: 16px;">
+                        <label class="mdui-textfield-label">
+                            <div style="width: 16px;height: 16px;border-radius: 16px;display: inline;margin-right: 8px;color: rgba(0, 0, 0, 0);" id="colorPreview">00</div>画笔颜色（RGBA）
+                        </label>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input type="range" step="1" min="0" max="255" id="r" value="0" />
+                        </label>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input type="range" step="1" min="0" max="255" id="g" value="0" />
+                        </label>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input type="range" step="1" min="0" max="255" id="b" value="0" />
+                        </label>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input type="range" step="0.1" min="0" max="1" id="a" value="1" />
+                        </label>
+                    </div>
+                    <div class="mdui-textfield" style="padding: 16px;">
+                        <label class="mdui-textfield-label">画笔大小</label>
+                        <label class="mdui-slider mdui-slider-discrete">
+                            <input type="range" step="1" min="1" max="100" id="size" value="1" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <canvas id="canvas" style="width: 100%;border: 1px dashed rgba(128,128,128,0.5);"></canvas>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">修改日期</label>
+            <input class="mdui-textfield-input" type="text" id="date" disabled />
+        </div>
+    </form>
+    <button class="mdui-btn mdui-btn-raised waves-block mdui-color-theme-accent mdui-center mdui-valign" onclick="javascript:savePaint();" id="save" disabled="disabled" style="padding: 20px 32px;margin-top: 16px;">保存</button>
+    <button class="mdui-btn mdui-btn-raised waves-block mdui-color-theme-accent mdui-center mdui-valign" id="download" style="padding: 20px 32px;margin-top: 16px;"><a id="downloadBtn" onclick="javascript:downloadPaint();" style="color: white;text-decoration: none;">下载</a></button>
+    <div class="mdui-typo-body-2 mdui-text-center mdui-m-t-2">Made by Burger Studio.</div>
+    <div class="mdui-dialog mdui-color-theme-50" id="deleting">
+        <div class="mdui-dialog-title">删除此画布？</div>
+        <div class="mdui-dialog-content">这将使你丢失它的全部数据。</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn waves-classic" mdui-dialog-close>取消</button>
+            <button class="mdui-btn waves-classic" onclick="javascript:deletePaint();" mdui-dialog-close>确定</button>
+        </div>
+    </div>
+    <div class="mdui-dialog mdui-color-theme-50" id="saveOrNot">
+        <div class="mdui-dialog-title">如何处理更改？</div>
+        <div class="mdui-dialog-content">当前画布内容已被更改，但未保存。</div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn waves-classic" onclick="javascript:change('save')" mdui-dialog-close>保存</button>
+            <button class="mdui-btn waves-classic" onclick="javascript:change('doNotSave');" mdui-dialog-close>不保存</button>
+            <button class="mdui-btn waves-classic" mdui-dialog-close>取消</button>
+        </div>
+    </div>
+    <img id="img" style="display: none;">
+    <script>
+        var drawer = document.getElementById('drawer');
+        var guide = document.getElementById('guide');
+        var paintList = document.getElementById('paintList');
+        var editing = "";
+        var title = document.getElementById('title');
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext("2d");
+        var deletebtn = document.getElementById('delete');
+        var star = document.getElementById('star');
+        var starIcon = document.getElementById('starIcon');
+        var date = document.getElementById('date');
+        var save = document.getElementById('save');
+        var download = document.getElementById('download');
+        var downloadBtn = document.getElementById('downloadBtn');
+        var choose = document.getElementById('choose');
+        var size = document.getElementById('size');
+        var img = document.getElementById('img');
+        var r = document.getElementById('r');
+        var g = document.getElementById('g');
+        var b = document.getElementById('b');
+        var a = document.getElementById('a');
+        var colorPreview = document.getElementById('colorPreview');
+        if (localStorage.paints) {
+            showButtons1();
+            loadPaints();
+        } else {
+            hideButtons1();
+        }
+
+        function newPaint() {
+            if (localStorage.paints) {
+                localStorage.setItem("paints", Number(localStorage.getItem("paints")) + 1);
+            } else {
+                localStorage.setItem("paints", 0);
+            }
+            showButtons1();
+            showButtons2();
+            localStorage.setItem("paintTitle" + localStorage.getItem("paints"), "画布 " + Number(Number(localStorage.getItem("paints")) + 1));
+            localStorage.setItem("paintContent" + localStorage.getItem("paints"), "");
+            localStorage.setItem("paintStarred" + localStorage.getItem("paints"), "false");
+            localStorage.setItem("paintDeleted" + localStorage.getItem("paints"), "false");
+            getNowDate();
+            localStorage.setItem("paintDate" + localStorage.getItem("paints"), formattedDate);
+            loadPaints();
+            preEdit = localStorage.getItem("paints");
+            editPaint();
+        }
+        var saved = 1;
+
+        function loadPaints() {
+            var paintListItems = "";
+            var paints = 0;
+            for (i = 0; i <= localStorage.getItem("paints"); i++) {
+                paintListItems += "<div class='waves-block' name='paintListItems' id='" + i + "' style='border-radius: 114514px;margin: 4px 8px;'><li class='mdui-list-item'><i class='mdui-list-item-icon mdui-icon material-icons' name='paintIcons'>color_lens</i><div class='mdui-list-item-content'>" + localStorage.getItem("paintTitle" + i) + "</div></li></div>";
+                paintList.innerHTML = paintListItems;
+            }
+            for (i = 0; i <= localStorage.getItem("paints"); i++) {
+                if (localStorage.getItem("paintStarred" + i) == "true") {
+                    document.getElementsByName("paintIcons")[i].innerHTML = "star";
+                    document.getElementsByName("paintIcons")[i].classList.add("mdui-text-color-amber");
+                }
+                if (localStorage.getItem("paintDeleted" + i) == "true") {
+                    document.getElementsByName("paintListItems")[i].style.display = "none";
+                }
+                document.getElementsByName("paintListItems")[i].addEventListener("click", function() {
+                    preEdit = this.id;
+                    editPaint();
+                });
+                if (localStorage.getItem("paintDeleted" + i) != "true") {
+                    paints += 1;
+                }
+                document.getElementsByName("paintListItems")[i].classList.add("waves-effect");
+            }
+            if (editing != "") {
+                document.getElementsByName("paintListItems")[editing].classList.add("mdui-list-item-active");
+            }
+            if (paints == 0) {
+                hideButtons1();
+            }
+            if (saved == 0) {
+                document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML = "*" + document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML;
+            }
+        }
+
+        function editPaint() {
+            if (saved == 1) {
+                editing = preEdit;
+                showButtons2();
+                title.value = localStorage.getItem("paintTitle" + editing);
+                img.src = localStorage.getItem("paintContent" + editing);
+                clearCanvas();
+                window.setTimeout("ctx.drawImage(img,0,0);", 0);
+                date.value = localStorage.getItem("paintDate" + editing);
+                for (i = 0; i <= localStorage.getItem("paints"); i++) {
+                    if (i == editing) {
+                        document.getElementsByName("paintListItems")[i].classList.add("mdui-list-item-active");
+                    } else {
+                        document.getElementsByName("paintListItems")[i].classList.remove("mdui-list-item-active");
+                    }
+                }
+                if (localStorage.getItem("paintStarred" + editing) == "true") {
+                    starIcon.innerHTML = "star";
+                } else {
+                    starIcon.innerHTML = "star_border";
+                }
+                if (document.body.clientWidth < 1024 && document.getElementsByClassName("mdui-overlay")[0] != undefined) {
+                    document.getElementsByClassName("mdui-overlay")[0].click();
+                }
+            } else {
+                if (document.body.clientWidth < 1024 && document.getElementsByClassName("mdui-overlay")[0] != undefined) {
+                    document.getElementsByClassName("mdui-overlay")[0].click();
+                }
+                new mdui.Dialog("#saveOrNot").open();
+            }
+        }
+
+        function savePaint() {
+            localStorage.setItem("paintTitle" + editing, title.value);
+            localStorage.setItem("paintContent" + editing, canvas.toDataURL("image/png"));
+            getNowDate();
+            localStorage.setItem("paintDate" + editing, formattedDate);
+            mdui.snackbar("已保存");
+            saved = 1;
+            loadPaints();
+            editPaint();
+            addedStar = 0;
+        }
+
+        function starPaint() {
+            if (localStorage.getItem("paintStarred" + editing) == "true") {
+                localStorage.setItem("paintStarred" + editing, "false");
+                mdui.snackbar("已取消星标");
+                starIcon.innerHTML = "star_border";
+            } else {
+                localStorage.setItem("paintStarred" + editing, "true");
+                mdui.snackbar("已设为星标");
+                starIcon.innerHTML = "star";
+            }
+            loadPaints();
+        }
+
+        function deletePaint() {
+            localStorage.removeItem("paintTitle" + editing);
+            localStorage.removeItem("paintContent" + editing);
+            localStorage.removeItem("paintStarred" + editing);
+            localStorage.setItem("paintDeleted" + editing, "true");
+            localStorage.removeItem("paintDate" + editing);
+            mdui.snackbar("已删除");
+            loadPaints();
+            hideButtons2();
+            editing = "";
+            addedStar = 0;
+            saved = 1;
+        }
+
+        function showButtons1() {
+            drawer.classList.remove("mdui-valign");
+            guide.style.display = "none";
+            paintList.style.display = "block";
+        }
+
+        function showButtons2() {
+            choose.style.display = "none";
+            deletebtn.style.display = "block";
+            star.style.display = "block";
+            save.disabled = "";
+        }
+
+        function hideButtons1() {
+            drawer.classList.add("mdui-valign");
+            guide.style.display = "block";
+            paintList.style.display = "none";
+        }
+
+        function hideButtons2() {
+            choose.style.display = "block";
+            deletebtn.style.display = "none";
+            star.style.display = "none";
+            save.disabled = "disabled";
+        }
+
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+
+        function getNowDate() {
+            nowDate = new Date();
+            year = nowDate.getFullYear();
+            month = Number(nowDate.getMonth() + 1);
+            if (month < 10) {
+                month = "0" + month;
+            }
+            day = nowDate.getDate();
+            if (day < 10) {
+                day = "0" + day;
+            }
+            hours = nowDate.getHours();
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            minutes = nowDate.getMinutes();
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            seconds = nowDate.getSeconds();
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            formattedDate = year + "/" + month + "/" + day + " " + hours + ":" + minutes + ":" + seconds;
+        }
+        title.addEventListener("input", function() {
+            notSaved();
+        });
+        canvas.addEventListener("touchstart", function() {
+            notSaved();
+        });
+        canvas.addEventListener("mousedown", function() {
+            notSaved();
+        });
+        addedStar = 0;
+
+        function notSaved() {
+            if (editing != "" && addedStar == 0) {
+                document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML = "*" + document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML;
+                addedStar = 1;
+                saved = 0;
+            }
+        }
+
+        function change(options) {
+            saved = 1;
+            if (options == "save") {
+                savePaint();
+                editPaint();
+            }
+            if (options == "doNotSave") {
+                document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML = document.getElementsByClassName("mdui-list-item-content")[editing].innerHTML.slice(1);
+                addedStar = 0;
+                editPaint();
+            }
+        }
+        // 以下有关 Canvas 的代码来自 IDEA-129
+        window.onload = function() {
+            initCanvas();
+            resizeCanvas();
+        };
+        var mousePressed = false;
+        var lastX, lastY;
+
+        function initCanvas() {
+            canvas.addEventListener('touchstart', function(event) {
+                if (event.targetTouches.length == 1 && editing != "") {
+                    event.preventDefault();
+                    var touch = event.targetTouches[0];
+                    mousePressed = true;
+                    Draw(touch.pageX - this.offsetLeft, touch.pageY - this.offsetTop, false);
+                }
+
+            }, false);
+
+            canvas.addEventListener('touchmove', function(event) {
+                if (event.targetTouches.length == 1 && editing != "") {
+                    event.preventDefault();
+                    var touch = event.targetTouches[0];
+                    if (mousePressed) {
+                        Draw(touch.pageX - this.offsetLeft, touch.pageY - this.offsetTop, true);
+                    }
+                }
+
+            }, false);
+
+            canvas.addEventListener('touchend', function(event) {
+                if (event.targetTouches.length == 1 && editing != "") {
+                    event.preventDefault();
+                    mousePressed = false;
+                }
+            }, false);
+            canvas.onmousedown = function(event) {
+                if (editing != "") {
+                    mousePressed = true;
+                    Draw(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, false);
+                }
+            };
+
+            canvas.onmousemove = function(event) {
+                if (mousePressed && editing != "") {
+                    Draw(event.pageX - this.offsetLeft, event.pageY - this.offsetTop, true);
+                }
+            };
+
+            canvas.onmouseup = function(event) {
+                if (editing != "") {
+                    mousePressed = false;
+                }
+            };
+        }
+
+        function Draw(x, y, isDown) {
+            if (isDown) {
+                ctx.beginPath();
+                ctx.strokeStyle = penColor;
+                ctx.lineWidth = size.value;
+                ctx.lineJoin = "round";
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(x, y);
+                ctx.closePath();
+                ctx.stroke();
+            }
+            lastX = x;
+            lastY = y;
+        }
+
+        function clearCanvas() {
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        }
+
+        function resizeCanvas() {
+            canvas.width = document.getElementsByTagName('form')[0].clientWidth - 32;
+            canvas.height = window.screen.height * 0.75;
+            canvas.style.height = window.screen.height * 0.75 + "px";
+        }
+        r.oninput = function() {
+            setPenColor();
+        };
+        g.oninput = function() {
+            setPenColor();
+        };
+        b.oninput = function() {
+            setPenColor();
+        };
+        a.oninput = function() {
+            setPenColor();
+        };
+
+        function setPenColor() {
+            penColor = "rgba(" + r.value + ", " + g.value + ", " + b.value + ", " + a.value + ")";
+            colorPreview.style.background = penColor;
+        }
+        setPenColor();
+
+        function downloadPaint() {
+            downloadBtn.download = localStorage.getItem("paintTitle" + editing) + ".png";
+            downloadBtn.href = canvas.toDataURL();
+        }
+    </script>
+    <script src="waves/waves.min.js"></script>
+    <script>
+        var config = {
+            duration: 750,
+            delay: 0
+        };
+        Waves.init(config);
+        Waves.attach('.waves-block', ['waves-block']);
+        Waves.attach('.waves-circle', ['waves-circle']);
+        Waves.attach('.waves-light', ['waves-light']);
+        Waves.attach('.waves-classic', ['waves-classic']);
+        Waves.init(config);
+    </script>
+</body>
+
+</html>

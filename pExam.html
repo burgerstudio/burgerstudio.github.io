@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>动词短语自测 - Burger工具站</title>
+    <style>
+        .mdui-card.mdui-center {
+            padding: 16px;
+            max-width: 640px;
+            margin: 16px !important;
+            margin-top: 16px !important;
+        }
+
+        @media (min-width: 672px) {
+            .mdui-card.mdui-center {
+                margin: auto !important;
+                margin-top: 16px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a class="mdui-typo-title">动词短语自测</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" onclick="javascript:darkMode();">
+                <i class="mdui-icon material-icons">brightness_medium</i>
+            </a>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '短语浏览'}" href="pExam-phrases.html">
+                <i class="mdui-icon material-icons">list</i>
+            </a>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '测试记录'}" href="pExam-history.html">
+                <i class="mdui-icon material-icons">history</i>
+            </a>
+        </div>
+    </div>
+    <div class="mdui-card mdui-center">
+        <div id="content" style="transition: 0.5s;">
+            <div class="mdui-typo">
+                <blockquote>
+                    <p>
+                        分析济宁近 5 年中考可知动词短语理解在完形填空中考察过 3 次。此类试题旨在通过语境考察考生对上下文的理解、对动词短语不同搭配的识别、记忆及恰当运用动词短语的能力。所以考生应对常见的动词短语牢记于心，尤其是要运用到语境中，方便理解记忆。
+                    </p>
+                    <footer>——2023 济宁《中考备战》英语</footer>
+                </blockquote>
+                <div class="mdui-typo-body-2" style="margin: 8px;">请先浏览《中考备战》第 193~197 页，记住其中的<div class="mdui-text-color-red" style="display: inline;">动词短语</div>。
+                    <div class="mdui-text-center" style="margin: 8px;">会背了？那么......</div>
+                </div>
+                <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-center" style="margin: 8px;" onclick="javascript:start();newTime();">开始测验</button>
+            </div>
+        </div>
+        <div id="exam" style="height: 0;opacity: 0;transition: 0.5s;">
+            <div class="mdui-typo-body-2 mdui-text-center">你已经淦了 <div id="count" style="display: inline;"></div> 道题</div>
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">汉语</label>
+                <input class="mdui-textfield-input" type="text" disabled id="zh" />
+            </div>
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">英语</label>
+                <input class="mdui-textfield-input" type="text" id="en" />
+            </div>
+            <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-center" style="margin: 8px;margin-bottom: 16px;" onclick="javascript:handIn();">提交 & 下一题</button>
+        </div>
+        <div class="mdui-typo-body-2 mdui-text-center" style="margin: 8px;">Made by Burger Studio.</div>
+    </div>
+    <div class="mdui-dialog" id="loadingPhrases">
+        <div class="mdui-dialog-content mdui-valign">
+            <div class="mdui-spinner" style="margin-right: 16px;"></div>
+            正在载入短语数据......
+        </div>
+    </div>
+    <script>
+        var content = document.getElementById("content");
+        var exam = document.getElementById("exam");
+        var countDiv = document.getElementById("count");
+        var zhDiv = document.getElementById("zh");
+        var enDiv = document.getElementById("en");
+        var count = 0;
+        var questionId;
+
+        function start() {
+            var loadingDialog = new mdui.Dialog("#loadingPhrases", {
+                "history": false,
+                "modal": true,
+                "closeOnEsc": false
+            });
+            loadingDialog.open();
+            var getPhrases = new XMLHttpRequest();
+            getPhrases.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    phrases = JSON.parse(this.responseText);
+                    loadingDialog.close();
+                    content.style.opacity = 0;
+                    window.setTimeout("content.style.height = 0;", 500);
+                    window.setTimeout("exam.style.opacity = 1;", 500);
+                    window.setTimeout("exam.style.height = 'auto';", 500);
+                    window.setTimeout("loadExam();", 500);
+                }
+            };
+            getPhrases.open("GET", "pExam-phrases.json", true);
+            getPhrases.send();
+        }
+
+        function loadExam() {
+            localStorage.setItem("examPhrase" + localStorage.getItem("examTime"), count);
+            countDiv.innerHTML = count;
+            questionId = parseInt(Math.random() * phrases.length);
+            zhDiv.value = phrases[questionId].zh;
+            enDiv.value = "";
+            enDiv.focus();
+            count += 1;
+        }
+
+        function handIn() {
+            if (enDiv.value.toLowerCase() == phrases[questionId].en) {
+                mdui.snackbar("回答正确");
+                loadExam();
+            } else if (enDiv.value == "") {
+                mdui.snackbar("请填写答案");
+            } else {
+                mdui.snackbar({
+                    message: "回答错误",
+                    buttonText: "查看答案",
+                    onButtonClick: function() {
+                        mdui.alert("本题答案：" + phrases[questionId].en, function() {
+                            enDiv.focus();
+                        });
+                        enDiv.focus();
+                    }
+                });
+            }
+            enDiv.focus();
+            localStorage.setItem("examDuration" + localStorage.getItem("examTime"), (new Date().getTime() - startTime.getTime()) / 1000);
+        }
+
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+        enDiv.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                handIn();
+            }
+        })
+
+        function newTime() {
+            if (localStorage.examTime) {
+                localStorage.setItem("examTime", Number(localStorage.getItem("examTime")) + 1);
+            } else {
+                localStorage.setItem("examTime", 0);
+            }
+            localStorage.setItem("examDate" + localStorage.getItem("examTime"), new Date().toLocaleString());
+            startTime = new Date();
+            localStorage.setItem("examDuration" + localStorage.getItem("examTime"), 0);
+        }
+    </script>
+</body>
+
+</html>

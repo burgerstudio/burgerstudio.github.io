@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>BurgerExam - Burger工具站</title>
+    <style>
+        .mdui-card {
+            background: #fff;
+            border-radius: 16px;
+            margin: 24px !important;
+            padding: 16px;
+            color: #000;
+            max-width: 640px;
+        }
+
+        @media (min-width: 688px) {
+            .mdui-card.mdui-center {
+                margin: auto !important;
+                margin-top: 24px !important;
+            }
+        }
+
+        .mdui-theme-layout-dark.mdui-color-indigo {
+            background-color: #212121 !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mdui-theme-layout-auto.mdui-color-indigo {
+                background-color: #212121 !important;
+            }
+
+            .mdui-theme-layout-auto .mdui-text-color-theme,
+            .mdui-theme-layout-auto .mdui-dialog a,
+            .mdui-theme-layout-auto .mdui-dialog button {
+                filter: brightness(200%);
+            }
+        }
+
+        #content {
+            text-align: center;
+        }
+
+        .mdui-dialog {
+            border-radius: 16px;
+            transform: scale(1);
+        }
+
+        .mdui-dialog a,
+        .mdui-dialog button {
+            border-radius: 8px;
+        }
+
+        .mdui-theme-layout-dark .mdui-text-color-theme,
+        .mdui-theme-layout-dark .mdui-dialog a,
+        .mdui-theme-layout-dark .mdui-dialog button {
+            filter: brightness(200%);
+        }
+
+        .mdui-menu {
+            border-radius: 16px;
+        }
+
+        .mdui-table-fluid {
+            border-radius: 16px;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-indigo mdui-appbar-with-toolbar mdui-theme-layout-auto">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a class="mdui-typo-title" id="title">BurgerExam</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-menu="{target: '#menu'}" mdui-tooltip="{content: '更多选项'}">
+                <i class="mdui-icon material-icons">more_vert</i>
+            </a>
+            <ul class="mdui-menu" id="menu">
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" href="BGExam.html">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">home</i>测验主页
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" onclick="javascript:darkMode();">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">brightness_medium</i>夜间模式
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" onclick="javascript:new mdui.Dialog('#about').open()">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">info</i>关于
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mdui-card mdui-center">
+        <div id="content">
+            <div class="mdui-typo-headline mdui-text-color-theme" id="title2">测验记录</div><br><br>
+            <div class="mdui-table-fluid">
+                <table class="mdui-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>日期</th>
+                            <th>得分</th>
+                            <th>用时</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="mdui-typo-body-2 mdui-text-center" style="margin-top: 16px;">Powered by BurgerExam.</div><br>
+    <div class="mdui-dialog" id="about">
+        <div class="mdui-dialog-title">关于</div>
+        <div class="mdui-dialog-content">
+            <div class="mdui-typo">
+                BurgerExam：<br>由 Burger Studio 开发的简易测验系统，利用 JSON 来存储测验数据。简单修改即可制作自己的小测验。<br>GitHub：<a href="https://github.com/fucklinux/BurgerExam">fucklinux/BurgerExam</a><br>演示站点：<a href="https://bgexam.netlify.app/">BGExam</a><br>前端框架：<a href="https://www.mdui.org/">MDUI</a><br>开发工具：<a href="https://atreep.netlify.app/hopweb/index.html">HopWeb</a>
+            </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>确认</button>
+        </div>
+    </div>
+    <script>
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+
+        function gebi(id) {
+            return document.getElementById(id);
+        }
+
+        function dateConvert(original) {
+            var hDifference = parseInt(original / (60 * 60) % 24).toString().padStart(2, "0");
+            var mDifference = parseInt(original / 60 % 60).toString().padStart(2, "0");
+            var sDifference = parseInt(original % 60).toString().padStart(2, "0");
+            return hDifference + ":" + mDifference + ":" + sDifference;
+        }
+        window.onload = function() {
+            document.title = localStorage.getItem("examTitle");
+            gebi("title").innerHTML = localStorage.getItem("examTitle");
+            var content = "";
+            var totalMark = 0;
+            var totalTime = 0;
+            examHistory = JSON.parse(localStorage.getItem("examHistory"));
+            var i = 0;
+            while (i < examHistory.length) {
+                content += "<tr><th>" + (i + 1) + "</th>";
+                content += "<th>" + examHistory[i][0] + "</th>";
+                content += "<th>" + examHistory[i][1] + "</th>";
+                totalMark += Number(examHistory[i][1]);
+                content += "<th>" + examHistory[i][2] + "</th></tr>";
+                totalTime += Number(examHistory[i][3]);
+                i++;
+            }
+            content += "<tr><th>平均值</th>";
+            content += "<th>-</th>";
+            content += "<th>" + (totalMark / examHistory.length).toFixed(2) + "</th>";
+            content += "<th>" + dateConvert(totalTime / examHistory.length) + "</th></tr>";
+            list.innerHTML = content;
+        }
+    </script>
+</body>
+
+</html>

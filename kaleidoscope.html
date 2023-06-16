@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>万花筒 - Burger工具站</title>
+    <style>
+        .block {
+            position: fixed;
+            width: 32px;
+            height: 32px;
+            left: calc(50% - 16px);
+            top: calc(50% - 16px);
+            transition: 0.3s;
+            transition-timing-function: ease-in-out;
+        }
+
+        @keyframes appear {
+            from {
+                filter: blur(16px);
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            to {
+                filter: blur(0);
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sign {
+            font-size: 16px;
+            text-shadow: 0 1px 4px rgba(128, 128, 128, 0.5);
+            position: fixed;
+            top: 90%;
+            width: 100%;
+            text-align: center;
+            animation-name: appear;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            filter: blur(16px);
+            opacity: 0;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pool">
+        <div class="block"></div>
+    </div>
+    <div class="sign">
+        Made by Burger Studio.
+    </div>
+    <script>
+        var pool = document.getElementById("pool");
+        for (i = 1; i < 10; i++) {
+            var block = document.createElement("div");
+            block.classList.add("block");
+            block.style.background = "white";
+            block.style.transform = "scale(1)";
+            block.style.zIndex = 10 - i;
+            pool.appendChild(block);
+        }
+        window.onload = function() {
+            window.setInterval(function() {
+                var blocks = document.getElementsByClassName("block");
+                for (i = 1; i < 10; i++) {
+                    blocks[i - 1].style.background = randomColor();
+                    blocks[i - 1].style.transform = "scale(" + (i + Math.random()) + ") rotate(" + Math.random() * 181 + "deg)";
+                    blocks[i - 1].style.borderRadius = Math.random() * 33 + "px";
+                }
+            }, 300);
+        };
+
+        function randomColor() {
+            var r = Math.random() * 256;
+            var g = Math.random() * 256;
+            var b = Math.random() * 256;
+            var a = Math.random() + 0.5;
+            return "rgb(" + r + " ," + g + " ," + b + " ," + a + ")";
+        }
+    </script>
+</body>
+
+</html>

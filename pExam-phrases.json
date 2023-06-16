@@ -1,0 +1,941 @@
+[{
+        "en": "look after",
+        "zh": "照料；照顾"
+    },
+    {
+        "en": "look around/round",
+        "zh": "环顾"
+    },
+    {
+        "en": "look at",
+        "zh": "看"
+    },
+    {
+        "en": "look back",
+        "zh": "回顾"
+    },
+    {
+        "en": "look for",
+        "zh": "寻找；寻求"
+    },
+    {
+        "en": "look forward to",
+        "zh": "盼望；期待"
+    },
+    {
+        "en": "look like",
+        "zh": "看起来像"
+    },
+    {
+        "en": "look out",
+        "zh": "注意：当心：向外看"
+    },
+    {
+        "en": "look over",
+        "zh": "仔细检查；查看"
+    },
+    {
+        "en": "look through",
+        "zh": "快速查看；浏览"
+    },
+    {
+        "en": "look up",
+        "zh": "（在词典、参考书中或通过电脑）查阅；抬头看"
+    },
+    {
+        "en": "look up to",
+        "zh": "钦佩；仰慕"
+    },
+    {
+        "en": "look down",
+        "zh": "俯视"
+    },
+    {
+        "en": "look on",
+        "zh": "旁观"
+    },
+    {
+        "en": "look into",
+        "zh": "调查（某事）"
+    },
+    {
+        "en": "look down on",
+        "zh": "轻视，看不起"
+    },
+    {
+        "en": "cut down",
+        "zh": "砍倒"
+    },
+    {
+        "en": "cut off",
+        "zh": "切除"
+    },
+    {
+        "en": "cut out",
+        "zh": "删除；删去"
+    },
+    {
+        "en": "cut up",
+        "zh": "切碎"
+    },
+    {
+        "en": "cut in",
+        "zh": "插嘴"
+    },
+    {
+        "en": "cut into",
+        "zh": "打断；侵犯"
+    },
+    {
+        "en": "run after",
+        "zh": "追逐；追赶"
+    },
+    {
+        "en": "run away",
+        "zh": "跑开"
+    },
+    {
+        "en": "run out (of)",
+        "zh": "用尽；耗尽"
+    },
+    {
+        "en": "turn around",
+        "zh": "转身"
+    },
+    {
+        "en": "turn down",
+        "zh": "关小；拒绝；调低"
+    },
+    {
+        "en": "turn up",
+        "zh": "开大；调高"
+    },
+    {
+        "en": "turn... into",
+        "zh": "把......变成"
+    },
+    {
+        "en": "turn on",
+        "zh": "接通（电流、煤气、水等）；打开"
+    },
+    {
+        "en": "turn off",
+        "zh": "关掉"
+    },
+    {
+        "en": "turn out",
+        "zh": "结果是；被证明是"
+    },
+    {
+        "en": "turn over",
+        "zh": "翻身；翻转"
+    },
+    {
+        "en": "turn left/right",
+        "zh": "向左/右转"
+    },
+    {
+        "en": "take after",
+        "zh": "（外貌或行为）像"
+    },
+    {
+        "en": "take away",
+        "zh": "拿走"
+    },
+    {
+        "en": "take care of",
+        "zh": "照顾；处理"
+    },
+    {
+        "en": "take down",
+        "zh": "往下拽；记录"
+    },
+    {
+        "en": "take in",
+        "zh": "吸入；吞入（体内）"
+    },
+    {
+        "en": "take off",
+        "zh": "脱下；起飞"
+    },
+    {
+        "en": "take on",
+        "zh": "承担；呈现"
+    },
+    {
+        "en": "take out",
+        "zh": "取出；带......出去"
+    },
+    {
+        "en": "take over",
+        "zh": "接收；接管"
+    },
+    {
+        "en": "take part in",
+        "zh": "参加"
+    },
+    {
+        "en": "take pride in",
+        "zh": "以......为骄傲"
+    },
+    {
+        "en": "take place",
+        "zh": "发生；出现"
+    },
+    {
+        "en": "take up",
+        "zh": "（尤指为消遣）学着做；开始做；占用（空间）"
+    },
+    {
+        "en": "get away from",
+        "zh": "远离"
+    },
+    {
+        "en": "get back",
+        "zh": "回来；恢复；取回；重新上台"
+    },
+    {
+        "en": "get down",
+        "zh": "下来"
+    },
+    {
+        "en": "get dressed",
+        "zh": "穿上衣服"
+    },
+    {
+        "en": "get from",
+        "zh": "从......处得到"
+    },
+    {
+        "en": "get into",
+        "zh": "陷入；参与"
+    },
+    {
+        "en": "get lost",
+        "zh": "迷路"
+    },
+    {
+        "en": "get off",
+        "zh": "动身；下车；脱下（衣服等）"
+    },
+    {
+        "en": "get on",
+        "zh": "上车"
+    },
+    {
+        "en": "get on/along with",
+        "zh": "与......相处"
+    },
+    {
+        "en": "get out",
+        "zh": "离开，出去；泄漏"
+    },
+    {
+        "en": "get ready for...",
+        "zh": "为......做准备"
+    },
+    {
+        "en": "get to",
+        "zh": "到达"
+    },
+    {
+        "en": "get up",
+        "zh": "起床；站起"
+    },
+    {
+        "en": "get over",
+        "zh": "克服"
+    },
+    {
+        "en": "be/get/become used to",
+        "zh": "习惯于（to 为介词）"
+    },
+    {
+        "en": "be used to do",
+        "zh": "被用来做......"
+    },
+    {
+        "en": "used to do",
+        "zh": "曾经......；过去......"
+    },
+    {
+        "en": "give away",
+        "zh": "赠送；捐赠"
+    },
+    {
+        "en": "give back",
+        "zh": "还给；归还：恢复（健康等）"
+    },
+    {
+        "en": "give out",
+        "zh": "分发；散发"
+    },
+    {
+        "en": "give up",
+        "zh": "放弃"
+    },
+    {
+        "en": "give in",
+        "zh": "屈服"
+    },
+    {
+        "en": "give off",
+        "zh": "发出（光、气味等）；长出（枝、杈等）"
+    },
+    {
+        "en": "call (sb.) back",
+        "zh": "（给某人）回电话"
+    },
+    {
+        "en": "call in",
+        "zh": "叫来"
+    },
+    {
+        "en": "call up",
+        "zh": "打电话给（某人）；征召"
+    },
+    {
+        "en": "call by",
+        "zh": "顺路拜访"
+    },
+    {
+        "en": "call for",
+        "zh": "呼吁，要求"
+    },
+    {
+        "en": "call off",
+        "zh": "取消，撤销"
+    },
+    {
+        "en": "call on",
+        "zh": "访问；号召"
+    },
+    {
+        "en": "call out",
+        "zh": "呼喊"
+    },
+    {
+        "en": "come across",
+        "zh": "（偶然）遇见（或发现）"
+    },
+    {
+        "en": "come along",
+        "zh": "（意外地）出现；进展"
+    },
+    {
+        "en": "come back",
+        "zh": "回来；回想起"
+    },
+    {
+        "en": "come down",
+        "zh": "降落；落下"
+    },
+    {
+        "en": "come from",
+        "zh": "出生于；来自"
+    },
+    {
+        "en": "come into",
+        "zh": "进入"
+    },
+    {
+        "en": "come in",
+        "zh": "进来；到达"
+    },
+    {
+        "en": "come on",
+        "zh": "加油；快点儿；得了吧"
+    },
+    {
+        "en": "come out",
+        "zh": "开花；出版"
+    },
+    {
+        "en": "come over",
+        "zh": "顺便来访"
+    },
+    {
+        "en": "come true",
+        "zh": "实现；成为现实"
+    },
+    {
+        "en": "come up",
+        "zh": "出来；上升"
+    },
+    {
+        "en": "come up with",
+        "zh": "想出；提出（主意、计划、回答等）"
+    },
+    {
+        "en": "bring back",
+        "zh": "恢复；使想起；归还"
+    },
+    {
+        "en": "bring up",
+        "zh": "养育；抚养"
+    },
+    {
+        "en": "bring out",
+        "zh": "使显现；使表现出"
+    },
+    {
+        "en": "fall asleep",
+        "zh": "进入梦乡；睡着"
+    },
+    {
+        "en": "fall down",
+        "zh": "突然倒下；跌倒；倒塌"
+    },
+    {
+        "en": "fall in love with",
+        "zh": "爱上；喜欢上"
+    },
+    {
+        "en": "fall over",
+        "zh": "绊倒"
+    },
+    {
+        "en": "go after",
+        "zh": "追求；设法获得"
+    },
+    {
+        "en": "go against",
+        "zh": "反对；违背"
+    },
+    {
+        "en": "go ahead",
+        "zh": "继续；干吧"
+    },
+    {
+        "en": "go along (the street)",
+        "zh": "沿着（这条街）走"
+    },
+    {
+        "en": "go around",
+        "zh": "到处走动；传开"
+    },
+    {
+        "en": "go away",
+        "zh": "走开"
+    },
+    {
+        "en": "go back",
+        "zh": "回去"
+    },
+    {
+        "en": "go by",
+        "zh": "从旁经过；时间流逝"
+    },
+    {
+        "en": "go down",
+        "zh": "下降"
+    },
+    {
+        "en": "go off",
+        "zh": "（闹钟）发出响声"
+    },
+    {
+        "en": "go on",
+        "zh": "继续"
+    },
+    {
+        "en": "go out",
+        "zh": "外出（娱乐）；熄灭"
+    },
+    {
+        "en": "go over",
+        "zh": "走过去；复习；仔细检查"
+    },
+    {
+        "en": "go through",
+        "zh": "经历；浏览；翻阅；通过"
+    },
+    {
+        "en": "go up",
+        "zh": "上涨；上升"
+    },
+    {
+        "en": "go with",
+        "zh": "伴随；与......相配"
+    },
+    {
+        "en": "make sure",
+        "zh": "确保；查明"
+    },
+    {
+        "en": "make up",
+        "zh": "编造（故事、谎言等）"
+    },
+    {
+        "en": "make a decision",
+        "zh": "做决定"
+    },
+    {
+        "en": "make fun of",
+        "zh": "取笑"
+    },
+    {
+        "en": "make use of",
+        "zh": "利用"
+    },
+    {
+        "en": "put back",
+        "zh": "放回原处"
+    },
+    {
+        "en": "put down",
+        "zh": "写下；放下"
+    },
+    {
+        "en": "put on",
+        "zh": "增加（体重）；发胖；上演；穿上（衣服）"
+    },
+    {
+        "en": "put off",
+        "zh": "推迟"
+    },
+    {
+        "en": "put up",
+        "zh": "搭建；举起；张贴"
+    },
+    {
+        "en": "put away",
+        "zh": "收拾（整理）好"
+    },
+    {
+        "en": "put sth. to good use",
+        "zh": "好好利用某物"
+    },
+    {
+        "en": "put out",
+        "zh": "熄灭"
+    },
+    {
+        "en": "put up with",
+        "zh": "容忍"
+    },
+    {
+        "en": "set off",
+        "zh": "动身；出发"
+    },
+    {
+        "en": "set out",
+        "zh": "出发；启程"
+    },
+    {
+        "en": "set up",
+        "zh": "建起；建立"
+    },
+    {
+        "en": "keep on",
+        "zh": "继续；穿着......不脱"
+    },
+    {
+        "en": "keep off",
+        "zh": "不接近；避开"
+    },
+    {
+        "en": "keep up (with)",
+        "zh": "保持；继续；不低落；不落后"
+    },
+    {
+        "en": "keep away from",
+        "zh": "避免接近；远离"
+    },
+    {
+        "en": "keep in mind",
+        "zh": "记住"
+    },
+    {
+        "en": "keep in touch with",
+        "zh": "和......保持联系"
+    },
+    {
+        "en": "keep out of",
+        "zh": "置身于......之外"
+    },
+    {
+        "en": "bring up",
+        "zh": "提出；养育"
+    },
+    {
+        "en": "cheer up",
+        "zh": "（使）变得更高兴；振奋起来"
+    },
+    {
+        "en": "clean up",
+        "zh": "打扫（或清除）干净"
+    },
+    {
+        "en": "dress up",
+        "zh": "装扮；乔装打扮"
+    },
+    {
+        "en": "end up",
+        "zh": "最终成为；最后处于"
+    },
+    {
+        "en": "fix up",
+        "zh": "修理；装饰"
+    },
+    {
+        "en": "fill up",
+        "zh": "装满；填补"
+    },
+    {
+        "en": "grow up",
+        "zh": "长大；成熟"
+    },
+    {
+        "en": "hang up",
+        "zh": "挂断电话"
+    },
+    {
+        "en": "hurry up",
+        "zh": "赶快；急忙"
+    },
+    {
+        "en": "make up",
+        "zh": "编造；组成；化妆"
+    },
+    {
+        "en": "mix up",
+        "zh": "混合在一起"
+    },
+    {
+        "en": "pick up",
+        "zh": "捡起；接电话；接某人"
+    },
+    {
+        "en": "show up",
+        "zh": "赶到；露面"
+    },
+    {
+        "en": "stand up",
+        "zh": "站立"
+    },
+    {
+        "en": "stay up",
+        "zh": "熬夜"
+    },
+    {
+        "en": "tidy up",
+        "zh": "整理"
+    },
+    {
+        "en": "use up",
+        "zh": "用光"
+    },
+    {
+        "en": "wake up",
+        "zh": "醒来；叫醒"
+    },
+    {
+        "en": "blow out",
+        "zh": "吹灭"
+    },
+    {
+        "en": "break out",
+        "zh": "爆发"
+    },
+    {
+        "en": "carry out",
+        "zh": "执行"
+    },
+    {
+        "en": "check out",
+        "zh": "结账离开；检查"
+    },
+    {
+        "en": "clear out",
+        "zh": "清理；丢掉"
+    },
+    {
+        "en": "find out",
+        "zh": "查明；弄清"
+    },
+    {
+        "en": "hand out",
+        "zh": "分发"
+    },
+    {
+        "en": "hang out",
+        "zh": "闲逛；常去某处"
+    },
+    {
+        "en": "lay out",
+        "zh": "摆开；布置"
+    },
+    {
+        "en": "leave out",
+        "zh": "不包括；不提及；忽略"
+    },
+    {
+        "en": "point out",
+        "zh": "指出"
+    },
+    {
+        "en": "sell out",
+        "zh": "卖光"
+    },
+    {
+        "en": "set out",
+        "zh": "出发；启程"
+    },
+    {
+        "en": "try out",
+        "zh": "选拔；试验"
+    },
+    {
+        "en": "work out",
+        "zh": "成功地发展；解决"
+    },
+    {
+        "en": "break down",
+        "zh": "停止运转，出故障"
+    },
+    {
+        "en": "calm down",
+        "zh": "镇静下来"
+    },
+    {
+        "en": "die down",
+        "zh": "逐渐变弱；逐渐消失"
+    },
+    {
+        "en": "fall down",
+        "zh": "突然倒下；跌倒；倒塌"
+    },
+    {
+        "en": "look down on",
+        "zh": "轻视，看不起"
+    },
+    {
+        "en": "let... down",
+        "zh": "使失望"
+    },
+    {
+        "en": "lie down",
+        "zh": "躺下"
+    },
+    {
+        "en": "pull... down",
+        "zh": "拆下；摧毁"
+    },
+    {
+        "en": "sit down",
+        "zh": "坐下"
+    },
+    {
+        "en": "write down",
+        "zh": "写下；记录下"
+    },
+    {
+        "en": "agree with",
+        "zh": "同意；赞成"
+    },
+    {
+        "en": "begin with",
+        "zh": "以......开始"
+    },
+    {
+        "en": "catch up with",
+        "zh": "赶上（或超过）"
+    },
+    {
+        "en": "compare... with...",
+        "zh": "比较；对比"
+    },
+    {
+        "en": "connect... with...",
+        "zh": "把......和......连接/联系起来"
+    },
+    {
+        "en": "deal with",
+        "zh": "应付；处理"
+    },
+    {
+        "en": "end up with",
+        "zh": "以......结束"
+    },
+    {
+        "en": "share with",
+        "zh": "和......分享"
+    },
+    {
+        "en": "talk with",
+        "zh": "和......交谈"
+    },
+    {
+        "en": "part with",
+        "zh": "放弃、交出（尤指不舍得的东西）"
+    },
+    {
+        "en": "argue about",
+        "zh": "争论"
+    },
+    {
+        "en": "think about",
+        "zh": "考虑"
+    },
+    {
+        "en": "care about",
+        "zh": "关心；在意"
+    },
+    {
+        "en": "hear about",
+        "zh": "听说"
+    },
+    {
+        "en": "know/learn about",
+        "zh": "了解"
+    },
+    {
+        "en": "talk about",
+        "zh": "谈论；议论"
+    },
+    {
+        "en": "walk about",
+        "zh": "四处走动"
+    },
+    {
+        "en": "worry about",
+        "zh": "担心"
+    },
+    {
+        "en": "search for",
+        "zh": "搜索；查找"
+    },
+    {
+        "en": "ask for",
+        "zh": "请求"
+    },
+    {
+        "en": "leave for",
+        "zh": "动身去"
+    },
+    {
+        "en": "pay for",
+        "zh": "为......付钱"
+    },
+    {
+        "en": "prepare for",
+        "zh": "为......做准备"
+    },
+    {
+        "en": "wait for",
+        "zh": "等待"
+    },
+    {
+        "en": "stand for",
+        "zh": "代表"
+    },
+    {
+        "en": "hold on",
+        "zh": "等一等（别挂电话）"
+    },
+    {
+        "en": "agree on",
+        "zh": "对......意见一致"
+    },
+    {
+        "en": "call on",
+        "zh": "访问；号召"
+    },
+    {
+        "en": "decide on",
+        "zh": "决定；选定"
+    },
+    {
+        "en": "depend on/upon",
+        "zh": "依靠；依赖；视......而定；取决于"
+    },
+    {
+        "en": "live/feed on...",
+        "zh": "以......为食；靠......为生"
+    },
+    {
+        "en": "pass on",
+        "zh": "传递"
+    },
+    {
+        "en": "try on",
+        "zh": "试穿"
+    },
+    {
+        "en": "work on",
+        "zh": "从事；忙于"
+    },
+    {
+        "en": "arrive at",
+        "zh": "到达"
+    },
+    {
+        "en": "blow away",
+        "zh": "吹走"
+    },
+    {
+        "en": "believe in",
+        "zh": "信任；信赖"
+    },
+    {
+        "en": "clean... off",
+        "zh": "把......擦掉"
+    },
+    {
+        "en": "divide... into",
+        "zh": "把......分成"
+    },
+    {
+        "en": "separate from",
+        "zh": "分开；分离"
+    },
+    {
+        "en": "hear from",
+        "zh": "接到（某人的）信、电话等"
+    },
+    {
+        "en": "throw away",
+        "zh": "扔掉；抛弃"
+    },
+    {
+        "en": "drop by",
+        "zh": "顺便访问"
+    },
+    {
+        "en": "laugh at",
+        "zh": "嘲笑"
+    },
+    {
+        "en": "move away",
+        "zh": "搬走"
+    },
+    {
+        "en": "stick to",
+        "zh": "坚持；固守"
+    },
+    {
+        "en": "pay attention to",
+        "zh": "注意；关注"
+    },
+    {
+        "en": "pass by",
+        "zh": "路过；经过"
+    },
+    {
+        "en": "pull together",
+        "zh": "齐心协力；通力合作"
+    },
+    {
+        "en": "shut down",
+        "zh": "关闭；停止运转"
+    },
+    {
+        "en": "take one's place",
+        "zh": "代替、替换某人的位置"
+    },
+    {
+        "en": "think of",
+        "zh": "认为"
+    }
+]

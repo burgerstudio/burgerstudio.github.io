@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>测试记录 - 动词短语自测 - Burger工具站</title>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-appbar-with-toolbar">
+    <div class="mdui-appbar mdui-appbar-fixed">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a class="mdui-typo-title">测试记录</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '夜间模式'}" onclick="javascript:darkMode();">
+                <i class="mdui-icon material-icons">brightness_medium</i>
+            </a>
+        </div>
+    </div>
+    <div style="margin: 16px;text-align: center;">
+        <div class="mdui-table-fluid">
+            <table class="mdui-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>测试日期</th>
+                        <th>短语个数</th>
+                        <th>测试时长/秒</th>
+                    </tr>
+                </thead>
+                <tbody id="list">
+                </tbody>
+            </table>
+        </div>
+        <div class="mdui-typo-body-2 mdui-text-center" style="margin: 16px;">Made by Burger Studio.</div>
+    </div>
+    <script>
+        var list = document.getElementById("list");
+        var content = "";
+        var totalPhrase = 0;
+        var totalDuration = 0;
+        for (i = 0; i <= localStorage.getItem("examTime"); i++) {
+            if (localStorage.examTime) {
+                content += "<tr><th>" + (i + 1) + "</th>";
+                content += "<th>" + localStorage.getItem("examDate" + i) + "</th>";
+                content += "<th>" + localStorage.getItem("examPhrase" + i) + "</th>";
+                totalPhrase += Number(localStorage.getItem("examPhrase" + i));
+                content += "<th>" + localStorage.getItem("examDuration" + i) + "</th></tr>";
+                totalDuration += Number(localStorage.getItem("examDuration" + i));
+            }
+        }
+        content += "<tr><th>总计</th>";
+        content += "<th>-</th>";
+        content += "<th>" + totalPhrase + "</th>";
+        content += "<th>" + totalDuration + "</th></tr>";
+        list.innerHTML = content;
+
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+    </script>
+</body>
+
+</html>

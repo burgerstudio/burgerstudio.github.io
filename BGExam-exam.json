@@ -1,0 +1,27 @@
+{
+    "title": "BurgerExam 演示",
+    "description": "满分：100<br>时间：60 分钟<br><br>这里是测验简介。<br>由 Burger Studio 开发的简易测验系统，利用 JSON 来存储测验数据。<br>点击下方按钮以开始本次测验。",
+    "time": 3600,
+    "questions": [{
+        "question": "这是问题 1 的题干。",
+        "answer": "答案1",
+        "resolve": "这是问题 1 的解析。"
+    }, {
+        "question": "这是问题 2 的题干。",
+        "answer": ["答案2", "Answer 2"],
+        "resolve": "这是问题 2 的解析。"
+    }, {
+        "question": "这是问题 3 的题干。",
+        "answer": "答案3",
+        "resolve": "这是问题 3 的解析。"
+    }, {
+        "question": "这是问题 4 的题干。",
+        "answer": ["答案4", "Answer 4"],
+        "resolve": "这是问题 4 的解析。"
+    }, {
+        "question": "这是问题 5 的题干。",
+        "answer": "答案5",
+        "resolve": "这是问题 5 的解析。"
+    }],
+    "customer": "<!-- 此处用于放置自定义 HTML 代码 -->"
+}

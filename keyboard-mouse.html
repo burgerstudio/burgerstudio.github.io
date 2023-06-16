@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Keyboard - Burger工具站</title>
+    <style>
+        .textfield {
+            background: #CFD8DC;
+            padding: 16px;
+            border-radius: 16px;
+            overflow: scroll;
+            word-wrap: break-word;
+            max-width: 640px;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            margin: auto;
+            transition: 0.1s;
+            max-height: 50%;
+        }
+
+        .keyboard {
+            position: fixed;
+            width: 100%;
+            margin: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #CFD8DC;
+            text-align: center;
+            transform: translateY(100%);
+            transition: 0.3s;
+            font-size: 22px;
+        }
+
+        .key {
+            background: white;
+            padding: 4px;
+            border-radius: 8px;
+            width: 20px;
+            height: 28px;
+            margin: 2px;
+            display: inline-block;
+            box-shadow: 0 2px 1px 0.5px rgba(0, 0, 0, 0.3);
+        }
+
+        .numKey {
+            background: #CFD8DC;
+            padding: 4px;
+            border-radius: 8px;
+            width: 20px;
+            height: 28px;
+            margin: 2px;
+            display: inline-block;
+        }
+
+        #versionButton {
+            padding: 16px;
+            border-radius: 8px;
+            max-width: 128px;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            margin: auto;
+            transition: 0.1s;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Keyboard</h1>
+    <div class="textfield" id="textfield">输入区域（点按呼出/收起键盘）<br>Made by Burger Studio.<br></div>
+    <div id="versionButton" onclick="javascript:location.href='keyboard.html';">切换为触屏版本</div>
+    <div class="keyboard" id="keyboard">
+        <div style="margin: 16px;" id="key">
+            <div id="numKeys"></div>
+            <div id="line1Keys"></div>
+            <div id="line2Keys"></div>
+            <div id="line3Keys">
+                <div class='key' name="line4Key" style="text-decoration: underline;background: #ECEFF1;width: 32px;" id="capsLock">A</div>
+            </div>
+            <div id="line4Keys">
+                <div class='key' name="line4Key" id="?123" style="background: #ECEFF1;width: 48px;">?123</div>
+                <div class='key' name="line4Key" id="," style="background: #ECEFF1;">,</div>
+                <div class='key' name="line4Key" style="width: 100px;" id="space">Space</div>
+                <div class='key' name="line4Key" id="." style="background: #ECEFF1;">.</div>
+                <div class='key' name="line4Key" style="width: 64px;background: #448AFF;color: white;" id="enter">Enter</div>
+            </div>
+        </div>
+    </div>
+    <div class="keyboard" id="keyboard2">
+        <div style="margin: 16px;" id="key2">
+            <div id="line1Keys2"></div>
+            <div id="line2Keys2"></div>
+            <div id="line3Keys2">
+                <div class='key' name="line4Key2" id="moreMarks" style="background: #ECEFF1;width: 40px;"></div>
+            </div>
+            <div id="line4Keys2">
+                <div class='key' name="line4Key2" id="ABC" style="background: #ECEFF1;width: 40px;">ABC</div>
+                <div class='key' name="line4Key2" id=",2" style="background: #ECEFF1;">,</div>
+                <div class='key' name="line4Key2" style="width: 100px;" id="space2">Space</div>
+                <div class='key' name="line4Key2" id=".2" style="background: #ECEFF1;">.</div>
+                <div class='key' name="line4Key2" style="width: 64px;background: #448AFF;color: white;" id="enter2">Enter</div>
+            </div>
+        </div>
+    </div>
+    <div class="keyboard" id="keyboard3">
+        <div style="margin: 16px;" id="key3">
+            <div id="line1Keys3"></div>
+            <div id="line2Keys3"></div>
+            <div id="line3Keys3">
+                <div class='key' name="line4Key3" id="?123_3" style="background: #ECEFF1;width: 48px;">?123</div>
+            </div>
+            <div id="line4Keys3">
+                <div class='key' name="line4Key3" id="ABC_3" style="background: #ECEFF1;width: 40px;">ABC</div>
+                <div class='key' name="line4Key3" id="<" style="background: #ECEFF1;"></div>
+                <div class='key' name="line4Key3" style="width: 100px;" id="space3">Space</div>
+                <div class='key' name="line4Key3" id=">" style="background: #ECEFF1;"></div>
+                <div class='key' name="line4Key3" style="width: 64px;background: #448AFF;color: white;" id="enter3">Enter</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('moreMarks').innerHTML = "=\\<";
+        document.getElementById('<').innerHTML = "<";
+        document.getElementById('>').innerHTML = ">";
+        var nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+        var line1 = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
+        var line2 = ["a", "s", "d", "f", "g", "h", "j", "k", "l"];
+        var line3 = ["z", "x", "c", "v", "b", "n", "m"];
+        var line2_2 = ["@", "#", "$", "_", "&", "-", "+", "(", ")", "/"];
+        var line3_2 = ["*", '"', "'", ":", ";", "!", "?"];
+        var line1_3 = ["~", "`", "|", "•", "√", "π", "÷", "×", "¶", "∆"];
+        var line2_3 = ["£", "¢", "€", "¥", "^", "°", "=", "{", "}", "\\"];
+        var line3_3 = ["%", "©", "®", "™", "✓", "[", "]"];
+        open = 0;
+        open2 = 0;
+        open3 = 0;
+        capsLocked = 0;
+        var keyboard = document.getElementById('keyboard');
+        var keyboard2 = document.getElementById('keyboard2');
+        var keyboard3 = document.getElementById('keyboard3');
+        var textfield = document.getElementById('textfield');
+        var numKeys = document.getElementById('numKeys');
+        var line1Keys = document.getElementById('line1Keys');
+        var line2Keys = document.getElementById('line2Keys');
+        var line3Keys = document.getElementById('line3Keys');
+        var line4Keys = document.getElementById('line4Keys');
+        var line1Keys2 = document.getElementById('line1Keys2');
+        var line2Keys2 = document.getElementById('line2Keys2');
+        var line3Keys2 = document.getElementById('line3Keys2');
+        var line4Keys2 = document.getElementById('line4Keys2');
+        var line1Keys3 = document.getElementById('line1Keys3');
+        var line2Keys3 = document.getElementById('line2Keys3');
+        var line3Keys3 = document.getElementById('line3Keys3');
+        var line4Keys3 = document.getElementById('line4Keys3');
+        textfield.addEventListener("mousedown", function() {
+            this.style.background = "#B0BEC5";
+        });
+        textfield.addEventListener("mouseup", function() {
+            window.setTimeout('textfield.style.background="#CFD8DC";', 100);
+        });
+        textfield.addEventListener("click", function() {
+            if (open2 == 1) {
+                switchKeyboard2();
+            } else if (open3 == 1) {
+                switchKeyboard3();
+            } else {
+                switchKeyboard();
+            }
+
+        })
+        for (i in nums) {
+            numKeys.innerHTML += "<div class='numKey' name='numKey'>" + nums[i] + "</div>";
+        }
+        for (i in nums) {
+            document.getElementsByName('numKey')[i].addEventListener("mousedown", function() {
+                this.style.background = "#B0BEC5";
+            })
+            document.getElementsByName('numKey')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "#CFD8DC";
+            })
+        }
+        for (i in nums) {
+            line1Keys2.innerHTML += "<div class='key' name='line1Key2'>" + nums[i] + "</div>";
+        }
+        for (i in nums) {
+            document.getElementsByName('line1Key2')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line1Key2')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line1) {
+            line1Keys.innerHTML += "<div class='key' name='line1Key'>" + line1[i] + "</div>";
+        }
+        for (i in line1) {
+            document.getElementsByName('line1Key')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line1Key')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line1_3) {
+            line1Keys3.innerHTML += "<div class='key' name='line1Key3'>" + line1_3[i] + "</div>";
+        }
+        for (i in line1_3) {
+            document.getElementsByName('line1Key3')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line1Key3')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line2) {
+            line2Keys.innerHTML += "<div class='key' name='line2Key'>" + line2[i] + "</div>";
+        }
+        for (i in line2) {
+            document.getElementsByName('line2Key')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line2Key')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line2_2) {
+            line2Keys2.innerHTML += "<div class='key' name='line2Key2'>" + line2_2[i] + "</div>";
+        }
+        for (i in line2_2) {
+            document.getElementsByName('line2Key2')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line2Key2')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line2_3) {
+            line2Keys3.innerHTML += "<div class='key' name='line2Key3'>" + line2_3[i] + "</div>";
+        }
+        for (i in line2_3) {
+            document.getElementsByName('line2Key3')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line2Key3')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+        }
+        for (i in line3) {
+            line3Keys.innerHTML += "<div class='key' name='line3Key'>" + line3[i] + "</div>";
+        }
+        line3Keys.innerHTML += '<div class="key" name="line4Key" id="backSpace" style="background: #ECEFF1;width: 32px;"><=</div>';
+        for (i in line3) {
+            document.getElementsByName('line3Key')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line3Key')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+            if (i == 6) {
+                document.getElementsByName('line3Key')[i].style.marginRight = "4px";
+            }
+        }
+        for (i in line3_2) {
+            line3Keys2.innerHTML += "<div class='key' name='line3Key2'>" + line3_2[i] + "</div>";
+        }
+        line3Keys2.innerHTML += '<div class="key" name="line4Key2" id="backSpace2" style="background: #ECEFF1;width: 32px;"><=</div>';
+        for (i in line3_2) {
+            document.getElementsByName('line3Key2')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line3Key2')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+            if (i == 6) {
+                document.getElementsByName('line3Key2')[i].style.marginRight = "4px";
+            }
+        }
+        for (i in line3_3) {
+            line3Keys3.innerHTML += "<div class='key' name='line3Key3'>" + line3_3[i] + "</div>";
+        }
+        line3Keys3.innerHTML += '<div class="key" name="line4Key3" id="backSpace3" style="background: #ECEFF1;width: 32px;"><=</div>';
+        for (i in line3_3) {
+            document.getElementsByName('line3Key3')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+            })
+            document.getElementsByName('line3Key3')[i].addEventListener("mouseup", function() {
+                textfield.innerHTML += this.innerHTML;
+                this.style.background = "white";
+            })
+            if (i == 4) {
+                document.getElementsByName('line3Key3')[i].style.transform = "translateY(5px)";
+            }
+            if (i == 6) {
+                document.getElementsByName('line3Key3')[i].style.marginRight = "4px";
+            }
+        }
+
+        function switchKeyboard() {
+            if (open == 0) {
+                keyboard.style.transform = "translateY(0)";
+                open = 1;
+            } else if (open == 1) {
+                keyboard.style.transform = "translateY(100%)";
+                open = 0;
+            }
+        }
+
+        function switchKeyboard2() {
+            if (open2 == 0) {
+                keyboard2.style.transform = "translateY(0)";
+                open2 = 1;
+            } else if (open2 == 1) {
+                keyboard2.style.transform = "translateY(100%)";
+                open2 = 0;
+            }
+        }
+
+        function switchKeyboard3() {
+            if (open3 == 0) {
+                keyboard3.style.transform = "translateY(0)";
+                open3 = 1;
+            } else if (open3 == 1) {
+                keyboard3.style.transform = "translateY(100%)";
+                open3 = 0;
+            }
+        }
+        for (i = 0; i < 7; i++) {
+            document.getElementsByName('line4Key')[i].style.margin = "2px 0";
+            document.getElementsByName('line4Key')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+                if (this.id == "enter") {
+                    this.style.background = "#2962FF";
+                }
+            })
+            document.getElementsByName('line4Key')[i].addEventListener("mouseup", function() {
+                this.style.background = "white";
+                if (this.id == ",") {
+                    textfield.innerHTML += ",";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == ".") {
+                    textfield.innerHTML += ".";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "space") {
+                    textfield.innerHTML += " ";
+                }
+                if (this.id == "enter") {
+                    textfield.innerHTML += "<br>";
+                    this.style.background = "#448AFF";
+                }
+                if (this.id == "backSpace") {
+                    textfield.innerHTML = textfield.innerHTML.substring(0, textfield.innerHTML.length - 1);
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "capsLock") {
+                    if (capsLocked == 0) {
+                        capsLocked = 1;
+                        this.style.background = "rgba(0,0,0,0.3)";
+                        for (i in line1) {
+                            document.getElementsByName('line1Key')[i].innerHTML = document.getElementsByName('line1Key')[i].innerHTML.toUpperCase();
+                        }
+                        for (i in line2) {
+                            document.getElementsByName('line2Key')[i].innerHTML = document.getElementsByName('line2Key')[i].innerHTML.toUpperCase();
+                        }
+                        for (i in line3) {
+                            document.getElementsByName('line3Key')[i].innerHTML = document.getElementsByName('line3Key')[i].innerHTML.toUpperCase();
+                        }
+                    } else if (capsLocked == 1) {
+                        capsLocked = 0;
+                        this.style.background = "#ECEFF1";
+                        for (i in line1) {
+                            document.getElementsByName('line1Key')[i].innerHTML = document.getElementsByName('line1Key')[i].innerHTML.toLowerCase();
+                        }
+                        for (i in line2) {
+                            document.getElementsByName('line2Key')[i].innerHTML = document.getElementsByName('line2Key')[i].innerHTML.toLowerCase();
+                        }
+                        for (i in line3) {
+                            document.getElementsByName('line3Key')[i].innerHTML = document.getElementsByName('line3Key')[i].innerHTML.toLowerCase();
+                        }
+                    }
+                }
+                if (this.id == "?123") {
+                    this.style.background = "#ECEFF1";
+                    switchKeyboard();
+                    switchKeyboard2();
+                }
+            })
+        }
+        for (i = 0; i < 7; i++) {
+            document.getElementsByName('line4Key2')[i].style.margin = "2px 0";
+            document.getElementsByName('line4Key2')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+                if (this.id == "enter2") {
+                    this.style.background = "#2962FF";
+                }
+            })
+            document.getElementsByName('line4Key2')[i].addEventListener("mouseup", function() {
+                this.style.background = "white";
+                if (this.id == ",2") {
+                    textfield.innerHTML += ",";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == ".2") {
+                    textfield.innerHTML += ".";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "space2") {
+                    textfield.innerHTML += " ";
+                }
+                if (this.id == "enter2") {
+                    textfield.innerHTML += "<br>";
+                    this.style.background = "#448AFF";
+                }
+                if (this.id == "backSpace2") {
+                    textfield.innerHTML = textfield.innerHTML.substring(0, textfield.innerHTML.length - 1);
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "moreMarks") {
+                    this.style.background = "#ECEFF1";
+                    switchKeyboard2();
+                    switchKeyboard3();
+                }
+                if (this.id == "ABC") {
+                    this.style.background = "#ECEFF1";
+                    switchKeyboard2();
+                    switchKeyboard();
+                }
+            })
+        }
+        for (i = 0; i < 7; i++) {
+            document.getElementsByName('line4Key3')[i].style.margin = "2px 0";
+            document.getElementsByName('line4Key3')[i].addEventListener("mousedown", function() {
+                this.style.background = "rgba(0,0,0,0.3)";
+                if (this.id == "enter3") {
+                    this.style.background = "#2962FF";
+                }
+            })
+            document.getElementsByName('line4Key3')[i].addEventListener("mouseup", function() {
+                this.style.background = "white";
+                if (this.id == "<") {
+                    textfield.innerHTML += "<";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == ">") {
+                    textfield.innerHTML += ">";
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "space3") {
+                    textfield.innerHTML += " ";
+                }
+                if (this.id == "enter3") {
+                    textfield.innerHTML += "<br>";
+                    this.style.background = "#448AFF";
+                }
+                if (this.id == "backSpace3") {
+                    textfield.innerHTML = textfield.innerHTML.substring(0, textfield.innerHTML.length - 1);
+                    this.style.background = "#ECEFF1";
+                }
+                if (this.id == "?123_3") {
+                    this.style.background = "#ECEFF1";
+                    switchKeyboard3();
+                    switchKeyboard2();
+                }
+                if (this.id == "ABC_3") {
+                    this.style.background = "#ECEFF1";
+                    switchKeyboard3();
+                    switchKeyboard();
+                }
+            })
+        }
+        var versionButton = document.getElementById('versionButton');
+        versionButton.addEventListener("touchstart", function() {
+            this.style.background = "#cccccc";
+        });
+        versionButton.addEventListener("touchend", function() {
+            this.style.background = "white";
+        });
+        versionButton.addEventListener("mousedown", function() {
+            this.style.background = "#cccccc";
+        });
+        versionButton.addEventListener("mouseup", function() {
+            this.style.background = "white";
+        });
+    </script>
+</body>
+
+</html>

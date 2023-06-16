@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>BurgerExam - Burger工具站</title>
+    <style>
+        .mdui-card {
+            background: #fff;
+            border-radius: 16px;
+            margin: 24px !important;
+            padding: 16px;
+            color: #000;
+            max-width: 640px;
+        }
+
+        @media (min-width: 688px) {
+            .mdui-card.mdui-center {
+                margin: auto !important;
+                margin-top: 24px !important;
+            }
+        }
+
+        .mdui-theme-layout-dark.mdui-color-indigo {
+            background-color: #212121 !important;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .mdui-theme-layout-auto.mdui-color-indigo {
+                background-color: #212121 !important;
+            }
+
+            .mdui-theme-layout-auto .mdui-text-color-theme,
+            .mdui-theme-layout-auto .mdui-dialog a,
+            .mdui-theme-layout-auto .mdui-textfield,
+            .mdui-theme-layout-auto .mdui-dialog button,
+            .mdui-theme-layout-auto .mdui-spinner,
+            .mdui-theme-layout-auto .mdui-progress,
+            .mdui-theme-layout-auto .mdui-text-color-red,
+            .mdui-theme-layout-auto .mdui-text-color-green {
+                filter: brightness(200%);
+            }
+        }
+
+        #content {
+            text-align: center;
+        }
+
+        #start,
+        #last,
+        #next,
+        #finish {
+            margin: 8px;
+            display: none;
+        }
+
+        #start button,
+        #last button,
+        #next button,
+        #finish button {
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        #inputField {
+            text-align: left;
+            display: none;
+        }
+
+        .mdui-dialog {
+            border-radius: 16px;
+            transform: scale(1);
+        }
+
+        .mdui-dialog a,
+        .mdui-dialog button {
+            border-radius: 8px;
+        }
+
+        .mdui-theme-layout-dark .mdui-text-color-theme,
+        .mdui-theme-layout-dark .mdui-dialog a,
+        .mdui-theme-layout-dark .mdui-textfield,
+        .mdui-theme-layout-dark .mdui-dialog button,
+        .mdui-theme-layout-dark .mdui-spinner,
+        .mdui-theme-layout-dark .mdui-progress,
+        .mdui-theme-layout-dark .mdui-text-color-red,
+        .mdui-theme-layout-dark .mdui-text-color-green {
+            filter: brightness(200%);
+        }
+
+        #timer {
+            margin-top: 16px;
+            display: none;
+        }
+
+        #jumpMenu {
+            display: none;
+        }
+
+        .mdui-menu {
+            border-radius: 16px;
+        }
+
+        .mdui-progress {
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        #progress {
+            width: 0;
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-color-indigo mdui-appbar-with-toolbar mdui-theme-layout-auto">
+    <div class="mdui-appbar mdui-appbar-fixed mdui-shadow-0">
+        <div class="mdui-toolbar mdui-color-theme">
+            <a class="mdui-typo-title" id="title">BurgerExam</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-menu="{target: '#menu'}" mdui-tooltip="{content: '更多选项'}">
+                <i class="mdui-icon material-icons">more_vert</i>
+            </a>
+            <ul class="mdui-menu" id="menu">
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" onclick="javascript:new mdui.Dialog('#jumpTo').open();gebi('inputNumber').focus();" id="jumpMenu">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">keyboard_return</i>转到......
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" href="BGExam-history.html">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">history</i>测验记录
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" onclick="javascript:darkMode();">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">brightness_medium</i>夜间模式
+                    </a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a class="mdui-ripple" onclick="javascript:new mdui.Dialog('#about').open()">
+                        <i class="mdui-menu-item-icon mdui-icon material-icons">info</i>关于
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="mdui-card mdui-center" id="card">
+        <div id="content">
+            <div class="mdui-progress" id="progressField">
+                <div class="mdui-progress-determinate" id="progress"></div>
+            </div>
+            <div class="mdui-typo-headline mdui-text-color-theme" id="title2">BurgerExam</div><br><br>
+            <div id="loading">
+                <div class="mdui-spinner"></div><br><br><br>
+                <div class="mdui-typo-body-2">正在载入测验数据</div>
+            </div>
+            <div id="description" class="mdui-typo-body-2"></div><br><br>
+            <div class="mdui-textfield mdui-textfield-floating-label" id="inputField">
+                <label class="mdui-textfield-label">解答</label>
+                <input class="mdui-textfield-input" type="text" id="input" />
+            </div>
+            <div id="start"><button class="mdui-btn mdui-color-theme-accent mdui-ripple">开始测验</button></div>
+            <div id="last"><button class="mdui-btn mdui-color-theme-accent mdui-ripple">上一题</button></div>
+            <div id="next"><button class="mdui-btn mdui-color-theme-accent mdui-ripple">下一题</button></div>
+            <div id="finish"><button class="mdui-btn mdui-color-theme-accent mdui-ripple">提交</button></div>
+            <div id="timer" class="mdui-typo-body-2"></div>
+        </div>
+    </div>
+    <div id="customer"></div>
+    <div class="mdui-typo-body-2 mdui-text-center" style="margin-top: 16px;">Powered by BurgerExam.</div><br>
+    <div class="mdui-dialog" id="jumpTo">
+        <div class="mdui-dialog-title">转到......</div>
+        <div class="mdui-dialog-content">
+            请输入要跳转的题目序号：
+            <div class="mdui-textfield mdui-textfield-floating-label">
+                <label class="mdui-textfield-label">题目序号</label>
+                <input class="mdui-textfield-input" type="number" id="inputNumber" />
+            </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close id="jump">确认</button>
+        </div>
+    </div>
+    <div class="mdui-dialog" id="about">
+        <div class="mdui-dialog-title">关于</div>
+        <div class="mdui-dialog-content">
+            <div class="mdui-typo">
+                BurgerExam：<br>由 Burger Studio 开发的简易测验系统，利用 JSON 来存储测验数据。简单修改即可制作自己的小测验。<br>GitHub：<a href="https://github.com/fucklinux/BurgerExam">fucklinux/BurgerExam</a><br>演示站点：<a href="https://bgexam.netlify.app/">BGExam</a><br>前端框架：<a href="https://www.mdui.org/">MDUI</a><br>开发工具：<a href="https://atreep.netlify.app/hopweb/index.html">HopWeb</a>
+            </div>
+        </div>
+        <div class="mdui-dialog-actions">
+            <button class="mdui-btn mdui-ripple" mdui-dialog-close>确认</button>
+        </div>
+    </div>
+    <script>
+        function darkMode() {
+            if (localStorage.getItem("darkMode") == "true") {
+                localStorage.setItem("darkMode", "false");
+                document.body.classList.remove("mdui-theme-layout-dark");
+            } else {
+                localStorage.setItem("darkMode", "true");
+                document.body.classList.add("mdui-theme-layout-dark");
+            }
+        }
+        if (localStorage.getItem("darkMode") == "true") {
+            document.body.classList.add("mdui-theme-layout-dark");
+        }
+
+        function gebi(id) {
+            return document.getElementById(id);
+        }
+        window.onload = function() {
+            var getExamData = new XMLHttpRequest();
+            getExamData.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    examData = JSON.parse(this.responseText);
+                    gebi("title").innerHTML = examData.title;
+                    document.title = examData.title;
+                    gebi("title2").innerHTML = examData.title;
+                    gebi("description").innerHTML = examData.description;
+                    gebi("loading").style.display = "none";
+                    gebi("start").style.display = "block";
+                    maxTime = examData.time;
+                    gebi("customer").innerHTML = examData.customer;
+                    localStorage.setItem("examTitle", examData.title);
+                }
+            };
+            getExamData.open("GET", "BGExam-exam.json", true);
+            getExamData.send();
+        }
+        gebi("start").onclick = function() {
+            gebi("progressField").style.display = "block";
+            gebi("inputField").style.display = "block";
+            loadQuestion(0);
+            this.style.display = "none";
+            gebi("finish").style.display = "block";
+            startTime = new Date();
+            gebi("timer").style.display = "block";
+            timeFresher = window.setInterval(freshTime, 100);
+            gebi("jumpMenu").style.display = "block";
+            finishTime = new Date(startTime.setSeconds(startTime.getSeconds() + Number(maxTime)));
+        };
+
+        function freshTime() {
+            nowTime = new Date();
+            gebi("timer").innerHTML = "剩余时间：" + dateCalc(new Date(), finishTime);
+            if (dateCalc(new Date(), finishTime) == "00:00:00") {
+                if (document.getElementsByClassName("mdui-overlay")[0] != undefined) {
+                    document.getElementsByClassName("mdui-overlay")[0].click();
+                }
+                window.clearInterval(timeFresher);
+                handIn();
+                mdui.snackbar("测验时间结束，已自动提交");
+            }
+        }
+
+        function dateCalc(startDate, stopDate, options) {
+            var dateDifference = parseInt((stopDate.getTime() - startDate.getTime()) / 1000);
+            if (options == "original") {
+                return dateDifference;
+            } else {
+                var hDifference = parseInt(dateDifference / (60 * 60) % 24).toString().padStart(2, "0");
+                var mDifference = parseInt(dateDifference / 60 % 60).toString().padStart(2, "0");
+                var sDifference = parseInt(dateDifference % 60).toString().padStart(2, "0");
+                return hDifference + ":" + mDifference + ":" + sDifference;
+            }
+        }
+        var answering = 0;
+
+        function loadQuestion(number) {
+            if (examData.questions[number] == undefined) {
+                mdui.snackbar("题目不存在");
+            } else {
+                answering = number;
+                gebi("title2").innerHTML = "第 " + (number + 1) + " 题，共 " + examData.questions.length + " 题";
+                gebi("description").innerHTML = examData.questions[number].question;
+                if (number == 0) {
+                    gebi("last").style.display = "none";
+                    gebi("last").style.float = "none";
+                    gebi("next").style.display = "block";
+                    gebi("next").style.float = "none";
+                } else if ((number + 1) == examData.questions.length) {
+                    gebi("last").style.display = "block";
+                    gebi("last").style.float = "none";
+                    gebi("next").style.display = "none";
+                    gebi("next").style.float = "none";
+                } else {
+                    gebi("last").style.display = "block";
+                    gebi("last").style.float = "left";
+                    gebi("last").style.width = "auto";
+                    gebi("next").style.display = "block";
+                    gebi("next").style.float = "right";
+                    gebi("next").style.width = "auto";
+                }
+                gebi("input").focus();
+                gebi("progress").style.width = (number + 1) / examData.questions.length * 100 + "%";
+            }
+            gebi("inputNumber").value = "";
+        }
+        gebi("last").onclick = function() {
+            checkAnswer(answering);
+            loadQuestion((answering - 1));
+            gebi("input").value = "";
+            gebi("input").value = window.sessionStorage.getItem("answer" + answering);
+        };
+        gebi("next").onclick = function() {
+            checkAnswer(answering);
+            loadQuestion((answering + 1));
+            gebi("input").value = "";
+            gebi("input").value = window.sessionStorage.getItem("answer" + answering);
+        };
+
+        function checkAnswer(number) {
+            if (gebi("input").value == "") {
+                window.sessionStorage.setItem("answered" + number, 0);
+            } else {
+                window.sessionStorage.setItem("answered" + number, 1);
+            }
+            window.sessionStorage.setItem("correct" + number, 0);
+            if (typeof(examData.questions[number].answer) == "object") {
+                for (n = 0; n < examData.questions[number].answer.length; n++) {
+                    if (gebi("input").value == examData.questions[number].answer[n]) {
+                        window.sessionStorage.setItem("correct" + number, 1);
+                    }
+                }
+            } else if (gebi("input").value == examData.questions[number].answer) {
+                window.sessionStorage.setItem("correct" + number, 1);
+            }
+            window.sessionStorage.setItem("answer" + number, gebi("input").value);
+        }
+        gebi("finish").onclick = function() {
+            checkAnswer(answering);
+            var notAnswered = 0;
+            for (n = 0; n < examData.questions.length; n++) {
+                if (window.sessionStorage.getItem("answered" + n) == 0 || window.sessionStorage.getItem("answered" + n) == null) {
+                    notAnswered++;
+                }
+            }
+            if (notAnswered == 0) {
+                mdui.dialog({
+                    title: '提交',
+                    content: '你已完成所有题目的作答，是否立即提交？',
+                    buttons: [{
+                            text: '取消'
+                        },
+                        {
+                            text: '确认',
+                            onClick: function() {
+                                handIn();
+                            }
+                        }
+                    ]
+                });
+            } else {
+                mdui.dialog({
+                    title: '未完成作答',
+                    content: '你还有 ' + notAnswered + ' 道题目未作答，是否立即提交？',
+                    buttons: [{
+                            text: '取消'
+                        },
+                        {
+                            text: '确认',
+                            onClick: function() {
+                                handIn();
+                            }
+                        }
+                    ]
+                });
+            }
+        };
+        gebi("jump").onclick = function() {
+            if (gebi("inputNumber").value == "") {
+                mdui.snackbar("请输入要跳转的题目序号");
+            } else {
+                checkAnswer(answering);
+                loadQuestion(gebi("inputNumber").value - 1);
+                gebi("input").value = "";
+                gebi("input").value = window.sessionStorage.getItem("answer" + answering);
+            }
+        };
+
+        function handIn() {
+            var correct = 0;
+            var incorrect = [];
+            for (n = 0; n < examData.questions.length; n++) {
+                if (window.sessionStorage.getItem("correct" + n) == 1) {
+                    correct++;
+                } else {
+                    incorrect.push(n);
+                }
+            }
+            var mark = (correct / examData.questions.length * 100).toFixed(2);
+            window.clearInterval(timeFresher);
+            gebi("title2").innerHTML = "得分：" + mark;
+            gebi("inputField").style.display = "none";
+            gebi("last").style.display = "none";
+            gebi("next").style.display = "none";
+            gebi("finish").style.display = "none";
+            gebi("jumpMenu").style.display = "none";
+            gebi("timer").style.display = "none";
+            gebi("progress").style.width = mark + "%";
+            gebi("description").innerHTML = "用时：" + dateCalc(new Date(startTime.setSeconds(startTime.getSeconds() - Number(maxTime))), new Date()) + "<br><br>" + (mark == 100.00 ? "恭喜你全部答对。" : "错题分析：<br><br>");
+            var resolve = "";
+            for (n = 0; n < incorrect.length; n++) {
+                resolve += `<div class="mdui-typo"><hr/></div><br><div style="text-align: center;" class="mdui-text-color-theme">第 ` + (incorrect[n] + 1) + ` 题</div><br><div style="text-align: left;"><div>题目：` + examData.questions[incorrect[n]].question + `</div><br><div class="mdui-text-color-red">` + (window.sessionStorage.getItem("answer" + incorrect[n]) == null ? `你未解答本题。` : (`你的解答：` + window.sessionStorage.getItem("answer" + incorrect[n]))) + `</div><br><div class="mdui-text-color-green">正确解答：` + examData.questions[incorrect[n]].answer + `</div><br><div>答案解析：` + examData.questions[incorrect[n]].resolve + `</div></div><br>`;
+            }
+            gebi("description").innerHTML += resolve;
+            if (!localStorage.examHistory) {
+                examHistory = [];
+            } else {
+                examHistory = JSON.parse(localStorage.getItem("examHistory"));
+            }
+            examHistory.push([startTime.toLocaleString(), mark, dateCalc(startTime, new Date()), dateCalc(startTime, new Date(), "original")]);
+            localStorage.setItem("examHistory", JSON.stringify(examHistory));
+            gebi("card").style.padding = "16px 16px 0 16px";
+        }
+    </script>
+</body>
+
+</html>

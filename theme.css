@@ -394,3 +394,8 @@ html {
         background-color: #424242 !important;
     }
 }
+
+.mdui-table-fluid {
+    border-radius: 8px;
+    overflow: scrollX;
+}

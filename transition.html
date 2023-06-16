@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="mdui/css/mdui.min.css">
+    <script src="mdui/js/mdui.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Android 7 原生过渡动画 - Burger工具站</title>
+    <style>
+        .div0 {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: -114514;
+            background-color: black;
+        }
+
+        .div1 {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 0;
+            background-color: white;
+            transition-property: filter, transform;
+            transition-duration: 0.2s, 0.4s;
+        }
+
+        .div1-closed {
+            filter: brightness(0.3);
+            transform: scale(0.9);
+        }
+
+        .div1-closed2 {
+            transform: scale(0.9) translateY(10%);
+        }
+
+        .div2 {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: -1;
+            opacity: 0;
+            transform: translateY(50px);
+            transition-property: opacity, transform, z-index;
+            transition-duration: 0.2s, 0.3s, 0.3s;
+            background-color: white;
+        }
+
+        .div2-opened {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 1919810;
+            transition-property: opacity, transform;
+            transition-duration: 0.2s, 0.3s;
+        }
+
+        .div3 {
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1;
+            background-color: white;
+            transform: translateY(125%);
+            transition-duration: 0.4s;
+        }
+
+        .div3-opened {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue" style="padding-top: 150px">
+    <div class="div0"></div>
+    <div class="div1" id="mainActivity">
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">menu</i>
+                </a>
+                <a href="javascript:;" class="mdui-typo-title">Main Activity</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">search</i>
+                </a>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">refresh</i>
+                </a>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">more_vert</i>
+                </a>
+            </div>
+        </div>
+        <ul class="mdui-list" style="margin-top: 150px;">
+            <li class="mdui-list-item mdui-ripple" onclick="javascript:openNewActivity();">
+                <i class="mdui-list-item-icon mdui-icon material-icons">brush</i>
+                <div class="mdui-list-item-content">打开一个新的 Activity</div>
+            </li>
+            <li class="mdui-list-item mdui-ripple" onclick="javascript:openAnotherApp();">
+                <i class="mdui-list-item-icon mdui-icon material-icons">brush</i>
+                <div class="mdui-list-item-content">跳转到另一个 App</div>
+            </li>
+        </ul>
+        <div class="mdui-card" style="margin: 16px;">
+            <div class="mdui-card-header">
+                <img class="mdui-card-header-avatar" src="images/BGS_LOGO_20210919_BLUE.png" />
+                <div class="mdui-card-header-title">Burger Studio</div>
+                <div class="mdui-card-header-subtitle">作者</div>
+            </div>
+            <div class="mdui-card-primary">
+                <div class="mdui-card-primary-title">关于</div>
+                <div class="mdui-card-primary-subtitle">项目介绍</div>
+            </div>
+            <div class="mdui-card-content">这个项目是仿制原生 Android 5 ~ 8 的过渡动画，以原生 Android 7.1.2 为参考，共制作了以上两种动画效果。</div>
+            <div class="mdui-card-actions">
+                <button class="mdui-btn mdui-ripple" onclick="javascript:window.location.href='https://bgtool.netlify.app/'">Burger工具站</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="div2" id="newActivity">
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" onclick="javascript:closeNewActivity();">
+                    <i class="mdui-icon material-icons">arrow_back</i>
+                </a>
+                <a href="javascript:;" class="mdui-typo-title">一个新的 Activity</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">more_vert</i>
+                </a>
+            </div>
+        </div>
+        <ul class="mdui-list" style="margin-top: 150px;">
+            <li class="mdui-list-item mdui-ripple" onclick="javascript:closeNewActivity();">
+                <i class="mdui-list-item-icon mdui-icon material-icons">arrow_back</i>
+                <div class="mdui-list-item-content">返回</div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="div3" id="anotherApp">
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" onclick="javascript:closeAnotherApp();">
+                    <i class="mdui-icon material-icons">arrow_back</i>
+                </a>
+                <a href="javascript:;" class="mdui-typo-title">另一个 App</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white">
+                    <i class="mdui-icon material-icons">more_vert</i>
+                </a>
+            </div>
+        </div>
+        <ul class="mdui-list" style="margin-top: 150px;">
+            <li class="mdui-list-item mdui-ripple" onclick="javascript:closeAnotherApp();">
+                <i class="mdui-list-item-icon mdui-icon material-icons">arrow_back</i>
+                <div class="mdui-list-item-content">返回</div>
+            </li>
+        </ul>
+    </div>
+    <script>
+        mainActivity = document.getElementById('mainActivity');
+        newActivity = document.getElementById('newActivity');
+        anotherApp = document.getElementById('anotherApp');
+
+        function openNewActivity() {
+            newActivity.classList.add('div2-opened');
+        }
+
+        function closeNewActivity() {
+            newActivity.classList.remove('div2-opened');
+        }
+
+        function openAnotherApp() {
+            mainActivity.classList.add('div1-closed');
+            window.setTimeout("mainActivity.classList.add('div1-closed2');", 200);
+            window.setTimeout("anotherApp.classList.add('div3-opened');", 200);
+        }
+
+        function closeAnotherApp() {
+            anotherApp.classList.remove('div3-opened');
+            mainActivity.classList.remove('div1-closed2');
+            window.setTimeout("mainActivity.classList.remove('div1-closed');", 200);
+        }
+    </script>
+</body>
+
+</html>

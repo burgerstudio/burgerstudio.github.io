@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>500 美元 - Burger工具站</title>
+    <style>
+        .sign {
+            font-size: 16px;
+            text-shadow: 0 1px 4px #999999;
+            position: fixed;
+            top: 90%;
+            width: 100%;
+            text-align: center;
+            animation-name: sign;
+            animation-duration: 0.6s;
+            transform: scale(1.2);
+            opacity: 0;
+            filter: blur(5px);
+            animation-delay: 0.5s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes sign {
+            from {
+                transform: scale(1.2);
+                opacity: 0;
+                filter: blur(5px);
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <p id="1" style="text-align: center;margin-top: 64px;"></p>
+    <div class="sign">Made by Burger Studio.</div>
+    <script>
+        var text = "";
+        for (i = 0; i < 25; i++) {
+            text += "<div>";
+            for (n = 0; n < 20; n++) {
+                text += "<dollar style='display: inline;margin: 1px;transition: 0.2s;color: white;'>$</dollar>";
+            }
+            text += "</div>";
+        }
+        var dollar = document.getElementById('1');
+        dollar.innerHTML = text;
+
+        function color() {
+            dollarNumber = Math.floor(Math.random() * 500);
+            r = Math.random() * 256;
+            g = Math.random() * 256;
+            b = Math.random() * 256;
+            document.getElementsByTagName('dollar')[dollarNumber].style.color = "rgba(" + r + "," + g + "," + b + ")";
+            document.getElementsByTagName('dollar')[dollarNumber].style.background = "rgba(" + (255 - r) + "," + (255 - g) + "," + (255 - b) + ")";
+        }
+        window.setInterval(color, 1);
+    </script>
+</body>
+
+</html>
