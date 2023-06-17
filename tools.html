@@ -338,6 +338,9 @@
                     <div class="waves-block radius mdui-col">
                         <li class="mdui-list-item" onclick="toolOpen('QRCode');">二维码生成</li>
                     </div>
+                    <div class="waves-block radius mdui-col">
+                        <li class="mdui-list-item" onclick="toolOpen('BMI');">BMI 指数计算</li>
+                    </div>
                 </div>
             </ul>
         </div>
@@ -833,6 +836,50 @@
             <script src="js/qrcode.min.js"></script>
         </div>
     </div>
+    <div class="tool mdui-center mdui-color-theme" id="BMI" onclick="activeWindow('BMI')">
+        <div class="tool-header mdui-color-theme-700">
+            <div class="tool-title mdui-color-theme-700" id="BMITitle">BMI 指数计算</div>
+            <div class="tool-close mdui-color-theme-700" onclick="toolClose('BMI');">
+                <i class="mdui-icon material-icons">close</i>
+            </div>
+        </div>
+        <div class="tool-content mdui-color-theme-50">
+            <form onsubmit="return false;">
+                <p>身高：<input class="tool-input mdui-color-theme-100" id="shenGao" style="max-width: 160px;" type="number" placeholder="单位：cm"></p>
+                <p>体重：<input class="tool-input mdui-color-theme-100" id="tiZhong" style="max-width: 160px;" type="number" placeholder="单位：kg"></p>
+            </form>
+            <button class="tool-button mdui-color-theme-accent" onclick="calcBMI();" id="calcBMI">计算</button>
+            <div id="BMIResult"></div>
+            <script>
+                function calcBMI() {
+                    if (!document.getElementById("shenGao").value || !document.getElementById("tiZhong").value) {
+                        mdui.snackbar({
+                            message: '请将表单填充完整',
+                        });
+                    } else {
+                        var BMI = (document.getElementById("tiZhong").value / (document.getElementById("shenGao").value ** 2) * 10000).toFixed(2);
+                        document.getElementById("BMIResult").innerHTML = "计算结果：" + BMI;
+                        if (BMI > 0.0 && BMI < 18.5) {
+                            document.getElementById("BMIResult").innerHTML += "<br><br>评价：偏瘦";
+                            document.getElementById("BMIResult").style.color = "#FFA000";
+                        } else if (BMI >= 18.5 && BMI < 24.0) {
+                            document.getElementById("BMIResult").innerHTML += "<br><br>评价：正常";
+                            document.getElementById("BMIResult").style.color = "#388E3C";
+                        } else if (BMI >= 24.0 && BMI < 28.0) {
+                            document.getElementById("BMIResult").innerHTML += "<br><br>评价：偏重";
+                            document.getElementById("BMIResult").style.color = "#F57C00";
+                        } else if (BMI >= 28.0) {
+                            document.getElementById("BMIResult").innerHTML += "<br><br>评价：肥胖";
+                            document.getElementById("BMIResult").style.color = "#D32F2F";
+                        } else {
+                            document.getElementById("BMIResult").innerHTML += "<br><br>你似乎输入了错误的数值。";
+                            document.getElementById("BMIResult").style.color = "#000";
+                        }
+                    }
+                }
+            </script>
+        </div>
+    </div>
     <script>
         function toolOpen(id) {
             document.getElementById(id).classList.add('tool-opened');
@@ -856,66 +903,73 @@
         var SHA1input = document.getElementById('SHA1input');
         var SHA256input = document.getElementById('SHA256input');
         var QRbjs = document.getElementById('QRbjs');
+        var tiZhong = document.getElementById("tiZhong");
         c.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 document.getElementById('startCountdown').click();
             }
-        })
+        });
         celsius.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 document.getElementById('toFahrenheit').click();
             }
-        })
+        });
         fahrenheit.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 document.getElementById('toCelsius').click();
             }
-        })
+        });
         pi.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 document.getElementById('loadPlayer').click();
             }
-        })
+        });
         unknownC.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 document.getElementById('workOut').click();
             }
-        })
+        });
         Base64input.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 Base64bm();
             }
-        })
+        });
         MD5input.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 MD5jm();
             }
-        })
+        });
         SHA1input.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 SHA1jm();
             }
-        })
+        });
         SHA256input.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 SHA256jm();
             }
-        })
+        });
         QRbjs.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
                 makeQRCode();
             }
-        })
+        });
+        tiZhong.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                calcBMI();
+            }
+        });
     </script>
     <script src="dragWindows.js"></script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme" onclick="activeWindow();">
@@ -1145,12 +1199,12 @@
 </body>
 <div id="updateDialog" class="update-dialog" onclick="activeWindow();">
     <div class="update-dialog-title">最近更新</div>
-    <div class="update-dialog-content">2023年1月19日<br>-新增“数据加密/解密”“二维码生成”</div>
+    <div class="update-dialog-content">2023年6月17日<br>-新增“BMI 指数计算”</div>
     <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
 </div>
 <script>
     var page = "Tools";
-    var pageUpdateDate = 20230119;
+    var pageUpdateDate = 20230617;
 </script>
 <script src="pageUpdateDialog.js"></script>
 <script src="waves/waves.min.js"></script>

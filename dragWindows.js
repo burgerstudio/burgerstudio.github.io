@@ -24,6 +24,8 @@ var passwordTool = document.querySelector('#password');
 var passwordTitle = document.querySelector('#passwordTitle');
 var QRCodeTool = document.querySelector('#QRCode');
 var QRCodeTitle = document.querySelector('#QRCodeTitle');
+var BMITool = document.querySelector('#BMI');
+var BMITitle = document.querySelector('#BMITitle');
 
 function dragWindow(tool, title) {
 
@@ -107,6 +109,7 @@ function dragWindow(tool, title) {
         document.getElementById('unknown').classList.add('tool-unactive');
         document.getElementById('password').classList.add('tool-unactive');
         document.getElementById('QRCode').classList.add('tool-unactive');
+        document.getElementById('BMI').classList.add('tool-unactive');
         tool.classList.remove('tool-unactive');
         //缩小窗口
         tool.style.transform = "scale(0.85) translateY(" + tool.clientHeight * -0.075 + "px)";
@@ -159,6 +162,7 @@ dragWindow(editNoteTool, editNoteTitle);
 dragWindow(unknownTool, unknownTitle);
 dragWindow(passwordTool, passwordTitle);
 dragWindow(QRCodeTool, QRCodeTitle);
+dragWindow(BMITool, BMITitle);
 
 function activeWindow(tool) {
     document.getElementById('clock').classList.add('tool-unactive');
@@ -172,5 +176,6 @@ function activeWindow(tool) {
     document.getElementById('unknown').classList.add('tool-unactive');
     document.getElementById('password').classList.add('tool-unactive');
     document.getElementById('QRCode').classList.add('tool-unactive');
+    document.getElementById('BMI').classList.add('tool-unactive');
     document.getElementById(tool).classList.remove('tool-unactive');
 }
