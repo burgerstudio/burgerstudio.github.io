@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Aero 窗口效果 - Burger工具站</title>
+    <style>
+        body {
+            background-image: url('https://api.kdcc.cn/');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .pool {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            left: calc(50% - 58px);
+            top: calc(50% - 58px);
+        }
+
+        .window {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            left: calc(50% - 58px);
+            top: calc(50% - 58px);
+            background: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 16px;
+            border-radius: 8px;
+            z-index: -999999999;
+            box-shadow: 0 2px 16px 8px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            transform: scale(0.8);
+            transition-property: opacity, transform;
+            transition-duration: 0.3s;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .opened {
+            z-index: 999999999;
+            opacity: 1;
+            transform: scale(1);
+
+        }
+
+        .touch {
+            animation-name: touch;
+            animation-duration: 0.5s;
+            position: fixed;
+            width: 128px;
+            height: 128px;
+            background: rgba(128, 128, 128, 0.5);
+            border-radius: 128px;
+            animation-fill-mode: forwards;
+            z-index: 999999999;
+            border: 8px solid rgb(128, 128, 128);
+            pointer-events: none;
+        }
+
+        @keyframes touch {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            99.99% {
+                transform: scale(1);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        button {
+            padding: 8px;
+            background: linear-gradient(#ffffff, #cccccc);
+            border: 2px solid #666666;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.1s;
+        }
+
+        button:hover {
+            background: linear-gradient(#ffffff, #90CAF9);
+            border: 2px solid #1565C0;
+        }
+
+        button:active {
+            background: linear-gradient(#90CAF9, #64B5F6);
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="javascript:windowDiv.classList.add('opened');">Open Window</button>
+    <button onclick="javascript:windowDiv.classList.remove('opened');">Close Window</button>
+    <div class="pool">
+        <div class="window" id="window">
+            Made by Burger Studio.
+        </div>
+    </div>
+    <script>
+        windowDiv = document.getElementById('window');
+        windowDiv.ontouchstart = function(e) {
+            oL = e.touches[0].clientX - this.offsetLeft;
+            oT = e.touches[0].clientY - this.offsetTop;
+        }
+        windowDiv.ontouchmove = function(e) {
+            windowDiv.style.left = e.touches[0].clientX - oL + "px";
+            windowDiv.style.top = e.touches[0].clientY - oT + "px";
+        }
+        document.documentElement.onclick = function(e) {
+            var touch = document.createElement('div');
+            touch.style.left = e.clientX - 72 + "px";
+            touch.style.top = e.clientY - 72 + "px";
+            touch.classList.add('touch');
+            document.body.appendChild(touch);
+        }
+    </script>
+</body>
+
+</html>

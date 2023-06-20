@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Gesture - Burger工具站</title>
+    <style>
+        body {
+            background-image: url('https://api.kdcc.cn/');
+            background-position: center center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+        }
+
+        #img {
+            border-radius: 64px;
+            margin: 16px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition-property: transform, border-radius, width, height, margin-left, margin-top, left, top;
+            transition-duration: 0.2s, 1s, 0.5s, 0.5s, 0.4s, 0.4s, 0.5s, 0.5s;
+            width: 64px;
+            height: 64px;
+            z-index: 1;
+        }
+
+        #cover {
+            background: #E8EAF6;
+            position: fixed;
+            border-radius: 64px;
+            margin: 16px;
+            transition-property: transform, border-radius, width, height, margin, left, top;
+            transition-duration: 0.2s, 1s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s;
+            width: 64px;
+            height: 64px;
+        }
+
+        @keyframes appear {
+            from {
+                filter: blur(16px);
+                opacity: 0;
+                transform: scale(1.2);
+            }
+
+            to {
+                filter: blur(0);
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .sign {
+            font-size: 16px;
+            text-shadow: 0 1px 4px rgba(128, 128, 128, 0.5);
+            position: fixed;
+            top: 75%;
+            width: 100%;
+            text-align: center;
+            animation-name: appear;
+            animation-delay: 0.5s;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            filter: blur(16px);
+            opacity: 0;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/BGS_LOGO_20210919_BLUE.png" id="img">
+    <div id="cover"></div>
+    <div class="sign">
+        Made by Burger Studio.
+    </div>
+    <script>
+        var img = document.getElementById("img");
+        var cover = document.getElementById("cover");
+        var opened = 0;
+        img.addEventListener("touchstart", function(e) {
+            if (opened == 0 && e.targetTouches.length == 1) {
+                this.style.transform = "scale(1.1)";
+            }
+        });
+        img.addEventListener("touchend", function(e) {
+            if (e.targetTouches.length == 0) {
+                window.setTimeout("img.style.transform='scale(1)';", 100);
+            }
+        });
+        img.addEventListener("click", function() {
+            if (opened == 0) {
+                openApp();
+                opened = 1;
+            } else {
+                closeApp();
+                opened = 0;
+            }
+        });
+
+        function openApp(options) {
+            if (options != "gestrue") {
+                cover.style.margin = "50%";
+                img.style.marginLeft = "60%";
+                img.style.marginTop = "85%";
+            }
+            cover.style.width = "100%";
+            cover.style.height = "100%";
+            cover.style.borderRadius = "0";
+            window.setTimeout("cover.style.margin = 0;", 100);
+            img.style.width = "128px";
+            img.style.height = "128px";
+            window.setTimeout("img.style.marginLeft = 'calc(50% - 64px)';img.style.marginTop = 'calc(75% - 64px)';", 100);
+        }
+
+        function closeApp(options) {
+            if (options != "gestrue") {
+                cover.style.margin = "50%";
+                img.style.marginLeft = "60%";
+                img.style.marginTop = "85%";
+                window.setTimeout("img.style.marginLeft = '16px';img.style.marginTop = '16px';", 100);
+            } else {
+                img.style.marginLeft = '16px';
+                img.style.marginTop = '16px';
+            }
+            window.setTimeout("cover.style.margin = '16px';", 100);
+            cover.style.width = "64px";
+            cover.style.height = "64px";
+            cover.style.borderRadius = "64px";
+            img.style.width = "64px";
+            img.style.height = "64px";
+        }
+        window.onload = function() {
+            openApp();
+            window.setTimeout("closeApp();", 500);
+        };
+        var startX = "";
+        var startY = "";
+        var lastX = "";
+        var lastY = "";
+        cover.addEventListener("touchstart", function(e) {
+            if (e.targetTouches.length == 1) {
+                oL = e.touches[0].clientX - this.offsetLeft;
+                oT = e.touches[0].clientY - this.offsetTop;
+                this.style.transitionDuration = "0s";
+                img.style.transitionDuration = "0s";
+            }
+        });
+        cover.addEventListener("touchmove", function(e) {
+            if (e.targetTouches.length == 1) {
+                lastX = e.touches[0].clientX;
+                lastY = e.touches[0].clientY;
+                this.style.left = (lastX - oL) + "px";
+                this.style.top = (lastY - oT) + "px";
+                this.style.transform = "scale(" + (1 - Math.abs(cover.offsetTop / window.screen.height * 1.5)) + ")";
+                this.style.borderRadius = Math.abs(cover.offsetTop / window.screen.height * this.clientHeight) + "px";
+                img.style.left = (lastX - oL) + "px";
+                img.style.top = (lastY - oT) + "px";
+                img.style.transform = "scale(" + (1 - Math.abs(cover.offsetTop / window.screen.height * 1.5)) + ")";
+            }
+        });
+        cover.addEventListener("touchend", function(e) {
+            if (e.targetTouches.length == 0) {
+                if (Math.abs(cover.offsetTop / window.screen.height) > 0.125) {
+                    cover.style.transitionDuration = "1s, 1s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s";
+                    img.style.transitionDuration = "0.5s, 1s, 0.5s, 0.5s, 0.4s, 0.4s, 0.5s, 0.5s";
+                    closeApp("gestrue");
+                    opened = 0;
+                    cover.style.transform = "scale(1)";
+                    cover.style.left = 0;
+                    cover.style.top = 0;
+                    img.style.transform = "scale(1)";
+                    img.style.left = 0;
+                    img.style.top = 0;
+                    window.setTimeout("img.style.transitionDuration = '0.2s, 1s, 0.5s, 0.5s, 0.4s, 0.4s, 0.5s, 0.5s';", 1000);
+                } else {
+                    cover.style.transitionDuration = "0.2s, 1s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s";
+                    img.style.transitionDuration = "0.2s, 1s, 0.5s, 0.5s, 0.4s, 0.4s, 0.5s, 0.5s";
+                    openApp("gestrue");
+                    cover.style.transform = "scale(1)";
+                    cover.style.left = 0;
+                    cover.style.top = 0;
+                    img.style.transform = "scale(1)";
+                    img.style.left = 0;
+                    img.style.top = 0;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

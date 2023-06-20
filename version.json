@@ -1,7 +1,7 @@
 {
-    "versionCode": 230617,
-    "updateDate": "2023-06-17",
-    "change": "-优化 夜间模式下的显示效果<br>-新增工具“BMI 指数计算”",
+    "versionCode": 230620,
+    "updateDate": "2023-06-20",
+    "change": "-“应用程序”“网络站点”“更多资源”新增了内容",
     "note": "本工具站已恢复更新",
     "spinner": "display: none !important;"
 }
