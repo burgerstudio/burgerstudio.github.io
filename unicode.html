@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>大型纪录片 《Unicode》 - Burger工具站</title>
+    <style>
+        #character {
+            text-align: center;
+            margin: 16px;
+            padding: 16px;
+            border-radius: 32px;
+            background-color: #E8EAF6;
+            color: #3F51B5;
+        }
+
+        #start {
+            border: none;
+            background-color: #C5CAE9;
+            color: #3F51B5;
+            width: 128px;
+            height: 48px;
+            border-radius: 128px;
+            font-size: 18px;
+        }
+
+        #start:hover {
+            border: solid 1px #3F51B5;
+        }
+
+        #start:active {
+            background-color: #3F51B5;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;color: #3F51B5;">大型纪录片 《Unicode》</h1>
+    <div id="code" style="text-align: center;font-size: 16px;color: #3F51B5;"></div>
+    <div id="character">
+        <div>
+            <p style="font-size: 22px;">⚠</p>
+            <p style="font-size: 18px;">警告：请在开始观看前阅读</p>
+            <p style="font-size: 16px;">当暴露在特定光影图案或闪光光亮下时，有极小部分人群会引发癫痫。这种情形可能是由于某些未查出的癫痫症状引起，即使该人员并没有患癫痫病史也有可能造成此类病症。如果您的家人或任何家庭成员曾有过类似症状，请在开始观看前咨询您的医生或医师。如果您在观看本作品过程中出现任何症状，包括头晕、目眩、眼部或肌肉抽搐、失去意识、失去方向感、抽搐、或出现任何自己无法控制的动作，请立即关闭本页面并在继续观看前咨询您的医生或医师。</p>
+            <button id="start">开始</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById("start").onclick = function() {
+            const character = document.querySelector("#character");
+            const codeDiv = document.querySelector("#code");
+            var code = 0;
+            character.style.fontSize = "256px";
+            window.setInterval(function() {
+                character.innerHTML = "&#x" + code.toString(16) + ";";
+                codeDiv.innerText = "&#x" + code.toString(16) + ";";
+                code++;
+            }, 0);
+        };
+    </script>
+</body>
+
+</html>

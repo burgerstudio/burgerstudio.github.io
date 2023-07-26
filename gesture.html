@@ -82,17 +82,17 @@
         var img = document.getElementById("img");
         var cover = document.getElementById("cover");
         var opened = 0;
-        img.addEventListener("touchstart", function(e) {
+        img.addEventListener("touchstart", function (e) {
             if (opened == 0 && e.targetTouches.length == 1) {
                 this.style.transform = "scale(1.1)";
             }
         });
-        img.addEventListener("touchend", function(e) {
+        img.addEventListener("touchend", function (e) {
             if (e.targetTouches.length == 0) {
                 window.setTimeout("img.style.transform='scale(1)';", 100);
             }
         });
-        img.addEventListener("click", function() {
+        img.addEventListener("click", function () {
             if (opened == 0) {
                 openApp();
                 opened = 1;
@@ -134,7 +134,7 @@
             img.style.width = "64px";
             img.style.height = "64px";
         }
-        window.onload = function() {
+        window.onload = function () {
             openApp();
             window.setTimeout("closeApp();", 500);
         };
@@ -142,7 +142,7 @@
         var startY = "";
         var lastX = "";
         var lastY = "";
-        cover.addEventListener("touchstart", function(e) {
+        cover.addEventListener("touchstart", function (e) {
             if (e.targetTouches.length == 1) {
                 oL = e.touches[0].clientX - this.offsetLeft;
                 oT = e.touches[0].clientY - this.offsetTop;
@@ -150,7 +150,7 @@
                 img.style.transitionDuration = "0s";
             }
         });
-        cover.addEventListener("touchmove", function(e) {
+        cover.addEventListener("touchmove", function (e) {
             if (e.targetTouches.length == 1) {
                 lastX = e.touches[0].clientX;
                 lastY = e.touches[0].clientY;
@@ -163,7 +163,7 @@
                 img.style.transform = "scale(" + (1 - Math.abs(cover.offsetTop / window.screen.height * 1.5)) + ")";
             }
         });
-        cover.addEventListener("touchend", function(e) {
+        cover.addEventListener("touchend", function (e) {
             if (e.targetTouches.length == 0) {
                 if (Math.abs(cover.offsetTop / window.screen.height) > 0.125) {
                     cover.style.transitionDuration = "1s, 1s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s";
@@ -190,6 +190,9 @@
                 }
             }
         });
+        document.body.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, { passive: false });
     </script>
 </body>
 

@@ -116,21 +116,24 @@
     </div>
     <script>
         windowDiv = document.getElementById('window');
-        windowDiv.ontouchstart = function(e) {
+        windowDiv.ontouchstart = function (e) {
             oL = e.touches[0].clientX - this.offsetLeft;
             oT = e.touches[0].clientY - this.offsetTop;
         }
-        windowDiv.ontouchmove = function(e) {
+        windowDiv.ontouchmove = function (e) {
             windowDiv.style.left = e.touches[0].clientX - oL + "px";
             windowDiv.style.top = e.touches[0].clientY - oT + "px";
         }
-        document.documentElement.onclick = function(e) {
+        document.documentElement.onclick = function (e) {
             var touch = document.createElement('div');
             touch.style.left = e.clientX - 72 + "px";
             touch.style.top = e.clientY - 72 + "px";
             touch.classList.add('touch');
             document.body.appendChild(touch);
         }
+        document.body.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, { passive: false });
     </script>
 </body>
 

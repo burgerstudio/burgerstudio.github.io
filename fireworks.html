@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Fireworks - Burger工具站</title>
+    <style>
+        body {
+            background: #333;
+        }
+
+        .firework {
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+            background: #000;
+            position: fixed;
+            bottom: 0;
+            animation-name: blossom;
+            animation-delay: .6s;
+            animation-duration: .5s;
+            animation-fill-mode: forwards;
+            transition-property: margin-bottom, transform, filter;
+            transition-duration: 1s, .5s, .5s;
+        }
+
+        @keyframes blossom {
+            0% {}
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            75% {
+                opacity: .7;
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(50);
+            }
+        }
+
+        .title {
+            text-align: center;
+            font-size: 30px;
+            position: fixed;
+            top: calc(50% - 15px);
+            left: calc(50% - 45px);
+            font-weight: bold;
+            animation-name: scale;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+            color: #ccc;
+            opacity: 0;
+            animation-delay: .5s;
+            display: block;
+        }
+
+        @keyframes scale {
+            0% {
+                opacity: 0;
+                transform: scale(3);
+                filter: blur(2px);
+                display: block;
+            }
+
+            20% {
+                opacity: 1;
+                transform: scale(2);
+                filter: blur(0);
+                display: block;
+            }
+
+            90% {
+                opacity: 1;
+                transform: scale(2);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(2);
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">Burger</div>
+    <script>
+        function randomColor() {
+            r = Math.random() * 255;
+            g = Math.random() * 255;
+            b = Math.random() * 255;
+            return "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+
+        function playAudio(fileName) {
+            var audio = document.createElement("audio");
+            audio.src = fileName;
+            audio.play();
+        }
+        window.setTimeout(function() {
+            window.setInterval(function() {
+                var firework = document.createElement("div");
+                firework.style.left = Math.random() * screen.width + "px";
+                firework.style.backgroundColor = randomColor();
+                brightness = (Math.random() * 1 + 1);
+                firework.style.filter = "brightness(" + brightness + ")";
+                document.body.appendChild(firework);
+                firework.classList.add("firework");
+                firework.style.transform = "scale(1,4) translateY(24px)";
+                window.setTimeout(function() {
+                    firework.style.marginBottom = Math.random() * screen.height + "px";
+                }, 99);
+                window.setTimeout(function() {
+                    firework.style.filter = "brightness(" + brightness + ") blur(.2px)";
+                    if (Math.random() < 0.5) {
+                        playAudio("mediae/fireworks_1.ogg");
+                    } else {
+                        playAudio("mediae/fireworks_2.ogg");
+                    }
+                }, 500);
+                window.setTimeout(function() {
+                    document.body.removeChild(firework);
+                }, 1500);
+            }, Math.random() * 200 + 100);
+        }, 2000);
+    </script>
+</body>
+
+</html>

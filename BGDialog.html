@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="waves/waves.min.css" />
+    <link rel="stylesheet" type="text/css" href="BGDialog/BGDialog.css" />
+    <title>BurgerDialog - Burger工具站</title>
+    <style>
+        .btn {
+            border: none;
+            padding: 8px 16px;
+            background-color: #E8EAF6;
+            color: #3F51B5;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 16px;
+            transition-property: filter;
+            transition-duration: .3s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            filter: brightness(0.8);
+        }
+
+        .btn-colored {
+            background-color: #3F51B5;
+            color: white;
+            border-radius: 1024px;
+        }
+
+        .btn-colored:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;color: #3F51B5;">BurgerDialog</h1>
+    <div style="text-align: center;">
+        <button class="btn waves-block" onclick="openDialog('#dialog-1');">完整对话框</button><br>
+        <button class="btn waves-block" onclick="openDialog('#dialog-1-1', false);">完整对话框（点击遮罩层不可关闭）</button><br>
+        <button class="btn waves-block" onclick="openDialog('#dialog-1-2');">竖排按钮</button><br>
+        <button class="btn waves-block" onclick="openDialog('#dialog-2');">不带有标题</button><br>
+        <button class="btn waves-block" onclick="openDialog('#dialog-3');">动作按钮填充颜色</button><br>
+        <button class="btn waves-block" onclick="openDialog('#dialog-4');">从底部抽出的对话框</button><br>
+        <button class="btn waves-light btn-colored" onclick="openDialog('#yiYan');getYiYan();">实例：一言</button>
+    </div>
+    <div class="burger-dialog" id="dialog-1">
+        <div class="burger-dialog-title">对话框标题</div>
+        <div class="burger-dialog-content">
+            对话框内容。<br>点击周围的遮罩层（暗色部分）也可以关闭本对话框。<br>Made by Burger Studio. <br><br><br></div>
+        <div class="burger-dialog-actions">
+            <button class="waves-block" onclick="closeDialog('#dialog-1');">取消</button>
+            <button class="waves-block" onclick="closeDialog('#dialog-1');">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog" id="dialog-1-1">
+        <div class="burger-dialog-title">对话框标题</div>
+        <div class="burger-dialog-content">对话框内容。<br>点击遮罩层无法关闭本对话框。<br>Made by Burger Studio. <br><br><br></div>
+        <div class="burger-dialog-actions">
+            <button class="waves-block" onclick="closeDialog('#dialog-1-1');">取消</button>
+            <button class="waves-block" onclick="closeDialog('#dialog-1-1');">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog" id="dialog-1-2">
+        <div class="burger-dialog-title">对话框标题</div>
+        <div class="burger-dialog-content">对话框内容。<br>这个对话框中的按钮是竖直排列的。<br>Made by Burger Studio. <br><br><br><br><br><br>
+        </div>
+        <div class="burger-dialog-actions" style="left: 16px;">
+            <button class="waves-block burger-dialog-btn-vertical" onclick="closeDialog('#dialog-1-2');">取消</button><br>
+            <button class="waves-block burger-dialog-btn-vertical" onclick="closeDialog('#dialog-1-2');">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog" id="dialog-2">
+        <div class="burger-dialog-content">这个对话框没有标题。<br>Made by Burger Studio.</div>
+        <div class="burger-dialog-actions">
+            <button class="waves-block" onclick="closeDialog('#dialog-2');">取消</button>
+            <button class="waves-block" onclick="closeDialog('#dialog-2');">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog" id="dialog-3">
+        <div class="burger-dialog-title" style="text-align: center;">请稍等</div>
+        <div class="burger-dialog-content" style="text-align: center;">海内存知己，天涯若比邻。</div>
+        <div class="burger-dialog-actions" style="left: 16px;">
+            <button class="waves-light burger-dialog-btn-colored" onclick="closeDialog('#dialog-3');" style="width: 80%;height: 48px;font-size: 16px;">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog burger-dialog-bottom" id="dialog-4">
+        <div class="burger-dialog-title">对话框标题</div>
+        <div class="burger-dialog-content">对话框内容。<br>本对话框是从屏幕底部抽出的<br>Made by Burger Studio. <br><br><br></div>
+        <div class="burger-dialog-actions">
+            <button class="waves-block" onclick="closeDialog('#dialog-4');">取消</button>
+            <button class="waves-block" onclick="closeDialog('#dialog-4');">确定</button>
+        </div>
+    </div>
+    <div class="burger-dialog" id="yiYan">
+        <div class="burger-dialog-title" style="text-align: center;" id="yiYanTitle"></div>
+        <div class="burger-dialog-content" style="text-align: center;" id="yiYanContent"></div>
+        <div class="burger-dialog-actions" style="left: 16px;">
+            <button class="waves-light burger-dialog-btn-colored" onclick="closeDialog('#yiYan');copyHandle(document.querySelector('#yiYanContent').innerText);" style="width: 80%;height: 48px;font-size: 16px;">复制</button>
+        </div>
+    </div>
+    <script>
+        function getYiYan() {
+            document.querySelector("#yiYanTitle").innerText = "正在获取";
+            document.querySelector("#yiYanContent").innerText = "正在获取";
+            var getYiYanData = new XMLHttpRequest();
+            getYiYanData.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    yiYanData = JSON.parse(this.responseText);
+                    document.querySelector("#yiYanTitle").innerText = yiYanData.from;
+                    document.querySelector("#yiYanContent").innerText = yiYanData.hitokoto;
+                }
+            };
+            getYiYanData.open("GET", "https://v1.hitokoto.cn/?c=i", true);
+            getYiYanData.send();
+        }
+
+        function copyHandle(content) {
+            let copy = (e) => {
+                e.preventDefault()
+                e.clipboardData.setData('text/plain', content)
+                document.removeEventListener('copy', copy)
+            }
+            document.addEventListener('copy', copy)
+            document.execCommand("Copy");
+        }
+    </script>
+    <script src="BGDialog/BGDialog.js"></script>
+    <script src="waves/waves.min.js"></script>
+    <script>
+        var config = {
+            duration: 500,
+            delay: 0
+        };
+        Waves.init(config);
+        Waves.attach('.waves-block', ['waves-block']);
+        Waves.attach('.waves-circle', ['waves-circle']);
+        Waves.attach('.waves-light', ['waves-light']);
+        Waves.attach('.waves-classic', ['waves-classic']);
+        Waves.init(config);
+    </script>
+</body>
+
+</html>

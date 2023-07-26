@@ -228,7 +228,8 @@ ol li,
 li a,
 #headline,
 .mdui-table,
-.mdui-typo-headline {
+.mdui-typo-headline,
+.mdui-text-color-theme-text {
     transition: 0.4s;
 }
 
@@ -423,6 +424,23 @@ html {
     .mdui-theme-layout-auto #thumbIcon {
         filter: brightness(1);
     }
+
+    .mdui-theme-layout-auto .burger-dialog {
+        background-color: #434343 !important;
+        color: white !important;
+    }
+
+    .mdui-theme-layout-auto .burger-dialog-content {
+        color: white !important;
+    }
+
+    .mdui-theme-layout-auto .burger-dialog-actions button:not(.burger-dialog-btn-colored) {
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+    .mdui-theme-layout-auto .burger-dialog-actions button:not(.burger-dialog-btn-colored):hover {
+        filter: brightness(2) !important;
+    }
 }
 
 .mdui-table-fluid {
@@ -441,7 +459,8 @@ html {
 .mdui-theme-layout-dark .mdui-progress,
 .mdui-theme-layout-dark .mdui-dialog .mdui-btn,
 .mdui-theme-layout-dark .mdui-radio,
-.mdui-theme-layout-dark .mdui-typo {
+.mdui-theme-layout-dark .mdui-typo,
+.mdui-theme-layout-dark .burger-dialog-actions button {
     filter: brightness(2);
 }
 
@@ -456,4 +475,21 @@ html {
 
 .mdui-theme-layout-dark #thumbIcon {
     filter: brightness(1);
+}
+
+.mdui-theme-layout-dark .burger-dialog {
+    background-color: #434343 !important;
+    color: white !important;
+}
+
+.mdui-theme-layout-dark .burger-dialog-content {
+    color: white !important;
+}
+
+.mdui-theme-layout-dark .burger-dialog-actions button:not(.burger-dialog-btn-colored) {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.mdui-theme-layout-dark .burger-dialog-actions button:not(.burger-dialog-btn-colored):hover {
+    filter: brightness(2) !important;
 }

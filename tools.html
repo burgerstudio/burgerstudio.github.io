@@ -19,6 +19,7 @@
             transform: scale(0.85);
             transition-property: opacity, transform, z-index, box-shadow, filter, background-color, left, top;
             transition-duration: 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.3s, 0.1s, 0.1s;
+            transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1), cubic-bezier(0.77, 0, 0.175, 1), ease-out, ease-out, ease-out, ease-out, ease-out, ease-out;
             overflow: hidden;
             left: 10%;
             right: 10%;
@@ -341,6 +342,12 @@
                     <div class="waves-block radius mdui-col">
                         <li class="mdui-list-item" onclick="toolOpen('BMI');">BMI 指数计算</li>
                     </div>
+                    <div class="waves-block radius mdui-col">
+                        <li class="mdui-list-item" onclick="toolOpen('Unicode');">Unicode 编码偏移</li>
+                    </div>
+                    <div class="waves-block radius mdui-col">
+                        <li class="mdui-list-item" onclick="toolOpen('textOrder');">文本倒排/乱序</li>
+                    </div>
                 </div>
             </ul>
         </div>
@@ -543,6 +550,18 @@
         </div>
         <div class="tool-content mdui-color-theme-50">
             <button class="tool-button mdui-color-theme-accent" onclick="info()">获取</button>
+            <div onclick="javascript:copyHandle(this.innerText);">
+                <p id="cookieenabled" style="margin: 8px;"></p>
+                <p id="appname" style="margin: 8px;"></p>
+                <p id="appcodename" style="margin: 8px;"></p>
+                <p id="product" style="margin: 8px;"></p>
+                <p id="appversion" style="margin: 8px;"></p>
+                <p id="useragent" style="margin: 8px;"></p>
+                <p id="platform" style="margin: 8px;"></p>
+                <p id="language" style="margin: 8px;"></p>
+                <p id="online" style="margin: 8px;"></p>
+                <p id="javaenabled" style="margin: 8px;"></p>
+            </div>
             <script>
                 function info() {
                     document.getElementById("cookieenabled").innerHTML = "Cookie 开启状态：" + navigator.cookieEnabled;
@@ -557,16 +576,6 @@
                     document.getElementById("javaenabled").innerHTML = "Java 开启状态：" + navigator.javaEnabled();
                 }
             </script>
-            <p id="cookieenabled" style="margin: 8px;"></p>
-            <p id="appname" style="margin: 8px;"></p>
-            <p id="appcodename" style="margin: 8px;"></p>
-            <p id="product" style="margin: 8px;"></p>
-            <p id="appversion" style="margin: 8px;"></p>
-            <p id="useragent" style="margin: 8px;"></p>
-            <p id="platform" style="margin: 8px;"></p>
-            <p id="language" style="margin: 8px;"></p>
-            <p id="online" style="margin: 8px;"></p>
-            <p id="javaenabled" style="margin: 8px;"></p>
         </div>
     </div>
     <div class="tool mdui-center mdui-color-theme" id="player" onclick="activeWindow('player')">
@@ -751,22 +760,22 @@
             <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="Base64input" type="text" placeholder="欲编码/解码内容（回车编码）"></form>
             <button class="tool-button mdui-color-theme-accent" onclick="Base64bm();" id="Base64bm" style="margin-bottom: 0;margin-right: 2px;">编码</button>
             <button class="tool-button mdui-color-theme-accent" onclick="Base64jm();" id="Base64jm" style="margin-left: 2px;">解码</button>
-            <p id="Base64output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;"></p>
+            <p id="Base64output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;word-break: break-word;" onclick="javascript:copyHandle(this.innerText);"></p>
             <div class="mdui-divider" style="margin: 8px;"></div>
             <p style="margin: 0;margin-left: 4px;margin-top: 4px;">MD5</p>
             <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="MD5input" type="text" placeholder="欲加密内容"></form>
             <button class="tool-button mdui-color-theme-accent" onclick="MD5jm();" id="MD5jm">加密</button>
-            <p id="MD5output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;"></p>
+            <p id="MD5output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;word-break: break-word;" onclick="javascript:copyHandle(this.innerText);"></p>
             <div class="mdui-divider" style="margin: 8px;"></div>
             <p style="margin: 0;margin-left: 4px;margin-top: 4px;">SHA1</p>
             <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="SHA1input" type="text" placeholder="欲加密内容"></form>
             <button class="tool-button mdui-color-theme-accent" onclick="SHA1jm();" id="SHA1jm">加密</button>
-            <p id="SHA1output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;"></p>
+            <p id="SHA1output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;word-break: break-word;" onclick="javascript:copyHandle(this.innerText);"></p>
             <div class="mdui-divider" style="margin: 8px;"></div>
             <p style="margin: 0;margin-left: 4px;margin-top: 4px;">SHA256</p>
             <form onsubmit="return false;"><input class="tool-input mdui-color-theme-100" id="SHA256input" type="text" placeholder="欲加密内容"></form>
             <button class="tool-button mdui-color-theme-accent" onclick="SHA256jm();" id="SHA256jm">加密</button>
-            <p id="SHA256output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;"></p>
+            <p id="SHA256output" style="margin: 0;margin-left: 4px;margin-top: 4px;text-align: center;word-break: break-word;" onclick="javascript:copyHandle(this.innerText);"></p>
             <script>
                 function Base64bm() {
                     document.getElementById('Base64output').innerHTML = window.btoa(document.getElementById('Base64input').value);
@@ -873,10 +882,110 @@
                             document.getElementById("BMIResult").style.color = "#D32F2F";
                         } else {
                             document.getElementById("BMIResult").innerHTML += "<br><br>你似乎输入了错误的数值。";
-                            document.getElementById("BMIResult").style.color = "#000";
+                            document.getElementById("BMIResult").classList.add("mdui-text-color-theme-text");
                         }
                     }
                 }
+            </script>
+        </div>
+    </div>
+    <div class="tool mdui-center mdui-color-theme" id="Unicode" onclick="activeWindow('Unicode')">
+        <div class="tool-header mdui-color-theme-700">
+            <div class="tool-title mdui-color-theme-700" id="UnicodeTitle">Unicode 编码偏移</div>
+            <div class="tool-close mdui-color-theme-700" onclick="toolClose('Unicode');">
+                <i class="mdui-icon material-icons">close</i>
+            </div>
+        </div>
+        <div class="tool-content mdui-color-theme-50">
+            <form onsubmit="return false;">
+                <textarea class="tool-input mdui-color-theme-100" id="UnicodeText" style="height: auto;" type="text" placeholder="请输入要处理的文本"></textarea>
+                <p>偏移量：<input class="tool-input mdui-color-theme-100" id="UnicodeNum" style="max-width: 160px;" type="number" placeholder="必须为整数" value="1"></p>
+            </form>
+            <button class="tool-button mdui-color-theme-accent" onclick="javascript:autoProcessUnicode();">处理</button>
+            <div id="UnicodeResult" onclick="javascript:copyHandle(this.innerText.slice(7));" style="word-break: break-word;"></div>
+            <script>
+                function convertToUnicode(text) {
+                    let unicode = "";
+                    for (let i = 0; i < text.length; i++) {
+                        unicode += "&#x" + text[i].charCodeAt(0).toString(16) + ";";
+                    }
+                    return unicode;
+                }
+
+                function processUnicode(text, num, output) {
+                    if (text == "") {
+                        output.innerHTML = "";
+                    } else {
+                        var originalString = convertToUnicode(text);
+                        var hexValues = originalString.match(/&#x[0-9a-fA-F]+;/g);
+                        hexValues.forEach(function(hexValue) {
+                            var decimalValue = parseInt(hexValue.replace("&#x", "").replace(";", ""), 16);
+                            decimalValue += Number(num);
+                            var newHexValue = "&#x" + decimalValue.toString(16) + ";";
+                            originalString = originalString.replace(hexValue, newHexValue);
+                        });
+                        output.innerHTML = "处理结果：<br><br>" + originalString;
+                    }
+                }
+
+                function autoProcessUnicode() {
+                    if (document.querySelector('#UnicodeText').value == "" || document.querySelector('#UnicodeNum').value == "") {
+                        mdui.snackbar({
+                            message: '请将表单填充完整'
+                        });
+                    } else {
+                        processUnicode(document.querySelector('#UnicodeText').value, document.querySelector('#UnicodeNum').value, document.querySelector('#UnicodeResult'));
+                    }
+                }
+            </script>
+        </div>
+    </div>
+    <div class="tool mdui-center mdui-color-theme" id="textOrder" onclick="activeWindow('textOrder')">
+        <div class="tool-header mdui-color-theme-700">
+            <div class="tool-title mdui-color-theme-700" id="textOrderTitle">文本倒排/乱序</div>
+            <div class="tool-close mdui-color-theme-700" onclick="toolClose('textOrder');">
+                <i class="mdui-icon material-icons">close</i>
+            </div>
+        </div>
+        <div class="tool-content mdui-color-theme-50">
+            <form onsubmit="return false;">
+                <textarea class="tool-input mdui-color-theme-100" id="textOrderInput" style="height: auto;" type="text" placeholder="请输入要处理的文本"></textarea>
+            </form>
+            <button class="tool-button mdui-color-theme-accent" onclick="javascript:processTextOrder('dp');" style="margin-bottom: 0;margin-right: 2px;" id="textOrderDp">倒排</button>
+            <button class="tool-button mdui-color-theme-accent" onclick="javascript:processTextOrder('lx');" style="margin-left: 2px;" id="textOrderLx">乱序</button>
+            <div id="textOrderResult" onclick="javascript:copyHandle(this.innerText);" style="word-break: break-word;"></div>
+            <script>
+                function processTextOrder(options) {
+                    if (document.getElementById("textOrderInput").value == "") {
+                        mdui.snackbar({
+                            message: '请将表单填充完整'
+                        });
+                    } else if (options == "dp") {
+                        var textOrderText = document.getElementById("textOrderInput").value;
+                        var textOrderTextSplit = textOrderText.split("");
+                        document.getElementById("textOrderResult").innerText = "";
+                        var textOrderLeng = textOrderTextSplit.length - 1;
+                        for (textOrderI = 0; textOrderI < textOrderTextSplit.length; textOrderI++) {
+                            document.getElementById("textOrderResult").innerText += textOrderTextSplit[textOrderLeng];
+                            textOrderLeng--;
+                        }
+                    } else if (options == "lx") {
+                        var textOrderText = document.getElementById("textOrderInput").value;
+                        var textOrderTextSplit = textOrderText.split("");
+                        document.getElementById("textOrderResult").innerText = "";
+                        var textOrderLeng = textOrderTextSplit.length;
+                        for (textOrderI = 0; textOrderI < textOrderLeng; textOrderI++) {
+                            textOrderN = (Math.random() * (textOrderTextSplit.length - 1)).toFixed(0);
+                            document.getElementById("textOrderResult").innerText += textOrderTextSplit[textOrderN];
+                            textOrderTextSplit.splice(textOrderN, 1);
+                        }
+                    }
+                }
+
+                textOrderDp = document.getElementById("textOrderDp");
+                textOrderDp.style.width = textOrderDp.clientWidth / 2 - 2 + "px";
+                textOrderLx = document.getElementById("textOrderLx");
+                textOrderLx.style.width = textOrderLx.clientWidth / 2 - 2 + "px";
             </script>
         </div>
     </div>
@@ -904,6 +1013,7 @@
         var SHA256input = document.getElementById('SHA256input');
         var QRbjs = document.getElementById('QRbjs');
         var tiZhong = document.getElementById("tiZhong");
+        var UnicodeNum = document.getElementById("UnicodeNum");
         c.addEventListener("keyup", function(event) {
             event.preventDefault();
             if (event.keyCode === 13) {
@@ -970,6 +1080,26 @@
                 calcBMI();
             }
         });
+        UnicodeNum.addEventListener("keyup", function(event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                autoProcessUnicode();
+            }
+        });
+    </script>
+    <script>
+        function copyHandle(content) {
+            let copy = (e) => {
+                e.preventDefault()
+                e.clipboardData.setData('text/plain', content)
+                document.removeEventListener('copy', copy)
+                mdui.snackbar({
+                    message: '已复制到剪贴板'
+                });
+            }
+            document.addEventListener('copy', copy)
+            document.execCommand("Copy");
+        }
     </script>
     <script src="dragWindows.js"></script>
     <div class="mdui-dialog mdui-color-theme-50" id="setTheme" onclick="activeWindow();">
@@ -1199,12 +1329,12 @@
 </body>
 <div id="updateDialog" class="update-dialog" onclick="activeWindow();">
     <div class="update-dialog-title">最近更新</div>
-    <div class="update-dialog-content">2023年6月17日<br>-新增“BMI 指数计算”</div>
+    <div class="update-dialog-content">2023年7月26日<br>-新增“Unicode 编码偏移”“文本倒排/乱序”</div>
     <div style="text-align: center;"><button class="update-dialog-btn" onclick="closeUpdateDialog()">我知道了</button></div>
 </div>
 <script>
     var page = "Tools";
-    var pageUpdateDate = 20230617;
+    var pageUpdateDate = 20230726;
 </script>
 <script src="pageUpdateDialog.js"></script>
 <script src="waves/waves.min.js"></script>

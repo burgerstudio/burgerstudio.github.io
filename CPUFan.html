@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>CPU 散热器 - Burger工具站</title>
+    <style>
+        .out {
+            background-color: black;
+            width: 256px;
+            height: 256px;
+            border-radius: 16px;
+            margin-left: calc(50% - 128px);
+        }
+
+        .in {
+            background-color: white;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            left: 28px;
+            top: 28px;
+            border-radius: 200px;
+        }
+
+        .fan {
+            width: 128px;
+            height: 128px;
+            position: relative;
+            left: 36px;
+            top: 36px;
+            animation-name: rotate;
+            animation-duration: .0285714s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            filter: blur(2.8px);
+            transform: scale(1.5);
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0) scale(1.5);
+            }
+
+            to {
+                transform: rotate(360deg) scale(1.5);
+            }
+        }
+
+        .broken {
+            display: none;
+            text-align: center;
+            position: relative;
+            top: 80px;
+            transform: scale(8);
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">CPU 散热器</h1>
+    <div class="out" id="border">
+        <div class="in">
+            <img src="favicon.png" id="fan" class="fan">
+            <p id="broken" class="broken">:(</p>
+        </div>
+    </div>
+    <div style="text-align: center;margin: 16px;">
+        <p id="t">CPU 温度：35°C</p>
+        <input type="range" style="width: 256px;" min="0" max="99" step="1" id="input" value="30">
+    </div>
+    <script>
+        const t = document.querySelector("#t");
+        const input = document.querySelector("#input");
+        const border = document.querySelector("#border");
+        const fan = document.querySelector("#fan");
+        const broken = document.querySelector("#broken");
+        input.addEventListener("input", function() {
+            t.innerText = "CPU 温度：" + this.value + "°C";
+            fan.style.animationDuration = 1 / this.value + "s";
+            if (this.value < 35) {
+                border.style.backgroundColor = "rgb(0, 0, " + (35 - this.value) / 34 * 255 + ")";
+            } else if (this.value > 35) {
+                border.style.backgroundColor = "rgb(" + (this.value - 35) / 64 * 255 + ", 0, 0)";
+            } else {
+                border.style.backgroundColor = "black";
+            }
+            fan.style.filter = "blur(" + this.value / 100 * 8 + "px)";
+            if (this.value == 0) {
+                fan.style.animationDuration = "0s";
+            }
+            if (this.value == 99) {
+                fan.style.display = "none";
+                broken.style.display = "block";
+            } else {
+                fan.style.display = "block";
+                broken.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
