@@ -1,1 +1,106 @@
+        * {
+            font-family: sans-serif;
+        }
 
+        html,
+        body {
+            margin: 0;
+        }
+
+        .burger-dialog {
+            min-height: 160px;
+            width: 280px;
+            background-color: #E8EAF6;
+            z-index: -1;
+            position: fixed;
+            text-align: center;
+            left: calc(50% - 156px);
+            border-radius: 16px;
+            box-shadow: 0 4px 32px 4px rgba(0, 0, 0, .3);
+            padding: 16px;
+            opacity: 0;
+            display: none;
+            transform: scale(.85);
+            transition-property: opacity, transform, background-color;
+            transition-duration: .3s, .3s, .4s;
+            transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+        }
+
+        .burger-dialog-bottom {
+            top: auto;
+            bottom: 0;
+            border-radius: 16px 16px 0 0;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        @media (min-width: 1024px) {
+            .burger-dialog {
+                width: 640px;
+                left: calc(50% - 336px);
+            }
+        }
+
+        .burger-dialog-title {
+            font-size: 20px;
+            text-align: left;
+            margin: 4px 0;
+        }
+
+        .burger-dialog-content {
+            text-align: left;
+            margin: 16px 0;
+            color: rgba(0, 0, 0, .7);
+        }
+
+        .burger-dialog-actions {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .burger-dialog-actions button {
+            border: none;
+            padding: 8px 16px;
+            background-color: #E8EAF6;
+            color: #3F51B5;
+            border-radius: 16px;
+            display: inline-block;
+            margin: 4px 0;
+            transition-property: filter;
+            transition-duration: .3s;
+            text-transform: uppercase;
+        }
+
+        .burger-dialog-actions button:hover {
+            filter: brightness(0.8);
+        }
+
+        .burger-dialog-actions button.burger-dialog-btn-colored {
+            background-color: #3F51B5;
+            color: white;
+            border-radius: 1024px;
+        }
+
+        .burger-dialog-actions button.burger-dialog-btn-colored:hover {
+            filter: brightness(1.2);
+        }
+
+        .burger-dialog-actions button.burger-dialog-btn-vertical {
+            width: 100%;
+            text-align: right;
+            height: 40px;
+        }
+
+        .cover {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            z-index: 9998;
+            background-color: rgba(0, 0, 0, .3);
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: .3s;
+        }
