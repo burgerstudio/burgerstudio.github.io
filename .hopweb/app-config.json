@@ -1,1 +1,1 @@
-
+{"appName":"BGTool","appIconPath":"favicon.png","splashPath":"favicon.png","packageName":"com.burger.tool","versionName":"23-07-26","versionCode":230726,"isFullscreen":false,"isHideTitleBar":true,"titleBarBackgroundColor":"#000000","isAllowLongClick":true,"isShowLoadingUI":false,"isAllowZoom":true,"isPCMode":false,"isAllowAutoplay":true,"homePage":"index.html","withPHPEnv":false,"PHPPort":57249,"isAllowSwipeRefresh":false,"isAllowCamera":false,"isAllowMicrophone":false,"screenRotationMethod":0}
